@@ -170,9 +170,9 @@
 		</copy>
 
 		<!-- Copy resources -->
-		<!-- <copy todir="${classes.dir}">
+		<copy todir="${classes.dir}">
 			<fileset dir="${resources.dir}" />
-		</copy> -->
+		</copy>
 
 		<!-- Reset src dir to post-forge-install state -->
 		<delete dir="${mcpsrc.dir}/minecraft/rebelkeithy"/>
