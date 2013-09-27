@@ -7,136 +7,79 @@ import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
-import rebelkeithy.mods.atum.AtumItems;
 import rebelkeithy.mods.atum.AtumConfig;
+import rebelkeithy.mods.atum.AtumItems;
+import rebelkeithy.mods.atum.entities.IAtumDayMob;
 
-public class EntityBanditWarlord extends EntityMob implements IAtumDayMob
-{
+public class EntityBanditWarlord extends EntityMob implements IAtumDayMob {
 
-	public EntityBanditWarlord(World par1World) 
-	{
+	public EntityBanditWarlord(World par1World) {
 		super(par1World);
-        this.experienceValue = 16;
+		super.experienceValue = 16;
+		this.setHealth(80);
 	}
 
-    @Override
-    public String getTexture()
-    {
-    	return "/mods/Atum/textures/mobs/BanditWarlord.png";
-    }
-
-	@Override
-	public int getMaxHealth() 
-	{
-		return 80;
+	protected void addRandomArmor() {
 	}
 
-	@Override
-    protected void addRandomArmor() { }
+	public float getSpeedModifier() {
+		return this.getSpeedModifier();
+	}
 
-    @Override
-    public float getSpeedModifier()
-    {
-		return super.getSpeedModifier();
-    }
+	public boolean getCanSpawnHere() {
+		return super.worldObj.checkNoEntityCollision(super.boundingBox) && super.worldObj.getCollidingBoundingBoxes(this, super.boundingBox).isEmpty() && !super.worldObj.isAnyLiquid(super.boundingBox);
+	}
 
-    /**
-     * Checks if the entity's current position is a valid location to spawn this entity.
-     */
-    @Override
-    public boolean getCanSpawnHere()
-    {
-    	//System.out.println("light level mummy " + this.isValidLightLevel() + " " + super.getCanSpawnHere());
-    	return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
-        //return true || super.getCanSpawnHere();
-    }
+	public int getMaxSpawnedInChunk() {
+		return 1;
+	}
 
-    /**
-     * Will return how many at most can spawn in a chunk at once.
-     */
-    @Override
-    public int getMaxSpawnedInChunk()
-    {
-        return 1;
-    }
-    
-    /**
-     * Checks to make sure the light is not too bright where the mob is spawning
-     */
-    @Override
-    protected boolean isValidLightLevel()
-    {
-        return true;
-    }
+	protected boolean isValidLightLevel() {
+		return true;
+	}
 
-    @Override
-    public void initCreature()
-    {
-    	this.setCurrentItemOrArmor(0, new ItemStack(AtumItems.scimitar));
-        EnchantmentHelper.addRandomEnchantment(this.rand, this.getHeldItem(), 5 + this.worldObj.difficultySetting * this.rand.nextInt(6));
-    	
-        for (int i = 0; i < this.equipmentDropChances.length; ++i)
-        {
-            this.equipmentDropChances[i] = 0.05F;
-        }
-    }
-    
-    /**
-     * Get this Entity's EnumCreatureAttribute
-     */
-    @Override
-    public EnumCreatureAttribute getCreatureAttribute()
-    {
-        return EnumCreatureAttribute.UNDEFINED;
-    }
+	public void initCreature() {
+		this.setCurrentItemOrArmor(0, new ItemStack(AtumItems.scimitar));
+		EnchantmentHelper.addRandomEnchantment(super.rand, this.getHeldItem(), 5 + super.worldObj.difficultySetting * super.rand.nextInt(6));
 
-    /**
-     * Returns the amount of damage a mob should deal.
-     */
-    @Override
-    public int getAttackStrength(Entity par1Entity)
-    {
-        return 4;
-    }
+		for (int i = 0; i < super.equipmentDropChances.length; ++i) {
+			super.equipmentDropChances[i] = 0.05F;
+		}
 
-    /**
-     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
-     * par2 - Level of Looting used to kill this mob.
-     */
-    @Override
-    protected void dropFewItems(boolean par1, int par2)
-    {
-    	 if(rand.nextInt(20) == 0)
-    	 {
-    		 int damage = (int) (AtumItems.scimitar.getMaxDamage() - rand.nextInt(AtumItems.scimitar.getMaxDamage()) * 0.5 + 20);
-             this.entityDropItem(new ItemStack(AtumConfig.scimitarID, 1, damage), 0.0F);
-    	 }
-    	 
-    	 if(rand.nextInt(4) == 0)
-    	 {
-    		 int amount = rand.nextInt(3) + 3;
-    		 this.dropItem(Item.goldNugget.itemID, amount);
-    	 }
-    	 
-    	 if(rand.nextInt(4) == 0)
-    	 {
-    		 int choice = rand.nextInt(4);
-        	 if(choice == 0)
-        	 {
-        		 this.dropItem(AtumItems.wandererHelmet.itemID, 1);
-        	 }
-        	 else if(choice == 1)
-        	 {
-        		 this.dropItem(AtumItems.wandererChest.itemID, 1);
-        	 }
-        	 else if(choice == 2)
-        	 {
-        		 this.dropItem(AtumItems.wandererLegs.itemID, 1);
-        	 }
-        	 else if(choice == 3)
-        	 {
-        		 this.dropItem(AtumItems.wandererBoots.itemID, 1);
-        	 }
-    	 }
-    }
+	}
+
+	public EnumCreatureAttribute getCreatureAttribute() {
+		return EnumCreatureAttribute.UNDEFINED;
+	}
+
+	public int getAttackStrength(Entity par1Entity) {
+		return 4;
+	}
+
+	protected void dropFewItems(boolean par1, int par2) {
+		int choice;
+		if (super.rand.nextInt(20) == 0) {
+			choice = (int) ((double) AtumItems.scimitar.getMaxDamage() - (double) super.rand.nextInt(AtumItems.scimitar.getMaxDamage()) * 0.5D + 20.0D);
+			this.entityDropItem(new ItemStack(AtumConfig.scimitarID, 1, choice), 0.0F);
+		}
+
+		if (super.rand.nextInt(4) == 0) {
+			choice = super.rand.nextInt(3) + 3;
+			this.dropItem(Item.goldNugget.itemID, choice);
+		}
+
+		if (super.rand.nextInt(4) == 0) {
+			choice = super.rand.nextInt(4);
+			if (choice == 0) {
+				this.dropItem(AtumItems.wandererHelmet.itemID, 1);
+			} else if (choice == 1) {
+				this.dropItem(AtumItems.wandererChest.itemID, 1);
+			} else if (choice == 2) {
+				this.dropItem(AtumItems.wandererLegs.itemID, 1);
+			} else if (choice == 3) {
+				this.dropItem(AtumItems.wandererBoots.itemID, 1);
+			}
+		}
+
+	}
 }

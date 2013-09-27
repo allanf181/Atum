@@ -1,43 +1,60 @@
 package rebelkeithy.mods.atum;
 
-import java.io.File;
-import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.Random;
 
+import cpw.mods.fml.client.FMLClientHandler;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.audio.SoundPoolEntry;
 import net.minecraftforge.client.event.sound.PlayBackgroundMusicEvent;
 import net.minecraftforge.client.event.sound.SoundLoadEvent;
 import net.minecraftforge.event.ForgeSubscribe;
 
-public class AtumMusicListener
-{
-    List<SoundPoolEntry> musics;
-    //SoundPoolEntry music;
-    
-    @ForgeSubscribe
-    public void onSoundLoadEvent(SoundLoadEvent event) 
-    {
-        musics = new ArrayList<SoundPoolEntry>();
-        
-        String path = "/mods/Atum/music/";
-        musics.add(event.manager.soundPoolSounds.addSound("Atum/ALongJourney.ogg", Atum.class.getResource(path + "ALongJourney.ogg")));
-        musics.add(event.manager.soundPoolSounds.addSound("Atum/Hostiles.ogg", Atum.class.getResource(path + "Hostiles.ogg")));
-        musics.add(event.manager.soundPoolSounds.addSound("Atum/ScorchingSand.ogg", Atum.class.getResource(path + "ScorchingSand.ogg")));
-        musics.add(event.manager.soundPoolSounds.addSound("Atum/TempleTales.ogg", Atum.class.getResource(path + "TempleTales.ogg")));
-        musics.add(event.manager.soundPoolSounds.addSound("Atum/TheWanderer.ogg", Atum.class.getResource(path + "TheWanderer.ogg")));
-        
+public class AtumMusicListener {
 
-        path = "/mods/Atum/sounds/";
-        //file = new File(Minecraft.getMinecraft().mcDataDir, Atum.class.getResource("resources/Atum/sounds/pharaohspawn.ogg"));
-        //System.out.println(file.exists() + " Does File Exist " + file.getAbsolutePath());
-        event.manager.soundPoolSounds.addSound("Atum/pharaohspawn.ogg", Atum.class.getResource(path + "pharaohspawn.ogg"));
-    }
+	
+	@ForgeSubscribe
+	public void onSoundLoadEvent(SoundLoadEvent event) {
+		event.manager.addSound("Atum/ALongJourney.ogg");
+		event.manager.addSound("Atum/Hostiles.ogg");
+		event.manager.addSound("Atum/ScorchingSand.ogg");
+		event.manager.addSound("Atum/TempleTales.ogg");
+		event.manager.addSound("Atum/TheWanderer.ogg");
+		event.manager.addSound("Atum/pharaohspawn.ogg");
+	}
 
-    @ForgeSubscribe
-    public void onBackgroundMusic(PlayBackgroundMusicEvent event)
-    {
-        if(Minecraft.getMinecraft().thePlayer.worldObj.provider.dimensionId == AtumConfig.dimensionID)
-            event.result = musics.get((int) (Math.random() * musics.size()));
-    }
+	@ForgeSubscribe
+	public void onBackgroundMusic(PlayBackgroundMusicEvent event) {
+		if (Minecraft.getMinecraft().thePlayer.worldObj.provider.dimensionId == AtumConfig.dimensionID) {
+		}
+
+	}
+
+	
+}
+enum Music {
+	ALongJourney("atum:sound/ALongJourney.ogg"),
+	HOSTILES("atum:sound/Hostiles.ogg"),
+	ScorchingSand("atum:sound/ScorchingSand.ogg"),
+	TempleTales("atum:sound/TempleTales.ogg"),
+	TheWanderer("atum:sound/TheWanderer.ogg"),
+	Pharaohspawn("atum:sound/pharaohspawn.ogg");
+	
+	private static final List<Music> VALUES = Collections.unmodifiableList(Arrays.asList(values()));
+	private static final int SIZE = VALUES.size();
+	private static final Random RANDOM = new Random();
+	
+	public String soundLocation;
+	public String soundTag;
+	
+	Music(String music) {
+		this.soundLocation = music;
+		this.soundTag = this.soundLocation.substring(0, this.soundLocation.length() - ".ogg".length()).replace("/", ".");
+	}
+
+	public static Music getRandomTrack() {
+		return VALUES.get(RANDOM.nextInt(SIZE));
+	}
 }

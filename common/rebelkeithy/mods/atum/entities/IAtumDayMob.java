@@ -1,5 +1,5 @@
 package rebelkeithy.mods.atum.entities;
 
-public interface IAtumDayMob 
-{
+
+public interface IAtumDayMob {
 }

@@ -6,26 +6,17 @@ import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
 import rebelkeithy.mods.atum.AtumBlocks;
 
-public class LimestoneShovel extends ItemSpade 
-{
+public class LimestoneShovel extends ItemSpade {
 
-	public LimestoneShovel(int par1, EnumToolMaterial par2EnumToolMaterial)
-	{
-		super(par1, par2EnumToolMaterial);
-	}
+   public LimestoneShovel(int par1, EnumToolMaterial par2EnumToolMaterial) {
+      super(par1, par2EnumToolMaterial);
+   }
 
-    /**
-     * Return whether this item is repairable in an anvil.
-     */
-	@Override
-    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack)
-    {
-        return par2ItemStack.itemID == AtumBlocks.cobble.blockID;
-    }
+   public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
+      return par2ItemStack.itemID == AtumBlocks.cobble.blockID;
+   }
 
-    @Override
-	public void registerIcons(IconRegister par1IconRegister)
-	{
-		 itemIcon = par1IconRegister.registerIcon("Atum:LimestoneShovel");
-	}
+   public void registerIcons(IconRegister par1IconRegister) {
+      super.itemIcon = par1IconRegister.registerIcon("atum:LimestoneShovel");
+   }
 }
