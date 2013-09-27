@@ -57,7 +57,7 @@ public class EntitySandFX extends EntityFX {
       float var8 = ((float)super.particleAge + f) / (float)super.particleMaxAge;
       super.particleScale = 1.0F - var8 * var8 * 0.5F;
       int index = 3 * super.particleAge / super.particleMaxAge;
-      GL11.glBindTexture(3553, Minecraft.getMinecraft().renderEngine.getTexture(new ResourceLocation(Atum.modID + "/textures/particles/Sand.png")).getGlTextureId());
+      GL11.glBindTexture(3553, Minecraft.getMinecraft().renderEngine.getTexture(new ResourceLocation("atum:textures/particles/Sand.png")).getGlTextureId());
       float f0 = (float)index / 16.0F;
       float f7 = f0 + 0.0625F;
       float f8 = 1.0F;
