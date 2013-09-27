@@ -1,27 +1,25 @@
 package rebelkeithy.mods.atum;
 
-import java.io.File;
-
 import cpw.mods.fml.common.registry.TickRegistry;
 import cpw.mods.fml.relauncher.Side;
+import java.io.File;
+import rebelkeithy.mods.atum.ServerTickHandler;
 
-public class CommonProxy 
-{
-	public void registerParticles(){}
+public class CommonProxy {
 
-	public File getMinecraftDir() 
-	{
-		return new File(".");
-	}
-	
-	public void registerTickHandlers()
-	{
-		TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);	
-	}
-	
-	public void preloadImages() {}
-	
-	public void registerModelRenderers() {}
+   public void registerParticles() {}
 
-    public void registerMusic() {}
+   public File getMinecraftDir() {
+      return new File(".");
+   }
+
+   public void registerTickHandlers() {
+      TickRegistry.registerTickHandler(new ServerTickHandler(), Side.SERVER);
+   }
+
+   public void preloadImages() {}
+
+   public void registerModelRenderers() {}
+
+   public void registerMusic() {}
 }

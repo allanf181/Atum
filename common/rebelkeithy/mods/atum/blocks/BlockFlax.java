@@ -1,10 +1,9 @@
 package rebelkeithy.mods.atum.blocks;
 
-import static net.minecraftforge.common.EnumPlantType.Crop;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import java.util.ArrayList;
 import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -17,262 +16,164 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import rebelkeithy.mods.atum.AtumBlocks;
 import rebelkeithy.mods.atum.AtumItems;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockFlax extends BlockFlower
-{
-    @SideOnly(Side.CLIENT)
-    private Icon[] iconArray;
+public class BlockFlax extends BlockFlower {
 
-    public BlockFlax(int par1)
-    {
-        super(par1);
-        this.setTickRandomly(true);
-        float f = 0.5F;
-        this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
-        this.setCreativeTab((CreativeTabs)null);
-        this.setHardness(0.0F);
-        this.setStepSound(soundGrassFootstep);
-        this.disableStats();
-    }
+   @SideOnly(Side.CLIENT)
+   private Icon[] iconArray;
 
-    @Override
-    public EnumPlantType getPlantType(World world, int x, int y, int z)
-    {
-        return Crop;
-    }
 
-    /**
-     * Can this block stay at this position.  Similar to canPlaceBlockAt except gets checked often with plants.
-     */
-    public boolean canBlockStay(World par1World, int par2, int par3, int par4)
-    {
-    	if(par1World.getBlockMetadata(par2, par3, par4) >> 3 == 1)
-    		return par1World.getBlockId(par2, par3-1, par4) == AtumBlocks.fertileSoil.blockID;
-    	
-        Block soil = blocksList[par1World.getBlockId(par2, par3 - 1, par4)];
-        return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) && 
-                (soil != null && soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this));
-    }
+   public BlockFlax(int par1) {
+      super(par1);
+      this.setTickRandomly(true);
+      float f = 0.5F;
+      this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, 0.25F, 0.5F + f);
+      this.setCreativeTab((CreativeTabs)null);
+      this.setHardness(0.0F);
+      this.setStepSound(Block.soundGrassFootstep);
+      this.disableStats();
+   }
 
-    /**
-     * Gets passed in the blockID of the block below and supposed to return true if its allowed to grow on the type of
-     * blockID passed in. Args: blockID
-     */
-	@Override
-    protected boolean canThisPlantGrowOnThisBlockID(int par1)
-    {
-        return par1 == Block.tilledField.blockID || par1 == AtumBlocks.fertileSoilTilled.blockID;
-    }
+   public EnumPlantType getPlantType(World world, int x, int y, int z) {
+      return EnumPlantType.Crop;
+   }
 
-    /**
-     * Ticks the block if it's been scheduled
-     */
-	@Override
-    public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random)
-    {
-        super.updateTick(par1World, par2, par3, par4, par5Random);
+   public boolean canBlockStay(World par1World, int par2, int par3, int par4) {
+      if(par1World.getBlockMetadata(par2, par3, par4) >> 3 == 1) {
+         return par1World.getBlockId(par2, par3 - 1, par4) == AtumBlocks.fertileSoil.blockID;
+      } else {
+         Block soil = Block.blocksList[par1World.getBlockId(par2, par3 - 1, par4)];
+         return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) && soil != null && soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this);
+      }
+   }
 
-        if ((par1World.getBlockLightValue(par2, par3 + 1, par4) & 0x0111) >= 9)
-        {
-            int l = par1World.getBlockMetadata(par2, par3, par4);
+   protected boolean canThisPlantGrowOnThisBlockID(int par1) {
+      return par1 == Block.tilledField.blockID || par1 == AtumBlocks.fertileSoilTilled.blockID;
+   }
 
-            if ((l & 7) < 5)
-            {
-                float f = this.getGrowthRate(par1World, par2, par3, par4);
-
-                if (par5Random.nextInt((int)(25.0F / f) + 1) == 0)
-                {
-                    ++l;
-                    par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
-                }
+   public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {
+      super.updateTick(par1World, par2, par3, par4, par5Random);
+      if((par1World.getBlockLightValue(par2, par3 + 1, par4) & 273) >= 9) {
+         int l = par1World.getBlockMetadata(par2, par3, par4);
+         if((l & 7) < 5) {
+            float f = this.getGrowthRate(par1World, par2, par3, par4);
+            if(par5Random.nextInt((int)(25.0F / f) + 1) == 0) {
+               ++l;
+               par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
             }
-        }
-    }
+         }
+      }
 
-    /**
-     * Apply bonemeal to the crops.
-     */
-    public void fertilize(World par1World, int par2, int par3, int par4)
-    {
-        int l = par1World.getBlockMetadata(par2, par3, par4) + MathHelper.getRandomIntegerInRange(par1World.rand, 2, 3);
+   }
 
-        if ((l & 7) > 5)
-        {
-            l -= (l & 7) - 5;
-        }
+   public void fertilize(World par1World, int par2, int par3, int par4) {
+      int l = par1World.getBlockMetadata(par2, par3, par4) + MathHelper.getRandomIntegerInRange(par1World.rand, 2, 3);
+      if((l & 7) > 5) {
+         l -= (l & 7) - 5;
+      }
 
-        par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
-    }
+      par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+   }
 
-    /**
-     * Gets the growth rate for the crop. Setup to encourage rows by halving growth rate if there is diagonals, crops on
-     * different sides that aren't opposing, and by adding growth for every crop next to this one (and for crop below
-     * this one). Args: x, y, z
-     */
-    private float getGrowthRate(World par1World, int par2, int par3, int par4)
-    {
-        float f = 1.0F;
-        int l = par1World.getBlockId(par2, par3, par4 - 1);
-        int i1 = par1World.getBlockId(par2, par3, par4 + 1);
-        int j1 = par1World.getBlockId(par2 - 1, par3, par4);
-        int k1 = par1World.getBlockId(par2 + 1, par3, par4);
-        int l1 = par1World.getBlockId(par2 - 1, par3, par4 - 1);
-        int i2 = par1World.getBlockId(par2 + 1, par3, par4 - 1);
-        int j2 = par1World.getBlockId(par2 + 1, par3, par4 + 1);
-        int k2 = par1World.getBlockId(par2 - 1, par3, par4 + 1);
-        boolean flag = j1 == this.blockID || k1 == this.blockID;
-        boolean flag1 = l == this.blockID || i1 == this.blockID;
-        boolean flag2 = l1 == this.blockID || i2 == this.blockID || j2 == this.blockID || k2 == this.blockID;
+   private float getGrowthRate(World par1World, int par2, int par3, int par4) {
+      float f = 1.0F;
+      int l = par1World.getBlockId(par2, par3, par4 - 1);
+      int i1 = par1World.getBlockId(par2, par3, par4 + 1);
+      int j1 = par1World.getBlockId(par2 - 1, par3, par4);
+      int k1 = par1World.getBlockId(par2 + 1, par3, par4);
+      int l1 = par1World.getBlockId(par2 - 1, par3, par4 - 1);
+      int i2 = par1World.getBlockId(par2 + 1, par3, par4 - 1);
+      int j2 = par1World.getBlockId(par2 + 1, par3, par4 + 1);
+      int k2 = par1World.getBlockId(par2 - 1, par3, par4 + 1);
+      boolean flag = j1 == super.blockID || k1 == super.blockID;
+      boolean flag1 = l == super.blockID || i1 == super.blockID;
+      boolean flag2 = l1 == super.blockID || i2 == super.blockID || j2 == super.blockID || k2 == super.blockID;
 
-        for (int l2 = par2 - 1; l2 <= par2 + 1; ++l2)
-        {
-            for (int i3 = par4 - 1; i3 <= par4 + 1; ++i3)
-            {
-                int j3 = par1World.getBlockId(l2, par3 - 1, i3);
-                float f1 = 0.0F;
-
-                if (blocksList[j3] != null && blocksList[j3].canSustainPlant(par1World, l2, par3 - 1, i3, ForgeDirection.UP, this))
-                {
-                    f1 = 1.0F;
-
-                    if (blocksList[j3].isFertile(par1World, l2, par3 - 1, i3))
-                    {
-                        f1 = 3.0F;
-                    }
-                }
-
-                if (l2 != par2 || i3 != par4)
-                {
-                    f1 /= 4.0F;
-                }
-
-                f += f1;
+      for(int l2 = par2 - 1; l2 <= par2 + 1; ++l2) {
+         for(int i3 = par4 - 1; i3 <= par4 + 1; ++i3) {
+            int j3 = par1World.getBlockId(l2, par3 - 1, i3);
+            float f1 = 0.0F;
+            if(Block.blocksList[j3] != null && Block.blocksList[j3].canSustainPlant(par1World, l2, par3 - 1, i3, ForgeDirection.UP, this)) {
+               f1 = 1.0F;
+               if(Block.blocksList[j3].isFertile(par1World, l2, par3 - 1, i3)) {
+                  f1 = 3.0F;
+               }
             }
-        }
 
-        if (flag2 || flag && flag1)
-        {
-            f /= 2.0F;
-        }
-
-        return f;
-    }
-
-    @SideOnly(Side.CLIENT)
-
-    /**
-     * From the specified side and block metadata retrieves the blocks texture. Args: side, metadata
-     */
-	@Override
-    public Icon getIcon(int par1, int par2)
-    {
-    	int meta = par2 & 7;
-        if (meta < 0 || meta > 5)
-        {
-        	meta = 5;
-        }
-
-        return this.iconArray[meta];
-    }
-
-    /**
-     * The type of render function that is called for this block
-     */
-	@Override
-    public int getRenderType()
-    {
-        return 1;
-    }
-
-    /**
-     * Generate a seed ItemStack for this crop.
-     */
-    protected int getSeedItem()
-    {
-        return AtumItems.flaxSeeds.itemID;
-    }
-
-    /**
-     * Generate a crop produce ItemStack for this crop.
-     */
-    protected int getCropItem()
-    {
-        return AtumItems.flax.itemID;
-    }
-
-    /**
-     * Drops the block items with a specified chance of dropping the specified items
-     */
-	@Override
-    public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7)
-    {
-        super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, 0);
-    }
-
-    @Override 
-    public ArrayList<ItemStack> getBlockDropped(World world, int x, int y, int z, int metadata, int fortune)
-    {
-        ArrayList<ItemStack> ret = super.getBlockDropped(world, x, y, z, metadata, fortune);
-        
-        if ((metadata & 7) >= 5)
-        {
-            for (int n = 0; n < 3 + fortune; n++)
-            {
-                if (world.rand.nextInt(15) <= (metadata & 7))
-                {
-                    ret.add(new ItemStack(this.getSeedItem(), 1, 0));
-                }
+            if(l2 != par2 || i3 != par4) {
+               f1 /= 4.0F;
             }
-        }
 
-        return ret;
-    }
+            f += f1;
+         }
+      }
 
-    /**
-     * Returns the ID of the items to drop on destruction.
-     */
-	@Override
-    public int idDropped(int par1, Random par2Random, int par3)
-    {
-        return par1 == 5 ? this.getCropItem() : this.getSeedItem();
-    }
+      if(flag2 || flag && flag1) {
+         f /= 2.0F;
+      }
 
-    /**
-     * Returns the quantity of items to drop on block destruction.
-     */
-	@Override
-    public int quantityDropped(Random par1Random)
-    {
-        return 1;
-    }
+      return f;
+   }
 
-    @SideOnly(Side.CLIENT)
+   @SideOnly(Side.CLIENT)
+   public Icon getIcon(int par1, int par2) {
+      int meta = par2 & 7;
+      if(meta < 0 || meta > 5) {
+         meta = 5;
+      }
 
-    /**
-     * only called by clickMiddleMouseButton , and passed to inventory.setCurrentItem (along with isCreative)
-     */
-	@Override
-    public int idPicked(World par1World, int par2, int par3, int par4)
-    {
-        return this.getSeedItem();
-    }
+      return this.iconArray[meta];
+   }
 
-    @SideOnly(Side.CLIENT)
+   public int getRenderType() {
+      return 1;
+   }
 
-    /**
-     * When this method is called, your block should register all the icons it needs with the given IconRegister. This
-     * is the only chance you get to register icons.
-     */
-	@Override
-    public void registerIcons(IconRegister par1IconRegister)
-    {
-        this.iconArray = new Icon[6];
+   protected int getSeedItem() {
+      return AtumItems.flaxSeeds.itemID;
+   }
 
-        for (int i = 0; i < this.iconArray.length; ++i)
-        {
-            this.iconArray[i] = par1IconRegister.registerIcon("Atum:Flax_" + i);
-        }
-    }
+   protected int getCropItem() {
+      return AtumItems.flax.itemID;
+   }
+
+   public void dropBlockAsItemWithChance(World par1World, int par2, int par3, int par4, int par5, float par6, int par7) {
+      super.dropBlockAsItemWithChance(par1World, par2, par3, par4, par5, par6, 0);
+   }
+
+   public ArrayList getBlockDropped(World world, int x, int y, int z, int metadata, int fortune) {
+      ArrayList ret = super.getBlockDropped(world, x, y, z, metadata, fortune);
+      if((metadata & 7) >= 5) {
+         for(int n = 0; n < 3 + fortune; ++n) {
+            if(world.rand.nextInt(15) <= (metadata & 7)) {
+               ret.add(new ItemStack(this.getSeedItem(), 1, 0));
+            }
+         }
+      }
+
+      return ret;
+   }
+
+   public int idDropped(int par1, Random par2Random, int par3) {
+      return par1 == 5?this.getCropItem():this.getSeedItem();
+   }
+
+   public int quantityDropped(Random par1Random) {
+      return 1;
+   }
+
+   @SideOnly(Side.CLIENT)
+   public int idPicked(World par1World, int par2, int par3, int par4) {
+      return this.getSeedItem();
+   }
+
+   @SideOnly(Side.CLIENT)
+   public void registerIcons(IconRegister par1IconRegister) {
+      this.iconArray = new Icon[6];
+
+      for(int i = 0; i < this.iconArray.length; ++i) {
+         this.iconArray[i] = par1IconRegister.registerIcon("atum:Flax_" + i);
+      }
+
+   }
 }

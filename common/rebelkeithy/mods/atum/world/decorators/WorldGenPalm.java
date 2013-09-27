@@ -1,186 +1,136 @@
 package rebelkeithy.mods.atum.world.decorators;
 
 import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 import rebelkeithy.mods.atum.AtumBlocks;
 
-public class WorldGenPalm extends WorldGenerator
-{
-    /** The minimum height of a generated tree. */
-    private final int minTreeHeight;
+public class WorldGenPalm extends WorldGenerator {
 
-    /** The metadata value of the wood to use in tree generation. */
-    private final int metaWood;
+   private final int minTreeHeight;
+   private final int metaWood;
+   private final int metaLeaves;
 
-    /** The metadata value of the leaves to use in tree generation. */
-    private final int metaLeaves;
 
-    public WorldGenPalm(boolean par1)
-    {
-        this(par1, 5, 0, 0);
-    }
+   public WorldGenPalm(boolean par1) {
+      this(par1, 5, 0, 0);
+   }
 
-    public WorldGenPalm(boolean par1, int par2, int par3, int par4)
-    {
-        super(par1);
-        this.minTreeHeight = par2;
-        this.metaWood = par3;
-        this.metaLeaves = par4;
-    }
+   public WorldGenPalm(boolean par1, int par2, int par3, int par4) {
+      super(par1);
+      this.minTreeHeight = par2;
+      this.metaWood = par3;
+      this.metaLeaves = par4;
+   }
 
-    public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5)
-    {
-        int l = par2Random.nextInt(3) + this.minTreeHeight;
-        boolean flag = true;
-
-        int id = par1World.getBlockId(par3, par4 - 1, par5);
-
-        if ((id == AtumBlocks.sand.blockID || id == AtumBlocks.fertileSoil.blockID || id == Block.dirt.blockID) && par4 >= 1 && par4 + l + 1 <= 256)
-        {
-            int i1;
-            byte b0;
-            int j1;
-            int k1;
-
-            for (i1 = par4; i1 <= par4 + 1 + l; ++i1)
-            {
-                b0 = 1;
-
-                if (i1 == par4)
-                {
-                    b0 = 0;
-                }
-
-                if (i1 >= par4 + 1 + l - 2)
-                {
-                    b0 = 2;
-                }
-
-                for (int l1 = par3 - b0; l1 <= par3 + b0 && flag; ++l1)
-                {
-                    for (j1 = par5 - b0; j1 <= par5 + b0 && flag; ++j1)
-                    {
-                        if (i1 >= 0 && i1 < 256)
-                        {
-                            k1 = par1World.getBlockId(l1, i1, j1);
-
-                            Block block = Block.blocksList[k1];
-
-                            if (k1 != 0 &&
-                               !block.isLeaves(par1World, l1, i1, j1) &&
-                                k1 != AtumBlocks.fertileSoil.blockID &&
-                                k1 != Block.dirt.blockID &&
-                               !block.isWood(par1World, l1, i1, j1))
-                            {
-                                flag = false;
-                            }
-                        }
-                        else
-                        {
-                            flag = false;
-                        }
-                    }
-                }
+   public boolean generate(World par1World, Random par2Random, int par3, int par4, int par5) {
+      int l = par2Random.nextInt(3) + this.minTreeHeight;
+      boolean flag = true;
+      int id = par1World.getBlockId(par3, par4 - 1, par5);
+      if((id == AtumBlocks.sand.blockID || id == AtumBlocks.fertileSoil.blockID || id == Block.dirt.blockID) && par4 >= 1 && par4 + l + 1 <= 256) {
+         int i1;
+         int j1;
+         int k1;
+         for(i1 = par4; i1 <= par4 + 1 + l; ++i1) {
+            byte b0 = 1;
+            if(i1 == par4) {
+               b0 = 0;
             }
 
-            if (!flag)
-            {
-                return false;
+            if(i1 >= par4 + 1 + l - 2) {
+               b0 = 2;
             }
-            else
-            {
-                i1 = par1World.getBlockId(par3, par4 - 1, par5);
-                Block soil = Block.blocksList[i1];
-                
-                if (par4 < 256 - l - 1)
-                {
-                	if(soil != null)
-                		soil.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
-                    b0 = 3;
-                    byte b1 = 0;
-                    int i2;
-                    int j2;
-                    int k2;                    
 
-                    spawnLeaf(par1World, par3, par4+l+1, par5);
-                    
-                    for(int x = -1; x <= 1; x++)
-                    {
-                    	for(int z = -1; z <= 1; z++)
-                        {
-                        	if(x != 0 || z != 0)
-                        	{
-                        		spawnLeaf(par1World, par3 + x, par4+l, par5 + z);
-                        	}
-                        }
-                	}
-                    spawnLeaf(par1World, par3+2, par4+l, par5);
-                    spawnLeaf(par1World, par3-2, par4+l, par5);
-                    spawnLeaf(par1World, par3, par4+l, par5+2);
-                    spawnLeaf(par1World, par3, par4+l, par5-2);
-                    spawnLeaf(par1World, par3, par4+l-1, par5-2);
-                    spawnLeaf(par1World, par3, par4+l-1, par5+2);
-                    spawnLeaf(par1World, par3+2, par4+l-1, par5);
-                    spawnLeaf(par1World, par3-2, par4+l-1, par5);
-
-                    spawnLeaf(par1World, par3, par4+l-1, par5-3);
-                    spawnLeaf(par1World, par3, par4+l-1, par5+3);
-                    spawnLeaf(par1World, par3+3, par4+l-1, par5);
-                    spawnLeaf(par1World, par3-3, par4+l-1, par5);
-
-            		if (par2Random.nextInt(100) < 15)
-            		{
-            			par1World.setBlock(par3 + 1, par4 + l - 1, par5, AtumBlocks.dateBlock.blockID, 0, 0x02);
-            		}
-            		if (par2Random.nextInt(100) < 15)
-            		{
-            			par1World.setBlock(par3 - 1, par4 + l - 1, par5, AtumBlocks.dateBlock.blockID, 0, 0x02);
-            		}
-            		if (par2Random.nextInt(100) < 15)
-            		{
-            			par1World.setBlock(par3, par4 + l - 1, par5 + 1, AtumBlocks.dateBlock.blockID, 0, 0x02);
-            		}
-            		if (par2Random.nextInt(100) < 15)
-            		{
-            			par1World.setBlock(par3, par4 + l - 1, par5 - 1, AtumBlocks.dateBlock.blockID, 0, 0x02);
-            		}
-
-                    for (j1 = 0; j1 <= l; ++j1)
-                    {
-                        k1 = par1World.getBlockId(par3, par4 + j1, par5);
-
-                        Block block = Block.blocksList[k1];
-
-                        if (k1 == 0 || block == null || block.isLeaves(par1World, par3, par4 + j1, par5))
-                        {
-                            this.setBlockAndMetadata(par1World, par3, par4 + j1, par5, AtumBlocks.log.blockID, this.metaWood);
-                        }
-                    }
-
-                    return true;
-                }
-                else
-                {
-                    return false;
-                }
+            for(int soil = par3 - b0; soil <= par3 + b0 && flag; ++soil) {
+               for(j1 = par5 - b0; j1 <= par5 + b0 && flag; ++j1) {
+                  if(i1 >= 0 && i1 < 256) {
+                     k1 = par1World.getBlockId(soil, i1, j1);
+                     Block b1 = Block.blocksList[k1];
+                     if(k1 != 0 && !b1.isLeaves(par1World, soil, i1, j1) && k1 != AtumBlocks.fertileSoil.blockID && k1 != Block.dirt.blockID && !b1.isWood(par1World, soil, i1, j1)) {
+                        flag = false;
+                     }
+                  } else {
+                     flag = false;
+                  }
+               }
             }
-        }
-        else
-        {
+         }
+
+         if(!flag) {
             return false;
-        }
-    }
-    
-    public void spawnLeaf(World par1World, int x, int y, int z)
-    {
-        int j3 = par1World.getBlockId(x, y, z);
-        Block block = Block.blocksList[j3];
-        if (block == null || block.canBeReplacedByLeaves(par1World, x, y, z))
-        {
-            this.setBlockAndMetadata(par1World, x, y, z, AtumBlocks.leaves.blockID, this.metaLeaves);
-        }
-    }
+         } else {
+            i1 = par1World.getBlockId(par3, par4 - 1, par5);
+            Block var21 = Block.blocksList[i1];
+            if(par4 >= 256 - l - 1) {
+               return false;
+            } else {
+               if(var21 != null) {
+                  var21.onPlantGrow(par1World, par3, par4 - 1, par5, par3, par4, par5);
+               }
+
+               boolean var20 = true;
+               boolean var22 = false;
+               this.spawnLeaf(par1World, par3, par4 + l + 1, par5);
+
+               for(int block = -1; block <= 1; ++block) {
+                  for(int z = -1; z <= 1; ++z) {
+                     if(block != 0 || z != 0) {
+                        this.spawnLeaf(par1World, par3 + block, par4 + l, par5 + z);
+                     }
+                  }
+               }
+
+               this.spawnLeaf(par1World, par3 + 2, par4 + l, par5);
+               this.spawnLeaf(par1World, par3 - 2, par4 + l, par5);
+               this.spawnLeaf(par1World, par3, par4 + l, par5 + 2);
+               this.spawnLeaf(par1World, par3, par4 + l, par5 - 2);
+               this.spawnLeaf(par1World, par3, par4 + l - 1, par5 - 2);
+               this.spawnLeaf(par1World, par3, par4 + l - 1, par5 + 2);
+               this.spawnLeaf(par1World, par3 + 2, par4 + l - 1, par5);
+               this.spawnLeaf(par1World, par3 - 2, par4 + l - 1, par5);
+               this.spawnLeaf(par1World, par3, par4 + l - 1, par5 - 3);
+               this.spawnLeaf(par1World, par3, par4 + l - 1, par5 + 3);
+               this.spawnLeaf(par1World, par3 + 3, par4 + l - 1, par5);
+               this.spawnLeaf(par1World, par3 - 3, par4 + l - 1, par5);
+               if(par2Random.nextInt(100) < 15) {
+                  par1World.setBlock(par3 + 1, par4 + l - 1, par5, AtumBlocks.dateBlock.blockID, 0, 2);
+               }
+
+               if(par2Random.nextInt(100) < 15) {
+                  par1World.setBlock(par3 - 1, par4 + l - 1, par5, AtumBlocks.dateBlock.blockID, 0, 2);
+               }
+
+               if(par2Random.nextInt(100) < 15) {
+                  par1World.setBlock(par3, par4 + l - 1, par5 + 1, AtumBlocks.dateBlock.blockID, 0, 2);
+               }
+
+               if(par2Random.nextInt(100) < 15) {
+                  par1World.setBlock(par3, par4 + l - 1, par5 - 1, AtumBlocks.dateBlock.blockID, 0, 2);
+               }
+
+               for(j1 = 0; j1 <= l; ++j1) {
+                  k1 = par1World.getBlockId(par3, par4 + j1, par5);
+                  Block var23 = Block.blocksList[k1];
+                  if(k1 == 0 || var23 == null || var23.isLeaves(par1World, par3, par4 + j1, par5)) {
+                     this.setBlockAndMetadata(par1World, par3, par4 + j1, par5, AtumBlocks.log.blockID, this.metaWood);
+                  }
+               }
+
+               return true;
+            }
+         }
+      } else {
+         return false;
+      }
+   }
+
+   public void spawnLeaf(World par1World, int x, int y, int z) {
+      int j3 = par1World.getBlockId(x, y, z);
+      Block block = Block.blocksList[j3];
+      if(block == null || block.canBeReplacedByLeaves(par1World, x, y, z)) {
+         this.setBlockAndMetadata(par1World, x, y, z, AtumBlocks.leaves.blockID, this.metaLeaves);
+      }
+
+   }
 }

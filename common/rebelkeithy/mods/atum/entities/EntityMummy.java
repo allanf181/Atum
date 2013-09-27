@@ -7,118 +7,69 @@ import net.minecraft.item.Item;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 import rebelkeithy.mods.atum.AtumItems;
+import rebelkeithy.mods.atum.entities.IAtumNightMob;
 
-public class EntityMummy extends EntityMob implements IAtumNightMob
-{
+public class EntityMummy extends EntityMob implements IAtumNightMob {
 
-    public EntityMummy(World par1World) 
-    {
-        super(par1World);
-        this.experienceValue = 8;
-    }
+	public EntityMummy(World par1World) {
+		super(par1World);
+		super.experienceValue = 8;
+		this.setHealth(40);
+	}
+	@Override
+	public void entityInit(){
+		super.entityInit();
+	}
+	public float getSpeedModifier() {
+		return this.isBurning() ? this.getSpeedModifier() * 1.4F : this.getSpeedModifier();
+	}
 
-    @Override
-    public int getMaxHealth() 
-    {
-        return 40;
-    }
+	public boolean getCanSpawnHere() {
+		return super.worldObj.checkNoEntityCollision(super.boundingBox) && super.worldObj.getCollidingBoundingBoxes(this, super.boundingBox).isEmpty() && !super.worldObj.isAnyLiquid(super.boundingBox);
+	}
 
-    @Override
-    public String getTexture()
-    {
-        return "/mods/Atum/textures/mobs/Mummy.png";
-    }
+	protected boolean isValidLightLevel() {
+		return true;
+	}
 
-    @Override
-    public float getSpeedModifier()
-    {
-        if(this.isBurning())
-            return super.getSpeedModifier() * 1.4F;
-        
-        return super.getSpeedModifier();
-    }
+	public EnumCreatureAttribute getCreatureAttribute() {
+		return EnumCreatureAttribute.UNDEAD;
+	}
 
-    /**
-     * Checks if the entity's current position is a valid location to spawn this entity.
-     */
-    @Override
-    public boolean getCanSpawnHere()
-    {
-        //System.out.println("light level mummy " + this.isValidLightLevel() + " " + super.getCanSpawnHere());
-        return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
-        //return true || super.getCanSpawnHere();
-    }
+	public boolean attackEntityFrom(DamageSource par1DamageSource, int par2) {
+		if (par1DamageSource.isFireDamage()) {
+			++par2;
+		}
 
-    /**
-     * Checks to make sure the light is not too bright where the mob is spawning
-     */
-    @Override
-    protected boolean isValidLightLevel()
-    {
-        return true;
-    }
+		if (this.isBurning()) {
+			par2 = (int) ((double) par2 * 1.5D);
+		}
 
-    /**
-     * Get this Entity's EnumCreatureAttribute
-     */
-    @Override
-    public EnumCreatureAttribute getCreatureAttribute()
-    {
-        return EnumCreatureAttribute.UNDEAD;
-    }
+		return super.attackEntityFrom(par1DamageSource, par2);
+	}
 
-    @Override
-    public boolean attackEntityFrom(DamageSource par1DamageSource, int par2)
-    {
-        if(par1DamageSource.isFireDamage())
-        {
-            par2 += 1;
-        }
-        if(this.isBurning())
-        {
-            par2 = (int) (par2 * 1.5);
-        }
+	public boolean attackEntityAsMob(Entity par1Entity) {
+		boolean flag = super.attackEntityAsMob(par1Entity);
+		if (flag && this.isBurning() && super.rand.nextFloat() < (float) super.worldObj.difficultySetting * 0.4F) {
+			par1Entity.setFire(2 * super.worldObj.difficultySetting);
+		}
 
-        return super.attackEntityFrom(par1DamageSource, par2);
-    }
+		return flag;
+	}
 
-    @Override
-    public boolean attackEntityAsMob(Entity par1Entity)
-    {
-        boolean flag = super.attackEntityAsMob(par1Entity);
+	public int getAttackStrength(Entity par1Entity) {
+		return 2;
+	}
 
-        if (flag && this.isBurning() && this.rand.nextFloat() < (float)this.worldObj.difficultySetting * 0.4F)
-        {
-            par1Entity.setFire(2 * this.worldObj.difficultySetting);
-        }
+	protected void dropFewItems(boolean par1, int par2) {
+		if (super.rand.nextInt(4) == 0) {
+			this.dropItem(Item.rottenFlesh.itemID, 1);
+		}
 
-        return flag;
-    }
+		if (super.rand.nextInt(4) == 0) {
+			int amount = super.rand.nextInt(2) + 1;
+			this.dropItem(AtumItems.scrap.itemID, amount);
+		}
 
-    /**
-     * Returns the amount of damage a mob should deal.
-     */
-    @Override
-    public int getAttackStrength(Entity par1Entity)
-    {
-        return 2;
-    }
-    
-    /**
-     * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param
-     * par2 - Level of Looting used to kill this mob.
-     */
-    @Override
-    protected void dropFewItems(boolean par1, int par2)
-    {
-         if(rand.nextInt(4) == 0)
-         {
-             this.dropItem(Item.rottenFlesh.itemID, 1);
-         }
-         if(rand.nextInt(4) == 0)
-         {
-             int amount = rand.nextInt(2) + 1;
-             this.dropItem(AtumItems.scrap.itemID, amount);
-         }
-    }
+	}
 }

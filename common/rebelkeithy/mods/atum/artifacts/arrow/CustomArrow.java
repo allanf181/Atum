@@ -4,39 +4,26 @@ import net.minecraft.entity.Entity;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;
 
+public class CustomArrow extends Entity {
 
-public class CustomArrow extends Entity
-{
+   float arrowShake = 0.0F;
 
-	float arrowShake = 0;
 
-	public CustomArrow(World par1World) 
-	{
-		super(par1World);
-	}
+   public CustomArrow(World par1World) {
+      super(par1World);
+   }
 
-	@Override
-	protected void entityInit() 
-	{
-		
-	}
+   protected void entityInit() {}
 
-	
-	public String getTexture()
-	{
-	    return "/item/arrows.png";
-	}
-	
-	@Override
-	protected void readEntityFromNBT(NBTTagCompound nbttagcompound) 
-	{
-		super.readFromNBT(nbttagcompound);
-	}
+   public String getTexture() {
+      return "/item/arrows.png";
+   }
 
-	@Override
-	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) 
-	{
-		super.writeToNBT(nbttagcompound);
-	}
-	
+   protected void readEntityFromNBT(NBTTagCompound nbttagcompound) {
+      super.readFromNBT(nbttagcompound);
+   }
+
+   protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
+      super.writeToNBT(nbttagcompound);
+   }
 }
