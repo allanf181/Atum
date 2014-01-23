@@ -1,9 +1,11 @@
 package com.teammetallurgy.atum.client.render.tileentity;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.RenderBlocks;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.util.Icon;
+import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 
 import com.teammetallurgy.atum.blocks.BlockDate;
@@ -16,9 +18,11 @@ public class RenderDate implements ISimpleBlockRenderingHandler {
 
 	ModelDate modelDate = new ModelDate();
 
+	@Override
 	public void renderInventoryBlock(Block block, int metadata, int modelID, RenderBlocks renderer) {
 	}
 
+	@Override
 	public boolean renderWorldBlock(IBlockAccess world, int x, int y, int z, Block block, int modelId, RenderBlocks renderer) {
 		Tessellator tessellator = Tessellator.instance;
 		if(world != null) {
@@ -108,11 +112,13 @@ public class RenderDate implements ISimpleBlockRenderingHandler {
 		return true;
 	}
 
+	@Override
 	public boolean shouldRender3DInInventory() {
 		return false;
 	}
 
+	@Override
 	public int getRenderId() {
-		return ((BlockDate) ((BlockDate) Blocks.BLOCK_DATEBLOCK)).renderID;
+		return ((BlockDate) Blocks.BLOCK_DATEBLOCK).renderID;
 	}
 }

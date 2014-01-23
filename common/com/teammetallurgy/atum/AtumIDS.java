@@ -111,4 +111,8 @@ public class AtumIDS {
 	public static int ITEM_FISH_ID;
 	public static int ITEM_NEITHSAUDACITY_ID;
 	public static int ITEM_SPEAR_ID;
+	
+	public static int DIMENSION_ID;
+	
+	public static int BIOME_DESERT_ID;
 }

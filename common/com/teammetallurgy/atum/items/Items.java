@@ -50,38 +50,38 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public enum Items {
 	INSTANCE;
 
-	public static final Item scarab = new ItemScarab(AtumIDS.ITEM_SCARAB_ID).setUnlocalizedName("atum:scarab").setCreativeTab(Atum.creativeTab);
-	public static final Item loot = new ItemLoot(AtumIDS.ITEM_LOOT_ID).setCreativeTab(Atum.creativeTab);
-	public static final Item date = new ItemFood(AtumIDS.ITEM_DATE_ID, 5, 1.5F, false).setTextureName("atum:date").setUnlocalizedName("atum:date").setCreativeTab(Atum.creativeTab);
-	public static final Item scimitar = new ItemScimitar(AtumIDS.ITEM_SCIMITAR_ID, EnumToolMaterial.IRON).setUnlocalizedName("atum:scimitar").setCreativeTab(Atum.creativeTab);
-	public static final Item greatsword = new ItemGreatsword(AtumIDS.ITEM_GREATSWORD_ID, EnumToolMaterial.IRON).setUnlocalizedName("atum:greatsword").setTextureName("atum:Greatsword").setCreativeTab(Atum.creativeTab);
-	public static final Item bow = new ItemAtumBow(AtumIDS.ITEM_BOW_ID).setUnlocalizedName("atum:bow").setCreativeTab(Atum.creativeTab);
-	public static final Item stoneSoldierSword = new ItemStoneSoldierSword(AtumIDS.ITEM_STONESOLDIERSWORD_ID, EnumToolMaterial.IRON).setUnlocalizedName("atum:StoneSoldierSword").setCreativeTab(Atum.creativeTab);
-	public static final Item scepter = new ItemScepter(AtumIDS.ITEM_SCEPTER_ID, EnumToolMaterial.GOLD).setUnlocalizedName("atum:Scepter").setCreativeTab(Atum.creativeTab);
-	public static final Item ptahsPick = new ItemPtahsDecadence(AtumIDS.ITEM_PTAHSPICK_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:PtahsDecadence").setCreativeTab(Atum.creativeTab);
-	public static final Item sobeksRage = new ItemSobeksRage(AtumIDS.ITEM_SOBEKSRAGE_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:SoteksRage").setCreativeTab(Atum.creativeTab);
-	public static final Item osirisWill = new ItemOsirisWill(AtumIDS.ITEM_OSIRISWILL_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:OsirisWill").setCreativeTab(Atum.creativeTab);
-	public static final Item akersToil = new ItemAkersToil(AtumIDS.ITEM_AKERSTOIL_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:AkersToil").setCreativeTab(Atum.creativeTab);
-	public static final Item gebsBlessing = new ItemGebsBlessing(AtumIDS.ITEM_GEBSBLESSING_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:GebsBlessing").setCreativeTab(Atum.creativeTab);
-	public static final Item atensFury = new ItemAtensFury(AtumIDS.ITEM_ATENSFURY_ID).setUnlocalizedName("atum:AtensFury").setCreativeTab(Atum.creativeTab);
-	public static final Item rasGlory = new ItemRasGlory(AtumIDS.ITEM_RASGLORY_ID, EnumArmorMaterial.DIAMOND, 0, 0).setTextureFile("EgyptianArmor_1").setUnlocalizedName("atum:RasGlory").setCreativeTab(Atum.creativeTab);
-	public static final Item sekhmetsWrath = new ItemSekhmetsWrath(AtumIDS.ITEM_SEKHMETSWRATH_ID, EnumArmorMaterial.DIAMOND, 1, 1).setTextureFile("EgyptianArmor_1").setUnlocalizedName("atum:SekhmetsWrath").setCreativeTab(Atum.creativeTab);
-	public static final Item nutsAgility = new ItemNutsAgility(AtumIDS.ITEM_NUTSAGILITY_ID, EnumArmorMaterial.DIAMOND, 2, 2).setTextureFile("EgyptianArmor_2").setUnlocalizedName("atum:NutsAgility").setCreativeTab(Atum.creativeTab);
-	public static final Item horusFlight = new ItemHorusFlight(AtumIDS.ITEM_HORUSFLIGHT_ID, EnumArmorMaterial.DIAMOND, 3, 3).setTextureFile("EgyptianArmor_1").setUnlocalizedName("atum:HorusFlight").setCreativeTab(Atum.creativeTab);
-	public static final Item monthusStrike = new ItemMonthusStrike(AtumIDS.ITEM_MONTHUSSTRIKE_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:MonthusStrike").setCreativeTab(Atum.creativeTab);
-	public static final Item anhursMight = new ItemAnhursMight(AtumIDS.ITEM_ANHURSMIGHT_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:AnhursMight").setCreativeTab(Atum.creativeTab);
-	public static final Item hedetetsSting = new ItemHedetetsSting(AtumIDS.ITEM_HEDETETSSTING_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:HedetetsSting").setCreativeTab(Atum.creativeTab);
-	public static final Item horusSoaring = new ItemHorusSoaring(AtumIDS.ITEM_HORUSFLIGHT_ID).setUnlocalizedName("atum:HorusSoaring").setCreativeTab(Atum.creativeTab);
-	public static final Item shusBreath = new ItemShusBreath(AtumIDS.ITEM_SHUSBREATH_ID).setUnlocalizedName("atum:ShusBreath").setCreativeTab(Atum.creativeTab);
-	public static final Item ptahsDestruction = new ItemPtahsDestruction(AtumIDS.ITEM_PTAHSDESTRUCTION_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:PtahsDestruction").setCreativeTab(Atum.creativeTab);
-	public static final Item monthusBlast = new ItemMonthusBlast(AtumIDS.ITEM_MONTHUSBLAST_ID).setUnlocalizedName("atum:MonthusBlast").setCreativeTab(Atum.creativeTab);
-	public static final Item nusFlux = new ItemNusFlux(AtumIDS.ITEM_NUSFLUX_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:NusFlux").setCreativeTab(Atum.creativeTab);
-	public static final Item mnevisHorns = new ItemMnevisHorns(AtumIDS.ITEM_MNEVISHORNS_ID, EnumArmorMaterial.DIAMOND, 0, 0).setTextureFile("RubyArtifactArmor_1").setUnlocalizedName("atum:MnevisHorns").setCreativeTab(Atum.creativeTab);
-	public static final Item isisEmbrace = new IsisEmbrace(AtumIDS.ITEM_ISISEMBRACE_ID, EnumArmorMaterial.DIAMOND, 1, 1).setTextureFile("RubyArtifactArmor_1").setUnlocalizedName("atum:IsisEmbrace").setCreativeTab(Atum.creativeTab);
-	public static final Item maatsBalance = new ItemMaatsBalance(AtumIDS.ITEM_MAATSBALANCE_ID, EnumArmorMaterial.DIAMOND, 2, 2).setTextureFile("RubyArtifactArmor_2").setUnlocalizedName("atum:MaatsBalance").setCreativeTab(Atum.creativeTab);
-	public static final Item hedetetsVenom = new ItemHedetetsVenom(AtumIDS.ITEM_HEDETETSVENOM_ID).setUnlocalizedName("atum:HedetetsVenom").setCreativeTab(Atum.creativeTab);
-	public static final Item gebsSolidarity = new ItemGebsSolidarity(AtumIDS.ITEM_GEBSSOLIDARITY_ID, EnumArmorMaterial.DIAMOND, 3, 3).setTextureFile("RubyArtifactArmor_1").setUnlocalizedName("atum:GebsSolidarity").setCreativeTab(Atum.creativeTab);
-	public static final Item nutsCall = new ItemNutsCall(AtumIDS.ITEM_NUTSCALL_ID).setUnlocalizedName("atum:NutsCall").setCreativeTab(Atum.creativeTab);
+	public static final Item ITEM_SCARAB = new ItemScarab(AtumIDS.ITEM_SCARAB_ID).setUnlocalizedName("atum:scarab").setCreativeTab(Atum.creativeTab);
+	public static final Item ITEM_LOOT = new ItemLoot(AtumIDS.ITEM_LOOT_ID).setUnlocalizedName("atum:loot").setCreativeTab(Atum.creativeTab);
+	public static final Item ITEM_DATE = new ItemFood(AtumIDS.ITEM_DATE_ID, 5, 1.5F, false).setTextureName("atum:date").setUnlocalizedName("atum:date").setCreativeTab(Atum.creativeTab);
+	public static final Item ITEM_SCIMITAR = new ItemScimitar(AtumIDS.ITEM_SCIMITAR_ID, EnumToolMaterial.IRON).setUnlocalizedName("atum:scimitar").setCreativeTab(Atum.creativeTab);
+	public static final Item ITEM_GREATSWORD = new ItemGreatsword(AtumIDS.ITEM_GREATSWORD_ID, EnumToolMaterial.IRON).setUnlocalizedName("atum:greatsword").setTextureName("atum:Greatsword").setCreativeTab(Atum.creativeTab);
+	public static final Item ITEM_BOW = new ItemAtumBow(AtumIDS.ITEM_BOW_ID).setUnlocalizedName("atum:bow").setCreativeTab(Atum.creativeTab);
+	public static final Item stoneSoldierSword = new ItemStoneSoldierSword(AtumIDS.ITEM_STONESOLDIERSWORD_ID, EnumToolMaterial.IRON).setUnlocalizedName("atum:stoneSoldierSword").setCreativeTab(Atum.creativeTab);
+	public static final Item scepter = new ItemScepter(AtumIDS.ITEM_SCEPTER_ID, EnumToolMaterial.GOLD).setUnlocalizedName("atum:scepter").setCreativeTab(Atum.creativeTab);
+	public static final Item ptahsPick = new ItemPtahsDecadence(AtumIDS.ITEM_PTAHSPICK_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:ptahsDecadence").setCreativeTab(Atum.creativeTab);
+	public static final Item sobeksRage = new ItemSobeksRage(AtumIDS.ITEM_SOBEKSRAGE_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:soteksRage").setCreativeTab(Atum.creativeTab);
+	public static final Item osirisWill = new ItemOsirisWill(AtumIDS.ITEM_OSIRISWILL_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:osirisWill").setCreativeTab(Atum.creativeTab);
+	public static final Item akersToil = new ItemAkersToil(AtumIDS.ITEM_AKERSTOIL_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:akersToil").setCreativeTab(Atum.creativeTab);
+	public static final Item gebsBlessing = new ItemGebsBlessing(AtumIDS.ITEM_GEBSBLESSING_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:gebsBlessing").setCreativeTab(Atum.creativeTab);
+	public static final Item atensFury = new ItemAtensFury(AtumIDS.ITEM_ATENSFURY_ID).setUnlocalizedName("atum:atensFury").setCreativeTab(Atum.creativeTab);
+	public static final Item rasGlory = new ItemRasGlory(AtumIDS.ITEM_RASGLORY_ID, EnumArmorMaterial.DIAMOND, 0, 0).setTextureFile("EgyptianArmor_1").setUnlocalizedName("atum:rasGlory").setCreativeTab(Atum.creativeTab);
+	public static final Item sekhmetsWrath = new ItemSekhmetsWrath(AtumIDS.ITEM_SEKHMETSWRATH_ID, EnumArmorMaterial.DIAMOND, 1, 1).setTextureFile("EgyptianArmor_1").setUnlocalizedName("atum:sekhmetsWrath").setCreativeTab(Atum.creativeTab);
+	public static final Item nutsAgility = new ItemNutsAgility(AtumIDS.ITEM_NUTSAGILITY_ID, EnumArmorMaterial.DIAMOND, 2, 2).setTextureFile("EgyptianArmor_2").setUnlocalizedName("atum:nutsAgility").setCreativeTab(Atum.creativeTab);
+	public static final Item horusFlight = new ItemHorusFlight(AtumIDS.ITEM_HORUSFLIGHT_ID, EnumArmorMaterial.DIAMOND, 3, 3).setTextureFile("EgyptianArmor_1").setUnlocalizedName("atum:horusFlight").setCreativeTab(Atum.creativeTab);
+	public static final Item monthusStrike = new ItemMonthusStrike(AtumIDS.ITEM_MONTHUSSTRIKE_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:monthusStrike").setCreativeTab(Atum.creativeTab);
+	public static final Item anhursMight = new ItemAnhursMight(AtumIDS.ITEM_ANHURSMIGHT_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:anhursMight").setCreativeTab(Atum.creativeTab);
+	public static final Item hedetetsSting = new ItemHedetetsSting(AtumIDS.ITEM_HEDETETSSTING_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:hedetetsSting").setCreativeTab(Atum.creativeTab);
+	public static final Item horusSoaring = new ItemHorusSoaring(AtumIDS.ITEM_HORUSFLIGHT_ID).setUnlocalizedName("atum:horusSoaring").setCreativeTab(Atum.creativeTab);
+	public static final Item shusBreath = new ItemShusBreath(AtumIDS.ITEM_SHUSBREATH_ID).setUnlocalizedName("atum:shusBreath").setCreativeTab(Atum.creativeTab);
+	public static final Item ptahsDestruction = new ItemPtahsDestruction(AtumIDS.ITEM_PTAHSDESTRUCTION_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:ptahsDestruction").setCreativeTab(Atum.creativeTab);
+	public static final Item monthusBlast = new ItemMonthusBlast(AtumIDS.ITEM_MONTHUSBLAST_ID).setUnlocalizedName("atum:monthusBlast").setCreativeTab(Atum.creativeTab);
+	public static final Item nusFlux = new ItemNusFlux(AtumIDS.ITEM_NUSFLUX_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:nusFlux").setCreativeTab(Atum.creativeTab);
+	public static final Item mnevisHorns = new ItemMnevisHorns(AtumIDS.ITEM_MNEVISHORNS_ID, EnumArmorMaterial.DIAMOND, 0, 0).setTextureFile("RubyArtifactArmor_1").setUnlocalizedName("atum:mnevisHorns").setCreativeTab(Atum.creativeTab);
+	public static final Item isisEmbrace = new IsisEmbrace(AtumIDS.ITEM_ISISEMBRACE_ID, EnumArmorMaterial.DIAMOND, 1, 1).setTextureFile("RubyArtifactArmor_1").setUnlocalizedName("atum:isisEmbrace").setCreativeTab(Atum.creativeTab);
+	public static final Item maatsBalance = new ItemMaatsBalance(AtumIDS.ITEM_MAATSBALANCE_ID, EnumArmorMaterial.DIAMOND, 2, 2).setTextureFile("RubyArtifactArmor_2").setUnlocalizedName("atum:maatsBalance").setCreativeTab(Atum.creativeTab);
+	public static final Item hedetetsVenom = new ItemHedetetsVenom(AtumIDS.ITEM_HEDETETSVENOM_ID).setUnlocalizedName("atum:hedetetsVenom").setCreativeTab(Atum.creativeTab);
+	public static final Item gebsSolidarity = new ItemGebsSolidarity(AtumIDS.ITEM_GEBSSOLIDARITY_ID, EnumArmorMaterial.DIAMOND, 3, 3).setTextureFile("RubyArtifactArmor_1").setUnlocalizedName("atum:gebsSolidarity").setCreativeTab(Atum.creativeTab);
+	public static final Item nutsCall = new ItemNutsCall(AtumIDS.ITEM_NUTSCALL_ID).setUnlocalizedName("atum:nutsCall").setCreativeTab(Atum.creativeTab);
 	public static final Item anuketsBounty = new ItemAnuketsBounty(AtumIDS.ITEM_ANUKETSBOUNTY_ID).setUnlocalizedName("atum:anuketsBounty").setCreativeTab(Atum.creativeTab);
 	public static final Item mafdetsQuickness = new ItemMafdetsQuickness(AtumIDS.ITEM_MAFDETSQUICKNESS_ID).setUnlocalizedName("atum:mafdetsQuickness").setCreativeTab(Atum.creativeTab);
 	public static final Item isisHealing = new ItemIsisHealing(AtumIDS.ITEM_ISISHEALING_ID).setUnlocalizedName("atum:isisHealing").setCreativeTab(Atum.creativeTab);
@@ -107,28 +107,28 @@ public enum Items {
 	public static final Item desertChest = new ItemTexturedArmor(AtumIDS.ITEM_DESERTCHEST_ID, desertEnum, 0, 1).setRepairItem(Item.ingotIron.itemID).setTextureFile("DesertArmor_1").setUnlocalizedName("atum:desertChest").setTextureName("atum:DesertChest").setCreativeTab(Atum.creativeTab);
 	public static final Item desertLegs = new ItemTexturedArmor(AtumIDS.ITEM_DESERTLEGS_ID, desertEnum, 0, 2).setRepairItem(Item.ingotIron.itemID).setTextureFile("DesertArmor_2").setUnlocalizedName("atum:desertLegs").setTextureName("atum:DesertLegs").setCreativeTab(Atum.creativeTab);
 	public static final Item desertBoots = new ItemTexturedArmor(AtumIDS.ITEM_DESERTBOOTS_ID, desertEnum, 0, 3).setRepairItem(Item.ingotIron.itemID).setTextureFile("DesertArmor_1").setUnlocalizedName("atum:desertBoots").setTextureName("atum:DesertBoots").setCreativeTab(Atum.creativeTab);
-	public static final Item papyrusPlant = new ItemPapyrusPlant(AtumIDS.ITEM_PAPYRUSPLANT_ID, Blocks.BLOCK_PAPYRUS).setUnlocalizedName("atum:PapyrusPlantItem").setCreativeTab(Atum.creativeTab);
-	public static final Item ectoplasm = new Item(AtumIDS.ITEM_ECTOPLASM_ID).setUnlocalizedName("atum:Ectoplasm").setTextureName("atum:Ectoplasm").setCreativeTab(Atum.creativeTab);
-	public static final Item stoneChunk = new Item(AtumIDS.ITEM_STONECHUNK_ID).setUnlocalizedName("atum:StoneChunk").setTextureName("atum:StoneChunk").setCreativeTab(Atum.creativeTab);
-	public static final Item scrap = new Item(AtumIDS.ITEM_SCRAP_ID).setUnlocalizedName("atum:ClothScrap").setTextureName("atum:ClothScrap").setCreativeTab(Atum.creativeTab);
-	public static final Item scroll = new Item(AtumIDS.ITEM_SCROLL_ID).setUnlocalizedName("atum:Scroll").setTextureName("atum:Scroll").setCreativeTab(Atum.creativeTab);
-	public static final Item pelt = new Item(AtumIDS.ITEM_PELT_ID).setUnlocalizedName("atum:WolfPelt").setTextureName("atum:WolfPelt").setCreativeTab(Atum.creativeTab);
-	public static final Item linen = new Item(AtumIDS.ITEM_LINEN_ID).setUnlocalizedName("atum:Linen").setTextureName("atum:Linen").setCreativeTab(Atum.creativeTab);
-	public static final Item flax = new Item(AtumIDS.ITEM_FLAX_ID).setUnlocalizedName("atum:FlaxItem").setTextureName("atum:FlaxItem").setCreativeTab(Atum.creativeTab);
+	public static final Item papyrusPlant = new ItemPapyrusPlant(AtumIDS.ITEM_PAPYRUSPLANT_ID, Blocks.BLOCK_PAPYRUS).setUnlocalizedName("atum:papyrusPlantItem").setCreativeTab(Atum.creativeTab);
+	public static final Item ectoplasm = new Item(AtumIDS.ITEM_ECTOPLASM_ID).setUnlocalizedName("atum:ectoplasm").setTextureName("atum:Ectoplasm").setCreativeTab(Atum.creativeTab);
+	public static final Item stoneChunk = new Item(AtumIDS.ITEM_STONECHUNK_ID).setUnlocalizedName("atum:stoneChunk").setTextureName("atum:StoneChunk").setCreativeTab(Atum.creativeTab);
+	public static final Item scrap = new Item(AtumIDS.ITEM_SCRAP_ID).setUnlocalizedName("atum:clothScrap").setTextureName("atum:ClothScrap").setCreativeTab(Atum.creativeTab);
+	public static final Item scroll = new Item(AtumIDS.ITEM_SCROLL_ID).setUnlocalizedName("atum:scroll").setTextureName("atum:Scroll").setCreativeTab(Atum.creativeTab);
+	public static final Item pelt = new Item(AtumIDS.ITEM_PELT_ID).setUnlocalizedName("atum:wolfPelt").setTextureName("atum:WolfPelt").setCreativeTab(Atum.creativeTab);
+	public static final Item linen = new Item(AtumIDS.ITEM_LINEN_ID).setUnlocalizedName("atum:linen").setTextureName("atum:Linen").setCreativeTab(Atum.creativeTab);
+	public static final Item flax = new Item(AtumIDS.ITEM_FLAX_ID).setUnlocalizedName("atum:flaxItem").setTextureName("atum:FlaxItem").setCreativeTab(Atum.creativeTab);
 	public static final Item flaxSeeds = new ItemSeeds(AtumIDS.ITEM_FLAXSEEDS_ID, Blocks.BLOCK_FLAX.blockID, Block.tilledField.blockID).setUnlocalizedName("atum:flaxSeeds").setTextureName("atum:FlaxSeeds").setCreativeTab(Atum.creativeTab);
 	public static final Item fish = new ItemFish(AtumIDS.ITEM_FISH_ID).setUnlocalizedName("atum:fish").setCreativeTab(Atum.creativeTab);
 	public static final Item neithsAudacity = new ItemNeithsAudacity(AtumIDS.ITEM_NEITHSAUDACITY_ID).setUnlocalizedName("atum:neithsAudacity").setCreativeTab(Atum.creativeTab);
 	public static final Item spear = new ItemSpear(AtumIDS.ITEM_SPEAR_ID).setUnlocalizedName("atum:spear").setCreativeTab(Atum.creativeTab);
 
 	public void registerItems() {
-		this.register(scarab);
-		this.register(loot);
-		this.register(date);
-		this.register(scimitar);
-		this.register(greatsword);
+		this.register(ITEM_SCARAB);
+		this.register(ITEM_LOOT);
+		this.register(ITEM_DATE);
+		this.register(ITEM_SCIMITAR);
+		this.register(ITEM_GREATSWORD);
 		this.register(scepter);
 		this.register(stoneSoldierSword);
-		this.register(bow);
+		this.register(ITEM_BOW);
 		this.register(ptahsPick);
 		this.register(sobeksRage);
 		this.register(osirisWill);
@@ -191,11 +191,11 @@ public enum Items {
 
 	private void register(Item item) {
 		GameRegistry.registerItem(item, item.getUnlocalizedName());
-		System.out.println("item." + item.getUnlocalizedName().split(":")[1] + ".name=");
+		this.name(item, item.getUnlocalizedName().split(":")[1]);
 	}
-	
-	private void name(Item b, String type, String tag) {
-		LanguageRegistry.addName(b, LocalizationHelper.localize("item" + tag + ".name"));
+
+	private void name(Item item, String tag) {
+		LanguageRegistry.addName(item, LocalizationHelper.localize("item." + tag + ".name"));
 	}
 
 }

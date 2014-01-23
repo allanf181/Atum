@@ -3,10 +3,18 @@ package com.teammetallurgy.atum.blocks;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
+import net.minecraft.item.Item;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.common.MinecraftForge;
 
 import com.teammetallurgy.atum.Atum;
+import com.teammetallurgy.atum.AtumConfig;
 import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.LocalizationHelper;
+import com.teammetallurgy.atum.blocks.tileentity.TileEntityArrowTrap;
+import com.teammetallurgy.atum.blocks.tileentity.TileEntityChestSpawner;
+import com.teammetallurgy.atum.blocks.tileentity.TileEntityPharaohChest;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -100,6 +108,21 @@ public enum Blocks {
 		this.register(BLOCK_DIAMONDORE);
 		this.register(BLOCK_FURNACEIDLE);
 		this.register(BLOCK_FURNACEBURNING);
+
+		ForgeHooks.canToolHarvestBlock(BLOCK_SAND, 0, new ItemStack(Item.shovelIron));
+		MinecraftForge.setBlockHarvestLevel(BLOCK_SAND, "shovel", 0);
+		MinecraftForge.setBlockHarvestLevel(BLOCK_COALORE, "pickaxe", 0);
+		MinecraftForge.setBlockHarvestLevel(BLOCK_IRONORE, "pickaxe", 1);
+		MinecraftForge.setBlockHarvestLevel(BLOCK_GOLDORE, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(BLOCK_LAPISORE, "pickaxe", 1);
+		MinecraftForge.setBlockHarvestLevel(BLOCK_DIAMONDORE, "pickaxe", 2);
+		MinecraftForge.setBlockHarvestLevel(BLOCK_REDSTONEORE, "pickaxe", 2);
+		Block.setBurnProperties(BLOCK_PLANKS.blockID, 5, 20);
+		Block.setBurnProperties(BLOCK_LEAVES.blockID, 30, 60);
+
+		GameRegistry.registerTileEntity(TileEntityChestSpawner.class, "CursedChest");
+		GameRegistry.registerTileEntity(TileEntityPharaohChest.class, "PharaohChest");
+		GameRegistry.registerTileEntity(TileEntityArrowTrap.class, "ArrowTrap");
 	}
 
 	private void register(Block b) {

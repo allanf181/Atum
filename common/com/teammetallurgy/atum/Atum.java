@@ -7,7 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import com.teammetallurgy.atum.blocks.Blocks;
 import com.teammetallurgy.atum.items.Items;
 import com.teammetallurgy.atum.proxy.CommonProxy;
-import com.teammetallurgy.atum.worldgen.World;
+import com.teammetallurgy.atum.world.World;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -16,6 +16,7 @@ import cpw.mods.fml.common.SidedProxy;
 import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 @Mod(modid = Atum.MODID, name = Atum.NAME, version = Atum.VERSION)
 public class Atum {
@@ -32,7 +33,7 @@ public class Atum {
 	public static final Logger LOGGER = Logger.getLogger(Atum.class.getSimpleName());
 
 	public static AtumConfig config;
-	public static CreativeTabs creativeTab = new CreativeTabs("Atum");
+	public static CreativeTabs creativeTab = new AtumCreativeTab();
 
 	@EventHandler
 	public void preInit(FMLPreInitializationEvent event) {
@@ -45,11 +46,13 @@ public class Atum {
 	public void init(FMLInitializationEvent event) {
 		LOGGER.info("Block Init");
 		Blocks.INSTANCE.registerBlocks();
+
 		LOGGER.info("Item Init");
 		Items.INSTANCE.registerItems();
+
 		LOGGER.info("World Init");
-		World.load();
-		
+		World.INSTANCE.register();
+
 		LOGGER.info("Proxy Init");
 		proxy.init();
 		proxy.initRenders();

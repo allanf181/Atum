@@ -13,6 +13,7 @@ import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
 
 import com.teammetallurgy.atum.Atum;
+import com.teammetallurgy.atum.LocalizationHelper;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -32,7 +33,7 @@ public class ItemLoot extends Item {
 	public static ItemStack getRandomLoot(Random rand, boolean isDirty) {
 		int type = rand.nextInt(typeArray.length);
 		int quality = rand.nextInt(qualityArray.length - 1) + 1;
-		return new ItemStack(Items.loot.itemID, 1, type << 5 | quality << 1 | (isDirty ? 1 : 0));
+		return new ItemStack(Items.ITEM_LOOT.itemID, 1, type << 5 | quality << 1 | (isDirty ? 1 : 0));
 	}
 
 	@Override
@@ -48,7 +49,7 @@ public class ItemLoot extends Item {
 		int dirty = par1ItemStack.getItemDamage() & 1;
 		int quality = par1ItemStack.getItemDamage() >> 1 & 15;
 		int type = par1ItemStack.getItemDamage() >> 5 & 15;
-		return dirty == 1 ? super.getUnlocalizedName() + ".dirty" + typeArray[type] : super.getUnlocalizedName() + "." + qualityArray[quality] + typeArray[type];
+		return dirty == 1 ? LocalizationHelper.localize(this.getUnlocalizedName() + ".dirty" + typeArray[type]) : LocalizationHelper.localize(this.getUnlocalizedName() + "." + qualityArray[quality] + typeArray[type]);
 	}
 
 	@Override

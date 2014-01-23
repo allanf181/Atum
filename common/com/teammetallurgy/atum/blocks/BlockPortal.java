@@ -5,7 +5,6 @@ import java.util.Random;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
-import net.minecraft.client.Minecraft;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayerMP;
 import net.minecraft.server.MinecraftServer;
@@ -15,7 +14,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 import rebelkeithy.mods.keithyutils.particleregistry.ParticleRegistry;
 
-import com.teammetallurgy.atum.AtumConfig;
+import com.teammetallurgy.atum.AtumIDS;
+import com.teammetallurgy.atum.world.AtumTeleporter;
 
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
@@ -24,7 +24,7 @@ import cpw.mods.fml.relauncher.SideOnly;
 public class BlockPortal extends BlockBreakable {
 
 	public BlockPortal(int par1) {
-		super(par1, "atum:portal", Material.portal, false);
+		super(par1, "atum:portal", Material.portal, true);
 		this.setTickRandomly(true);
 		this.setHardness(-1.0F);
 		this.setUnlocalizedName("atum:portal");
@@ -39,42 +39,13 @@ public class BlockPortal extends BlockBreakable {
 
 	}
 
-	@Override
-	public boolean isOpaqueCube() {
-		return false;
+	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
+		return null;
 	}
 
-	@Override
-	public boolean renderAsNormalBlock() {
-		return true;
+	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4) {
 	}
 
-	public boolean tryToCreatePortal(World par1World, int par2, int par3, int par4) {
-		// par1World.getBlockId(par2, par3 - 1, par4);
-		// int id1 = par1World.getBlockId(par2 - 2, par3 + 0, par4);
-		// int id2 = par1World.getBlockId(par2 - 2, par3 + 1, par4);
-		// int id3 = par1World.getBlockId(par2, par3 + 0, par4 - 2);
-		// int id4 = par1World.getBlockId(par2, par3 + 1, par4 - 2);
-		// int id5 = par1World.getBlockId(par2, par3 + 0, par4 + 2);
-		// int id6 = par1World.getBlockId(par2, par3 + 1, par4 + 2);
-		// int id7 = par1World.getBlockId(par2 + 2, par3 + 0, par4);
-		// int id8 = par1World.getBlockId(par2 + 2, par3 + 1, par4);
-		// int id9 = par1World.getBlockId(par2 - 1, par3 + 2, par4);
-		// int id10 = par1World.getBlockId(par2, par3 + 2, par4 - 1);
-		// int id11 = par1World.getBlockId(par2, par3 + 2, par4 + 1);
-		// int id12 = par1World.getBlockId(par2 + 1, par3 + 2, par4);
-		// if(id1 == id2 && id2 == id3 && id3 == id4 && id4 == id5 && id6 == id7 && id7 == id8 && id8 == id9 && id9 == id10 && id10 == id11 && id11 == id12 && id12 == Block.sandStone.blockID) {
-		// par1World.setBlock(par2, par3, par4, AtumBlocks.portal.blockID, 0, 2);
-		// par1World.setBlock(par2, par3 + 1, par4, AtumBlocks.portal.blockID, 0, 2);
-		// par1World.setBlock(par2, par3 + 2, par4, AtumBlocks.portal.blockID, 0, 2);
-		// return true;
-		// } else {
-		// return false;
-		// }
-		return false;
-	}
-
-	@Override
 	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5) {
 		byte b0 = 0;
 		byte b1 = 1;
@@ -96,35 +67,59 @@ public class BlockPortal extends BlockBreakable {
 				;
 			}
 
-			if(j1 == 3 && par1World.getBlockId(par2, i1 + j1, par4) == Block.sandStone.blockID) {
-				boolean flag = par1World.getBlockId(par2 - 1, par3, par4) == super.blockID || par1World.getBlockId(par2 + 1, par3, par4) == super.blockID;
-				boolean flag1 = par1World.getBlockId(par2, par3, par4 - 1) == super.blockID || par1World.getBlockId(par2, par3, par4 + 1) == super.blockID;
-				if(flag && flag1) {
-					par1World.setBlockToAir(par2, par3, par4);
-				} else if((par1World.getBlockId(par2 + b0, par3, par4 + b1) != Block.sandStone.blockID || par1World.getBlockId(par2 - b0, par3, par4 - b1) != super.blockID) && (par1World.getBlockId(par2 - b0, par3, par4 - b1) != Block.sandStone.blockID || par1World.getBlockId(par2 + b0, par3, par4 + b1) != super.blockID)) {
-					par1World.setBlockToAir(par2, par3, par4);
-				}
-			} else {
-				par1World.setBlockToAir(par2, par3, par4);
+			boolean flag = par1World.getBlockId(par2 - 1, par3, par4) != this.blockID || par1World.getBlockId(par2 + 1, par3, par4) != this.blockID;
+			boolean flag1 = par1World.getBlockId(par2, par3, par4 - 1) != this.blockID || par1World.getBlockId(par2, par3, par4 + 1) != this.blockID;
+			boolean flag2 = par1World.getBlockId(par2 - 1, par3, par4) != sandStone.blockID || par1World.getBlockId(par2 + 1, par3, par4) != sandStone.blockID;
+			boolean flag3 = par1World.getBlockId(par2, par3, par4 - 1) != sandStone.blockID || par1World.getBlockId(par2, par3, par4 + 1) != sandStone.blockID;
+			if((flag && flag1) || (flag2 && flag3)) {
+				// par1World.setBlockToAir(par2, par3, par4);
 			}
 		}
 
 	}
 
 	@Override
-	@SideOnly(Side.CLIENT)
-	public boolean shouldSideBeRendered(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
-		if(par1IBlockAccess.getBlockId(par2, par3, par4) == super.blockID) {
-			return false;
-		} else {
-			boolean flag = par1IBlockAccess.getBlockId(par2 - 1, par3, par4) == super.blockID && par1IBlockAccess.getBlockId(par2 - 2, par3, par4) != super.blockID;
-			boolean flag1 = par1IBlockAccess.getBlockId(par2 + 1, par3, par4) == super.blockID && par1IBlockAccess.getBlockId(par2 + 2, par3, par4) != super.blockID;
-			boolean flag2 = par1IBlockAccess.getBlockId(par2, par3, par4 - 1) == super.blockID && par1IBlockAccess.getBlockId(par2, par3, par4 - 2) != super.blockID;
-			boolean flag3 = par1IBlockAccess.getBlockId(par2, par3, par4 + 1) == super.blockID && par1IBlockAccess.getBlockId(par2, par3, par4 + 2) != super.blockID;
-			boolean flag4 = flag || flag1;
-			boolean flag5 = flag2 || flag3;
-			return flag4 && par5 == 4 ? true : (flag4 && par5 == 5 ? true : (flag5 && par5 == 2 ? true : flag5 && par5 == 3));
+	public boolean isOpaqueCube() {
+		return false;
+	}
+
+	public boolean tryToCreatePortal(World par1World, int x, int y, int z) {
+		for(int x1 = -2; x1 < 3; x1++) {
+			for(int z1 = -2; z1 < 3; z1++) {
+				int id = par1World.getBlockId(x + x1, y, z + z1);
+				if(id != Block.sandStone.blockID) {
+					return false;
+				}
+			}
 		}
+		for(int x1 = -2; x1 < 3; x1++) {
+			for(int z1 = -2; z1 < 3; z1++) {
+				if(x1 + x == x + 2 || z1 + z == z + 2 || x1 + x == x - 2 || z1 + z == z - 2) {
+					int id = par1World.getBlockId(x + x1, y + 1, z + z1);
+					if(id != Block.sandStone.blockID) {
+						return false;
+					}
+				}
+			}
+		}
+		for(int y1 = 2; y1 < 4; y1++) {
+			for(int x1 = -2; x1 < 3; x1++) {
+				for(int z1 = -2; z1 < 3; z1++) {
+					if((x1 + x == x + 2 && z1 + z == z + 2) || (x1 + x == x - 2 && z1 + z == z + 2) || (x1 + x == x + 2 && z1 + z == z - 2) || (x1 + x == x - 2 && z1 + z == z - 2)) {
+						int id = par1World.getBlockId(x + x1, y + y1, z + z1);
+						if(id != Block.sandStone.blockID) {
+							return false;
+						}
+					}
+				}
+			}
+		}
+		for(int x1 = -1; x1 < 2; x1++) {
+			for(int z1 = -1; z1 < 2; z1++) {
+				par1World.setBlock(x + x1, y + 1, z + z1, Blocks.BLOCK_PORTAL.blockID);
+			}
+		}
+		return true;
 	}
 
 	@Override
@@ -134,40 +129,34 @@ public class BlockPortal extends BlockBreakable {
 
 	@Override
 	public void onEntityCollidedWithBlock(World par1World, int par2, int par3, int par4, Entity par5Entity) {
-		// if(par5Entity.ridingEntity == null && par5Entity.riddenByEntity == null && par5Entity instanceof EntityPlayerMP) {
-		// EntityPlayerMP player = (EntityPlayerMP) par5Entity;
-		// if(par5Entity.timeUntilPortal == 0 && par5Entity instanceof EntityPlayerMP) {
-		// par5Entity.timeUntilPortal = 100;
-		// MinecraftServer minecraftserver = MinecraftServer.getServer();
-		// int dimID = par5Entity.dimension;
-		// WorldServer worldserver = minecraftserver.worldServerForDimension(0);
-		// WorldServer worldserver1 = minecraftserver.worldServerForDimension(AtumConfig.dimensionID);
-		// if(dimID == AtumConfig.dimensionID) {
-		// minecraftserver.getConfigurationManager().transferPlayerToDimension((EntityPlayerMP) par5Entity, 0, new AtumTeleporter(worldserver));
-		// if(par1World.isRemote) {
-		// Minecraft.getMinecraft().gameSettings.renderDistance = TickHandler.defaultFog;
-		// }
-		// } else {
-		// minecraftserver.getConfigurationManager().transferPlayerToDimension((EntityPlayerMP) par5Entity, AtumConfig.dimensionID, new AtumTeleporter(worldserver1));
-		// }
-		//
-		// try {
-		// EntityPlayerMP e = (EntityPlayerMP) player;
-		// ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[]{"lastExperience", "cp", "field_71144_ck"});
-		// ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[]{"lastHealth", "cm", "field_71149_ch"});
-		// ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[]{"lastFoodLevel", "cn", "field_71146_ci"});
-		// } catch(Exception var12) {
-		// var12.printStackTrace();
-		// }
-		// }
-		// }
+		if(par5Entity.ridingEntity == null && par5Entity.riddenByEntity == null && par5Entity instanceof EntityPlayerMP) {
+			EntityPlayerMP player = (EntityPlayerMP) par5Entity;
+			if(par5Entity.timeUntilPortal == 0 && par5Entity instanceof EntityPlayerMP) {
+				par5Entity.timeUntilPortal = 100;
+				MinecraftServer minecraftserver = MinecraftServer.getServer();
+				int dimID = par5Entity.dimension;
+				WorldServer worldserver = minecraftserver.worldServerForDimension(0);
+				WorldServer worldserver1 = minecraftserver.worldServerForDimension(AtumIDS.DIMENSION_ID);
+				if(dimID == AtumIDS.DIMENSION_ID) {
+					minecraftserver.getConfigurationManager().transferPlayerToDimension((EntityPlayerMP) par5Entity, 0, new AtumTeleporter(worldserver));
+					// if(par1World.isRemote) {
+					// Minecraft.getMinecraft().gameSettings.renderDistance = TickHandler.defaultFog;
+					// }
+				} else {
+					minecraftserver.getConfigurationManager().transferPlayerToDimension((EntityPlayerMP) par5Entity, AtumIDS.DIMENSION_ID, new AtumTeleporter(worldserver1));
+				}
 
-	}
+				try {
+					EntityPlayerMP e = (EntityPlayerMP) player;
+					ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[]{"lastExperience", "cp", "field_71144_ck"});
+					ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[]{"lastHealth", "cm", "field_71149_ch"});
+					ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[]{"lastFoodLevel", "cn", "field_71146_ci"});
+				} catch(Exception var12) {
+					var12.printStackTrace();
+				}
+			}
+		}
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public int getRenderBlockPass() {
-		return 1;
 	}
 
 	@Override

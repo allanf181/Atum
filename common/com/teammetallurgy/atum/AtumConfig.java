@@ -56,7 +56,7 @@ public class AtumConfig {
 		AtumIDS.BLOCK_DIAMONDORE_ID = getBlock("Atum Diamond Ore", 1063);
 		AtumIDS.BLOCK_FURNACEIDLE_ID = getBlock("Atum Furnace Idle", 1064);
 		AtumIDS.BLOCK_FURNACEBURNING_ID = getBlock("Atum Furnace Burning", 1065);
-		
+
 		AtumIDS.ITEM_SCARAB_ID = getItem("Scarab", 5000);
 		AtumIDS.ITEM_SCIMITAR_ID = getItem("Scimitar", 5001);
 		AtumIDS.ITEM_GREATSWORD_ID = getItem("Great Sword", 5002);
@@ -123,6 +123,10 @@ public class AtumConfig {
 		AtumIDS.ITEM_FISH_ID = getItem("Fish", 5062);
 		AtumIDS.ITEM_NEITHSAUDACITY_ID = getItem("Neiths Audacity", 5063);
 		AtumIDS.ITEM_SPEAR_ID = getItem("Spear", 5064);
+
+		AtumIDS.DIMENSION_ID = get("Dimension", "Atum", 17);
+		
+		AtumIDS.BIOME_DESERT_ID = get("Biome", "Desert", 200);
 		this.CONFIG.save();
 	}
 
@@ -132,6 +136,10 @@ public class AtumConfig {
 
 	private int getBlock(String name, int defaultId) {
 		return this.CONFIG.getBlock(name, defaultId).getInt();
+	}
+
+	private int get(String category, String name, int defaultId) {
+		return this.CONFIG.get(category, name, defaultId).getInt();
 	}
 
 }

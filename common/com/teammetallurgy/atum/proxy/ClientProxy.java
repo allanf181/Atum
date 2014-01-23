@@ -15,7 +15,7 @@ import cpw.mods.fml.client.registry.RenderingRegistry;
 public class ClientProxy extends CommonProxy {
 	@Override
 	public void initRenders() {
-		MinecraftForgeClient.registerItemRenderer(Items.bow.itemID, new RendererItemBow());
+		MinecraftForgeClient.registerItemRenderer(Items.ITEM_BOW.itemID, new RendererItemBow());
 		MinecraftForgeClient.registerItemRenderer(Items.atensFury.itemID, new RendererItemBow());
 		MinecraftForgeClient.registerItemRenderer(Items.horusSoaring.itemID, new RendererItemBow());
 		MinecraftForgeClient.registerItemRenderer(Items.neithsAudacity.itemID, new RendererItemBow());
