@@ -50,7 +50,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 		Random rand = new Random();
 		stage = 0;
 
-		this.setCurrentItemOrArmor(0, new ItemStack(Items.scepter));
+		this.setCurrentItemOrArmor(0, new ItemStack(Items.ITEM_SCEPTER));
 
 		for(int i = 0; i < this.equipmentDropChances.length; ++i) {
 			this.equipmentDropChances[i] = 0F;

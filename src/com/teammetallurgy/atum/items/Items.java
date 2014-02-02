@@ -6,6 +6,7 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSeeds;
+import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.EnumHelper;
 import net.minecraftforge.common.MinecraftForge;
 
@@ -57,8 +58,8 @@ public enum Items {
 	public static final Item ITEM_SCIMITAR = new ItemScimitar(AtumIDS.ITEM_SCIMITAR_ID, EnumToolMaterial.IRON).setUnlocalizedName("atum:scimitar").setCreativeTab(Atum.creativeTab);
 	public static final Item ITEM_GREATSWORD = new ItemGreatsword(AtumIDS.ITEM_GREATSWORD_ID, EnumToolMaterial.IRON).setUnlocalizedName("atum:greatsword").setTextureName("atum:Greatsword").setCreativeTab(Atum.creativeTab);
 	public static final Item ITEM_BOW = new ItemAtumBow(AtumIDS.ITEM_BOW_ID).setUnlocalizedName("atum:bow").setCreativeTab(Atum.creativeTab);
-	public static final Item stoneSoldierSword = new ItemStoneSoldierSword(AtumIDS.ITEM_STONESOLDIERSWORD_ID, EnumToolMaterial.IRON).setUnlocalizedName("atum:stoneSoldierSword").setCreativeTab(Atum.creativeTab);
-	public static final Item scepter = new ItemScepter(AtumIDS.ITEM_SCEPTER_ID, EnumToolMaterial.GOLD).setUnlocalizedName("atum:scepter").setCreativeTab(Atum.creativeTab);
+	public static final Item ITEM_STONESOLDIER_SWORD = new ItemStoneSoldierSword(AtumIDS.ITEM_STONESOLDIERSWORD_ID, EnumToolMaterial.IRON).setUnlocalizedName("atum:stoneSoldierSword").setCreativeTab(Atum.creativeTab);
+	public static final Item ITEM_SCEPTER = new ItemScepter(AtumIDS.ITEM_SCEPTER_ID, EnumToolMaterial.GOLD).setUnlocalizedName("atum:scepter").setCreativeTab(Atum.creativeTab);
 	public static final Item ptahsPick = new ItemPtahsDecadence(AtumIDS.ITEM_PTAHSPICK_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:ptahsDecadence").setCreativeTab(Atum.creativeTab);
 	public static final Item sobeksRage = new ItemSobeksRage(AtumIDS.ITEM_SOBEKSRAGE_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:soteksRage").setCreativeTab(Atum.creativeTab);
 	public static final Item osirisWill = new ItemOsirisWill(AtumIDS.ITEM_OSIRISWILL_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:osirisWill").setCreativeTab(Atum.creativeTab);
@@ -127,8 +128,8 @@ public enum Items {
 		this.register(ITEM_DATE);
 		this.register(ITEM_SCIMITAR);
 		this.register(ITEM_GREATSWORD);
-		this.register(scepter);
-		this.register(stoneSoldierSword);
+		this.register(ITEM_SCEPTER);
+		this.register(ITEM_STONESOLDIER_SWORD);
 		this.register(ITEM_BOW);
 		this.register(ptahsPick);
 		this.register(sobeksRage);
@@ -188,8 +189,10 @@ public enum Items {
 		this.register(fish);
 		this.register(neithsAudacity);
 		this.register(spear);
-		
+
 		MinecraftForge.EVENT_BUS.register(sekhmetsWrath);
+
+		this.addLanguages();
 	}
 
 	private void register(Item item) {
@@ -199,6 +202,17 @@ public enum Items {
 
 	private void name(Item item, String tag) {
 		LanguageRegistry.addName(item, LocalizationHelper.localize("item." + tag + ".name"));
+	}
+
+	private void name(ItemStack item, String tag) {
+		LanguageRegistry.addName(item, LocalizationHelper.localize("item." + tag + ".name"));
+	}
+
+	private void addLanguages() {
+		name(new ItemStack(fish, 1, 0), "Forsaken Fish");
+		name(new ItemStack(fish, 1, 1), "Mummified Fish");
+		name(new ItemStack(fish, 1, 2), "Jeweled Fish");
+		name(new ItemStack(fish, 1, 3), "Skeletal Fish");
 	}
 
 }

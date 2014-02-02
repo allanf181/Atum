@@ -19,7 +19,7 @@ public class EntityStoneSoldier extends EntityStone implements IAtumNightMob, IA
 		this.isImmuneToFire = true;
 		this.experienceValue = 8;
 
-		this.setCurrentItemOrArmor(0, new ItemStack(Items.stoneSoldierSword));
+		this.setCurrentItemOrArmor(0, new ItemStack(Items.ITEM_STONESOLDIER_SWORD));
 
 		for(int i = 0; i < this.equipmentDropChances.length; ++i) {
 			this.equipmentDropChances[i] = 0F;

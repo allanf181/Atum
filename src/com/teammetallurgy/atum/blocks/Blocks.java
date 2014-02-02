@@ -9,7 +9,6 @@ import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
 
 import com.teammetallurgy.atum.Atum;
-import com.teammetallurgy.atum.AtumConfig;
 import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.LocalizationHelper;
 import com.teammetallurgy.atum.blocks.tileentity.TileEntityArrowTrap;
@@ -123,6 +122,8 @@ public enum Blocks {
 		GameRegistry.registerTileEntity(TileEntityChestSpawner.class, "CursedChest");
 		GameRegistry.registerTileEntity(TileEntityPharaohChest.class, "PharaohChest");
 		GameRegistry.registerTileEntity(TileEntityArrowTrap.class, "ArrowTrap");
+
+		this.addLanguages();
 	}
 
 	private void register(Block b) {
@@ -139,5 +140,17 @@ public enum Blocks {
 
 	private void name(Block b, String type, String tag) {
 		LanguageRegistry.addName(b, LocalizationHelper.localize(type + tag + ".name"));
+	}
+
+	private void name(ItemStack b, String tag) {
+		LanguageRegistry.addName(b, LocalizationHelper.localize("block." + tag + ".name"));
+	}
+
+	private void addLanguages() {
+		name(new ItemStack(this.BLOCK_WALL), "Smooth Limestone Wall");
+		name(new ItemStack(this.BLOCK_WALL), "Cracked Limestone Wall");
+		name(new ItemStack(this.BLOCK_WALL), "Large Limestone Brick Wall");
+		name(new ItemStack(this.BLOCK_WALL), "Small Limestone Brick Wall");
+		
 	}
 }
