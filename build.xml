@@ -141,9 +141,6 @@
                 <copy todir="${mcpsrc.dir}/minecraft">
                         <fileset dir="${src.dir}"/>
                 </copy>
-				 <copy todir="${mcp.dir}/lib">
-                        <fileset dir="libs/"/>
-                </copy>
         </target>
 
         <target name="compile" depends="initialize-version,setup,copy-src">

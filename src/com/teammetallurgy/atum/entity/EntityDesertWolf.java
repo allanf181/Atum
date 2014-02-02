@@ -77,7 +77,7 @@ public class EntityDesertWolf extends EntityTameable implements IAtumDayMob {
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(8.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.53000000417232513D); 
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.53000000417232513D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setAttribute(10.0D);
 	}
 
@@ -141,7 +141,6 @@ public class EntityDesertWolf extends EntityTameable implements IAtumDayMob {
 	public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
 		super.writeEntityToNBT(par1NBTTagCompound);
 		par1NBTTagCompound.setBoolean("Angry", this.isAngry());
-		par1NBTTagCompound.setByte("CollarColor", (byte) this.getCollarColor());
 	}
 
 	/**
@@ -152,9 +151,6 @@ public class EntityDesertWolf extends EntityTameable implements IAtumDayMob {
 		super.readEntityFromNBT(par1NBTTagCompound);
 		this.setAngry(par1NBTTagCompound.getBoolean("Angry"));
 
-		if(par1NBTTagCompound.hasKey("CollarColor")) {
-			this.setCollarColor(par1NBTTagCompound.getByte("CollarColor"));
-		}
 	}
 
 	/**
@@ -466,20 +462,6 @@ public class EntityDesertWolf extends EntityTameable implements IAtumDayMob {
 		} else {
 			this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 & -3)));
 		}
-	}
-
-	/**
-	 * Return this wolf's collar color.
-	 */
-	public int getCollarColor() {
-		return this.dataWatcher.getWatchableObjectByte(20) & 15;
-	}
-
-	/**
-	 * Set this wolf's collar color.
-	 */
-	public void setCollarColor(int par1) {
-		this.dataWatcher.updateObject(20, Byte.valueOf((byte) (par1 & 15)));
 	}
 
 	/**

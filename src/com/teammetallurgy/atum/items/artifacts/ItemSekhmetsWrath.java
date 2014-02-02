@@ -25,10 +25,9 @@ public class ItemSekhmetsWrath extends ItemArmor {
 
 	String texture;
 
+	@SideOnly(Side.CLIENT)
 	public ItemSekhmetsWrath(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
 		super(par1, par2EnumArmorMaterial, par3, par4);
-		MinecraftForge.EVENT_BUS.register(this);
-
 	}
 
 	@ForgeSubscribe

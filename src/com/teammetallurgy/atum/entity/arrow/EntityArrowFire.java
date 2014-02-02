@@ -21,7 +21,6 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.MovingObjectPosition;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.World;
-import rebelkeithy.mods.keithyutils.particleregistry.ParticleRegistry;
 import cpw.mods.fml.common.registry.IThrowableEntity;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -354,7 +353,7 @@ public class EntityArrowFire extends CustomArrow implements IProjectile, IThrowa
 
 			if(this.getIsCritical() && worldObj.isRemote) {
 				for(l = 0; l < 4; ++l) {
-					ParticleRegistry.spawnParticle("coloredcrit", worldObj, this.posX + this.motionX * (double) l / 4.0D, this.posY + this.motionY * (double) l / 4.0D, this.posZ + this.motionZ * (double) l / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
+					this.worldObj.spawnParticle("coloredcrit", this.posX + this.motionX * (double) l / 4.0D, this.posY + this.motionY * (double) l / 4.0D, this.posZ + this.motionZ * (double) l / 4.0D, -this.motionX, -this.motionY + 0.2D, -this.motionZ);
 				}
 			}
 

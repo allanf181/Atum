@@ -7,6 +7,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSeeds;
 import net.minecraftforge.common.EnumHelper;
+import net.minecraftforge.common.MinecraftForge;
 
 import com.teammetallurgy.atum.Atum;
 import com.teammetallurgy.atum.AtumIDS;
@@ -187,6 +188,8 @@ public enum Items {
 		this.register(fish);
 		this.register(neithsAudacity);
 		this.register(spear);
+		
+		MinecraftForge.EVENT_BUS.register(sekhmetsWrath);
 	}
 
 	private void register(Item item) {

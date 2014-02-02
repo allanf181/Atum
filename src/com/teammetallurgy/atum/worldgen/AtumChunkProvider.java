@@ -219,7 +219,6 @@ public class AtumChunkProvider implements IChunkProvider {
 		buffer.order(ByteOrder.LITTLE_ENDIAN);
 		buffer.asShortBuffer().put(abyte);
 		
-		System.out.println(x +":"+z);
 		caveGenerator.generate(this, worldObj, x, z, buffer.array());
 		
 		Chunk chunk = new Chunk(this.worldObj, abyte, new byte['\u8000'], x, z);

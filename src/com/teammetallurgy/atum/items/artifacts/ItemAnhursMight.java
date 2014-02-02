@@ -43,7 +43,8 @@ public class ItemAnhursMight extends ItemSword {
 			EntityPlayer player = (EntityPlayer) entity;
 			if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().itemID == super.itemID) {
 				double magnitude = Math.sqrt(player.motionX * player.motionX + player.motionZ * player.motionZ);
-				player.capabilities.setPlayerWalkSpeed((float) ((double) player.capabilities.getWalkSpeed() * 0.75D));
+				//Fix
+				//player.capabilities.setPlayerWalkSpeed((float) ((double) player.capabilities.getWalkSpeed() * 0.75D));
 			}
 		}
 

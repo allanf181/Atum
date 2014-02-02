@@ -43,7 +43,7 @@ public class ItemPtahsDestruction extends ItemPickaxe {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if(Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "Stonecutter I: Incresed damage");
+			par3List.add(EnumChatFormatting.DARK_PURPLE + "Stonecutter I: Increases damage");
 			par3List.add(EnumChatFormatting.DARK_PURPLE + "to stone enemies");
 		} else {
 			par3List.add("Stonecutter I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");

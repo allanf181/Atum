@@ -13,7 +13,6 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
-import rebelkeithy.mods.keithyutils.particleregistry.ParticleRegistry;
 
 import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.lib.tickhandler.ClientTickHandler;
@@ -187,7 +186,7 @@ public class BlockPortal extends BlockBreakable {
 				d5 = (double) (par5Random.nextFloat() * 2.0F * (float) i1);
 			}
 
-			ParticleRegistry.spawnParticle("sandportal", par1World, d0, d1, d2, d3, d4, d5);
+			par1World.spawnParticle("sandportal", d0, d1, d2, d3, d4, d5);
 		}
 
 	}

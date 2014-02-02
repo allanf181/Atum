@@ -1,17 +1,14 @@
 package com.teammetallurgy.atum.lib.tickhandler;
 
 import java.util.EnumSet;
-import java.util.List;
 import java.util.Random;
 
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
-import net.minecraft.client.renderer.ImageBufferDownload;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
-import rebelkeithy.mods.keithyutils.particleregistry.ParticleRegistry;
 
 import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.items.Items;
@@ -78,7 +75,7 @@ public class ClientTickHandler implements ITickHandler {
 						float vx = 0.1F + random.nextFloat() * 0.1F;
 						float vz = 0.1F + random.nextFloat() * 0.1F;
 
-						ParticleRegistry.spawnParticle("sand", player.worldObj, player.posX + x, player.posY + y, player.posZ + z, vx + player.motionX, 0.0D, vz + player.motionZ);
+						player.worldObj.spawnParticle("sand", player.posX + x, player.posY + y, player.posZ + z, vx + player.motionX, 0.0D, vz + player.motionZ);
 					}
 				} else {
 					if(raining == true && defaultFog < (nightvision ? 1 : 2)) {
@@ -106,7 +103,7 @@ public class ClientTickHandler implements ITickHandler {
 					int par1 = scaledresolution.getScaledWidth();
 					int par2 = scaledresolution.getScaledHeight();
 
-					Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("atum", "/textures/hub/mummyblur.png"));
+					Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("atum", "textures/hud/mummyblur.png"));
 					Tessellator tessellator = Tessellator.instance;
 					tessellator.startDrawingQuads();
 					tessellator.addVertexWithUV(0.0D, par2, -100, 0.0D, 1.0D);

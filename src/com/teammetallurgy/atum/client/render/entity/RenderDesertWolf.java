@@ -32,11 +32,6 @@ public class RenderDesertWolf extends RenderLiving {
 			f1 = par1EntityDesertWolf.getBrightness(par3) * par1EntityDesertWolf.getShadingWhileShaking(par3);
 			GL11.glColor3f(f1, f1, f1);
 			return 1;
-		} else if(par2 == 1 && par1EntityDesertWolf.isTamed()) {
-			f1 = 1.0F;
-			int j = par1EntityDesertWolf.getCollarColor();
-			GL11.glColor3f(f1 * EntitySheep.fleeceColorTable[j][0], f1 * EntitySheep.fleeceColorTable[j][1], f1 * EntitySheep.fleeceColorTable[j][2]);
-			return 1;
 		} else {
 			return -1;
 		}
