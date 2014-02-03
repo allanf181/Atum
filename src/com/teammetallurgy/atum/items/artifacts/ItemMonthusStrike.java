@@ -34,6 +34,11 @@ public class ItemMonthusStrike extends ItemAxe {
 
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
 	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
 		return 7200;
 	}

@@ -30,6 +30,11 @@ public class ItemHorusFlight extends ItemArmor {
 
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
 	@ForgeSubscribe
 	public void onJump(LivingJumpEvent event) {
 		if(event.entityLiving.getCurrentItemOrArmor(0) != null && event.entityLiving.getCurrentItemOrArmor(0).itemID == super.itemID) {

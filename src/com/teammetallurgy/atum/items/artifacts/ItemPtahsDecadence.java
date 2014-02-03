@@ -26,6 +26,11 @@ public class ItemPtahsDecadence extends ItemPickaxe {
 		super(par1, par2EnumToolMaterial);
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
 	public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, int blockID, int x, int y, int z, EntityLiving par7EntityLiving) {
 		int dropID = Block.blocksList[blockID].idDropped(par2World.getBlockMetadata(x, y, z), new Random(), 0);
 		if(dropID == Item.diamond.itemID) {

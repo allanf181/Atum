@@ -3,6 +3,7 @@ package com.teammetallurgy.atum.items.artifacts;
 import java.util.List;
 
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumRarity;
@@ -22,6 +23,11 @@ public class IsisEmbrace extends ItemArmor {
 
 	public IsisEmbrace(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
 		super(par1, par2EnumArmorMaterial, par3, par4);
+	}
+
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
 	}
 
 	@Override
@@ -47,7 +53,8 @@ public class IsisEmbrace extends ItemArmor {
 		return this;
 	}
 
-	public String getArmorTextureFile(ItemStack itemstack) {
+	@Override
+	public String getArmorTexture(ItemStack stack, Entity entity, int slot, String type) {
 		return "/armor/" + this.texture + ".png";
 	}
 

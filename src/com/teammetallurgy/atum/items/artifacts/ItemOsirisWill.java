@@ -28,6 +28,11 @@ public class ItemOsirisWill extends ItemSword {
 	}
 
 	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
+	@Override
 	public float getDamageVsEntity(Entity par1Entity, ItemStack stack) {
 		int damage = 0;
 

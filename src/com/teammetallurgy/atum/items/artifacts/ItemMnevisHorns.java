@@ -31,6 +31,11 @@ public class ItemMnevisHorns extends ItemArmor {
 
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
 	@ForgeSubscribe
 	public void onLivingAttack(LivingAttackEvent event) {
 		if(event.entityLiving.getCurrentItemOrArmor(3) != null && event.entityLiving.getCurrentItemOrArmor(3).itemID == super.itemID && event.source instanceof EntityDamageSource) {

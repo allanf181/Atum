@@ -31,7 +31,11 @@ public class ItemShusBreath extends ItemBow {
 	public ItemShusBreath(int par1) {
 		super(par1);
 		this.setMaxDamage(650);
+	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
 	}
 
 	@Override

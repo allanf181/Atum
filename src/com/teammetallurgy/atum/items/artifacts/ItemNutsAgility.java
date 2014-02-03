@@ -26,6 +26,11 @@ public class ItemNutsAgility extends ItemArmor {
 
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
 	public void onArmorTickUpdate(World world, EntityPlayer player, ItemStack itemStack) {
 		if(player.onGround && player.inventory.armorInventory[1] != null && player.inventory.armorInventory[1].itemID == super.itemID) {
 			player.capabilities.setPlayerWalkSpeed((float) ((double) player.capabilities.getWalkSpeed() * 1.4D));

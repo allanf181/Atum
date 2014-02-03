@@ -33,6 +33,11 @@ public class ItemHedetetsVenom extends ItemBow {
 		this.setMaxDamage(650);
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
 		return par2ItemStack.itemID == Item.diamond.itemID;
 	}

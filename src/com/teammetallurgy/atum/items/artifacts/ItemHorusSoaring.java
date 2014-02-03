@@ -32,6 +32,11 @@ public class ItemHorusSoaring extends ItemBow {
 	}
 
 	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
+	@Override
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
 		return par2ItemStack.itemID == Item.diamond.itemID;
 	}

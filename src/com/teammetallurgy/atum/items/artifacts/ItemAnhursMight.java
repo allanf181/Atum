@@ -28,6 +28,11 @@ public class ItemAnhursMight extends ItemSword {
 	}
 
 	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
+	@Override
 	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase par2EntityLiving, EntityLivingBase par3EntityLiving) {
 		if(Math.random() > 0.5D) {
 			par2EntityLiving.addPotionEffect(new PotionEffect(21, 80, 1, false));
@@ -43,8 +48,8 @@ public class ItemAnhursMight extends ItemSword {
 			EntityPlayer player = (EntityPlayer) entity;
 			if(player.getCurrentEquippedItem() != null && player.getCurrentEquippedItem().itemID == super.itemID) {
 				double magnitude = Math.sqrt(player.motionX * player.motionX + player.motionZ * player.motionZ);
-				//Fix
-				//player.capabilities.setPlayerWalkSpeed((float) ((double) player.capabilities.getWalkSpeed() * 0.75D));
+				// Fix
+				// player.capabilities.setPlayerWalkSpeed((float) ((double) player.capabilities.getWalkSpeed() * 0.75D));
 			}
 		}
 

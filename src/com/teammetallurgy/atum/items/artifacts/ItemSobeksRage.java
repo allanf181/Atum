@@ -30,6 +30,11 @@ public class ItemSobeksRage extends ItemAxe {
 	}
 
 	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
+	@Override
 	public float getDamageVsEntity(Entity entity, ItemStack stack) {
 		return 4 + super.toolMaterial.getDamageVsEntity();
 	}

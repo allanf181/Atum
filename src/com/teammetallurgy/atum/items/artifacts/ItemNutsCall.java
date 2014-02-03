@@ -28,6 +28,11 @@ public class ItemNutsCall extends Item {
 	}
 
 	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
+	@Override
 	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
 		return 7200;
 	}

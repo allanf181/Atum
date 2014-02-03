@@ -28,6 +28,11 @@ public class ItemAmunetsHomecoming extends Item {
 	}
 
 	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
+	@Override
 	// TODO FIX
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par3World, EntityPlayer par2EntityPlayer) {
 		ChunkCoordinates spawn = par2EntityPlayer.getBedLocation();

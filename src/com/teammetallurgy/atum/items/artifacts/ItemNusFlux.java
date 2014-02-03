@@ -32,6 +32,11 @@ public class ItemNusFlux extends ItemSword {
 	}
 
 	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
+	@Override
 	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase entity, EntityLivingBase player) {
 		if(!player.worldObj.isRemote && Math.random() > 0.75D && !(entity instanceof EntityStoneSoldier)) {
 			double dx = entity.posX - player.posX;

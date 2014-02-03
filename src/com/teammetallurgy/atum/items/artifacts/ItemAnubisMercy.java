@@ -32,6 +32,11 @@ public class ItemAnubisMercy extends Item {
 		MinecraftForge.EVENT_BUS.register(this);
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
 	@ForgeSubscribe
 	public void onDamage(LivingHurtEvent event) {
 		if(event.entityLiving instanceof EntityPlayer) {
@@ -132,7 +137,7 @@ public class ItemAnubisMercy extends Item {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if(Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "Return I: Teleports you back");
+			par3List.add(EnumChatFormatting.DARK_PURPLE + "Return I: On Death teleports you back");
 			par3List.add(EnumChatFormatting.DARK_PURPLE + "to your spawn point");
 		} else {
 			par3List.add("Return I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");

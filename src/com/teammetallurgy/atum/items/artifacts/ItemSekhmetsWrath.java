@@ -30,6 +30,11 @@ public class ItemSekhmetsWrath extends ItemArmor {
 		super(par1, par2EnumArmorMaterial, par3, par4);
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
 	@ForgeSubscribe
 	public void onLivingAttack(LivingAttackEvent event) {
 		if(event.entityLiving.getCurrentItemOrArmor(2) != null && event.entityLiving.getCurrentItemOrArmor(2).itemID == super.itemID && event.source instanceof EntityDamageSource) {

@@ -28,6 +28,11 @@ public class ItemPtahsDestruction extends ItemPickaxe {
 	}
 
 	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
+	@Override
 	public float getDamageVsEntity(Entity entity, ItemStack stack) {
 		float damage = 4 + super.toolMaterial.getDamageVsEntity();
 		return entity instanceof EntityStoneSoldier ? (int) ((double) damage * (2.0D + Math.random())) : damage;

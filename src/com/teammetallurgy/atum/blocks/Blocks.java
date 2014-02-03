@@ -26,7 +26,7 @@ public enum Blocks {
 	public static final Block BLOCK_SAND = new BlockSands(AtumIDS.BLOCK_SAND_ID);
 	public static final Block BLOCK_STONE = new BlockStones(AtumIDS.BLOCK_STONE_ID);
 	public static final Block BLOCK_LIMESTONECOBBLE = new BlockAtum(AtumIDS.BLOCK_COBBLE_ID, "atum:cobble").setTextureName("atum:AtumCobble");
-	public static final Block BLOCK_LARGEBRICK = new BlockAtum(AtumIDS.BLOCK_LARGEBRICK_ID, "atum:largeBrick").setTextureName("atum:AtumBrickLarge");
+	public static final Block BLOCK_LARGEBRICK = ((BlockAtum) new BlockAtum(AtumIDS.BLOCK_LARGEBRICK_ID, "atum:largeBrick").setTextureName("atum:AtumBrickLarge")).setNonBreak();
 	public static final Block BLOCK_SMALLBRICK = new BlockAtum(AtumIDS.BLOCK_SMALLBRICK_ID, "atum:smallBrick").setTextureName("atum:AtumBrickSmall");
 	public static final Block BLOCK_CARVEDBRICK = new BlockAtum(AtumIDS.BLOCK_CARVEDBRICK_ID, "atum:carvedBrick").setTextureName("atum:AtumBrickCarved");
 	public static final Block BLOCK_SLABS = new BlockSlab(AtumIDS.BLOCK_SLABS_ID, false).setUnlocalizedName("atum:slab");

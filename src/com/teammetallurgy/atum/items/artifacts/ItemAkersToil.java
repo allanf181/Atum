@@ -26,6 +26,11 @@ public class ItemAkersToil extends ItemSpade {
 	}
 
 	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
+	@Override
 	public float getStrVsBlock(ItemStack par1ItemStack, Block par2Block) {
 		for(int i = 0; i < ItemSpade.blocksEffectiveAgainst.length; ++i) {
 			if(ItemSpade.blocksEffectiveAgainst[i] == par2Block) {

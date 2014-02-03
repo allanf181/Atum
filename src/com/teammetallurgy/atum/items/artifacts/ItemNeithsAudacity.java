@@ -39,6 +39,11 @@ public class ItemNeithsAudacity extends ItemBow {
 		this.setCreativeTab(CreativeTabs.tabCombat);
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
 	@SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.rare;

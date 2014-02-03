@@ -33,6 +33,11 @@ public class ItemGebsSolidarity extends ItemArmor {
 		super(par1, par2EnumArmorMaterial, par3, par4);
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
 	@ForgeSubscribe
 	public void onLivingAttack(LivingHurtEvent event) {
 		DamageSource par1DamageSource = event.source;

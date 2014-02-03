@@ -22,6 +22,11 @@ public class ItemGebsBlessing extends ItemHoe {
 		super(par1, par2EnumToolMaterial);
 	}
 
+	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
 	@SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.rare;

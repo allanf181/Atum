@@ -18,6 +18,11 @@ public class ItemSpear extends Item {
 	}
 
 	@Override
+	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+		return true;
+	}
+
+	@Override
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer) {
 		EntityFireSpearCombined entityarrow = new EntityFireSpearCombined(par2World, par3EntityPlayer, 0.75F);
 		entityarrow.setDamage(entityarrow.getDamage() * 1.5D);
