@@ -14,7 +14,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Vec3;
 
-public class TileEntityArrowTrap extends TileEntity {
+public class TileEntityBurningTrap extends TileEntity {
 
 	private ItemStack[] dispenserContents = new ItemStack[9];
 	private Random dispenserRandom = new Random();

@@ -11,7 +11,7 @@ import net.minecraftforge.common.MinecraftForge;
 import com.teammetallurgy.atum.Atum;
 import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.LocalizationHelper;
-import com.teammetallurgy.atum.blocks.tileentity.TileEntityArrowTrap;
+import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
 import com.teammetallurgy.atum.blocks.tileentity.TileEntityChestSpawner;
 import com.teammetallurgy.atum.blocks.tileentity.TileEntityPharaohChest;
 
@@ -53,7 +53,7 @@ public enum Blocks {
 	public static final Block BLOCK_PLANKS = new Block(AtumIDS.BLOCK_PLANKS_ID, Material.wood).setUnlocalizedName("atum:palmPlanks").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setTextureName("atum:Planks");
 	public static final Block BLOCK_THINCRYSTALGLASS = new BlockAtumPane(AtumIDS.BLOCK_THINCRYSTALGLASS_ID, "atum:AtumCrystalGlass", "thinglass_top").setUnlocalizedName("atum:thinCrystalGlass");
 	public static final Block BLOCK_THINFRAMEDGLASS = new BlockAtumPane(AtumIDS.BLOCK_THINFRAMEDGLASS_ID, "atum:AtumFramedGlass", "thinglass_top").setUnlocalizedName("atum:thinFramedGlass");
-	public static final Block BLOCK_TRAPARROW = new BlockArrowTrap(AtumIDS.BLOCK_TRAPARROW_ID);
+	public static final Block BLOCK_TRAPARROW = new BlockBurningTrap(AtumIDS.BLOCK_TRAPARROW_ID);
 	public static final Block BLOCK_PHARAOHCHEST = new BlockPharaohChest(AtumIDS.BLOCK_PHARAOHCHEST_ID);
 	public static final Block BLOCK_REDSTONEORE = new BlockAtumOres(AtumIDS.BLOCK_REDSTONEORE_ID).setUnlocalizedName("atum:redstoneOre").setTextureName("atum:AtumRedstone");
 	public static final Block BLOCK_COALORE = new BlockAtumOres(AtumIDS.BLOCK_COALORE_ID).setUnlocalizedName("atum:coalOre").setTextureName("atum:AtumCoal");
@@ -121,7 +121,7 @@ public enum Blocks {
 
 		GameRegistry.registerTileEntity(TileEntityChestSpawner.class, "CursedChest");
 		GameRegistry.registerTileEntity(TileEntityPharaohChest.class, "PharaohChest");
-		GameRegistry.registerTileEntity(TileEntityArrowTrap.class, "ArrowTrap");
+		GameRegistry.registerTileEntity(TileEntityBurningTrap.class, "BurningTrap");
 
 		this.addLanguages();
 	}

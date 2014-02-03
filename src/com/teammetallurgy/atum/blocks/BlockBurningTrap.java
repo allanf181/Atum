@@ -20,21 +20,21 @@ import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 
 import com.teammetallurgy.atum.Atum;
-import com.teammetallurgy.atum.blocks.tileentity.TileEntityArrowTrap;
+import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockArrowTrap extends BlockContainer {
+public class BlockBurningTrap extends BlockContainer {
 
 	public static final IRegistry dispenseBehaviorRegistry = new RegistryDefaulted(new BehaviorDefaultDispenseItem());
 	protected Random random = new Random();
 	@SideOnly(Side.CLIENT)
 	protected Icon fireTrap;
 
-	public BlockArrowTrap(int par1) {
+	public BlockBurningTrap(int par1) {
 		super(par1, Material.rock);
-		this.setUnlocalizedName("atum:arrowTrap");
+		this.setUnlocalizedName("atum:burningTrap");
 		this.setCreativeTab(CreativeTabs.tabRedstone);
 		this.setHardness(-1.0F);
 	}
@@ -106,8 +106,8 @@ public class BlockArrowTrap extends BlockContainer {
 		if(par1World.isRemote) {
 			return true;
 		} else {
-			TileEntityArrowTrap TileEntityArrowTrap = (TileEntityArrowTrap) par1World.getBlockTileEntity(par2, par3, par4);
-			if(TileEntityArrowTrap != null) {
+			TileEntityBurningTrap tileEntityBurningTrap = (TileEntityBurningTrap) par1World.getBlockTileEntity(par2, par3, par4);
+			if(tileEntityBurningTrap != null) {
 				;
 			}
 
@@ -130,7 +130,7 @@ public class BlockArrowTrap extends BlockContainer {
 	}
 
 	public TileEntity createNewTileEntity(World par1World) {
-		return new TileEntityArrowTrap();
+		return new TileEntityBurningTrap();
 	}
 
 	@Override
