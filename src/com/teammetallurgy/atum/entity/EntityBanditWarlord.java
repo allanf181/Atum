@@ -29,7 +29,7 @@ public class EntityBanditWarlord extends EntityMob implements IAtumDayMob {
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
-		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(8.0D);
+		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(80.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.53000000417232513D); 
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setAttribute(4.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setAttribute(10.0D);

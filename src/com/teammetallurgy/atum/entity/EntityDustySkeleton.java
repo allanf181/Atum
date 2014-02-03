@@ -9,6 +9,7 @@ import net.minecraft.world.World;
 
 public class EntityDustySkeleton extends EntityMob implements IAtumNightMob {
 
+	boolean onFire = false;
 	public EntityDustySkeleton(World par1World) {
 		super(par1World);
 		this.isImmuneToFire = true;
@@ -19,11 +20,19 @@ public class EntityDustySkeleton extends EntityMob implements IAtumNightMob {
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(20.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.53000000417232513D); 
+		double speed = 0.53000000417232513D;
+		if(this.onFire) {
+			speed = 0.9D;
+		}
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(speed);
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setAttribute(4.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setAttribute(10.0D);
 	}
 
+	@Override
+	public void onUpdate() {
+		super.onUpdate();
+	}
 
 	@Override
 	public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {

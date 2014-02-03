@@ -55,6 +55,6 @@ public class RenderDesertWolf extends RenderLiving {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("atum", "textures/entities/DesertWolf.png");
+		return new ResourceLocation("atum", "textures/entities/DesertWolf_angry.png");
 	}
 }
