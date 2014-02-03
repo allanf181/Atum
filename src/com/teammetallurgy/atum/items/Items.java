@@ -209,10 +209,10 @@ public enum Items {
 	}
 
 	private void addLanguages() {
-		name(new ItemStack(fish, 1, 0), "Forsaken Fish");
-		name(new ItemStack(fish, 1, 1), "Mummified Fish");
-		name(new ItemStack(fish, 1, 2), "Jeweled Fish");
-		name(new ItemStack(fish, 1, 3), "Skeletal Fish");
+		name(new ItemStack(fish, 1, 0), "fish1");
+		name(new ItemStack(fish, 1, 1), "fish2");
+		name(new ItemStack(fish, 1, 2), "fish3");
+		name(new ItemStack(fish, 1, 3), "fish4");
 	}
 
 }

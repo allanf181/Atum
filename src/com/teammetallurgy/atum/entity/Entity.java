@@ -1,8 +1,10 @@
 package com.teammetallurgy.atum.entity;
 
 import net.minecraft.entity.EntityList;
+import net.minecraft.item.ItemStack;
 
 import com.teammetallurgy.atum.Atum;
+import com.teammetallurgy.atum.LocalizationHelper;
 import com.teammetallurgy.atum.entity.arrow.EntityArrowDoubleShot;
 import com.teammetallurgy.atum.entity.arrow.EntityArrowExplosive;
 import com.teammetallurgy.atum.entity.arrow.EntityArrowFire;
@@ -15,6 +17,7 @@ import com.teammetallurgy.atum.entity.projectiles.EntityFireSpearCombined;
 import com.teammetallurgy.atum.entity.projectiles.EntityFireSpearSeperated;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
+import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public enum Entity {
 	INSTANCE;
@@ -76,6 +79,15 @@ public enum Entity {
 		EntityRegistry.registerModEntity(EntityNutsCall.class, "EntityNutsCall", 6, Atum.instance, 64, 1, true);
 		EntityRegistry.registerModEntity(EntityAtumFishHook.class, "EntityAtumFishHook", 7, Atum.instance, 64, 1, false);
 
+		addNames();
+	}
+
+	private void addNames() {
+		
+	}
+	
+	private void name(Entity entity, String tag) {
+		LanguageRegistry.addName(entity, LocalizationHelper.localize("block." + tag + ".name"));
 	}
 
 }

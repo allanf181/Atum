@@ -10,6 +10,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
+
+import com.teammetallurgy.atum.LocalizationHelper;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -20,6 +23,10 @@ public class BlockWalls extends BlockWall {
 	public BlockWalls(int par1, Block par2Block) {
 		super(par1, par2Block);
 		this.setUnlocalizedName("atum:walls");
+	}
+
+	public String getLocalizedName(ItemStack stack) {
+		return LocalizationHelper.localize("block.walls" + stack.getItemDamage() + ".name");
 	}
 
 	@Override
@@ -49,4 +56,5 @@ public class BlockWalls extends BlockWall {
 		par3List.add(new ItemStack(par1, 1, 2));
 		par3List.add(new ItemStack(par1, 1, 3));
 	}
+
 }

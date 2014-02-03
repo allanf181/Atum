@@ -130,7 +130,11 @@ public enum Blocks {
 		if(!(b instanceof BlockDate)) {
 			b.setCreativeTab(Atum.creativeTab);
 		}
-		GameRegistry.registerBlock(b, b.getUnlocalizedName());
+		if(b instanceof BlockWalls) {
+			GameRegistry.registerBlock(b, ItemBlockAtum.class, b.getUnlocalizedName());
+		} else {
+			GameRegistry.registerBlock(b, b.getUnlocalizedName());
+		}
 		if(b instanceof BlockContainer) {
 			name(b, "tile.", b.getUnlocalizedName().split(":")[1]);
 		} else {
@@ -147,10 +151,9 @@ public enum Blocks {
 	}
 
 	private void addLanguages() {
-		name(new ItemStack(this.BLOCK_WALL), "Smooth Limestone Wall");
-		name(new ItemStack(this.BLOCK_WALL), "Cracked Limestone Wall");
-		name(new ItemStack(this.BLOCK_WALL), "Large Limestone Brick Wall");
-		name(new ItemStack(this.BLOCK_WALL), "Small Limestone Brick Wall");
-		
+		name(new ItemStack(this.BLOCK_WALL, 1, 0), "walls");
+		name(new ItemStack(this.BLOCK_WALL, 1, 1), "walls1");
+		name(new ItemStack(this.BLOCK_WALL, 1, 2), "walls2");
+		name(new ItemStack(this.BLOCK_WALL, 1, 3), "walls3");
 	}
 }
