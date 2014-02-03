@@ -83,11 +83,21 @@ public enum Entity {
 	}
 
 	private void addNames() {
+		name("entity.AtumMummy.name", "mummy");
+		name("entity.AtumBanditWarrior.name", "banditWarrior");
+		name("entity.AtumBanditArcher.name", "banditArcher");
+		name("entity.AtumPharaoh.name", "pharaoh");
+		name("entity.AtumDustySkeleton.name", "dustySkeleton");
+		name("entity.AtumDesertGhost.name", "desertGhost");
 		
+		name("entity.AtumStoneSoldier.name", "stoneSoldier");
+		name("entity.AtumDesertWolf.name", "desertWolf");
+		name("entity.AtumBanditWarlord.name", "banditWarlord");
+		name("entity.AtumBarbarian.name", "barbarian");
 	}
 	
-	private void name(Entity entity, String tag) {
-		LanguageRegistry.addName(entity, LocalizationHelper.localize("block." + tag + ".name"));
+	private void name(String name, String tag) {
+		LanguageRegistry.instance().addStringLocalization(name, LocalizationHelper.localize("entity." + tag + ".name"));
 	}
 
 }
