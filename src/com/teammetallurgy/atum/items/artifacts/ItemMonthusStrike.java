@@ -22,6 +22,7 @@ import net.minecraft.world.World;
 
 import org.lwjgl.input.Keyboard;
 
+import com.teammetallurgy.atum.entity.EntityPharaoh;
 import com.teammetallurgy.atum.entity.EntityStoneSoldier;
 
 import cpw.mods.fml.relauncher.Side;
@@ -60,7 +61,7 @@ public class ItemMonthusStrike extends ItemAxe {
 
 			while(i.hasNext()) {
 				Entity entity = (Entity) i.next();
-				if(entity != player && !(entity instanceof EntityStoneSoldier)) {
+				if(entity != player && !(entity instanceof EntityStoneSoldier) && !(entity instanceof EntityPharaoh)) {
 					double dx = entity.posX - player.posX;
 					double dz = entity.posZ - player.posZ;
 					double magnitude = Math.sqrt(dx * dx + dz * dz);
