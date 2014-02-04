@@ -15,13 +15,13 @@ import net.minecraft.world.PortalPosition;
 import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
 
+import com.teammetallurgy.atum.blocks.BlockSlab;
 import com.teammetallurgy.atum.blocks.Blocks;
 
 public class AtumTeleporter extends Teleporter {
 
 	private final WorldServer worldServerInstance;
 	private final Random random;
-	public static String[][] portalDesign = new String[][]{{"XXXXX", "X   X", "X   X", "X   X", "XXXXX"}, {"X   X", "     ", "     ", "     ", "X   X"}, {"X   X", "     ", "     ", "     ", "X   X"}};
 
 	private final LongHashMap destinationCoordinateCache = new LongHashMap();
 	private final List destinationCoordinateKeys = new ArrayList();
@@ -365,31 +365,46 @@ public class AtumTeleporter extends Teleporter {
 				}
 			}
 		}
+		Block block = null;
+		System.out.println(par1Entity.dimension);
+		if(par1Entity.dimension == 0) {
+			block = Block.sandStone;
+		} else {
+			block = Blocks.BLOCK_LARGEBRICK;
+		}
+		for(int x1 = -2; x1 < 3; x1++) {
+			for(int z1 = -2; z1 < 3; z1++) {
 
-		for(k2 = 0; k2 < 4; ++k2) {
-			for(i3 = 0; i3 < 4; ++i3) {
-				for(l2 = -1; l2 < 4; ++l2) {
-					k3 = i5 + (i3 - 1) * k5;
-					j3 = j5 + l2;
-					i4 = j2 + (i3 - 1) * l5;
-					flag = i3 == 0 || i3 == 3 || l2 == -1 || l2 == 3;
-					this.worldServerInstance.setBlock(k3, j3, i4, flag ? Block.sandStone.blockID : Blocks.BLOCK_PORTAL.blockID, 0, 2);
+				this.worldServerInstance.setBlock(entityX + x1, entityY, entityZ + z1, block.blockID);
+			}
+		}
+		for(int x1 = -2; x1 < 3; x1++) {
+			for(int z1 = -2; z1 < 3; z1++) {
+				if(x1 == 2 || z1 == 2 || x1 == -2 || z1 == -2) {
+					this.worldServerInstance.setBlock(entityX + x1, entityY + 1, entityZ + z1, block.blockID);
 				}
 			}
-
-			for(i3 = 0; i3 < 4; ++i3) {
-				for(l2 = -1; l2 < 4; ++l2) {
-					k3 = i5 + (i3 - 1) * k5;
-					j3 = j5 + l2;
-					i4 = j2 + (i3 - 1) * l5;
-					this.worldServerInstance.notifyBlocksOfNeighborChange(k3, j3, i4, this.worldServerInstance.getBlockId(k3, j3, i4));
+		}
+		for(int y1 = 2; y1 < 4; y1++) {
+			for(int x1 = -2; x1 < 3; x1++) {
+				for(int z1 = -2; z1 < 3; z1++) {
+					if((x1 == 2 && z1 == 2) || (x1 == -2 && z1 == 2) || (x1 == 2 && z1 == -2) || (x1 == -2 && z1 == -2)) {
+						this.worldServerInstance.setBlock(entityX + x1, entityY + y1, entityZ + z1, block.blockID);
+					}
 				}
+			}
+		}
+
+		for(int x1 = -1; x1 < 2; x1++) {
+			for(int z1 = -1; z1 < 2; z1++) {
+				this.worldServerInstance.setBlock(x1 + entityX, entityY + 1, z1 + entityZ, Blocks.BLOCK_PORTAL.blockID);
 			}
 		}
 
 		return true;
 	}
 
+	@Override
 	public void removeStalePortalLocations(long par1) {
 		if(par1 % 100L == 0L) {
 			Iterator iterator = this.destinationCoordinateKeys.iterator();
@@ -404,7 +419,6 @@ public class AtumTeleporter extends Teleporter {
 				}
 			}
 		}
-
 	}
 
 }

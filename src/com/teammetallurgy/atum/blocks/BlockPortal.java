@@ -47,36 +47,18 @@ public class BlockPortal extends BlockBreakable {
 	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4) {
 	}
 
+	@Override
 	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5) {
-		byte b0 = 0;
-		byte b1 = 1;
-		if(par1World.getBlockId(par2 - 1, par3, par4) == super.blockID || par1World.getBlockId(par2 + 1, par3, par4) == super.blockID) {
-			b0 = 1;
-			b1 = 0;
-		}
-
-		int i1;
-		for(i1 = par3; par1World.getBlockId(par2, i1 - 1, par4) == super.blockID; --i1) {
-			;
-		}
-
-		if(par1World.getBlockId(par2, i1 - 1, par4) != Block.sandStone.blockID) {
-			par1World.setBlockToAir(par2, par3, par4);
-		} else {
-			int j1;
-			for(j1 = 1; j1 < 4 && par1World.getBlockId(par2, i1 + j1, par4) == super.blockID; ++j1) {
-				;
-			}
-
-			boolean flag = par1World.getBlockId(par2 - 1, par3, par4) != this.blockID || par1World.getBlockId(par2 + 1, par3, par4) != this.blockID;
-			boolean flag1 = par1World.getBlockId(par2, par3, par4 - 1) != this.blockID || par1World.getBlockId(par2, par3, par4 + 1) != this.blockID;
-			boolean flag2 = par1World.getBlockId(par2 - 1, par3, par4) != sandStone.blockID || par1World.getBlockId(par2 + 1, par3, par4) != sandStone.blockID;
-			boolean flag3 = par1World.getBlockId(par2, par3, par4 - 1) != sandStone.blockID || par1World.getBlockId(par2, par3, par4 + 1) != sandStone.blockID;
-			if((flag && flag1) || (flag2 && flag3)) {
-				// par1World.setBlockToAir(par2, par3, par4);
-			}
-		}
-
+//		for(int x = -1; x < 2; x++) {
+//			for(int z = -1; z < 2; z++) {
+//				for(int y = -1; y < 1; y++) {
+//					if(par1World.getBlockId(par2 + x, par3 + y, par4 + z) != Block.sandStone.blockID && par1World.getBlockId(par2 + x, par3 + y, par4 + z) != this.blockID && par1World.getBlockId(par2 + x, par3 + y, par4 + z) != Blocks.BLOCK_LARGEBRICK.blockID) {
+//						System.out.println(par1World.getBlockId(par2 + x, par3 + y, par4 + z));
+//						par1World.setBlockToAir(par2, par3, par4);
+//					}
+//				}
+//			}
+//		}
 	}
 
 	@Override

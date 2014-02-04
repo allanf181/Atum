@@ -1,7 +1,6 @@
 package com.teammetallurgy.atum.blocks;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -21,7 +20,7 @@ import cpw.mods.fml.common.registry.LanguageRegistry;
 public enum Blocks {
 	INSTANCE;
 
-	public static final Block BLOCK_PORTAL = new BlockPortal(AtumIDS.BLOCK_PORTAL_ID);
+	public static final BlockPortal BLOCK_PORTAL = new BlockPortal(AtumIDS.BLOCK_PORTAL_ID);
 	public static final Block BLOCK_CURSEDCHEST = new BlockChestSpawner(AtumIDS.BLOCK_CURSEDCHEST_ID);
 	public static final Block BLOCK_SAND = new BlockSands(AtumIDS.BLOCK_SAND_ID);
 	public static final Block BLOCK_STONE = new BlockStones(AtumIDS.BLOCK_STONE_ID);

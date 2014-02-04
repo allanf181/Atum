@@ -64,7 +64,7 @@ public class ItemIsisHealing extends Item {
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if(Keyboard.isKeyDown(42)) {
 			par3List.add(EnumChatFormatting.DARK_PURPLE + "Regeneration I: Regenerates");
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "health slowly while heald");
+			par3List.add(EnumChatFormatting.DARK_PURPLE + "health slowly while held");
 		} else {
 			par3List.add("Regeneration I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
 		}

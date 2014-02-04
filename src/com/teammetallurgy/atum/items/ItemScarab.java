@@ -28,31 +28,26 @@ public class ItemScarab extends Item {
 		if(blockID == Block.sandStone.blockID) {
 			if(!((BlockPortal) Blocks.BLOCK_PORTAL).tryToCreatePortal(par3World, x, y, z)) {
 				if(par2EntityPlayer.capabilities.isCreativeMode) {
-					if(par2EntityPlayer.worldObj.provider.dimensionId == 0) {
-						for(int x1 = -2; x1 < 3; x1++) {
-							for(int z1 = -2; z1 < 3; z1++) {
-								par3World.setBlock(x + x1, y, z + z1, Block.sandStone.blockID);
+					for(int x1 = -2; x1 < 3; x1++) {
+						for(int z1 = -2; z1 < 3; z1++) {
+							par3World.setBlock(x + x1, y, z + z1, Block.sandStone.blockID);
+						}
+					}
+					for(int x1 = -2; x1 < 3; x1++) {
+						for(int z1 = -2; z1 < 3; z1++) {
+							if(x1 + x == x + 2 || z1 + z == z + 2 || x1 + x == x - 2 || z1 + z == z - 2) {
+								par3World.setBlock(x + x1, y + 1, z + z1, Block.sandStone.blockID);
 							}
 						}
+					}
+					for(int y1 = 2; y1 < 4; y1++) {
 						for(int x1 = -2; x1 < 3; x1++) {
 							for(int z1 = -2; z1 < 3; z1++) {
-								if(x1 + x == x + 2 || z1 + z == z + 2 || x1 + x == x - 2 || z1 + z == z - 2) {
-									par3World.setBlock(x + x1, y + 1, z + z1, Block.sandStone.blockID);
+								if((x1 + x == x + 2 && z1 + z == z + 2) || (x1 + x == x - 2 && z1 + z == z + 2) || (x1 + x == x + 2 && z1 + z == z - 2) || (x1 + x == x - 2 && z1 + z == z - 2)) {
+									par3World.setBlock(x + x1, y + y1, z + z1, Block.sandStone.blockID);
 								}
 							}
 						}
-						for(int y1 = 2; y1 < 4; y1++) {
-							for(int x1 = -2; x1 < 3; x1++) {
-								for(int z1 = -2; z1 < 3; z1++) {
-									if((x1 + x == x + 2 && z1 + z == z + 2) || (x1 + x == x - 2 && z1 + z == z + 2) || (x1 + x == x + 2 && z1 + z == z - 2) || (x1 + x == x - 2 && z1 + z == z - 2)) {
-										par3World.setBlock(x + x1, y + y1, z + z1, Block.sandStone.blockID);
-									}
-								}
-							}
-						}
-
-					} else {
-
 					}
 				}
 			} else {
