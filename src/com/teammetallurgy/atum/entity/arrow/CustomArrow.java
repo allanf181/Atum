@@ -18,7 +18,7 @@ public class CustomArrow extends Entity {
 	}
 
 	public String getTexture() {
-		return "/item/arrows.png";
+		return "minecraft:textures/item/arrows.png";
 	}
 
 	@Override

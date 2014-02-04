@@ -55,7 +55,7 @@ public class ItemNutsCall extends Item {
 			j = 21;
 		}
 
-		EntityNutsCall spear = new EntityNutsCall(world, player, (float) j / 37.0F + 0.25F);
+		EntityNutsCall spear = new EntityNutsCall(world, player, (float) j / 25.0F + 0.25F);
 		spear.setDamage(spear.getDamage() * 2.0D);
 		spear.setStack(par1ItemStack);
 		if(!world.isRemote) {

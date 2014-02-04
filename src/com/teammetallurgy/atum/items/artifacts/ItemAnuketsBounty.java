@@ -59,7 +59,6 @@ public class ItemAnuketsBounty extends Item {
 			if(!par2World.isRemote) {
 				par2World.spawnEntityInWorld(new EntityAtumFishHook(par2World, par3EntityPlayer));
 			}
-
 			par3EntityPlayer.swingItem();
 		}
 
@@ -86,7 +85,7 @@ public class ItemAnuketsBounty extends Item {
 			par3List.add(EnumChatFormatting.DARK_PURPLE + "Alluring I: Chance to catch");
 			par3List.add(EnumChatFormatting.DARK_PURPLE + "special fish in Atum");
 		} else {
-			par3List.add("Return I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
+			par3List.add("Alluring I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
 		}
 
 		par3List.add(par1ItemStack.getMaxDamage() - par1ItemStack.getItemDamage() + " Uses Remaining");
