@@ -7,6 +7,7 @@ import net.minecraft.creativetab.CreativeTabs;
 import com.teammetallurgy.atum.blocks.Blocks;
 import com.teammetallurgy.atum.entity.Entity;
 import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.lib.handler.CraftingHandler;
 import com.teammetallurgy.atum.lib.proxy.CommonProxy;
 import com.teammetallurgy.atum.world.World;
 
@@ -51,7 +52,10 @@ public class Atum {
 
 		LOGGER.info("Item Init");
 		Items.INSTANCE.registerItems();
-
+		
+		LOGGER.info("Register Crafting Recipes");
+		CraftingHandler.INSTANCE.register();
+		
 		LOGGER.info("World Init");
 		World.INSTANCE.register();
 
@@ -65,6 +69,8 @@ public class Atum {
 		proxy.init();
 		proxy.initRenders();
 		proxy.initTiles();
+		
+		
 	}
 
 	@EventHandler

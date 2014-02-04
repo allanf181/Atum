@@ -3,6 +3,8 @@ package com.teammetallurgy.atum.blocks;
 import java.util.List;
 import java.util.Random;
 
+import com.teammetallurgy.atum.LocalizationHelper;
+
 import net.minecraft.block.BlockHalfSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.creativetab.CreativeTabs;
@@ -17,6 +19,10 @@ public class BlockSlab extends BlockHalfSlab {
 	public BlockSlab(int par1, boolean par2) {
 		super(par1, par2, Material.rock);
 		this.setHardness(2.0F);
+	}
+
+	public String getLocalizedName(ItemStack stack) {
+		return LocalizationHelper.localize("block.slab" + stack.getItemDamage() + ".name");
 	}
 
 	@Override

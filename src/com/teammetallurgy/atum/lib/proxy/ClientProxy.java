@@ -8,6 +8,7 @@ import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 
 import com.teammetallurgy.atum.blocks.BlockDate;
 import com.teammetallurgy.atum.blocks.BlockPapyrus;
@@ -50,6 +51,11 @@ public class ClientProxy extends CommonProxy {
 	@Override
 	public void init() {
 		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
+		
+		MinecraftForge.EVENT_BUS.register(Items.sekhmetsWrath);
+		MinecraftForge.EVENT_BUS.register(Items.mnevisHorns);
+		MinecraftForge.EVENT_BUS.register(Items.maatsBalance);
+		MinecraftForge.EVENT_BUS.register(Items.anubisMercy);
 	}
 	
 	@Override

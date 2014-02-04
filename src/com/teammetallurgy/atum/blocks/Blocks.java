@@ -123,21 +123,19 @@ public enum Blocks {
 		GameRegistry.registerTileEntity(TileEntityPharaohChest.class, "PharaohChest");
 		GameRegistry.registerTileEntity(TileEntityBurningTrap.class, "BurningTrap");
 
-		this.addLanguages();
 	}
 
 	private void register(Block b) {
 		if(!(b instanceof BlockDate)) {
 			b.setCreativeTab(Atum.creativeTab);
 		}
-		if(b instanceof BlockWalls) {
-			GameRegistry.registerBlock(b, ItemBlockAtum.class, b.getUnlocalizedName());
+		if(b instanceof BlockSlab) {
+			GameRegistry.registerBlock(b, ItemBlockSlab.class, b.getUnlocalizedName());
+		} else if(b instanceof BlockWalls) {
+			GameRegistry.registerBlock(b, ItemBlockWall.class, b.getUnlocalizedName());
 		} else {
 			GameRegistry.registerBlock(b, b.getUnlocalizedName());
-		}
-		if(b instanceof BlockContainer) {
-			name(b, "tile.", b.getUnlocalizedName().split(":")[1]);
-		} else {
+
 			name(b, "block.", b.getUnlocalizedName().split(":")[1]);
 		}
 	}
@@ -148,12 +146,5 @@ public enum Blocks {
 
 	private void name(ItemStack b, String tag) {
 		LanguageRegistry.addName(b, LocalizationHelper.localize("block." + tag + ".name"));
-	}
-
-	private void addLanguages() {
-		name(new ItemStack(this.BLOCK_WALL, 1, 0), "walls");
-		name(new ItemStack(this.BLOCK_WALL, 1, 1), "walls1");
-		name(new ItemStack(this.BLOCK_WALL, 1, 2), "walls2");
-		name(new ItemStack(this.BLOCK_WALL, 1, 3), "walls3");
 	}
 }

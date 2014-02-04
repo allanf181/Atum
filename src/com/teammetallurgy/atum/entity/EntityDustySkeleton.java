@@ -10,6 +10,7 @@ import net.minecraft.world.World;
 public class EntityDustySkeleton extends EntityMob implements IAtumNightMob {
 
 	boolean onFire = false;
+
 	public EntityDustySkeleton(World par1World) {
 		super(par1World);
 		this.isImmuneToFire = true;
@@ -32,6 +33,10 @@ public class EntityDustySkeleton extends EntityMob implements IAtumNightMob {
 	@Override
 	public void onUpdate() {
 		super.onUpdate();
+		if(this.isBurning()) {
+			this.onFire = true;
+			this.applyEntityAttributes();
+		}
 	}
 
 	@Override

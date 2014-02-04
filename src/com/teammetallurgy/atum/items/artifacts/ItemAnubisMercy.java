@@ -29,7 +29,6 @@ public class ItemAnubisMercy extends Item {
 	public ItemAnubisMercy(int par1) {
 		super(par1);
 		this.setMaxDamage(20);
-		MinecraftForge.EVENT_BUS.register(this);
 	}
 
 	@Override

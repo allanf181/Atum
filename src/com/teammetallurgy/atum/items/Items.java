@@ -48,6 +48,8 @@ import com.teammetallurgy.atum.items.artifacts.ItemSpear;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public enum Items {
 	INSTANCE;
@@ -67,7 +69,7 @@ public enum Items {
 	public static final Item gebsBlessing = new ItemGebsBlessing(AtumIDS.ITEM_GEBSBLESSING_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:gebsBlessing").setCreativeTab(Atum.creativeTab);
 	public static final Item atensFury = new ItemAtensFury(AtumIDS.ITEM_ATENSFURY_ID).setUnlocalizedName("atum:atensFury").setCreativeTab(Atum.creativeTab);
 	public static final Item rasGlory = new ItemRasGlory(AtumIDS.ITEM_RASGLORY_ID, EnumArmorMaterial.DIAMOND, 0, 0).setTextureFile("EgyptianArmor_1").setUnlocalizedName("atum:rasGlory").setCreativeTab(Atum.creativeTab);
-	public static final Item sekhmetsWrath = new ItemSekhmetsWrath(AtumIDS.ITEM_SEKHMETSWRATH_ID, EnumArmorMaterial.DIAMOND, 1, 1).setTextureFile("EgyptianArmor_1").setUnlocalizedName("atum:sekhmetsWrath").setCreativeTab(Atum.creativeTab);
+	public static final Item sekhmetsWrath = new ItemSekhmetsWrath(AtumIDS.ITEM_SEKHMETSWRATH_ID, 1, 1).setTextureFile("EgyptianArmor_1").setUnlocalizedName("atum:sekhmetsWrath").setCreativeTab(Atum.creativeTab);
 	public static final Item nutsAgility = new ItemNutsAgility(AtumIDS.ITEM_NUTSAGILITY_ID, EnumArmorMaterial.DIAMOND, 2, 2).setTextureFile("EgyptianArmor_2").setUnlocalizedName("atum:nutsAgility").setCreativeTab(Atum.creativeTab);
 	public static final Item horusFlight = new ItemHorusFlight(AtumIDS.ITEM_HORUSFLIGHT_ID, EnumArmorMaterial.DIAMOND, 3, 3).setTextureFile("EgyptianArmor_1").setUnlocalizedName("atum:horusFlight").setCreativeTab(Atum.creativeTab);
 	public static final Item monthusStrike = new ItemMonthusStrike(AtumIDS.ITEM_MONTHUSSTRIKE_ID, EnumToolMaterial.EMERALD).setUnlocalizedName("atum:monthusStrike").setCreativeTab(Atum.creativeTab);
@@ -190,10 +192,9 @@ public enum Items {
 		this.register(neithsAudacity);
 		this.register(spear);
 
-		MinecraftForge.EVENT_BUS.register(sekhmetsWrath);
-
 		this.addLanguages();
 	}
+
 
 	private void register(Item item) {
 		GameRegistry.registerItem(item, item.getUnlocalizedName());

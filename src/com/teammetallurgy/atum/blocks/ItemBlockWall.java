@@ -4,9 +4,9 @@ import net.minecraft.block.Block;
 import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
-public class ItemBlockAtum extends ItemBlock {
+public class ItemBlockWall extends ItemBlock {
 
-	public ItemBlockAtum(int par1) {
+	public ItemBlockWall(int par1) {
 		super(par1);
 	}
 
