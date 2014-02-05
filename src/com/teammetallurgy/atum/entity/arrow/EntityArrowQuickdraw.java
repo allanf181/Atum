@@ -523,6 +523,6 @@ public class EntityArrowQuickdraw extends CustomArrow implements IProjectile, IT
 
 	@Override
 	public String getTexture() {
-		return "/mods/Atum/textures/projectiles/arrows_quickdraw.png";
+		return "atum:textures/projectiles/arrows_quickdraw.png";
 	}
 }

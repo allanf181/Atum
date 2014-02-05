@@ -25,7 +25,7 @@ import cpw.mods.fml.common.network.NetworkMod;
 public class Atum {
 	public static final String MODID = "Atum";
 	public static final String NAME = "Atum";
-	public static final String VERSION = "0.5.0B";
+	public static final String VERSION = "0.5.9B";
 
 	@Instance(Atum.MODID)
 	public static Atum instance;

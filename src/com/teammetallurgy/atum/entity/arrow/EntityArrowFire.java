@@ -526,6 +526,6 @@ public class EntityArrowFire extends CustomArrow implements IProjectile, IThrowa
 
 	@Override
 	public String getTexture() {
-		return "/mods/Atum/textures/projectiles/arrows_fire.png";
+		return "atum:textures/projectiles/arrows_fire.png";
 	}
 }

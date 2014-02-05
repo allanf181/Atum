@@ -12,11 +12,6 @@ public class CustomArrow extends Entity {
 		super(par1World);
 	}
 
-	@Override
-	protected void entityInit() {
-
-	}
-
 	public String getTexture() {
 		return "minecraft:textures/item/arrows.png";
 	}
@@ -29,6 +24,10 @@ public class CustomArrow extends Entity {
 	@Override
 	protected void writeEntityToNBT(NBTTagCompound nbttagcompound) {
 		super.writeToNBT(nbttagcompound);
+	}
+
+	@Override
+	protected void entityInit() {
 	}
 
 }

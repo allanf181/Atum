@@ -7,19 +7,19 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumArmorMaterial;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
-import net.minecraft.item.ItemArmor;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
 import org.lwjgl.input.Keyboard;
 
+import com.teammetallurgy.atum.items.ItemTexturedArmor;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class ItemNutsAgility extends ItemArmor {
+public class ItemNutsAgility extends ItemTexturedArmor {
 
-	String texture;
 
 	public ItemNutsAgility(int par1, EnumArmorMaterial par2EnumArmorMaterial, int par3, int par4) {
 		super(par1, par2EnumArmorMaterial, par3, par4);
@@ -52,15 +52,6 @@ public class ItemNutsAgility extends ItemArmor {
 			par3List.add("Agility I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
 		}
 
-	}
-
-	public Item setTextureFile(String string) {
-		this.texture = string;
-		return this;
-	}
-
-	public String getArmorTextureFile(ItemStack itemstack) {
-		return "/armor/" + this.texture + ".png";
 	}
 
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {

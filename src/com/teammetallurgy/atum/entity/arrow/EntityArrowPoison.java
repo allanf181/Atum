@@ -527,6 +527,6 @@ public class EntityArrowPoison extends CustomArrow implements IProjectile, IThro
 
 	@Override
 	public String getTexture() {
-		return "/mods/Atum/textures/projectiles/arrows_poison.png";
+		return "atum:textures/projectiles/arrows_poison.png";
 	}
 }
