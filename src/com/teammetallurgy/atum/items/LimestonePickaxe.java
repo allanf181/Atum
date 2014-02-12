@@ -5,7 +5,7 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 public class LimestonePickaxe extends ItemPickaxe {
 
@@ -15,7 +15,7 @@ public class LimestonePickaxe extends ItemPickaxe {
 
 	@Override
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-		return par2ItemStack.itemID == Blocks.BLOCK_LIMESTONECOBBLE.blockID;
+		return par2ItemStack.itemID == AtumBlocks.BLOCK_LIMESTONECOBBLE.blockID;
 	}
 
 	@Override

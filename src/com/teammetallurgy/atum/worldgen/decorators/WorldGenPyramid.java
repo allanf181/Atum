@@ -13,8 +13,8 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import com.teammetallurgy.atum.AtumLoot;
-import com.teammetallurgy.atum.blocks.Blocks;
-import com.teammetallurgy.atum.blocks.tileentity.TileEntityPharaohChest;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
 
 public class WorldGenPyramid extends WorldGenerator {
 	class Pair {
@@ -56,8 +56,8 @@ public class WorldGenPyramid extends WorldGenerator {
 			for(int x = y; x <= width - y; x++) {
 				for(int z = y; z <= depth - y; z++) {
 					int id = world.getBlockId(x + i, y + j + 3, z + k);
-					if(id == 0 || id == Blocks.BLOCK_SAND.blockID)
-						world.setBlock(x + i, y + j + 3, z + k, Blocks.BLOCK_LARGEBRICK.blockID, 1, 0);
+					if(id == 0 || id == AtumBlocks.BLOCK_SAND.blockID)
+						world.setBlock(x + i, y + j + 3, z + k, AtumBlocks.BLOCK_LARGEBRICK.blockID, 1, 0);
 				}
 			}
 		}
@@ -65,21 +65,21 @@ public class WorldGenPyramid extends WorldGenerator {
 		for(int x = -3; x < width + 3; x++) {
 			for(int z = -3; z < depth + 3; z++) {
 				if(x >= 0 && x < width && z >= 0 && z < depth) {
-					world.setBlock(x + i, j - 1, z + k, Blocks.BLOCK_STONE.blockID);
+					world.setBlock(x + i, j - 1, z + k, AtumBlocks.BLOCK_STONE.blockID);
 					if(!maze[x][z]) {
 						if(random.nextFloat() > 0.1F)
-							world.setBlock(x + i, j, z + k, Blocks.BLOCK_LARGEBRICK.blockID, 1, 0);
+							world.setBlock(x + i, j, z + k, AtumBlocks.BLOCK_LARGEBRICK.blockID, 1, 0);
 						else
 							placeTrap(world, x + i, j, z + k);
-						world.setBlock(x + i, j + 1, z + k, Blocks.BLOCK_LARGEBRICK.blockID, 1, 0);
-						world.setBlock(x + i, j + 2, z + k, Blocks.BLOCK_LARGEBRICK.blockID, 1, 0);
+						world.setBlock(x + i, j + 1, z + k, AtumBlocks.BLOCK_LARGEBRICK.blockID, 1, 0);
+						world.setBlock(x + i, j + 2, z + k, AtumBlocks.BLOCK_LARGEBRICK.blockID, 1, 0);
 					} else {
 						int meta = random.nextInt(5);
-						world.setBlock(x + i, j, z + k, Blocks.BLOCK_SANDLAYERED.blockID, meta, 0);
+						world.setBlock(x + i, j, z + k, AtumBlocks.BLOCK_SANDLAYERED.blockID, meta, 0);
 						world.setBlockToAir(x + i, j + 1, z + k);
 						world.setBlockToAir(x + i, j + 2, z + k);
 					}
-					world.setBlock(x + i, j + 3, z + k, Blocks.BLOCK_LARGEBRICK.blockID, 1, 0);
+					world.setBlock(x + i, j + 3, z + k, AtumBlocks.BLOCK_LARGEBRICK.blockID, 1, 0);
 				}
 			}
 		}
@@ -104,7 +104,7 @@ public class WorldGenPyramid extends WorldGenerator {
 		world.setBlock(i + 11, j + 6, k + 7, Block.torchWood.blockID, 2, 0);
 		world.setBlock(i + 11, j + 6, k + 10, Block.torchWood.blockID, 2, 0);
 
-		world.setBlock(i + 10, j + 4, k + 8, Blocks.BLOCK_PHARAOHCHEST.blockID, 0, 2);
+		world.setBlock(i + 10, j + 4, k + 8, AtumBlocks.BLOCK_PHARAOHCHEST.blockID, 0, 2);
 		try {
 			TileEntityPharaohChest te = (TileEntityPharaohChest) world.getBlockTileEntity(i + 10, j + 4, k + 8);
 			AtumLoot.fillChest(te, 15, 0.9f);
@@ -150,7 +150,7 @@ public class WorldGenPyramid extends WorldGenerator {
 			meta = 5;
 		}
 
-		world.setBlock(x, y, z, Blocks.BLOCK_TRAPARROW.blockID, meta, 0);
+		world.setBlock(x, y, z, AtumBlocks.BLOCK_TRAPARROW.blockID, meta, 0);
 	}
 
 	public void placeLadders(World world, int x, int y, int z, int height) {

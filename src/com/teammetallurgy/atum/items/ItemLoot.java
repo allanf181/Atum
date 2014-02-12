@@ -33,7 +33,7 @@ public class ItemLoot extends Item {
 	public static ItemStack getRandomLoot(Random rand, boolean isDirty) {
 		int type = rand.nextInt(typeArray.length);
 		int quality = rand.nextInt(qualityArray.length - 1) + 1;
-		return new ItemStack(Items.ITEM_LOOT.itemID, 1, type << 5 | quality << 1 | (isDirty ? 1 : 0));
+		return new ItemStack(AtumItems.ITEM_LOOT.itemID, 1, type << 5 | quality << 1 | (isDirty ? 1 : 0));
 	}
 
 	@Override

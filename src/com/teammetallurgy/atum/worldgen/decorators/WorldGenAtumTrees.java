@@ -7,7 +7,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 public class WorldGenAtumTrees extends WorldGenerator {
 
@@ -317,7 +317,7 @@ public class WorldGenAtumTrees extends WorldGenerator {
 		int[] aint1 = new int[]{this.basePos[0], this.basePos[1] + this.heightLimit - 1, this.basePos[2]};
 		int i = this.worldObj.getBlockId(this.basePos[0], this.basePos[1] - 1, this.basePos[2]);
 		Block var10000 = Block.blocksList[i];
-		boolean isValidSoil = i == Blocks.BLOCK_SAND.blockID;
+		boolean isValidSoil = i == AtumBlocks.BLOCK_SAND.blockID;
 		if(!isValidSoil) {
 			return false;
 		} else {

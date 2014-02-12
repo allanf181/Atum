@@ -8,7 +8,7 @@ import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.worldgen.AtumWorldProvider;
 import com.teammetallurgy.atum.worldgen.biome.BiomeGenAtumDesert;
 
-public enum World {
+public enum AtumWorlds {
 	INSTANCE;
 
 	public static final BiomeGenBase BIOME_DESERT = new BiomeGenAtumDesert(AtumIDS.BIOME_DESERT_ID);

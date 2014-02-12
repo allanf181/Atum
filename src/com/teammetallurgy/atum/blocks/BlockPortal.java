@@ -99,7 +99,7 @@ public class BlockPortal extends BlockBreakable {
 		}
 		for(int x1 = -1; x1 < 2; x1++) {
 			for(int z1 = -1; z1 < 2; z1++) {
-				par1World.setBlock(x + x1, y + 1, z + z1, Blocks.BLOCK_PORTAL.blockID);
+				par1World.setBlock(x + x1, y + 1, z + z1, AtumBlocks.BLOCK_PORTAL.blockID);
 			}
 		}
 		return true;

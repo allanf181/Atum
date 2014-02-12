@@ -3,6 +3,7 @@ package com.teammetallurgy.atum.blocks;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -15,7 +16,7 @@ import net.minecraftforge.common.IPlantable;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockFertileSoil extends Block {
+public class BlockFertileSoil extends BlockFarmland {
 	@SideOnly(Side.CLIENT)
 	private Icon iconGrassTop;
 
@@ -26,7 +27,7 @@ public class BlockFertileSoil extends Block {
 	private Icon iconDirt;
 
 	public BlockFertileSoil(int par1) {
-		super(par1, Material.grass);
+		super(par1);
 		this.setUnlocalizedName("atum:fertileSoil");
 		this.setHardness(0.5F);
 		this.setStepSound(Block.soundGrassFootstep);
@@ -94,7 +95,7 @@ public class BlockFertileSoil extends Block {
 
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3) {
-		return Blocks.BLOCK_SAND.blockID;
+		return AtumBlocks.BLOCK_SAND.blockID;
 	}
 
 	@Override
@@ -108,7 +109,7 @@ public class BlockFertileSoil extends Block {
 			return this.iconGrassTop;
 		}
 		if(par5 == 0) {
-			return Blocks.BLOCK_SAND.getBlockTextureFromSide(par5);
+			return AtumBlocks.BLOCK_SAND.getBlockTextureFromSide(par5);
 		}
 
 		return this.blockIcon;

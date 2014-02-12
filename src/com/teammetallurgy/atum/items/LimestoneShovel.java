@@ -1,6 +1,6 @@
 package com.teammetallurgy.atum.items;
 
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.EnumToolMaterial;
@@ -15,7 +15,7 @@ public class LimestoneShovel extends ItemSpade {
 
 	@Override
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-		return par2ItemStack.itemID == Blocks.BLOCK_LIMESTONECOBBLE.blockID;
+		return par2ItemStack.itemID == AtumBlocks.BLOCK_LIMESTONECOBBLE.blockID;
 	}
 
 	@Override

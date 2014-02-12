@@ -12,7 +12,7 @@ import net.minecraftforge.common.MinecraftForge;
 
 import com.teammetallurgy.atum.blocks.BlockDate;
 import com.teammetallurgy.atum.blocks.BlockPapyrus;
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.client.model.entity.ModelDesertWolf;
 import com.teammetallurgy.atum.client.model.entity.ModelDustySkeleton;
 import com.teammetallurgy.atum.client.render.entity.RenderBandit;
@@ -39,7 +39,7 @@ import com.teammetallurgy.atum.entity.arrow.CustomArrow;
 import com.teammetallurgy.atum.entity.arrow.EntityAtumFishHook;
 import com.teammetallurgy.atum.entity.arrow.EntityNutsCall;
 import com.teammetallurgy.atum.entity.projectiles.EntityFireSpearCombined;
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 import com.teammetallurgy.atum.lib.tickhandler.ClientTickHandler;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
@@ -52,23 +52,23 @@ public class ClientProxy extends CommonProxy {
 	public void init() {
 		TickRegistry.registerTickHandler(new ClientTickHandler(), Side.CLIENT);
 		
-		MinecraftForge.EVENT_BUS.register(Items.sekhmetsWrath);
-		MinecraftForge.EVENT_BUS.register(Items.mnevisHorns);
-		MinecraftForge.EVENT_BUS.register(Items.maatsBalance);
-		MinecraftForge.EVENT_BUS.register(Items.anubisMercy);
+		MinecraftForge.EVENT_BUS.register(AtumItems.sekhmetsWrath);
+		MinecraftForge.EVENT_BUS.register(AtumItems.mnevisHorns);
+		MinecraftForge.EVENT_BUS.register(AtumItems.maatsBalance);
+		MinecraftForge.EVENT_BUS.register(AtumItems.anubisMercy);
 	}
 	
 	@Override
 	public void initRenders() {
-		MinecraftForgeClient.registerItemRenderer(Items.ITEM_BOW.itemID, new RendererItemBow());
-		MinecraftForgeClient.registerItemRenderer(Items.atensFury.itemID, new RendererItemBow());
-		MinecraftForgeClient.registerItemRenderer(Items.horusSoaring.itemID, new RendererItemBow());
-		MinecraftForgeClient.registerItemRenderer(Items.neithsAudacity.itemID, new RendererItemBow());
-		MinecraftForgeClient.registerItemRenderer(Items.shusBreath.itemID, new RendererItemBow());
-		MinecraftForgeClient.registerItemRenderer(Items.hedetetsVenom.itemID, new RendererItemBow());
-		MinecraftForgeClient.registerItemRenderer(Items.monthusBlast.itemID, new RendererItemBow());
-		RenderingRegistry.registerBlockHandler(((BlockPapyrus) Blocks.BLOCK_PAPYRUS).renderID, new RenderPapyrus());
-		RenderingRegistry.registerBlockHandler(((BlockDate) Blocks.BLOCK_DATEBLOCK).renderID, new RenderDate());
+		MinecraftForgeClient.registerItemRenderer(AtumItems.ITEM_BOW.itemID, new RendererItemBow());
+		MinecraftForgeClient.registerItemRenderer(AtumItems.atensFury.itemID, new RendererItemBow());
+		MinecraftForgeClient.registerItemRenderer(AtumItems.horusSoaring.itemID, new RendererItemBow());
+		MinecraftForgeClient.registerItemRenderer(AtumItems.neithsAudacity.itemID, new RendererItemBow());
+		MinecraftForgeClient.registerItemRenderer(AtumItems.shusBreath.itemID, new RendererItemBow());
+		MinecraftForgeClient.registerItemRenderer(AtumItems.hedetetsVenom.itemID, new RendererItemBow());
+		MinecraftForgeClient.registerItemRenderer(AtumItems.monthusBlast.itemID, new RendererItemBow());
+		RenderingRegistry.registerBlockHandler(((BlockPapyrus) AtumBlocks.BLOCK_PAPYRUS).renderID, new RenderPapyrus());
+		RenderingRegistry.registerBlockHandler(((BlockDate) AtumBlocks.BLOCK_DATEBLOCK).renderID, new RenderDate());
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityMummy.class, new RenderLiving(new ModelZombie(), 0.5F) {
 

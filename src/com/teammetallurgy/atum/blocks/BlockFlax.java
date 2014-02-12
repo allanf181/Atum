@@ -14,7 +14,7 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -43,7 +43,7 @@ public class BlockFlax extends BlockFlower {
 	@Override
 	public boolean canBlockStay(World par1World, int par2, int par3, int par4) {
 		if(par1World.getBlockMetadata(par2, par3, par4) >> 3 == 1) {
-			return par1World.getBlockId(par2, par3 - 1, par4) == Blocks.BLOCK_FERTILESOIL.blockID;
+			return par1World.getBlockId(par2, par3 - 1, par4) == AtumBlocks.BLOCK_FERTILESOIL.blockID;
 		} else {
 			Block soil = Block.blocksList[par1World.getBlockId(par2, par3 - 1, par4)];
 			return (par1World.getFullBlockLightValue(par2, par3, par4) >= 8 || par1World.canBlockSeeTheSky(par2, par3, par4)) && soil != null && soil.canSustainPlant(par1World, par2, par3 - 1, par4, ForgeDirection.UP, this);
@@ -52,7 +52,7 @@ public class BlockFlax extends BlockFlower {
 
 	@Override
 	protected boolean canThisPlantGrowOnThisBlockID(int par1) {
-		return par1 == Block.tilledField.blockID || par1 == Blocks.BLOCK_FERTILESOILTILLED.blockID;
+		return par1 == Block.tilledField.blockID || par1 == AtumBlocks.BLOCK_FERTILESOILTILLED.blockID;
 	}
 
 	@Override
@@ -136,11 +136,11 @@ public class BlockFlax extends BlockFlower {
 	}
 
 	protected int getSeedItem() {
-		return Items.flaxSeeds.itemID;
+		return AtumItems.flaxSeeds.itemID;
 	}
 
 	protected int getCropItem() {
-		return Items.flax.itemID;
+		return AtumItems.flax.itemID;
 	}
 
 	@Override

@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum.blocks.tileentity;
+package com.teammetallurgy.atum.blocks.tileentity.chests;
 
 import java.util.ArrayList;
 import java.util.Iterator;

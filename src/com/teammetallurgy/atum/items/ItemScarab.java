@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import com.teammetallurgy.atum.blocks.BlockPortal;
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 public class ItemScarab extends Item {
 
@@ -26,7 +26,7 @@ public class ItemScarab extends Item {
 	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int x, int y, int z, int par7, float par8, float par9, float par10) {
 		int blockID = par3World.getBlockId(x, y, z);
 		if(blockID == Block.sandStone.blockID) {
-			if(!((BlockPortal) Blocks.BLOCK_PORTAL).tryToCreatePortal(par3World, x, y, z)) {
+			if(!((BlockPortal) AtumBlocks.BLOCK_PORTAL).tryToCreatePortal(par3World, x, y, z)) {
 				if(par2EntityPlayer.capabilities.isCreativeMode) {
 					for(int x1 = -2; x1 < 3; x1++) {
 						for(int z1 = -2; z1 < 3; z1++) {

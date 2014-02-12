@@ -2,7 +2,7 @@ package com.teammetallurgy.atum.worldgen.decorators;
 
 import java.util.Random;
 
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
@@ -26,7 +26,7 @@ public class WorldGenShrub extends WorldGenerator {
 			int x = par3 + par2Random.nextInt(range + 1) - range / 2;
 			int z = par5 + par2Random.nextInt(range + 1) - range / 2;
 			int y = par1World.getHeightValue(x, z);
-			if(par1World.isAirBlock(x, y, z) && Blocks.BLOCK_SHRUB.canBlockStay(par1World, x, y, z)) {
+			if(par1World.isAirBlock(x, y, z) && AtumBlocks.BLOCK_SHRUB.canBlockStay(par1World, x, y, z)) {
 				par1World.setBlock(x, y, z, this.deadBushID);
 			}
 		}

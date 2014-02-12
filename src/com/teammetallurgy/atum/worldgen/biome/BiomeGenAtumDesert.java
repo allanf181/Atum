@@ -9,7 +9,7 @@ import net.minecraft.world.biome.SpawnListEntry;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import com.teammetallurgy.atum.LocalizationHelper;
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.entity.EntityBanditArcher;
 import com.teammetallurgy.atum.entity.EntityBanditWarlord;
 import com.teammetallurgy.atum.entity.EntityBanditWarrior;
@@ -37,8 +37,8 @@ public class BiomeGenAtumDesert extends BiomeGenBase {
 	public BiomeGenAtumDesert(int par1) {
 		super(par1);
 		super.spawnableCreatureList.clear();
-		this.sTopBlock = (short) Blocks.BLOCK_SAND.blockID;
-		this.sFillerBlock = (short) Blocks.BLOCK_SAND.blockID;
+		this.sTopBlock = (short) AtumBlocks.BLOCK_SAND.blockID;
+		this.sFillerBlock = (short) AtumBlocks.BLOCK_SAND.blockID;
 		super.theBiomeDecorator.treesPerChunk = 1;
 		super.theBiomeDecorator.deadBushPerChunk = 5;
 		super.theBiomeDecorator.reedsPerChunk = 0;

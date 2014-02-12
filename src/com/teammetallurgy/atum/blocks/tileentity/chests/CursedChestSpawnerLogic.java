@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum.blocks.tileentity;
+package com.teammetallurgy.atum.blocks.tileentity.chests;
 
 import net.minecraft.block.Block;
 import net.minecraft.tileentity.WeightedRandomMinecart;

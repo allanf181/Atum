@@ -7,7 +7,7 @@ import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
 import com.teammetallurgy.atum.AtumLoot;
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 public class WorldGenRuins extends WorldGenerator {
 	@Override
@@ -47,15 +47,15 @@ public class WorldGenRuins extends WorldGenerator {
 						world.setBlockToAir(chestX, chestY + height, chestZ);
 					} else if(chestY < meta) {
 						if((double) random.nextFloat() > 0.1D) {
-							world.setBlock(chestX, chestY + height, chestZ, Blocks.BLOCK_LARGEBRICK.blockID);
+							world.setBlock(chestX, chestY + height, chestZ, AtumBlocks.BLOCK_LARGEBRICK.blockID);
 						} else {
-							world.setBlock(chestX, chestY + height, chestZ, Blocks.BLOCK_SMALLBRICK.blockID);
+							world.setBlock(chestX, chestY + height, chestZ, AtumBlocks.BLOCK_SMALLBRICK.blockID);
 						}
 					} else if(chestY == meta && (double) random.nextFloat() > 0.7D) {
 						if((double) random.nextFloat() > 0.1D) {
-							world.setBlock(chestX, chestY + height, chestZ, Blocks.BLOCK_SLABS.blockID, 2, 0);
+							world.setBlock(chestX, chestY + height, chestZ, AtumBlocks.BLOCK_SLABS.blockID, 2, 0);
 						} else {
-							world.setBlock(chestX, chestY + height, chestZ, Blocks.BLOCK_SLABS.blockID, 3, 0);
+							world.setBlock(chestX, chestY + height, chestZ, AtumBlocks.BLOCK_SLABS.blockID, 3, 0);
 						}
 					}
 				}
@@ -86,7 +86,7 @@ public class WorldGenRuins extends WorldGenerator {
 		}
 
 		chestY = world.getHeightValue(chestX, chestZ);
-		world.setBlock(chestX, chestY, chestZ, Blocks.BLOCK_CURSEDCHEST.blockID, 0, 2);
+		world.setBlock(chestX, chestY, chestZ, AtumBlocks.BLOCK_CURSEDCHEST.blockID, 0, 2);
 		IInventory chest = (IInventory) world.getBlockTileEntity(chestX, chestY, chestZ);
 		AtumLoot.fillChest(chest, 5, 0.5F);
 		return false;

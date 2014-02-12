@@ -22,9 +22,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 import com.teammetallurgy.atum.AtumLoot;
-import com.teammetallurgy.atum.blocks.Blocks;
-import com.teammetallurgy.atum.blocks.tileentity.TileEntityPharaohChest;
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
+import com.teammetallurgy.atum.items.AtumItems;
 
 import cpw.mods.fml.common.FMLCommonHandler;
 
@@ -50,7 +50,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 		Random rand = new Random();
 		stage = 0;
 
-		this.setCurrentItemOrArmor(0, new ItemStack(Items.ITEM_SCEPTER));
+		this.setCurrentItemOrArmor(0, new ItemStack(AtumItems.ITEM_SCEPTER));
 
 		for(int i = 0; i < this.equipmentDropChances.length; ++i) {
 			this.equipmentDropChances[i] = 0F;
@@ -213,7 +213,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 					Block block = Block.blocksList[id];
 
 					if(block != null) {
-						if(id != Blocks.BLOCK_LARGEBRICK.blockID && id != Blocks.BLOCK_PHARAOHCHEST.blockID && Block.blocksList[id].isBlockSolid(worldObj, x, y, z, 0)) {
+						if(id != AtumBlocks.BLOCK_LARGEBRICK.blockID && id != AtumBlocks.BLOCK_PHARAOHCHEST.blockID && Block.blocksList[id].isBlockSolid(worldObj, x, y, z, 0)) {
 							Block.blocksList[id].dropBlockAsItem(worldObj, x, y, z, metadata, 0);
 							flag1 = this.worldObj.setBlockToAir(x, y, z) || flag1;
 						}

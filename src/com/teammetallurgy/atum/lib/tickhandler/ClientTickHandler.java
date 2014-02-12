@@ -11,7 +11,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
 import com.teammetallurgy.atum.AtumIDS;
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 import cpw.mods.fml.client.FMLClientHandler;
 import cpw.mods.fml.common.ITickHandler;
@@ -47,7 +47,7 @@ public class ClientTickHandler implements ITickHandler {
 			boolean nightvision = false;
 
 			if(player.getCurrentArmor(3) != null) {
-				if(player.getCurrentArmor(3).itemID == Items.rasGlory.itemID) {
+				if(player.getCurrentArmor(3).itemID == AtumItems.rasGlory.itemID) {
 					nightvision = true;
 				}
 
@@ -98,7 +98,7 @@ public class ClientTickHandler implements ITickHandler {
 
 		if(type.contains(TickType.RENDER)) {
 			if(player != null && player.getCurrentArmor(3) != null) {
-				if(player.getCurrentArmor(3).itemID == Items.mummyHelmet.itemID) {
+				if(player.getCurrentArmor(3).itemID == AtumItems.mummyHelmet.itemID) {
 					ScaledResolution scaledresolution = new ScaledResolution(Minecraft.getMinecraft().gameSettings, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
 					int par1 = scaledresolution.getScaledWidth();
 					int par2 = scaledresolution.getScaledHeight();

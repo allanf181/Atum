@@ -5,7 +5,7 @@ import net.minecraft.item.EnumToolMaterial;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 public class LimestoneSword extends ItemSword {
 
@@ -14,7 +14,7 @@ public class LimestoneSword extends ItemSword {
 	}
 
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-		return par2ItemStack.itemID == Blocks.BLOCK_LIMESTONECOBBLE.blockID;
+		return par2ItemStack.itemID == AtumBlocks.BLOCK_LIMESTONECOBBLE.blockID;
 	}
 
 	public void registerIcons(IconRegister par1IconRegister) {

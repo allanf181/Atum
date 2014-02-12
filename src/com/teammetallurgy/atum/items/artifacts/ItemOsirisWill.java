@@ -16,7 +16,7 @@ import net.minecraft.util.EnumChatFormatting;
 
 import org.lwjgl.input.Keyboard;
 
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -45,7 +45,7 @@ public class ItemOsirisWill extends ItemSword {
 	@Override
 	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase mob, EntityLivingBase player) {
 		if(!mob.isEntityAlive() && Math.random() < 0.5D && mob.getCreatureAttribute() == EnumCreatureAttribute.UNDEAD) {
-			mob.dropItem(Items.ectoplasm.itemID, 1);
+			mob.dropItem(AtumItems.ectoplasm.itemID, 1);
 		}
 
 		return super.hitEntity(par1ItemStack, mob, player);

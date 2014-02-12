@@ -18,7 +18,7 @@ import net.minecraftforge.event.entity.living.LivingFallEvent;
 import org.lwjgl.input.Keyboard;
 
 import com.teammetallurgy.atum.items.ItemTexturedArmor;
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -47,7 +47,7 @@ public class ItemHorusFlight extends ItemTexturedArmor {
 
 	@ForgeSubscribe
 	public void onFallDamage(LivingFallEvent event) {
-		if(event.entityLiving.getCurrentItemOrArmor(0) != null && event.entityLiving.getCurrentItemOrArmor(0).itemID == Items.horusFlight.itemID) {
+		if(event.entityLiving.getCurrentItemOrArmor(0) != null && event.entityLiving.getCurrentItemOrArmor(0).itemID == AtumItems.horusFlight.itemID) {
 			event.distance = 0.0F;
 		}
 

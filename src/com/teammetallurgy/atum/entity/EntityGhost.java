@@ -12,7 +12,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
 
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 public class EntityGhost extends EntityMob implements IAtumNightMob {
 	private int cycleHeight = 0;
@@ -124,7 +124,7 @@ public class EntityGhost extends EntityMob implements IAtumNightMob {
 	protected void dropFewItems(boolean par1, int par2) {
 		if(this.rand.nextInt(4) == 0) {
 			int amount = rand.nextInt(3) + 1;
-			this.dropItem(Items.ectoplasm.itemID, amount);
+			this.dropItem(AtumItems.ectoplasm.itemID, amount);
 		}
 	}
 

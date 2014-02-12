@@ -8,7 +8,7 @@ import net.minecraft.entity.item.EntityItem;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -40,9 +40,9 @@ public class BlockDate extends Block {
 
 	@Override
 	public void onNeighborBlockChange(World world, int x, int y, int z, int neighborID) {
-		if(world.getBlockId(x, y + 1, z) != Blocks.BLOCK_LEAVES.blockID && !world.isRemote) {
-			EntityItem entityItem = new EntityItem(world, (double) x, (double) y, (double) z, new ItemStack(Items.ITEM_DATE.itemID, 0, this.quantityDropped(new Random())));
-			entityItem.dropItem(Items.ITEM_DATE.itemID, this.quantityDropped(new Random()));
+		if(world.getBlockId(x, y + 1, z) != AtumBlocks.BLOCK_LEAVES.blockID && !world.isRemote) {
+			EntityItem entityItem = new EntityItem(world, (double) x, (double) y, (double) z, new ItemStack(AtumItems.ITEM_DATE.itemID, 0, this.quantityDropped(new Random())));
+			entityItem.dropItem(AtumItems.ITEM_DATE.itemID, this.quantityDropped(new Random()));
 			world.setBlockToAir(x, y, z);
 		}
 
@@ -50,7 +50,7 @@ public class BlockDate extends Block {
 
 	@Override
 	public int idDropped(int par1, Random rand, int par3) {
-		return Items.ITEM_DATE.itemID;
+		return AtumItems.ITEM_DATE.itemID;
 	}
 
 	@Override
@@ -61,7 +61,7 @@ public class BlockDate extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int idPicked(World par1World, int par2, int par3, int par4) {
-		return Items.ITEM_DATE.itemID;
+		return AtumItems.ITEM_DATE.itemID;
 	}
 
 }

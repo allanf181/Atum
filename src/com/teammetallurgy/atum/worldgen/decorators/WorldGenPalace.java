@@ -6,7 +6,7 @@ import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 public class WorldGenPalace extends WorldGenerator {
 
@@ -16,10 +16,10 @@ public class WorldGenPalace extends WorldGenerator {
 	public int largeLimestoneBricksStairs;
 
 	public WorldGenPalace() {
-		this.largeLimestoneBricks = Blocks.BLOCK_LARGEBRICK.blockID;
-		this.smallLimestoneBricks = Blocks.BLOCK_SMALLBRICK.blockID;
-		this.carvedLimestone = Blocks.BLOCK_CARVEDBRICK.blockID;
-		this.largeLimestoneBricksStairs = Blocks.BLOCK_LARGESTONESTAIRS.blockID;
+		this.largeLimestoneBricks = AtumBlocks.BLOCK_LARGEBRICK.blockID;
+		this.smallLimestoneBricks = AtumBlocks.BLOCK_SMALLBRICK.blockID;
+		this.carvedLimestone = AtumBlocks.BLOCK_CARVEDBRICK.blockID;
+		this.largeLimestoneBricksStairs = AtumBlocks.BLOCK_LARGESTONESTAIRS.blockID;
 	}
 
 	@Override

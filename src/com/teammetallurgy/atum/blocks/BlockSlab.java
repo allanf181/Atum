@@ -30,13 +30,13 @@ public class BlockSlab extends BlockHalfSlab {
 	public Icon getIcon(int par1, int par2) {
 		par2 %= 4;
 		if(par2 == 0)
-			return Blocks.BLOCK_STONE.getIcon(par1, par2 & 0x7);
+			return AtumBlocks.BLOCK_STONE.getIcon(par1, par2 & 0x7);
 		if(par2 == 1)
-			return Blocks.BLOCK_LIMESTONECOBBLE.getIcon(par1, par2 & 0x7);
+			return AtumBlocks.BLOCK_LIMESTONECOBBLE.getIcon(par1, par2 & 0x7);
 		if(par2 == 2) {
-			return Blocks.BLOCK_LARGEBRICK.getIcon(par1, par2 & 0x7);
+			return AtumBlocks.BLOCK_LARGEBRICK.getIcon(par1, par2 & 0x7);
 		}
-		return Blocks.BLOCK_SMALLBRICK.getIcon(par1, par2 & 0x7);
+		return AtumBlocks.BLOCK_SMALLBRICK.getIcon(par1, par2 & 0x7);
 	}
 
 	@Override

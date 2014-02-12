@@ -187,7 +187,7 @@ public class BlockLeave extends BlockLeavesBase implements IShearable {
 	}
 
 	public int idDropped(int par1, Random par2Random, int par3) {
-		return Blocks.BLOCK_PALMSAPLING.blockID;
+		return AtumBlocks.BLOCK_PALMSAPLING.blockID;
 	}
 
 	@Override

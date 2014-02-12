@@ -6,18 +6,20 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.ForgeHooks;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.oredict.OreDictionary;
 
 import com.teammetallurgy.atum.Atum;
 import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.LocalizationHelper;
 import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
-import com.teammetallurgy.atum.blocks.tileentity.TileEntityChestSpawner;
-import com.teammetallurgy.atum.blocks.tileentity.TileEntityPharaohChest;
+import com.teammetallurgy.atum.blocks.tileentity.TileEntityLimestoneFurnace;
+import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityChestSpawner;
+import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-public enum Blocks {
+public enum AtumBlocks {
 	INSTANCE;
 
 	public static final BlockPortal BLOCK_PORTAL = new BlockPortal(AtumIDS.BLOCK_PORTAL_ID);
@@ -54,7 +56,7 @@ public enum Blocks {
 	public static final Block BLOCK_THINFRAMEDGLASS = new BlockAtumPane(AtumIDS.BLOCK_THINFRAMEDGLASS_ID, "atum:AtumFramedGlass", "thinglass_top").setUnlocalizedName("atum:thinFramedGlass");
 	public static final Block BLOCK_TRAPARROW = new BlockBurningTrap(AtumIDS.BLOCK_TRAPARROW_ID);
 	public static final Block BLOCK_PHARAOHCHEST = new BlockPharaohChest(AtumIDS.BLOCK_PHARAOHCHEST_ID);
-	public static final Block BLOCK_REDSTONEORE = new BlockAtumOres(AtumIDS.BLOCK_REDSTONEORE_ID).setUnlocalizedName("atum:redstoneOre").setTextureName("atum:AtumRedstone");
+	public static final Block BLOCK_REDSTONEORE = new BlockAtumRedstone(AtumIDS.BLOCK_REDSTONEORE_ID);
 	public static final Block BLOCK_COALORE = new BlockAtumOres(AtumIDS.BLOCK_COALORE_ID).setUnlocalizedName("atum:coalOre").setTextureName("atum:AtumCoal");
 	public static final Block BLOCK_IRONORE = new BlockAtumOres(AtumIDS.BLOCK_IRONORE_ID).setUnlocalizedName("atum:ironOre").setTextureName("atum:AtumIron");
 	public static final Block BLOCK_GOLDORE = new BlockAtumOres(AtumIDS.BLOCK_GOLDORE_ID).setUnlocalizedName("atum:goldOre").setTextureName("atum:AtumGold");
@@ -72,15 +74,12 @@ public enum Blocks {
 		this.register(BLOCK_LARGEBRICK);
 		this.register(BLOCK_SMALLBRICK);
 		this.register(BLOCK_CARVEDBRICK);
-		this.register(BLOCK_SLABS);
-		this.register(BLOCK_DOUBLESLAB);
 		this.register(BLOCK_SMOOTHSTAIRS);
 		this.register(BLOCK_COBBLESTAIRS);
 		this.register(BLOCK_LARGESTONESTAIRS);
 		this.register(BLOCK_SMALLSTONESTAIRS);
 		this.register(BLOCK_SANDLAYERED);
 		this.register(BLOCK_CRACKEDLARGEBRICK);
-		this.register(BLOCK_WALL);
 		this.register(BLOCK_CRYSTALGLASS);
 		this.register(BLOCK_FRAMEDGLASS);
 		this.register(BLOCK_PALMSAPLING);
@@ -121,22 +120,23 @@ public enum Blocks {
 		GameRegistry.registerTileEntity(TileEntityChestSpawner.class, "CursedChest");
 		GameRegistry.registerTileEntity(TileEntityPharaohChest.class, "PharaohChest");
 		GameRegistry.registerTileEntity(TileEntityBurningTrap.class, "BurningTrap");
+		GameRegistry.registerTileEntity(TileEntityLimestoneFurnace.class, "LimestoneFurnace");
 
+		OreDictionary.registerOre("logWood", BLOCK_LOG);
+		OreDictionary.registerOre("plankWood", BLOCK_PLANKS);
+
+		GameRegistry.registerBlock(BLOCK_SLABS, ItemBlockSlab.class, BLOCK_SLABS.getUnlocalizedName());
+		GameRegistry.registerBlock(BLOCK_DOUBLESLAB, ItemBlockSlab.class, BLOCK_DOUBLESLAB.getUnlocalizedName());
+
+		GameRegistry.registerBlock(BLOCK_WALL, ItemBlockWall.class, BLOCK_WALL.getUnlocalizedName());
 	}
 
 	private void register(Block b) {
 		if(!(b instanceof BlockDate)) {
 			b.setCreativeTab(Atum.creativeTab);
 		}
-		if(b instanceof BlockSlab) {
-			GameRegistry.registerBlock(b, ItemBlockSlab.class, b.getUnlocalizedName());
-		} else if(b instanceof BlockWalls) {
-			GameRegistry.registerBlock(b, ItemBlockWall.class, b.getUnlocalizedName());
-		} else {
-			GameRegistry.registerBlock(b, b.getUnlocalizedName());
-
-			name(b, "block.", b.getUnlocalizedName().split(":")[1]);
-		}
+		GameRegistry.registerBlock(b, b.getUnlocalizedName());
+		name(b, "block.", b.getUnlocalizedName().split(":")[1]);
 	}
 
 	private void name(Block b, String type, String tag) {

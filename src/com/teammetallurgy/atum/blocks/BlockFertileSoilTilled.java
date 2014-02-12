@@ -24,6 +24,7 @@ public class BlockFertileSoilTilled extends Block {
 
 	public BlockFertileSoilTilled(int par1) {
 		super(par1, Material.ground);
+		this.setHardness(0.5F);
 		this.setUnlocalizedName("atum:fertileSoilTilled");
 		this.setTickRandomly(true);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
@@ -61,7 +62,7 @@ public class BlockFertileSoilTilled extends Block {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public Icon getIcon(int par1, int par2) {
-		return par2 >> 3 == 0 ? (par1 == 1 ? (par2 > 0 ? this.farmlandWet : this.farmlandDry) : Blocks.BLOCK_FERTILESOIL.getIcon(par1, 1)) : Block.tilledField.getIcon(par1, par2);
+		return par2 >> 3 == 0 ? (par1 == 1 ? (par2 > 0 ? this.farmlandWet : this.farmlandDry) : AtumBlocks.BLOCK_FERTILESOIL.getIcon(par1, 1)) : Block.tilledField.getIcon(par1, par2);
 	}
 
 	@Override
@@ -146,13 +147,13 @@ public class BlockFertileSoilTilled extends Block {
 
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3) {
-		return par1 >> 3 == 0 ? Blocks.BLOCK_SAND.blockID : Block.dirt.blockID;
+		return par1 >> 3 == 0 ? AtumBlocks.BLOCK_SAND.blockID : Block.dirt.blockID;
 	}
 
 	public void revertToDirt(World world, int x, int y, int z) {
 		int type = world.getBlockMetadata(x, y, z) >> 3;
 		if(type == 0) {
-			world.setBlock(x, y, z, Blocks.BLOCK_FERTILESOIL.blockID);
+			world.setBlock(x, y, z, AtumBlocks.BLOCK_FERTILESOIL.blockID);
 			world.setBlockMetadataWithNotify(x, y, z, 1, 2);
 		} else {
 			world.setBlock(x, y, z, Block.dirt.blockID);
@@ -164,7 +165,7 @@ public class BlockFertileSoilTilled extends Block {
 	@SideOnly(Side.CLIENT)
 	public int idPicked(World par1World, int par2, int par3, int par4) {
 		int type = par1World.getBlockMetadata(par2, par3, par4) >> 3;
-		return type == 0 ? Blocks.BLOCK_SAND.blockID : Block.dirt.blockID;
+		return type == 0 ? AtumBlocks.BLOCK_SAND.blockID : Block.dirt.blockID;
 	}
 
 	@Override

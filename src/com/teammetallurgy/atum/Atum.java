@@ -3,13 +3,14 @@ package com.teammetallurgy.atum;
 import java.util.logging.Logger;
 
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraftforge.common.MinecraftForge;
 
-import com.teammetallurgy.atum.blocks.Blocks;
-import com.teammetallurgy.atum.entity.Entity;
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.entity.AtumEntities;
+import com.teammetallurgy.atum.items.AtumItems;
 import com.teammetallurgy.atum.lib.handler.CraftingHandler;
 import com.teammetallurgy.atum.lib.proxy.CommonProxy;
-import com.teammetallurgy.atum.world.World;
+import com.teammetallurgy.atum.world.AtumWorlds;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -48,29 +49,30 @@ public class Atum {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		LOGGER.info("Block Init");
-		Blocks.INSTANCE.registerBlocks();
+		AtumBlocks.INSTANCE.registerBlocks();
 
 		LOGGER.info("Item Init");
-		Items.INSTANCE.registerItems();
-		
+		AtumItems.INSTANCE.registerItems();
+
 		LOGGER.info("Register Crafting Recipes");
 		CraftingHandler.INSTANCE.register();
-		
+
 		LOGGER.info("World Init");
-		World.INSTANCE.register();
+		AtumWorlds.INSTANCE.register();
 
 		LOGGER.info("Entity Init");
-		Entity.INSTANCE.register();
+		AtumEntities.INSTANCE.register();
 
 		LOGGER.info("Loot Init");
 		AtumLoot.INSTANCE.register();
-		
+
 		LOGGER.info("Proxy Init");
 		proxy.init();
 		proxy.initRenders();
 		proxy.initTiles();
-		
-		
+
+		MinecraftForge.EVENT_BUS.register(new AtumEventListener());
+
 	}
 
 	@EventHandler

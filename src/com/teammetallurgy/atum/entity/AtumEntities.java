@@ -19,7 +19,7 @@ import com.teammetallurgy.atum.entity.projectiles.EntityFireSpearSeperated;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
 
-public enum Entity {
+public enum AtumEntities {
 	INSTANCE;
 
 	public void register() {

@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 public class EntityBarbarian extends EntityMob implements IAtumDayMob {
 
@@ -17,7 +17,7 @@ public class EntityBarbarian extends EntityMob implements IAtumDayMob {
 		super(par1World);
 		this.experienceValue = 9;
 		
-		this.setCurrentItemOrArmor(0, new ItemStack(Items.ITEM_GREATSWORD));
+		this.setCurrentItemOrArmor(0, new ItemStack(AtumItems.ITEM_GREATSWORD));
 		this.enchantEquipment();
 
 		for(int i = 0; i < this.equipmentDropChances.length; ++i) {
@@ -68,8 +68,8 @@ public class EntityBarbarian extends EntityMob implements IAtumDayMob {
 	@Override
 	protected void dropFewItems(boolean par1, int par2) {
 		if(rand.nextInt(20) == 0) {
-			int damage = (int) (Items.ITEM_GREATSWORD.getMaxDamage() - rand.nextInt(Items.ITEM_GREATSWORD.getMaxDamage()) * 0.5 + 20);
-			this.entityDropItem(new ItemStack(Items.ITEM_GREATSWORD.itemID, 1, damage), 0.0F);
+			int damage = (int) (AtumItems.ITEM_GREATSWORD.getMaxDamage() - rand.nextInt(AtumItems.ITEM_GREATSWORD.getMaxDamage()) * 0.5 + 20);
+			this.entityDropItem(new ItemStack(AtumItems.ITEM_GREATSWORD.itemID, 1, damage), 0.0F);
 		}
 
 		if(rand.nextInt(4) == 0) {

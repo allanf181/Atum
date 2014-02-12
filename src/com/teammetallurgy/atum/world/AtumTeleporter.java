@@ -16,7 +16,7 @@ import net.minecraft.world.Teleporter;
 import net.minecraft.world.WorldServer;
 
 import com.teammetallurgy.atum.blocks.BlockSlab;
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 public class AtumTeleporter extends Teleporter {
 
@@ -41,7 +41,7 @@ public class AtumTeleporter extends Teleporter {
 			}
 		} else {
 			int i = MathHelper.floor_double(par1Entity.posX);
-			int j = MathHelper.floor_double(par1Entity.posY) - 1;
+			int j = MathHelper.floor_double(par1Entity.posY) + 1;
 			int k = MathHelper.floor_double(par1Entity.posZ);
 			byte b0 = 1;
 			byte b1 = 0;
@@ -95,8 +95,8 @@ public class AtumTeleporter extends Teleporter {
 					double d6 = (double) d9 + 0.5D - par1Entity.posZ;
 
 					for(k2 = this.worldServerInstance.getActualHeight() - 1; k2 >= 0; --k2) {
-						if(this.worldServerInstance.getBlockId(k1, k2, d9) == Blocks.BLOCK_PORTAL.blockID) {
-							while(this.worldServerInstance.getBlockId(k1, k2 - 1, d9) == Blocks.BLOCK_PORTAL.blockID) {
+						if(this.worldServerInstance.getBlockId(k1, k2, d9) == AtumBlocks.BLOCK_PORTAL.blockID) {
+							while(this.worldServerInstance.getBlockId(k1, k2 - 1, d9) == AtumBlocks.BLOCK_PORTAL.blockID) {
 								--k2;
 							}
 
@@ -124,19 +124,19 @@ public class AtumTeleporter extends Teleporter {
 			double var47 = (double) j + 0.5D;
 			d4 = (double) k + 0.5D;
 			int j2 = -1;
-			if(this.worldServerInstance.getBlockId(i - 1, j, k) == Blocks.BLOCK_PORTAL.blockID) {
+			if(this.worldServerInstance.getBlockId(i - 1, j, k) == AtumBlocks.BLOCK_PORTAL.blockID) {
 				j2 = 2;
 			}
 
-			if(this.worldServerInstance.getBlockId(i + 1, j, k) == Blocks.BLOCK_PORTAL.blockID) {
+			if(this.worldServerInstance.getBlockId(i + 1, j, k) == AtumBlocks.BLOCK_PORTAL.blockID) {
 				j2 = 0;
 			}
 
-			if(this.worldServerInstance.getBlockId(i, j, k - 1) == Blocks.BLOCK_PORTAL.blockID) {
+			if(this.worldServerInstance.getBlockId(i, j, k - 1) == AtumBlocks.BLOCK_PORTAL.blockID) {
 				j2 = 3;
 			}
 
-			if(this.worldServerInstance.getBlockId(i, j, k + 1) == Blocks.BLOCK_PORTAL.blockID) {
+			if(this.worldServerInstance.getBlockId(i, j, k + 1) == AtumBlocks.BLOCK_PORTAL.blockID) {
 				j2 = 1;
 			}
 
@@ -370,7 +370,7 @@ public class AtumTeleporter extends Teleporter {
 		if(par1Entity.dimension == 0) {
 			block = Block.sandStone;
 		} else {
-			block = Blocks.BLOCK_LARGEBRICK;
+			block = AtumBlocks.BLOCK_LARGEBRICK;
 		}
 		for(int x1 = -2; x1 < 3; x1++) {
 			for(int z1 = -2; z1 < 3; z1++) {
@@ -397,7 +397,7 @@ public class AtumTeleporter extends Teleporter {
 
 		for(int x1 = -1; x1 < 2; x1++) {
 			for(int z1 = -1; z1 < 2; z1++) {
-				this.worldServerInstance.setBlock(x1 + entityX, entityY + 1, z1 + entityZ, Blocks.BLOCK_PORTAL.blockID);
+				this.worldServerInstance.setBlock(x1 + entityX, entityY + 1, z1 + entityZ, AtumBlocks.BLOCK_PORTAL.blockID);
 			}
 		}
 

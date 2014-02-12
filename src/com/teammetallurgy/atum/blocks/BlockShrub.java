@@ -23,7 +23,7 @@ public class BlockShrub extends BlockDeadBush {
 
 	@Override
 	public boolean canThisPlantGrowOnThisBlockID(int par1) {
-		return par1 == Blocks.BLOCK_SAND.blockID;
+		return par1 == AtumBlocks.BLOCK_SAND.blockID;
 	}
 
 	@Override
@@ -35,7 +35,7 @@ public class BlockShrub extends BlockDeadBush {
 	public void harvestBlock(World par1World, EntityPlayer par2EntityPlayer, int par3, int par4, int par5, int par6) {
 		if(!par1World.isRemote && par2EntityPlayer.getCurrentEquippedItem() != null && par2EntityPlayer.getCurrentEquippedItem().itemID == Item.shears.itemID) {
 			par2EntityPlayer.addStat(StatList.mineBlockStatArray[super.blockID], 1);
-			this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(Blocks.BLOCK_SHRUB, 1, par6));
+			this.dropBlockAsItem_do(par1World, par3, par4, par5, new ItemStack(AtumBlocks.BLOCK_SHRUB, 1, par6));
 		} else {
 			super.harvestBlock(par1World, par2EntityPlayer, par3, par4, par5, par6);
 		}

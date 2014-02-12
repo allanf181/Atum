@@ -32,7 +32,7 @@ import net.minecraftforge.event.terraingen.PopulateChunkEvent.Post;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent.Pre;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.worldgen.biome.BiomeGenAtumDesert;
 
 public class AtumChunkProvider implements IChunkProvider {
@@ -122,11 +122,11 @@ public class AtumChunkProvider implements IChunkProvider {
 							for(int n = 0; n < 4; ++n) {
 								if((d16 += d15) > 0.0D) {
 									if(index + dy < par3ArrayOfByte.length) {
-										par3ArrayOfByte[index += dy] = (short) Blocks.BLOCK_STONE.blockID;
+										par3ArrayOfByte[index += dy] = (short) AtumBlocks.BLOCK_STONE.blockID;
 									}
 								} else if(y1 * 8 + y2 < b2) {
 									if(index + dy < par3ArrayOfByte.length) {
-										par3ArrayOfByte[index += dy] = (short) Blocks.BLOCK_STONE.blockID;
+										par3ArrayOfByte[index += dy] = (short) AtumBlocks.BLOCK_STONE.blockID;
 									}
 								} else if(index + dy < par3ArrayOfByte.length) {
 									par3ArrayOfByte[index += dy] = 0;
@@ -170,11 +170,11 @@ public class AtumChunkProvider implements IChunkProvider {
 						short b3 = par3ArrayOfByte[l1];
 						if(b3 == 0) {
 							j1 = -1;
-						} else if(b3 == Blocks.BLOCK_STONE.blockID) {
+						} else if(b3 == AtumBlocks.BLOCK_STONE.blockID) {
 							if(j1 == -1) {
 								if(i1 <= 0) {
 									b1 = 0;
-									b2 = (short) Blocks.BLOCK_STONE.blockID;
+									b2 = (short) AtumBlocks.BLOCK_STONE.blockID;
 								} else if(y >= b0 - 4 && y <= b0 + 1) {
 									b1 = ((BiomeGenAtumDesert) biomegenbase).sTopBlock;
 									b2 = ((BiomeGenAtumDesert) biomegenbase).sFillerBlock;
@@ -189,9 +189,9 @@ public class AtumChunkProvider implements IChunkProvider {
 							} else if(j1 > 0) {
 								--j1;
 								par3ArrayOfByte[l1] = b2;
-								if(j1 == 0 && b2 == Blocks.BLOCK_SAND.blockID) {
+								if(j1 == 0 && b2 == AtumBlocks.BLOCK_SAND.blockID) {
 									j1 = this.rand.nextInt(4);
-									b2 = (short) Blocks.BLOCK_STONE.blockID;
+									b2 = (short) AtumBlocks.BLOCK_STONE.blockID;
 								}
 							}
 						}

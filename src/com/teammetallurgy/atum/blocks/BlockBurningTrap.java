@@ -41,7 +41,7 @@ public class BlockBurningTrap extends BlockContainer {
 
 	@Override
 	public float getBlockHardness(World par1World, int par2, int par3, int par4) {
-		return par1World.getBlockId(par2, par3 + 1, par4) == Blocks.BLOCK_LARGEBRICK.blockID && par1World.getBlockMetadata(par2, par3 + 1, par4) == 1 ? -1.0F : super.blockHardness;
+		return par1World.getBlockId(par2, par3 + 1, par4) == AtumBlocks.BLOCK_LARGEBRICK.blockID && par1World.getBlockMetadata(par2, par3 + 1, par4) == 1 ? -1.0F : super.blockHardness;
 	}
 
 	@Override

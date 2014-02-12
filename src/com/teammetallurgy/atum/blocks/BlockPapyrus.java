@@ -14,7 +14,7 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.ForgeDirection;
 import net.minecraftforge.common.IPlantable;
 
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import cpw.mods.fml.relauncher.Side;
@@ -136,7 +136,7 @@ public class BlockPapyrus extends Block implements IPlantable {
 
 	@Override
 	public int idDropped(int par1, Random par2Random, int par3) {
-		return Items.papyrusPlant.itemID;
+		return AtumItems.papyrusPlant.itemID;
 	}
 
 	@Override
@@ -157,7 +157,7 @@ public class BlockPapyrus extends Block implements IPlantable {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public int idPicked(World par1World, int par2, int par3, int par4) {
-		return Items.papyrusPlant.itemID;
+		return AtumItems.papyrusPlant.itemID;
 	}
 
 	@Override

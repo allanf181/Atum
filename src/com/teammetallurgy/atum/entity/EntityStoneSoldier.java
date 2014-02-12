@@ -10,7 +10,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 public class EntityStoneSoldier extends EntityStone implements IAtumNightMob, IAtumDayMob {
 
@@ -19,7 +19,7 @@ public class EntityStoneSoldier extends EntityStone implements IAtumNightMob, IA
 		this.isImmuneToFire = true;
 		this.experienceValue = 8;
 
-		this.setCurrentItemOrArmor(0, new ItemStack(Items.ITEM_STONESOLDIER_SWORD));
+		this.setCurrentItemOrArmor(0, new ItemStack(AtumItems.ITEM_STONESOLDIER_SWORD));
 
 		for(int i = 0; i < this.equipmentDropChances.length; ++i) {
 			this.equipmentDropChances[i] = 0F;
@@ -108,7 +108,7 @@ public class EntityStoneSoldier extends EntityStone implements IAtumNightMob, IA
 	protected void dropFewItems(boolean par1, int par2) {
 		if(this.rand.nextInt(4) == 0) {
 			int amount = rand.nextInt(2) + 1;
-			this.dropItem(Items.stoneChunk.itemID, amount);
+			this.dropItem(AtumItems.stoneChunk.itemID, amount);
 		}
 	}
 

@@ -10,7 +10,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.world.World;
 
 import com.teammetallurgy.atum.AtumConfig;
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 public class EntityBanditWarlord extends EntityMob implements IAtumDayMob {
 
@@ -18,7 +18,7 @@ public class EntityBanditWarlord extends EntityMob implements IAtumDayMob {
 		super(par1World);
 		this.experienceValue = 16;
 		
-		this.setCurrentItemOrArmor(0, new ItemStack(Items.ITEM_SCIMITAR));
+		this.setCurrentItemOrArmor(0, new ItemStack(AtumItems.ITEM_SCIMITAR));
 		EnchantmentHelper.addRandomEnchantment(this.rand, this.getHeldItem(), 5 + this.worldObj.difficultySetting * this.rand.nextInt(6));
 
 		for(int i = 0; i < this.equipmentDropChances.length; ++i) {
@@ -79,8 +79,8 @@ public class EntityBanditWarlord extends EntityMob implements IAtumDayMob {
 	@Override
 	protected void dropFewItems(boolean par1, int par2) {
 		if(rand.nextInt(20) == 0) {
-			int damage = (int) (Items.ITEM_SCIMITAR.getMaxDamage() - rand.nextInt(Items.ITEM_SCIMITAR.getMaxDamage()) * 0.5 + 20);
-			this.entityDropItem(new ItemStack(Items.ITEM_SCIMITAR.itemID, 1, damage), 0.0F);
+			int damage = (int) (AtumItems.ITEM_SCIMITAR.getMaxDamage() - rand.nextInt(AtumItems.ITEM_SCIMITAR.getMaxDamage()) * 0.5 + 20);
+			this.entityDropItem(new ItemStack(AtumItems.ITEM_SCIMITAR.itemID, 1, damage), 0.0F);
 		}
 
 		if(rand.nextInt(4) == 0) {
@@ -91,13 +91,13 @@ public class EntityBanditWarlord extends EntityMob implements IAtumDayMob {
 		if(rand.nextInt(4) == 0) {
 			int choice = rand.nextInt(4);
 			if(choice == 0) {
-				this.dropItem(Items.wandererHelmet.itemID, 1);
+				this.dropItem(AtumItems.wandererHelmet.itemID, 1);
 			} else if(choice == 1) {
-				this.dropItem(Items.wandererChest.itemID, 1);
+				this.dropItem(AtumItems.wandererChest.itemID, 1);
 			} else if(choice == 2) {
-				this.dropItem(Items.wandererLegs.itemID, 1);
+				this.dropItem(AtumItems.wandererLegs.itemID, 1);
 			} else if(choice == 3) {
-				this.dropItem(Items.wandererBoots.itemID, 1);
+				this.dropItem(AtumItems.wandererBoots.itemID, 1);
 			}
 		}
 	}

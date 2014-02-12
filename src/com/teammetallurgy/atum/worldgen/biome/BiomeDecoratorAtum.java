@@ -22,7 +22,7 @@ import net.minecraftforge.event.terraingen.OreGenEvent.Post;
 import net.minecraftforge.event.terraingen.OreGenEvent.Pre;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.worldgen.decorators.WorldGenShrub;
 
 public class BiomeDecoratorAtum extends BiomeDecorator {
@@ -31,16 +31,16 @@ public class BiomeDecoratorAtum extends BiomeDecorator {
 
 	public BiomeDecoratorAtum(BiomeGenBase par1BiomeGenBase) {
 		super(par1BiomeGenBase);
-		this.sandGen = new WorldGenSand(7, Blocks.BLOCK_SAND.blockID);
+		this.sandGen = new WorldGenSand(7, AtumBlocks.BLOCK_SAND.blockID);
 		this.gravelAsSandGen = new WorldGenSand(6, Block.gravel.blockID);
 		this.dirtGen = new WorldGenMinable(Block.dirt.blockID, 32);
 		this.gravelGen = new WorldGenMinable(Block.gravel.blockID, 32);
-		this.coalGen = new WorldGenMinable(Blocks.BLOCK_COALORE.blockID, 16, Blocks.BLOCK_STONE.blockID);
-		this.ironGen = new WorldGenMinable(Blocks.BLOCK_IRONORE.blockID, 8, Blocks.BLOCK_STONE.blockID);
-		this.goldGen = new WorldGenMinable(Blocks.BLOCK_GOLDORE.blockID, 8, Blocks.BLOCK_STONE.blockID);
-		this.redstoneGen = new WorldGenMinable(Blocks.BLOCK_REDSTONEORE.blockID, 7, Blocks.BLOCK_STONE.blockID);
-		this.diamondGen = new WorldGenMinable(Blocks.BLOCK_DIAMONDORE.blockID, 7, Blocks.BLOCK_STONE.blockID);
-		this.lapisGen = new WorldGenMinable(Blocks.BLOCK_LAPISORE.blockID, 6);
+		this.coalGen = new WorldGenMinable(AtumBlocks.BLOCK_COALORE.blockID, 16, AtumBlocks.BLOCK_STONE.blockID);
+		this.ironGen = new WorldGenMinable(AtumBlocks.BLOCK_IRONORE.blockID, 8, AtumBlocks.BLOCK_STONE.blockID);
+		this.goldGen = new WorldGenMinable(AtumBlocks.BLOCK_GOLDORE.blockID, 8, AtumBlocks.BLOCK_STONE.blockID);
+		this.redstoneGen = new WorldGenMinable(AtumBlocks.BLOCK_REDSTONEORE.blockID, 7, AtumBlocks.BLOCK_STONE.blockID);
+		this.diamondGen = new WorldGenMinable(AtumBlocks.BLOCK_DIAMONDORE.blockID, 7, AtumBlocks.BLOCK_STONE.blockID);
+		this.lapisGen = new WorldGenMinable(AtumBlocks.BLOCK_LAPISORE.blockID, 6);
 		
 		this.plantYellowGen = new WorldGenFlowers(Block.plantYellow.blockID);
 		this.plantRedGen = new WorldGenFlowers(Block.plantRed.blockID);
@@ -122,7 +122,7 @@ public class BiomeDecoratorAtum extends BiomeDecorator {
 			l = this.randomGenerator.nextInt(128);
 			i1 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
 			time = System.nanoTime();
-			(new WorldGenShrub(Blocks.BLOCK_SHRUB.blockID, 8)).generate(this.currentWorld, this.randomGenerator, k, l, i1);
+			(new WorldGenShrub(AtumBlocks.BLOCK_SHRUB.blockID, 8)).generate(this.currentWorld, this.randomGenerator, k, l, i1);
 		}
 
 		if(this.randomGenerator.nextFloat() < this.shrubChance) {
@@ -130,7 +130,7 @@ public class BiomeDecoratorAtum extends BiomeDecorator {
 			l = this.randomGenerator.nextInt(128);
 			i1 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
 			time = System.nanoTime();
-			(new WorldGenShrub(Blocks.BLOCK_WEED.blockID, 8)).generate(this.currentWorld, this.randomGenerator, k, l, i1);
+			(new WorldGenShrub(AtumBlocks.BLOCK_WEED.blockID, 8)).generate(this.currentWorld, this.randomGenerator, k, l, i1);
 		}
 
 		doGen = TerrainGen.decorate(this.currentWorld, this.randomGenerator, this.chunk_X, this.chunk_Z, EventType.LAKE);

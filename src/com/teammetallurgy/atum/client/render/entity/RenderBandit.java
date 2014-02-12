@@ -19,7 +19,7 @@ import net.minecraftforge.client.MinecraftForgeClient;
 import org.lwjgl.opengl.GL11;
 
 import com.teammetallurgy.atum.entity.EntityBanditWarrior;
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -93,7 +93,7 @@ public class RenderBandit extends RenderBiped {
 				GL11.glRotatef(20.0F, 1.0F, 0.0F, 0.0F);
 				GL11.glRotatef(45.0F, 0.0F, 1.0F, 0.0F);
 				GL11.glScalef(-f2, -f2, f2);
-			} else if(itemstack.itemID == Items.ITEM_BOW.itemID) {
+			} else if(itemstack.itemID == AtumItems.ITEM_BOW.itemID) {
 				f2 = 0.625F;
 				GL11.glTranslatef(0.0F, 0.125F, 0.3125F);
 				GL11.glRotatef(-20.0F, 0.0F, 1.0F, 0.0F);

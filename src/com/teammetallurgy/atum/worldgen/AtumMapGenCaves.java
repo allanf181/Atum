@@ -7,7 +7,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.MapGenBase;
 
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 public class AtumMapGenCaves extends MapGenBase {
 	
@@ -138,12 +138,12 @@ public class AtumMapGenCaves extends MapGenBase {
 												flag3 = true;
 											}
 
-											if(b0 == Blocks.BLOCK_STONE.blockID || b0 == Blocks.BLOCK_SAND.blockID) {
+											if(b0 == AtumBlocks.BLOCK_STONE.blockID || b0 == AtumBlocks.BLOCK_SAND.blockID) {
 												if(k4 < 10) {
 													par5ArrayOfByte[j4] = (byte) Block.lavaMoving.blockID;
 												} else {
 													par5ArrayOfByte[j4] = 0;
-													if(flag3 && par5ArrayOfByte[j4 - 1] == Blocks.BLOCK_SAND.blockID) {
+													if(flag3 && par5ArrayOfByte[j4 - 1] == AtumBlocks.BLOCK_SAND.blockID) {
 														par5ArrayOfByte[j4 - 1] = super.worldObj.getBiomeGenForCoords(j3 + par3 * 16, k3 + par4 * 16).topBlock;
 													}
 												}

@@ -9,7 +9,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 public class EntityBanditWarrior extends EntityMob implements IAtumDayMob {
 
@@ -17,7 +17,7 @@ public class EntityBanditWarrior extends EntityMob implements IAtumDayMob {
 		super(par1World);
 		this.experienceValue = 8;
 
-		super.setCurrentItemOrArmor(0, new ItemStack(Items.ITEM_SCIMITAR));
+		super.setCurrentItemOrArmor(0, new ItemStack(AtumItems.ITEM_SCIMITAR));
 		this.enchantEquipment();
 
 		for(int i = 0; i < this.equipmentDropChances.length; ++i) {
@@ -79,8 +79,8 @@ public class EntityBanditWarrior extends EntityMob implements IAtumDayMob {
 	@Override
 	protected void dropFewItems(boolean par1, int par2) {
 		if(rand.nextInt(20) == 0) {
-			int damage = (int) (Items.ITEM_SCIMITAR.getMaxDamage() - rand.nextInt(Items.ITEM_SCIMITAR.getMaxDamage()) * 0.5 + 20);
-			this.entityDropItem(new ItemStack(Items.ITEM_SCIMITAR.itemID, 1, damage), 0.0F);
+			int damage = (int) (AtumItems.ITEM_SCIMITAR.getMaxDamage() - rand.nextInt(AtumItems.ITEM_SCIMITAR.getMaxDamage()) * 0.5 + 20);
+			this.entityDropItem(new ItemStack(AtumItems.ITEM_SCIMITAR.itemID, 1, damage), 0.0F);
 		}
 
 		if(rand.nextInt(10) == 0) {

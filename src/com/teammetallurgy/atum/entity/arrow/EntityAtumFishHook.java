@@ -21,7 +21,7 @@ import net.minecraft.world.World;
 
 import com.teammetallurgy.atum.AtumFish;
 import com.teammetallurgy.atum.AtumIDS;
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -195,7 +195,7 @@ public class EntityAtumFishHook extends EntityFishHook {
 			if(!this.worldObj.isRemote) {
 				ItemStack itemstack = this.angler.getCurrentEquippedItem();
 
-				if(this.angler.isDead || !this.angler.isEntityAlive() || itemstack == null || itemstack.getItem() != Items.anuketsBounty || this.getDistanceSqToEntity(this.angler) > 1024.0D) {
+				if(this.angler.isDead || !this.angler.isEntityAlive() || itemstack == null || itemstack.getItem() != AtumItems.anuketsBounty || this.getDistanceSqToEntity(this.angler) > 1024.0D) {
 					this.setDead();
 					this.angler.fishEntity = null;
 					return;

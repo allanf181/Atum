@@ -6,7 +6,7 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 import cpw.mods.fml.common.ITickHandler;
 import cpw.mods.fml.common.TickType;
@@ -23,7 +23,7 @@ public class ServerTickHandler implements ITickHandler {
 			if(player.worldObj.getTotalWorldTime() % 60L == 0L) {
 
 				if(player.getCurrentArmor(2) != null) {
-					if(player.getCurrentArmor(2).itemID == Items.isisEmbrace.itemID) {
+					if(player.getCurrentArmor(2).itemID == AtumItems.isisEmbrace.itemID) {
 						player.heal(1);
 					}
 				}
@@ -31,7 +31,7 @@ public class ServerTickHandler implements ITickHandler {
 
 			if(player.worldObj.getTotalWorldTime() % 10L == 0L) {
 				if(player.getCurrentArmor(3) != null) {
-					if(player.getCurrentArmor(3).itemID == Items.rasGlory.itemID) {
+					if(player.getCurrentArmor(3).itemID == AtumItems.rasGlory.itemID) {
 						player.addPotionEffect(new PotionEffect(16, 340, 0, true));
 					} else {
 						if(player.isPotionActive(16)) {
@@ -41,20 +41,20 @@ public class ServerTickHandler implements ITickHandler {
 				}
 
 				if(player.getCurrentArmor(2) != null) {
-					if(player.getCurrentArmor(2).itemID == Items.sekhmetsWrath.itemID) {
+					if(player.getCurrentArmor(2).itemID == AtumItems.sekhmetsWrath.itemID) {
 						// player.addPotionEffect(new PotionEffect(12, 240, 0, true));
 					}
 				}
 
 				if(player.getCurrentArmor(1) != null) {
-					if(player.getCurrentArmor(1).itemID == Items.nutsAgility.itemID) {
+					if(player.getCurrentArmor(1).itemID == AtumItems.nutsAgility.itemID) {
 						// player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 240, 1, true));
 						player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 240, 1, true));
 					}
 				}
 
 				if(player.getCurrentArmor(0) != null) {
-					if(player.getCurrentArmor(0).itemID == Items.horusFlight.itemID) {
+					if(player.getCurrentArmor(0).itemID == AtumItems.horusFlight.itemID) {
 						// player.addPotionEffect(new PotionEffect(8, 240, 1, true));
 					}
 				}

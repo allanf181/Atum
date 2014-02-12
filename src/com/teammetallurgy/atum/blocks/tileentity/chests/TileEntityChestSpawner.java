@@ -1,10 +1,11 @@
-package com.teammetallurgy.atum.blocks.tileentity;
+package com.teammetallurgy.atum.blocks.tileentity.chests;
 
 import java.util.Iterator;
 import java.util.List;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
+import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ContainerChest;
 import net.minecraft.inventory.IInventory;
@@ -15,13 +16,9 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.AxisAlignedBB;
 
-import com.teammetallurgy.atum.entity.EntityMummy;
-import com.teammetallurgy.atum.entity.EntityPharaoh;
+public class TileEntityChestSpawner extends TileEntityChest implements IInventory {
 
-import cpw.mods.fml.common.FMLCommonHandler;
-
-public class TileEntityPharaohChest extends TileEntityChest implements IInventory {
-
+	private final CursedChestSpawnerLogic chestSpawner = new CursedChestSpawnerLogic(this);
 	private ItemStack[] chestContents = new ItemStack[36];
 	public float f;
 	public float g;
@@ -29,17 +26,68 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 	private int ticksSinceSync;
 	private int field_94046_i = -1;
 	private String field_94045_s;
-	private boolean hasSpawned = false;
-	private boolean isOpenable = false;
 
+	public TileEntityChestSpawner() {
+		int entityID = (int) (Math.random() * 6.0D);
+		if(entityID == 0) {
+			this.chestSpawner.setMobID("AtumMummy");
+		}
+
+		if(entityID == 1) {
+			this.chestSpawner.setMobID("AtumBanditWarrior");
+		}
+
+		if(entityID == 2) {
+			this.chestSpawner.setMobID("AtumBanditArcher");
+		}
+
+		if(entityID == 3) {
+			this.chestSpawner.setMobID("AtumDustySkeleton");
+		}
+
+		if(entityID == 4) {
+			this.chestSpawner.setMobID("AtumDesertGhost");
+		}
+
+		if(entityID == 5) {
+			this.chestSpawner.setMobID("AtumStoneSoldier");
+		}
+
+		if(entityID == 6) {
+			this.chestSpawner.setMobID("AtumDesertWolf");
+		}
+
+		this.chestSpawner.minSpawnDelay = 0;
+	}
+
+	public void setSpawnerEntity(String name) {
+		this.chestSpawner.setMobID(name);
+	}
+
+	public void setMaxEntities(int max) {
+		this.chestSpawner.spawnCount = max;
+	}
+
+	public void setDelay(int min, int max) {
+		this.chestSpawner.minSpawnDelay = min;
+		this.chestSpawner.maxSpawnDelay = max;
+	}
+
+	public void setRange(int range) {
+		this.chestSpawner.spawnRange = range;
+	}
+
+	@Override
 	public int getSizeInventory() {
 		return 27;
 	}
 
+	@Override
 	public ItemStack getStackInSlot(int par1) {
 		return this.chestContents[par1];
 	}
 
+	@Override
 	public ItemStack decrStackSize(int par1, int par2) {
 		if(this.chestContents[par1] != null) {
 			ItemStack itemstack;
@@ -62,6 +110,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 		}
 	}
 
+	@Override
 	public ItemStack getStackInSlotOnClosing(int par1) {
 		if(this.chestContents[par1] != null) {
 			ItemStack itemstack = this.chestContents[par1];
@@ -72,6 +121,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 		}
 	}
 
+	@Override
 	public void setInventorySlotContents(int par1, ItemStack par2ItemStack) {
 		this.chestContents[par1] = par2ItemStack;
 		if(par2ItemStack != null && par2ItemStack.stackSize > this.getInventoryStackLimit()) {
@@ -81,18 +131,22 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 		this.onInventoryChanged();
 	}
 
+	@Override
 	public String getInvName() {
 		return this.isInvNameLocalized() ? this.field_94045_s : "container.chest";
 	}
 
+	@Override
 	public boolean isInvNameLocalized() {
 		return this.field_94045_s != null && this.field_94045_s.length() > 0;
 	}
 
-	public void func_94043_a(String par1Str) {
+	@Override
+	public void setChestGuiName(String par1Str) {
 		this.field_94045_s = par1Str;
 	}
 
+	@Override
 	public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
 		super.readFromNBT(par1NBTTagCompound);
 		NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items");
@@ -109,10 +163,10 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 			}
 		}
 
-		this.hasSpawned = par1NBTTagCompound.getBoolean("spawned");
-		this.isOpenable = par1NBTTagCompound.getBoolean("openable");
+		this.chestSpawner.readFromNBT(par1NBTTagCompound);
 	}
 
+	@Override
 	public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
 		super.writeToNBT(par1NBTTagCompound);
 		NBTTagList nbttaglist = new NBTTagList();
@@ -131,25 +185,39 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 			par1NBTTagCompound.setString("CustomName", this.field_94045_s);
 		}
 
-		par1NBTTagCompound.setBoolean("spawned", this.hasSpawned);
-		par1NBTTagCompound.setBoolean("openable", this.isOpenable);
+		this.chestSpawner.writeToNBT(par1NBTTagCompound);
 	}
 
+	@Override
 	public int getInventoryStackLimit() {
 		return 64;
 	}
 
+	@Override
 	public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
-		return !this.isOpenable ? false : (this.isOpenable && super.worldObj.getBlockTileEntity(super.xCoord, super.yCoord, super.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double) super.xCoord + 0.5D, (double) super.yCoord + 0.5D, (double) super.zCoord + 0.5D) <= 64.0D);
+		double d0 = 4.0D;
+		double d1 = 3.0D;
+		List list = super.worldObj.getEntitiesWithinAABB(EntityMob.class, AxisAlignedBB.getAABBPool().getAABB((double) super.xCoord - d0, (double) super.yCoord - d1, (double) super.zCoord - d0, (double) super.xCoord + d0, (double) super.yCoord + d1, (double) super.zCoord + d0));
+		if(!list.isEmpty()) {
+			if(!super.worldObj.isRemote) {
+				par1EntityPlayer.addChatMessage("There are too many enemies nearby to search this chest");
+			}
+
+			return false;
+		} else {
+			return super.worldObj.getBlockTileEntity(super.xCoord, super.yCoord, super.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double) super.xCoord + 0.5D, (double) super.yCoord + 0.5D, (double) super.zCoord + 0.5D) <= 64.0D;
+		}
 	}
 
 	private boolean func_94044_a(int par1, int par2, int par3) {
 		Block block = Block.blocksList[super.worldObj.getBlockId(par1, par2, par3)];
-		return block != null && block instanceof BlockChest ? ((BlockChest) block).chestType == this.func_98041_l() : false;
+		return block != null && block instanceof BlockChest ? ((BlockChest) block).chestType == this.getChestType() : false;
 	}
 
+	@Override
 	public void updateEntity() {
 		super.updateEntity();
+		this.chestSpawner.updateSpawner();
 		++this.ticksSinceSync;
 		float f;
 		if(!super.worldObj.isRemote && super.numUsingPlayers != 0 && (this.ticksSinceSync + super.xCoord + super.yCoord + super.zCoord) % 200 == 0) {
@@ -204,6 +272,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 
 	}
 
+	@Override
 	public boolean receiveClientEvent(int par1, int par2) {
 		if(par1 == 1) {
 			super.numUsingPlayers = par2;
@@ -213,6 +282,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 		}
 	}
 
+	@Override
 	public void openChest() {
 		if(super.numUsingPlayers < 0) {
 			super.numUsingPlayers = 0;
@@ -224,6 +294,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 		super.worldObj.notifyBlocksOfNeighborChange(super.xCoord, super.yCoord - 1, super.zCoord, this.getBlockType().blockID);
 	}
 
+	@Override
 	public void closeChest() {
 		if(this.getBlockType() != null && this.getBlockType() instanceof BlockChest) {
 			--super.numUsingPlayers;
@@ -234,16 +305,14 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 
 	}
 
-	public boolean isStackValidForSlot(int par1, ItemStack par2ItemStack) {
-		return true;
-	}
-
+	@Override
 	public void invalidate() {
 		super.invalidate();
 		this.updateContainingBlockInfo();
 	}
 
-	public int func_98041_l() {
+	@Override
+	public int getChestType() {
 		if(this.field_94046_i == -1) {
 			if(super.worldObj == null || !(this.getBlockType() instanceof BlockChest)) {
 				return 0;
@@ -255,56 +324,4 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 		return this.field_94046_i;
 	}
 
-	public void setOpenable() {
-		this.isOpenable = true;
-	}
-
-	public boolean hasSpawned() {
-		return this.hasSpawned;
-	}
-
-	public void spawn(EntityPlayer player) {
-		EntityPharaoh pharaoh = new EntityPharaoh(super.worldObj);
-		pharaoh.setPosition((double) super.xCoord + 0.5D, (double) (super.yCoord + 1), (double) super.zCoord + 0.5D);
-		pharaoh.link(super.xCoord, super.yCoord, super.zCoord);
-		if(!super.worldObj.isRemote) {
-			super.worldObj.spawnEntityInWorld(pharaoh);
-		}
-
-		pharaoh.spawnExplosionParticle();
-		this.hasSpawned = true;
-		EntityMummy mummy1 = new EntityMummy(super.worldObj);
-		mummy1.setPosition((double) super.xCoord + 0.5D, (double) super.yCoord, (double) super.zCoord - 0.5D);
-		if(!super.worldObj.isRemote) {
-			super.worldObj.spawnEntityInWorld(mummy1);
-		}
-
-		mummy1.spawnExplosionParticle();
-		EntityMummy mummy2 = new EntityMummy(super.worldObj);
-		mummy2.setPosition((double) super.xCoord + 0.5D, (double) super.yCoord, (double) super.zCoord + 1.5D);
-		if(!super.worldObj.isRemote) {
-			super.worldObj.spawnEntityInWorld(mummy2);
-		}
-
-		mummy2.spawnExplosionParticle();
-		if(!super.worldObj.isRemote) {
-			List players = FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().playerEntityList;
-			Iterator i = players.iterator();
-
-			while(i.hasNext()) {
-				EntityPlayer p = (EntityPlayer) i.next();
-				p.addChatMessage(pharaoh.getEntityName() + " was summoned by " + player.getEntityName());
-			}
-		}
-
-		if(!super.worldObj.isRemote) {
-			System.out.println("Playing Sound");
-			super.worldObj.playSoundAtEntity(pharaoh, "Atum.pharaohspawn", 1.0F, 1.0F);
-		}
-
-	}
-
-	public void setPharaohDespawned() {
-		this.hasSpawned = false;
-	}
 }

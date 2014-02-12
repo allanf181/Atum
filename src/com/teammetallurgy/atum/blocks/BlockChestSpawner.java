@@ -20,7 +20,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
 
-import com.teammetallurgy.atum.blocks.tileentity.TileEntityChestSpawner;
+import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityChestSpawner;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -1,7 +1,7 @@
 package com.teammetallurgy.atum.worldgen;
 
 import com.teammetallurgy.atum.AtumIDS;
-import com.teammetallurgy.atum.world.World;
+import com.teammetallurgy.atum.world.AtumWorlds;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -19,8 +19,8 @@ public class AtumWorldProvider extends WorldProvider {
 
 	@Override
 	protected void registerWorldChunkManager() {
-		super.worldChunkMgr = new WorldChunkManagerHell(World.BIOME_DESERT, 0.8F, 0.1F);
-		super.dimensionId = AtumIDS.DIMENSION_ID;
+		this.worldChunkMgr = new WorldChunkManagerHell(AtumWorlds.BIOME_DESERT, 0.8F, 0.1F);
+		this.dimensionId = AtumIDS.DIMENSION_ID;
 	}
 
 	@Override
@@ -91,10 +91,12 @@ public class AtumWorldProvider extends WorldProvider {
 		return false;
 	}
 
+	@Override
 	public String getWelcomeMessage() {
 		return "Entering Atum";
 	}
 
+	@Override
 	public String getDepartMessage() {
 		return "Leaving Atum";
 	}

@@ -9,7 +9,7 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraft.world.IBlockAccess;
 
 import com.teammetallurgy.atum.blocks.BlockDate;
-import com.teammetallurgy.atum.blocks.Blocks;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.client.model.tileentity.ModelDate;
 
 import cpw.mods.fml.client.registry.ISimpleBlockRenderingHandler;
@@ -119,6 +119,6 @@ public class RenderDate implements ISimpleBlockRenderingHandler {
 
 	@Override
 	public int getRenderId() {
-		return ((BlockDate) Blocks.BLOCK_DATEBLOCK).renderID;
+		return ((BlockDate) AtumBlocks.BLOCK_DATEBLOCK).renderID;
 	}
 }

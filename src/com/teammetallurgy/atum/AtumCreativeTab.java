@@ -1,6 +1,6 @@
 package com.teammetallurgy.atum;
 
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 import com.teammetallurgy.atum.items.artifacts.ItemSpear;
 
 import net.minecraft.creativetab.CreativeTabs;
@@ -29,6 +29,6 @@ public class AtumCreativeTab extends CreativeTabs {
 	
 	@Override
 	public Item getTabIconItem() {
-		return Items.ITEM_SCARAB;
+		return AtumItems.ITEM_SCARAB;
 	}
 }

@@ -30,7 +30,7 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.teammetallurgy.atum.items.Items;
+import com.teammetallurgy.atum.items.AtumItems;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -203,7 +203,7 @@ public class EntityDesertWolf extends EntityTameable implements IAtumDayMob {
 		}
 		if(rand.nextInt(4) == 0) {
 			int amount = rand.nextInt(2) + 1;
-			this.dropItem(Items.pelt.itemID, amount);
+			this.dropItem(AtumItems.pelt.itemID, amount);
 		}
 	}
 
