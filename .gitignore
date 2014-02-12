@@ -1,14 +1,4 @@
-# Ignore Everything
-/*
-/*/
-
-# Don't Ignore These Files
-!/.gitignore
-!/gradlew
-!/gradlew.bat
-!/README
-!/LICENSE
-!/build.properties
-!/build.gradle
-!/src/
-!/gradle/
+/releases/
+/download/
+/build/
+/bin/
