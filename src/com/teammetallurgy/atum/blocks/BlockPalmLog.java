@@ -3,7 +3,7 @@ package com.teammetallurgy.atum.blocks;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockLog;
+import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IconRegister;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
@@ -11,17 +11,13 @@ import net.minecraft.world.World;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockPalmLog extends BlockLog {
-	public static final String[] woodType = new String[]{"oak", "spruce", "birch", "jungle"};
-	public static final String[] treeTextureTypes = new String[]{"tree_side", "tree_spruce", "tree_birch", "tree_jungle"};
-	@SideOnly(Side.CLIENT)
-	private Icon[] iconArray;
+public class BlockPalmLog extends Block {
 	@SideOnly(Side.CLIENT)
 	private Icon tree_top;
 	private Icon tree_side;
 
 	protected BlockPalmLog(int par1) {
-		super(par1);
+		super(par1, Material.wood);
 		this.setUnlocalizedName("atum:palmLog");
 		this.setHardness(2.0F);
 		this.setStepSound(Block.soundWoodFootstep);
@@ -84,16 +80,6 @@ public class BlockPalmLog extends BlockLog {
 		int k = par2 & 12;
 		int l = par2 & 3;
 		return k == 0 && (par1 == 1 || par1 == 0) ? this.tree_top : (k == 4 && (par1 == 5 || par1 == 4) ? this.tree_top : (k == 8 && (par1 == 2 || par1 == 3) ? this.tree_top : this.tree_side));
-	}
-
-	@Override
-	public int damageDropped(int par1) {
-		return par1 & 3;
-	}
-
-	@Override
-	protected ItemStack createStackedBlock(int par1) {
-		return new ItemStack(super.blockID, 1, limitToValidMetadata(par1));
 	}
 
 	@Override

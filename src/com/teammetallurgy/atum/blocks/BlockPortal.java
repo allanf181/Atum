@@ -40,25 +40,28 @@ public class BlockPortal extends BlockBreakable {
 
 	}
 
+	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
 		return null;
 	}
 
+	@Override
 	public void setBlockBoundsBasedOnState(IBlockAccess par1IBlockAccess, int par2, int par3, int par4) {
 	}
 
 	@Override
 	public void onNeighborBlockChange(World par1World, int par2, int par3, int par4, int par5) {
-//		for(int x = -1; x < 2; x++) {
-//			for(int z = -1; z < 2; z++) {
-//				for(int y = -1; y < 1; y++) {
-//					if(par1World.getBlockId(par2 + x, par3 + y, par4 + z) != Block.sandStone.blockID && par1World.getBlockId(par2 + x, par3 + y, par4 + z) != this.blockID && par1World.getBlockId(par2 + x, par3 + y, par4 + z) != Blocks.BLOCK_LARGEBRICK.blockID) {
-//						System.out.println(par1World.getBlockId(par2 + x, par3 + y, par4 + z));
-//						par1World.setBlockToAir(par2, par3, par4);
-//					}
-//				}
-//			}
-//		}
+		// for(int x = -1; x < 2; x++) {
+		// for(int z = -1; z < 2; z++) {
+		// for(int y = -1; y < 1; y++) {
+		// if(par1World.getBlockId(par2 + x, par3 + y, par4 + z) != Block.sandStone.blockID && par1World.getBlockId(par2 + x, par3 + y, par4 + z) != this.blockID && par1World.getBlockId(par2 + x, par3
+		// + y, par4 + z) != Blocks.BLOCK_LARGEBRICK.blockID) {
+		// System.out.println(par1World.getBlockId(par2 + x, par3 + y, par4 + z));
+		// par1World.setBlockToAir(par2, par3, par4);
+		// }
+		// }
+		// }
+		// }
 	}
 
 	@Override
@@ -99,7 +102,7 @@ public class BlockPortal extends BlockBreakable {
 		}
 		for(int x1 = -1; x1 < 2; x1++) {
 			for(int z1 = -1; z1 < 2; z1++) {
-				par1World.setBlock(x + x1, y + 1, z + z1, AtumBlocks.BLOCK_PORTAL.blockID);
+				par1World.setBlock(x + x1, y + 1, z + z1, AtumBlocks.BLOCK_PORTAL.blockID, 0, 0);
 			}
 		}
 		return true;

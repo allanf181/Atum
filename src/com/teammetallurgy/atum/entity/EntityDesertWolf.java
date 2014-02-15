@@ -64,7 +64,7 @@ public class EntityDesertWolf extends EntityTameable implements IAtumDayMob {
 		this.tasks.addTask(4, new EntityAIAttackOnCollide(this, 1, true));
 		this.tasks.addTask(5, new EntityAIFollowOwner(this, 0.8, 10.0F, 2.0F));
 		this.tasks.addTask(6, new EntityAIMate(this, 0.8));
-		this.tasks.addTask(7, new EntityAIWander(this, 0.88));
+		this.tasks.addTask(7, new EntityAIWander(this, this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).getAttributeValue()));
 		this.tasks.addTask(8, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
 		this.tasks.addTask(9, new EntityAILookIdle(this));
 		this.targetTasks.addTask(1, new EntityAIOwnerHurtByTarget(this));
@@ -77,7 +77,7 @@ public class EntityDesertWolf extends EntityTameable implements IAtumDayMob {
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(8.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.53000000417232513D);
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.43000000417232513D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setAttribute(10.0D);
 	}
 
