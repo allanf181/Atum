@@ -35,7 +35,7 @@ public class RendererItemBow implements IItemRenderer {
 			renderFirstPerson = true;
 		}
 
-		if(!renderFirstPerson) {
+		if(!renderFirstPerson && e instanceof EntityPlayer) {
 			float f22 = 0.375F;
 			GL11.glRotatef(-20.0F, 0.0F, 0.0F, 1.0F);
 			GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
@@ -49,7 +49,6 @@ public class RendererItemBow implements IItemRenderer {
 			GL11.glRotatef(-100.0F, 1.0F, 0.0F, 0.0F);
 			GL11.glRotatef(45.0F, 0.0F, 1.0F, 0.0F);
 		}
-
 		this.renderItem(e, item, 0);
 		GL11.glPushMatrix();
 	}
@@ -78,7 +77,7 @@ public class RendererItemBow implements IItemRenderer {
 			if(par2ItemStack != null && par2ItemStack.hasEffect() && par3 == 0) {
 				GL11.glDepthFunc(514);
 				GL11.glDisable(2896);
-				Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("%blur%/misc/glint.png"));
+				//Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("%blur%/misc/glint.png"));
 				GL11.glEnable(3042);
 				GL11.glBlendFunc(768, 1);
 				float f7 = 0.76F;
