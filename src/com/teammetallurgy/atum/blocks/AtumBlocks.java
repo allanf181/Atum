@@ -43,8 +43,8 @@ public enum AtumBlocks {
 	public static final Block BLOCK_FRAMEDGLASS = new BlockAtumGlass(AtumIDS.BLOCK_FRAMEDGLASS_ID, "atum:AtumFramedGlass").setUnlocalizedName("atum:framedGlass");
 	public static final Block BLOCK_PALMSAPLING = new BlockPalmSapling(AtumIDS.BLOCK_PALMSAPLING_ID);
 	public static final Block BLOCK_DATEBLOCK = new BlockDate(AtumIDS.BLOCK_DATEBLOCK_ID);
-	public static final Block BLOCK_SHRUB = new BlockShrub(AtumIDS.BLOCK_SHRUB_ID).setUnlocalizedName("atum:shrub");
-	public static final Block BLOCK_WEED = new BlockShrub(AtumIDS.BLOCK_WEED_ID).setUnlocalizedName("atum:weed");
+	public static final Block BLOCK_SHRUB = new BlockShrub(AtumIDS.BLOCK_SHRUB_ID).setUnlocalizedName("atum:shrub").setTextureName("atum:shrub");
+	public static final Block BLOCK_WEED = new BlockShrub(AtumIDS.BLOCK_WEED_ID).setUnlocalizedName("atum:weed").setTextureName("atum:DeadBush");
 	public static final Block BLOCK_PAPYRUS = new BlockPapyrus(AtumIDS.BLOCK_PAPYRUS_ID);
 	public static final Block BLOCK_FLAX = new BlockFlax(AtumIDS.BLOCK_FLAX_ID);
 	public static final Block BLOCK_FERTILESOIL = new BlockFertileSoil(AtumIDS.BLOCK_FERTILESOIL_ID);

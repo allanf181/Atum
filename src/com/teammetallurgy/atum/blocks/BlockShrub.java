@@ -42,9 +42,4 @@ public class BlockShrub extends BlockDeadBush {
 
 	}
 
-	@Override
-	public void registerIcons(IconRegister par1IconRegister) {
-		this.blockIcon = par1IconRegister.registerIcon("atum:DeadBush");
-	}
-
 }
