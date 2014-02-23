@@ -27,8 +27,7 @@ import net.minecraft.world.World;
 import com.teammetallurgy.atum.items.AtumItems;
 
 public class EntityBanditArcher extends EntityMob implements IRangedAttackMob, IAtumDayMob {
-	private EntityAIArrowAttack aiArrowAttack = new EntityAIArrowAttack(this, 0.25F, 20, 60, 15.0F);
-	private EntityAIAttackOnCollide aiAttackOnCollide = new EntityAIAttackOnCollide(this, EntityPlayer.class, 0.31F, false);
+	private EntityAIArrowAttack aiArrowAttack = new EntityAIArrowAttack(this, 1.0D, 20, 60, 15.0F);
 
 	public EntityBanditArcher(World par1World) {
 		super(par1World);
@@ -39,24 +38,23 @@ public class EntityBanditArcher extends EntityMob implements IRangedAttackMob, I
 		this.tasks.addTask(1, new EntityAISwimming(this));
 		this.tasks.addTask(2, new EntityAIRestrictSun(this));
 		this.tasks.addTask(3, new EntityAIWander(this, 0.8));
-		this.tasks.addTask(4, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
-		this.tasks.addTask(5, new EntityAILookIdle(this));
-		this.tasks.addTask(6, this.aiArrowAttack);
-		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
-		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 16, true));
 
-		if(par1World != null && !par1World.isRemote) {
-			this.setCombatTask();
-		}
+		this.tasks.addTask(4, this.aiArrowAttack);
+		this.tasks.addTask(5, new EntityAIWatchClosest(this, EntityPlayer.class, 8.0F));
+		this.tasks.addTask(6, new EntityAILookIdle(this));
+
+		this.targetTasks.addTask(1, new EntityAIHurtByTarget(this, false));
+		this.targetTasks.addTask(2, new EntityAINearestAttackableTarget(this, EntityPlayer.class, 2, true));
+
 		this.experienceValue = 6;
-		
+
 	}
 
 	@Override
 	protected void applyEntityAttributes() {
 		super.applyEntityAttributes();
 		this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setAttribute(25.0D);
-		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.53000000417232513D); 
+		this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setAttribute(0.25D);
 		this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setAttribute(4.0D);
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setAttribute(10.0D);
 	}
@@ -110,21 +108,6 @@ public class EntityBanditArcher extends EntityMob implements IRangedAttackMob, I
 	}
 
 	/**
-	 * sets this entity's combat AI.
-	 */
-	public void setCombatTask() {
-		this.tasks.removeTask(this.aiAttackOnCollide);
-		this.tasks.removeTask(this.aiArrowAttack);
-		ItemStack itemstack = this.getHeldItem();
-
-		if(itemstack != null && itemstack.itemID == AtumItems.ITEM_BOW.itemID) {
-			this.tasks.addTask(4, this.aiArrowAttack);
-		} else {
-			this.tasks.addTask(4, this.aiAttackOnCollide);
-		}
-	}
-
-	/**
 	 * Attack the specified entity using a ranged attack.
 	 */
 	@Override
@@ -156,10 +139,8 @@ public class EntityBanditArcher extends EntityMob implements IRangedAttackMob, I
 	@Override
 	public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
 		super.readEntityFromNBT(par1NBTTagCompound);
-
-		this.setCombatTask();
 	}
-	
+
 	/**
 	 * Drop 0-2 items of this living's type. @param par1 - Whether this entity has recently been hit by a player. @param par2 - Level of Looting used to kill this mob.
 	 */
