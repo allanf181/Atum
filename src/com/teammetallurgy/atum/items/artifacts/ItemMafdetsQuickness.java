@@ -8,6 +8,9 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
+import net.minecraft.potion.PotionHelper;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.world.World;
 
@@ -31,22 +34,22 @@ public class ItemMafdetsQuickness extends Item {
 	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
 		if(par3Entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) par3Entity;
-			if(player.onGround && player.inventory.mainInventory[player.inventory.currentItem] != null && player.inventory.mainInventory[player.inventory.currentItem].itemID == this.itemID) {
-				this.doEffect(player, par1ItemStack);
+			if(player.inventory.armorInventory[1] != null && player.inventory.armorInventory[1].itemID == this.itemID) {
+				
 			}
 		}
 
 	}
 
 	public void doEffect(EntityPlayer player, ItemStack item) {
-//		player.capabilities.setPlayerWalkSpeed((float) ((double) player.capabilities.getWalkSpeed() -1.4D));
-//		if(player.motionX * player.motionX + player.motionZ * player.motionZ > 0.02D && !player.capabilities.isCreativeMode) {
-//			if(item.getItemDamage() == 1) {
-//				item.damageItem(1, player);
-//			} else {
-//				item.setItemDamage(item.getItemDamage() + 1);
-//			}
-//		}
+		player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 2, 0, false));
+		if(!player.capabilities.isCreativeMode) {
+			if(item.getItemDamage() == 1) {
+				item.damageItem(1, player);
+			} else {
+				item.setItemDamage(item.getItemDamage() + 1);
+			}
+		}
 
 	}
 

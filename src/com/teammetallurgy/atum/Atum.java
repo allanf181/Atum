@@ -48,22 +48,22 @@ public class Atum {
 
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
-		LOGGER.info("Block Init");
+		LOGGER.info("Register Blocks");
 		AtumBlocks.INSTANCE.registerBlocks();
 
-		LOGGER.info("Item Init");
+		LOGGER.info("Register Item");
 		AtumItems.INSTANCE.registerItems();
 
 		LOGGER.info("Register Crafting Recipes");
 		CraftingHandler.INSTANCE.register();
 
-		LOGGER.info("World Init");
+		LOGGER.info("Register World");
 		AtumWorlds.INSTANCE.register();
 
-		LOGGER.info("Entity Init");
+		LOGGER.info("Register Entity");
 		AtumEntities.INSTANCE.register();
 
-		LOGGER.info("Loot Init");
+		LOGGER.info("Register Loot");
 		AtumLoot.INSTANCE.register();
 
 		LOGGER.info("Proxy Init");
