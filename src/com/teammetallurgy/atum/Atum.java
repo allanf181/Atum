@@ -20,6 +20,7 @@ import cpw.mods.fml.common.event.FMLInitializationEvent;
 import cpw.mods.fml.common.event.FMLPostInitializationEvent;
 import cpw.mods.fml.common.event.FMLPreInitializationEvent;
 import cpw.mods.fml.common.network.NetworkMod;
+import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod(modid = Atum.MODID, name = Atum.NAME, version = Atum.VERSION)
 @NetworkMod(clientSideRequired = true, serverSideRequired = false)
@@ -73,6 +74,7 @@ public class Atum {
 
 		MinecraftForge.EVENT_BUS.register(new AtumEventListener());
 
+		NetworkRegistry.instance().registerGuiHandler(this, new AtumGuiHandler());
 	}
 
 	@EventHandler

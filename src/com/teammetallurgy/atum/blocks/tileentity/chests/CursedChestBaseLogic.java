@@ -104,6 +104,10 @@ public abstract class CursedChestBaseLogic extends MobSpawnerBaseLogic {
 				boolean flag = false;
 
 				for(int i = 0; i < this.spawnCount; ++i) {
+					if(this.getSpawnerWorld().difficultySetting == 0){
+						return;
+					}
+					
 					Entity entity = EntityList.createEntityByName(this.getEntityNameToSpawn(), this.getSpawnerWorld());
 
 					if(entity == null) {

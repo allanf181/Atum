@@ -2,14 +2,17 @@ package com.teammetallurgy.atum.blocks;
 
 import java.util.Random;
 
-import com.teammetallurgy.atum.blocks.tileentity.TileEntityLimestoneFurnace;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFurnace;
 import net.minecraft.client.renderer.texture.IconRegister;
+import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.tileentity.TileEntity;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
+
+import com.teammetallurgy.atum.Atum;
+import com.teammetallurgy.atum.blocks.tileentity.TileEntityLimestoneFurnace;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -26,6 +29,21 @@ public class BlockLimeStoneFurnace extends BlockFurnace {
 		this.isActive = par2;
 		this.setHardness(3.5F);
 		this.setStepSound(Block.soundStoneFootstep);
+	}
+
+	@Override
+	public boolean onBlockActivated(World par1World, int par2, int par3, int par4, EntityPlayer par5EntityPlayer, int par6, float par7, float par8, float par9) {
+		if(par1World.isRemote) {
+			return true;
+		} else {
+			TileEntityLimestoneFurnace TileEntityLimestoneFurnace = (TileEntityLimestoneFurnace) par1World.getBlockTileEntity(par2, par3, par4);
+
+			if(TileEntityLimestoneFurnace != null) {
+				par5EntityPlayer.openGui(Atum.instance, 0, par1World, par2, par3, par4);
+			}
+
+			return true;
+		}
 	}
 
 	@Override
