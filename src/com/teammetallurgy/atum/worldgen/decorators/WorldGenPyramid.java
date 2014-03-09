@@ -67,12 +67,16 @@ public class WorldGenPyramid extends WorldGenerator {
 				if(x >= 0 && x < width && z >= 0 && z < depth) {
 					world.setBlock(x + i, j - 1, z + k, AtumBlocks.BLOCK_STONE.blockID);
 					if(!maze[x][z]) {
-						if(random.nextFloat() > 0.1F)
+						if(random.nextFloat() > 0.1F) {
 							world.setBlock(x + i, j, z + k, AtumBlocks.BLOCK_LARGEBRICK.blockID, 1, 0);
-						else
+							Block.blocksList[world.getBlockId(x + i, j + 1, z + k)].setBlockUnbreakable();
+						} else
 							placeTrap(world, x + i, j, z + k);
 						world.setBlock(x + i, j + 1, z + k, AtumBlocks.BLOCK_LARGEBRICK.blockID, 1, 0);
+						Block.blocksList[world.getBlockId(x + i, j + 1, z + k)].setBlockUnbreakable();
+
 						world.setBlock(x + i, j + 2, z + k, AtumBlocks.BLOCK_LARGEBRICK.blockID, 1, 0);
+						Block.blocksList[world.getBlockId(x + i, j + 2, z + k)].setBlockUnbreakable();
 					} else {
 						int meta = random.nextInt(5);
 						world.setBlock(x + i, j, z + k, AtumBlocks.BLOCK_SANDLAYERED.blockID, meta, 0);
@@ -80,6 +84,7 @@ public class WorldGenPyramid extends WorldGenerator {
 						world.setBlockToAir(x + i, j + 2, z + k);
 					}
 					world.setBlock(x + i, j + 3, z + k, AtumBlocks.BLOCK_LARGEBRICK.blockID, 1, 0);
+					Block.blocksList[world.getBlockId(x + i, j + 3, z + k)].setBlockUnbreakable();
 				}
 			}
 		}
