@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum.blocks.tileentity;
+package com.teammetallurgy.atum.blocks.tileentity.furnace;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
@@ -379,6 +379,14 @@ public class TileEntityLimestoneFurnace extends TileEntityFurnace implements ISi
 	}
 
 	/**
+	 * Returns true if automation is allowed to insert the given stack (ignoring stack size) into the given slot.
+	 */
+	@Override
+	public boolean isItemValidForSlot(int par1, ItemStack par2ItemStack) {
+		return par1 == 2 ? false : (par1 == 1 ? isItemFuel(par2ItemStack) : true);
+	}
+
+	/**
 	 * Get the size of the side inventory.
 	 */
 	@Override
@@ -387,17 +395,13 @@ public class TileEntityLimestoneFurnace extends TileEntityFurnace implements ISi
 	}
 
 	@Override
+	public boolean canInsertItem(int par1, ItemStack par2ItemStack, int par3) {
+		return this.isItemValidForSlot(par1, par2ItemStack);
+	}
+
+	@Override
 	public boolean canExtractItem(int par1, ItemStack par2ItemStack, int par3) {
 		return par3 != 0 || par1 != 1 || par2ItemStack.itemID == Item.bucketEmpty.itemID;
 	}
 
-	@Override
-	public boolean isItemValidForSlot(int i, ItemStack itemstack) {
-		return false;
-	}
-
-	@Override
-	public boolean canInsertItem(int i, ItemStack itemstack, int j) {
-		return false;
-	}
 }

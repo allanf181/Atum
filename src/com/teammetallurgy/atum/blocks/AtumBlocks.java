@@ -12,9 +12,9 @@ import com.teammetallurgy.atum.Atum;
 import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.LocalizationHelper;
 import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
-import com.teammetallurgy.atum.blocks.tileentity.TileEntityLimestoneFurnace;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityChestSpawner;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
+import com.teammetallurgy.atum.blocks.tileentity.furnace.TileEntityLimestoneFurnace;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
