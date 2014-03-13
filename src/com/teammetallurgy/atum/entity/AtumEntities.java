@@ -1,7 +1,6 @@
 package com.teammetallurgy.atum.entity;
 
 import net.minecraft.entity.EntityList;
-import net.minecraft.item.ItemStack;
 
 import com.teammetallurgy.atum.Atum;
 import com.teammetallurgy.atum.LocalizationHelper;
@@ -13,8 +12,6 @@ import com.teammetallurgy.atum.entity.arrow.EntityArrowQuickdraw;
 import com.teammetallurgy.atum.entity.arrow.EntityArrowVelocity;
 import com.teammetallurgy.atum.entity.arrow.EntityAtumFishHook;
 import com.teammetallurgy.atum.entity.arrow.EntityNutsCall;
-import com.teammetallurgy.atum.entity.projectiles.EntityFireSpearCombined;
-import com.teammetallurgy.atum.entity.projectiles.EntityFireSpearSeperated;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
@@ -64,11 +61,6 @@ public enum AtumEntities {
 
 		EntityRegistry.registerModEntity(EntityBarbarian.class, "AtumBarbarian", 29, Atum.instance, 64, 1, true);
 		EntityList.addMapping(EntityBarbarian.class, "AtumBarbarian", 29, 0x918354, 0x695D37);
-
-		entityID = EntityRegistry.findGlobalUniqueEntityId();
-		EntityRegistry.registerModEntity(EntityFireSpearCombined.class, "FireSpearCombined", entityID, Atum.instance, 64, 1, true);
-		entityID = EntityRegistry.findGlobalUniqueEntityId();
-		EntityRegistry.registerModEntity(EntityFireSpearSeperated.class, "FireSpearSeperated", entityID, Atum.instance, 64, 1, true);
 
 		EntityRegistry.registerModEntity(EntityArrowVelocity.class, "ArrowVeloctiy", 0, Atum.instance, 64, 1, true);
 		EntityRegistry.registerModEntity(EntityArrowExplosive.class, "ArrowExplosive", 1, Atum.instance, 64, 1, true);

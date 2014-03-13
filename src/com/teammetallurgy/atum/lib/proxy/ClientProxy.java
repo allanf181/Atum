@@ -10,14 +10,13 @@ import net.minecraft.util.ResourceLocation;
 import net.minecraftforge.client.MinecraftForgeClient;
 import net.minecraftforge.common.MinecraftForge;
 
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.blocks.BlockDate;
 import com.teammetallurgy.atum.blocks.BlockPapyrus;
-import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.client.model.entity.ModelDesertWolf;
 import com.teammetallurgy.atum.client.model.entity.ModelDustySkeleton;
 import com.teammetallurgy.atum.client.render.entity.RenderBandit;
 import com.teammetallurgy.atum.client.render.entity.RenderDesertWolf;
-import com.teammetallurgy.atum.client.render.entity.RenderFireSpear;
 import com.teammetallurgy.atum.client.render.entity.RenderGhost;
 import com.teammetallurgy.atum.client.render.entity.RenderPharaoh;
 import com.teammetallurgy.atum.client.render.entity.arrow.RenderCustomArrow;
@@ -38,7 +37,6 @@ import com.teammetallurgy.atum.entity.EntityStoneSoldier;
 import com.teammetallurgy.atum.entity.arrow.CustomArrow;
 import com.teammetallurgy.atum.entity.arrow.EntityAtumFishHook;
 import com.teammetallurgy.atum.entity.arrow.EntityNutsCall;
-import com.teammetallurgy.atum.entity.projectiles.EntityFireSpearCombined;
 import com.teammetallurgy.atum.items.AtumItems;
 import com.teammetallurgy.atum.lib.tickhandler.ClientTickHandler;
 
@@ -121,7 +119,6 @@ public class ClientProxy extends CommonProxy {
 
 		RenderingRegistry.registerEntityRenderingHandler(EntityDesertWolf.class, new RenderDesertWolf(new ModelDesertWolf(), new ModelDesertWolf(), 0.5F));
 
-		RenderingRegistry.registerEntityRenderingHandler(EntityFireSpearCombined.class, new RenderFireSpear());
 		RenderingRegistry.registerEntityRenderingHandler(CustomArrow.class, new RenderCustomArrow());
 		RenderingRegistry.registerEntityRenderingHandler(EntityNutsCall.class, new RenderNutsCall());
 		RenderingRegistry.registerEntityRenderingHandler(EntityAtumFishHook.class, new RenderFish());

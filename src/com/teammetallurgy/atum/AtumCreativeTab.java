@@ -1,10 +1,9 @@
 package com.teammetallurgy.atum;
 
-import com.teammetallurgy.atum.items.AtumItems;
-import com.teammetallurgy.atum.items.artifacts.ItemSpear;
-
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
+
+import com.teammetallurgy.atum.items.AtumItems;
 
 public class AtumCreativeTab extends CreativeTabs {
 

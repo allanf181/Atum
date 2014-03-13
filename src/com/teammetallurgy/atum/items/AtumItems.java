@@ -8,7 +8,6 @@ import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSeeds;
 import net.minecraft.item.ItemStack;
 import net.minecraftforge.common.EnumHelper;
-import net.minecraftforge.common.MinecraftForge;
 
 import com.teammetallurgy.atum.Atum;
 import com.teammetallurgy.atum.AtumIDS;
@@ -44,12 +43,9 @@ import com.teammetallurgy.atum.items.artifacts.ItemRasGlory;
 import com.teammetallurgy.atum.items.artifacts.ItemSekhmetsWrath;
 import com.teammetallurgy.atum.items.artifacts.ItemShusBreath;
 import com.teammetallurgy.atum.items.artifacts.ItemSobeksRage;
-import com.teammetallurgy.atum.items.artifacts.ItemSpear;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.common.registry.LanguageRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 public enum AtumItems {
 	INSTANCE;
@@ -122,7 +118,6 @@ public enum AtumItems {
 	public static final Item flaxSeeds = new ItemSeeds(AtumIDS.ITEM_FLAXSEEDS_ID, AtumBlocks.BLOCK_FLAX.blockID, Block.tilledField.blockID).setUnlocalizedName("atum:flaxSeeds").setTextureName("atum:FlaxSeeds");
 	public static final Item fish = new ItemFish(AtumIDS.ITEM_FISH_ID).setUnlocalizedName("atum:fish");
 	public static final Item neithsAudacity = new ItemNeithsAudacity(AtumIDS.ITEM_NEITHSAUDACITY_ID).setUnlocalizedName("atum:neithsAudacity");
-	public static final Item spear = new ItemSpear(AtumIDS.ITEM_SPEAR_ID).setUnlocalizedName("atum:spear");
 
 	public void registerItems() {
 		this.register(ITEM_SCARAB);
@@ -190,7 +185,6 @@ public enum AtumItems {
 		this.register(flaxSeeds);
 		this.register(fish);
 		this.register(neithsAudacity);
-		this.register(spear);
 
 		this.addLanguages();
 	}
