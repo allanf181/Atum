@@ -49,7 +49,7 @@ public class ItemLoot extends Item {
 		int dirty = par1ItemStack.getItemDamage() & 1;
 		int quality = par1ItemStack.getItemDamage() >> 1 & 15;
 		int type = par1ItemStack.getItemDamage() >> 5 & 15;
-		return dirty == 1 ? LocalizationHelper.localize(this.getUnlocalizedName() + ".dirty" + typeArray[type]) : LocalizationHelper.localize(this.getUnlocalizedName() + "." + qualityArray[quality] + typeArray[type]);
+		return dirty == 1 ? LocalizationHelper.localize(this.getUnlocalizedName().split(":")[1] + ".dirty" + typeArray[type]) : LocalizationHelper.localize(this.getUnlocalizedName().split(":")[1] + "." + qualityArray[quality] + typeArray[type]);
 	}
 
 	@Override
