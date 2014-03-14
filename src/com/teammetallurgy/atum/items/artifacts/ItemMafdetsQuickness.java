@@ -35,7 +35,7 @@ public class ItemMafdetsQuickness extends Item {
 		if(par3Entity instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) par3Entity;
 			if(player.inventory.armorInventory[1] != null && player.inventory.armorInventory[1].itemID == this.itemID) {
-				
+				doEffect(player, player.inventory.armorInventory[1]);
 			}
 		}
 

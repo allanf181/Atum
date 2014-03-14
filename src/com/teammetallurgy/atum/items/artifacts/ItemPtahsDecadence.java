@@ -5,7 +5,7 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IconRegister;
-import net.minecraft.entity.EntityLiving;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.EnumToolMaterial;
@@ -31,13 +31,14 @@ public class ItemPtahsDecadence extends ItemPickaxe {
 		return true;
 	}
 
-	public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, int blockID, int x, int y, int z, EntityLiving par7EntityLiving) {
+	@Override
+	public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, int blockID, int x, int y, int z, EntityLivingBase par7EntityLivingBase) {
 		int dropID = Block.blocksList[blockID].idDropped(par2World.getBlockMetadata(x, y, z), new Random(), 0);
 		if(dropID == Item.diamond.itemID) {
 			Block.oreDiamond.dropBlockAsItem(par2World, x, y, z, 0, 0);
 		}
 
-		return super.onBlockDestroyed(par1ItemStack, par2World, blockID, x, y, z, par7EntityLiving);
+		return super.onBlockDestroyed(par1ItemStack, par2World, blockID, x, y, z, par7EntityLivingBase);
 	}
 
 	@SideOnly(Side.CLIENT)
