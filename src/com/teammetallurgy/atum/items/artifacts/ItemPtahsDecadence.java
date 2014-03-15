@@ -41,6 +41,7 @@ public class ItemPtahsDecadence extends ItemPickaxe {
 		return super.onBlockDestroyed(par1ItemStack, par2World, blockID, x, y, z, par7EntityLivingBase);
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if(Keyboard.isKeyDown(42)) {
@@ -52,11 +53,13 @@ public class ItemPtahsDecadence extends ItemPickaxe {
 
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.rare;
 	}
 
+	@Override
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
 		return par2ItemStack.itemID == Item.diamond.itemID;
 	}
