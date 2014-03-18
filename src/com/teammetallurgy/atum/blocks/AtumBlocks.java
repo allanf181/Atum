@@ -10,14 +10,12 @@ import net.minecraftforge.oredict.OreDictionary;
 
 import com.teammetallurgy.atum.Atum;
 import com.teammetallurgy.atum.AtumIDS;
-import com.teammetallurgy.atum.LocalizationHelper;
 import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityChestSpawner;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
 import com.teammetallurgy.atum.blocks.tileentity.furnace.TileEntityLimestoneFurnace;
 
 import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public enum AtumBlocks {
 	INSTANCE;
@@ -26,44 +24,44 @@ public enum AtumBlocks {
 	public static final Block BLOCK_CURSEDCHEST = new BlockChestSpawner(AtumIDS.BLOCK_CURSEDCHEST_ID);
 	public static final Block BLOCK_SAND = new BlockSands(AtumIDS.BLOCK_SAND_ID);
 	public static final Block BLOCK_STONE = new BlockStones(AtumIDS.BLOCK_STONE_ID);
-	public static final Block BLOCK_LIMESTONECOBBLE = new BlockAtum(AtumIDS.BLOCK_COBBLE_ID, "atum:cobble").setTextureName("atum:AtumCobble");
-	public static final Block BLOCK_LARGEBRICK = new BlockAtum(AtumIDS.BLOCK_LARGEBRICK_ID, "atum:largeBrick").setTextureName("atum:AtumBrickLarge");
-	public static final Block BLOCK_SMALLBRICK = new BlockAtum(AtumIDS.BLOCK_SMALLBRICK_ID, "atum:smallBrick").setTextureName("atum:AtumBrickSmall");
-	public static final Block BLOCK_CARVEDBRICK = new BlockAtum(AtumIDS.BLOCK_CARVEDBRICK_ID, "atum:carvedBrick").setTextureName("atum:AtumBrickCarved");
-	public static final Block BLOCK_SLABS = new BlockSlab(AtumIDS.BLOCK_SLABS_ID, false).setUnlocalizedName("atum:slab");
-	public static final Block BLOCK_DOUBLESLAB = new BlockSlab(AtumIDS.BLOCK_DOUBLE_SLAB_ID, true).setUnlocalizedName("atum:doubleSlab");
-	public static final Block BLOCK_SMOOTHSTAIRS = new BlockStair(AtumIDS.BLOCK_SMOOTHSTAIRS_ID, BLOCK_STONE, 0).setUnlocalizedName("atum:smoothStairs");
-	public static final Block BLOCK_COBBLESTAIRS = new BlockStair(AtumIDS.BLOCK_COBBLESTAIRS_ID, BLOCK_LIMESTONECOBBLE, 0).setUnlocalizedName("atum:cobbleStairs");
-	public static final Block BLOCK_LARGESTONESTAIRS = new BlockStair(AtumIDS.BLOCK_LARGESTONESTAIRS_ID, BLOCK_LARGEBRICK, 0).setUnlocalizedName("atum:largeStairs");
-	public static final Block BLOCK_SMALLSTONESTAIRS = new BlockStair(AtumIDS.BLOCK_SMALLSTONESTAIRS_ID, BLOCK_SMALLBRICK, 0).setUnlocalizedName("atum:smallStairs");
+	public static final Block BLOCK_LIMESTONECOBBLE = new BlockAtum(AtumIDS.BLOCK_COBBLE_ID, "cobble").setTextureName("atum:AtumCobble");
+	public static final Block BLOCK_LARGEBRICK = new BlockAtum(AtumIDS.BLOCK_LARGEBRICK_ID, "largeBrick").setTextureName("atum:AtumBrickLarge");
+	public static final Block BLOCK_SMALLBRICK = new BlockAtum(AtumIDS.BLOCK_SMALLBRICK_ID, "smallBrick").setTextureName("atum:AtumBrickSmall");
+	public static final Block BLOCK_CARVEDBRICK = new BlockAtum(AtumIDS.BLOCK_CARVEDBRICK_ID, "carvedBrick").setTextureName("atum:AtumBrickCarved");
+	public static final Block BLOCK_SLABS = new BlockSlab(AtumIDS.BLOCK_SLABS_ID, false).setUnlocalizedName("slab");
+	public static final Block BLOCK_DOUBLESLAB = new BlockSlab(AtumIDS.BLOCK_DOUBLE_SLAB_ID, true).setUnlocalizedName("doubleSlab");
+	public static final Block BLOCK_SMOOTHSTAIRS = new BlockStair(AtumIDS.BLOCK_SMOOTHSTAIRS_ID, BLOCK_STONE, 0).setUnlocalizedName("smoothStairs");
+	public static final Block BLOCK_COBBLESTAIRS = new BlockStair(AtumIDS.BLOCK_COBBLESTAIRS_ID, BLOCK_LIMESTONECOBBLE, 0).setUnlocalizedName("cobbleStairs");
+	public static final Block BLOCK_LARGESTONESTAIRS = new BlockStair(AtumIDS.BLOCK_LARGESTONESTAIRS_ID, BLOCK_LARGEBRICK, 0).setUnlocalizedName("largeStairs");
+	public static final Block BLOCK_SMALLSTONESTAIRS = new BlockStair(AtumIDS.BLOCK_SMALLSTONESTAIRS_ID, BLOCK_SMALLBRICK, 0).setUnlocalizedName("smallStairs");
 	public static final Block BLOCK_SANDLAYERED = new BlockSandLayered(AtumIDS.BLOCK_SANDLAYERED_ID);
-	public static final Block BLOCK_CRACKEDLARGEBRICK = new BlockAtum(AtumIDS.BLOCK_CRACKEDLARGEBRICK_ID, "atum:crackedLargeBrick").setTextureName("atum:AtumCrackedLargeBrick");
+	public static final Block BLOCK_CRACKEDLARGEBRICK = new BlockAtum(AtumIDS.BLOCK_CRACKEDLARGEBRICK_ID, "crackedLargeBrick").setTextureName("atum:AtumCrackedLargeBrick");
 	public static final Block BLOCK_WALL = new BlockWalls(AtumIDS.BLOCK_WALL_ID, BLOCK_STONE);
-	public static final Block BLOCK_CRYSTALGLASS = new BlockAtumGlass(AtumIDS.BLOCK_CRYSTALGLASS_ID, "atum:AtumCrystalGlass").setUnlocalizedName("atum:crystalGlass");
-	public static final Block BLOCK_FRAMEDGLASS = new BlockAtumGlass(AtumIDS.BLOCK_FRAMEDGLASS_ID, "atum:AtumFramedGlass").setUnlocalizedName("atum:framedGlass");
+	public static final Block BLOCK_CRYSTALGLASS = new BlockAtumGlass(AtumIDS.BLOCK_CRYSTALGLASS_ID, "atum:AtumCrystalGlass").setUnlocalizedName("crystalGlass");
+	public static final Block BLOCK_FRAMEDGLASS = new BlockAtumGlass(AtumIDS.BLOCK_FRAMEDGLASS_ID, "atum:AtumFramedGlass").setUnlocalizedName("framedGlass");
 	public static final Block BLOCK_PALMSAPLING = new BlockPalmSapling(AtumIDS.BLOCK_PALMSAPLING_ID);
 	public static final Block BLOCK_DATEBLOCK = new BlockDate(AtumIDS.BLOCK_DATEBLOCK_ID);
-	public static final Block BLOCK_SHRUB = new BlockShrub(AtumIDS.BLOCK_SHRUB_ID).setUnlocalizedName("atum:shrub").setTextureName("atum:shrub");
-	public static final Block BLOCK_WEED = new BlockShrub(AtumIDS.BLOCK_WEED_ID).setUnlocalizedName("atum:weed").setTextureName("atum:DeadBush");
+	public static final Block BLOCK_SHRUB = new BlockShrub(AtumIDS.BLOCK_SHRUB_ID).setUnlocalizedName("shrub").setTextureName("atum:shrub");
+	public static final Block BLOCK_WEED = new BlockShrub(AtumIDS.BLOCK_WEED_ID).setUnlocalizedName("weed").setTextureName("atum:DeadBush");
 	public static final Block BLOCK_PAPYRUS = new BlockPapyrus(AtumIDS.BLOCK_PAPYRUS_ID);
 	public static final Block BLOCK_FLAX = new BlockFlax(AtumIDS.BLOCK_FLAX_ID);
 	public static final Block BLOCK_FERTILESOIL = new BlockFertileSoil(AtumIDS.BLOCK_FERTILESOIL_ID);
 	public static final Block BLOCK_FERTILESOILTILLED = new BlockFertileSoilTilled(AtumIDS.BLOCK_FERTILESOILTILLED_ID);
 	public static final Block BLOCK_LOG = new BlockPalmLog(AtumIDS.BLOCK_LOG_ID);
 	public static final Block BLOCK_LEAVES = new BlockLeave(AtumIDS.BLOCK_LEAVES_ID);
-	public static final Block BLOCK_PLANKS = new Block(AtumIDS.BLOCK_PLANKS_ID, Material.wood).setUnlocalizedName("atum:palmPlanks").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setTextureName("atum:Planks");
-	public static final Block BLOCK_THINCRYSTALGLASS = new BlockAtumPane(AtumIDS.BLOCK_THINCRYSTALGLASS_ID, "atum:AtumCrystalGlass", "thinglass_top").setUnlocalizedName("atum:thinCrystalGlass");
-	public static final Block BLOCK_THINFRAMEDGLASS = new BlockAtumPane(AtumIDS.BLOCK_THINFRAMEDGLASS_ID, "atum:AtumFramedGlass", "thinglass_top").setUnlocalizedName("atum:thinFramedGlass");
+	public static final Block BLOCK_PLANKS = new Block(AtumIDS.BLOCK_PLANKS_ID, Material.wood).setUnlocalizedName("palmPlanks").setHardness(2.0F).setResistance(5.0F).setStepSound(Block.soundWoodFootstep).setTextureName("atum:Planks");
+	public static final Block BLOCK_THINCRYSTALGLASS = new BlockAtumPane(AtumIDS.BLOCK_THINCRYSTALGLASS_ID, "atum:AtumCrystalGlass", "atum:thinglass_top").setUnlocalizedName("thinCrystalGlass");
+	public static final Block BLOCK_THINFRAMEDGLASS = new BlockAtumPane(AtumIDS.BLOCK_THINFRAMEDGLASS_ID, "atum:AtumFramedGlass", "atum:thinglass_top").setUnlocalizedName("thinFramedGlass");
 	public static final Block BLOCK_TRAPARROW = new BlockBurningTrap(AtumIDS.BLOCK_TRAPARROW_ID);
 	public static final Block BLOCK_PHARAOHCHEST = new BlockPharaohChest(AtumIDS.BLOCK_PHARAOHCHEST_ID);
 	public static final Block BLOCK_REDSTONEORE = new BlockAtumRedstone(AtumIDS.BLOCK_REDSTONEORE_ID);
-	public static final Block BLOCK_COALORE = new BlockAtumOres(AtumIDS.BLOCK_COALORE_ID).setUnlocalizedName("atum:coalOre").setTextureName("atum:AtumCoal");
-	public static final Block BLOCK_IRONORE = new BlockAtumOres(AtumIDS.BLOCK_IRONORE_ID).setUnlocalizedName("atum:ironOre").setTextureName("atum:AtumIron");
-	public static final Block BLOCK_GOLDORE = new BlockAtumOres(AtumIDS.BLOCK_GOLDORE_ID).setUnlocalizedName("atum:goldOre").setTextureName("atum:AtumGold");
-	public static final Block BLOCK_LAPISORE = new BlockAtumOres(AtumIDS.BLOCK_LAPISORE_ID).setUnlocalizedName("atum:lapisOre").setTextureName("atum:AtumLapis");
-	public static final Block BLOCK_DIAMONDORE = new BlockAtumOres(AtumIDS.BLOCK_DIAMONDORE_ID).setUnlocalizedName("atum:diamondOre").setTextureName("atum:AtumDiamond");
-	public static final Block BLOCK_FURNACEIDLE = new BlockLimeStoneFurnace(AtumIDS.BLOCK_FURNACEIDLE_ID, false).setUnlocalizedName("atum:furnaceIdle");
-	public static final Block BLOCK_FURNACEBURNING = new BlockLimeStoneFurnace(AtumIDS.BLOCK_FURNACEBURNING_ID, true).setUnlocalizedName("atum:furnaceBurning");
+	public static final Block BLOCK_COALORE = new BlockAtumOres(AtumIDS.BLOCK_COALORE_ID).setUnlocalizedName("coalOre").setTextureName("atum:AtumCoal");
+	public static final Block BLOCK_IRONORE = new BlockAtumOres(AtumIDS.BLOCK_IRONORE_ID).setUnlocalizedName("ironOre").setTextureName("atum:AtumIron");
+	public static final Block BLOCK_GOLDORE = new BlockAtumOres(AtumIDS.BLOCK_GOLDORE_ID).setUnlocalizedName("goldOre").setTextureName("atum:AtumGold");
+	public static final Block BLOCK_LAPISORE = new BlockAtumOres(AtumIDS.BLOCK_LAPISORE_ID).setUnlocalizedName("lapisOre").setTextureName("atum:AtumLapis");
+	public static final Block BLOCK_DIAMONDORE = new BlockAtumOres(AtumIDS.BLOCK_DIAMONDORE_ID).setUnlocalizedName("diamondOre").setTextureName("atum:AtumDiamond");
+	public static final Block BLOCK_FURNACEIDLE = new BlockLimeStoneFurnace(AtumIDS.BLOCK_FURNACEIDLE_ID, false).setUnlocalizedName("furnaceIdle");
+	public static final Block BLOCK_FURNACEBURNING = new BlockLimeStoneFurnace(AtumIDS.BLOCK_FURNACEBURNING_ID, true).setUnlocalizedName("furnaceBurning");
 
 	public void registerBlocks() {
 		this.register(BLOCK_PORTAL);
@@ -136,14 +134,5 @@ public enum AtumBlocks {
 			b.setCreativeTab(Atum.creativeTab);
 		}
 		GameRegistry.registerBlock(b, b.getUnlocalizedName());
-		name(b, "block.", b.getUnlocalizedName().split(":")[1]);
-	}
-
-	private void name(Block b, String type, String tag) {
-		LanguageRegistry.addName(b, LocalizationHelper.localize(type + tag + ".name"));
-	}
-
-	private void name(ItemStack b, String tag) {
-		LanguageRegistry.addName(b, LocalizationHelper.localize("block." + tag + ".name"));
 	}
 }

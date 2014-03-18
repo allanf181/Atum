@@ -28,7 +28,7 @@ public class BlockFertileSoil extends BlockFarmland {
 
 	public BlockFertileSoil(int par1) {
 		super(par1);
-		this.setUnlocalizedName("atum:fertileSoil");
+		this.setUnlocalizedName("fertileSoil");
 		this.setHardness(0.5F);
 		this.setStepSound(Block.soundGrassFootstep);
 		setTickRandomly(true);

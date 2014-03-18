@@ -34,7 +34,7 @@ public class BlockBurningTrap extends BlockContainer {
 
 	public BlockBurningTrap(int par1) {
 		super(par1, Material.rock);
-		this.setUnlocalizedName("atum:burningTrap");
+		this.setUnlocalizedName("burningTrap");
 		this.setCreativeTab(CreativeTabs.tabRedstone);
 		this.setHardness(-1.0F);
 	}

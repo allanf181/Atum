@@ -24,7 +24,7 @@ public class BlockLeave extends BlockLeavesBase implements IShearable {
 
 	protected BlockLeave(int par1) {
 		super(par1, Material.leaves, false);
-		this.setUnlocalizedName("atum:palmLeaves");
+		this.setUnlocalizedName("palmLeaves");
 		this.setHardness(0.2F);
 		this.setLightOpacity(1);
 		this.setStepSound(Block.soundGrassFootstep);

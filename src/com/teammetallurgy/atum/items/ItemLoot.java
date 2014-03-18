@@ -11,10 +11,6 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.util.MathHelper;
-
-import com.teammetallurgy.atum.Atum;
-import com.teammetallurgy.atum.LocalizationHelper;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -37,19 +33,15 @@ public class ItemLoot extends Item {
 	}
 
 	@Override
-	public String getItemDisplayName(ItemStack par1ItemStack) {
-		int dirty = par1ItemStack.getItemDamage() & 1;
+	public String getUnlocalizedName(ItemStack par1ItemStack) {
 		int quality = par1ItemStack.getItemDamage() >> 1 & 15;
-		int type = par1ItemStack.getItemDamage() >> 5 & 15;
-		return dirty == 1 ? "Dirty " + typeArray[type] : qualityArray[quality] + " " + typeArray[type];
+		return super.getUnlocalizedName() + "." + qualityArray[quality];
 	}
 
 	@Override
-	public String getUnlocalizedName(ItemStack par1ItemStack) {
-		int dirty = par1ItemStack.getItemDamage() & 1;
-		int quality = par1ItemStack.getItemDamage() >> 1 & 15;
+	public String getItemDisplayName(ItemStack par1ItemStack) {
 		int type = par1ItemStack.getItemDamage() >> 5 & 15;
-		return dirty == 1 ? LocalizationHelper.localize(this.getUnlocalizedName().split(":")[1] + ".dirty" + typeArray[type]) : LocalizationHelper.localize(this.getUnlocalizedName().split(":")[1] + "." + qualityArray[quality] + typeArray[type]);
+		return super.getItemDisplayName(par1ItemStack) + " " + typeArray[type];
 	}
 
 	@Override

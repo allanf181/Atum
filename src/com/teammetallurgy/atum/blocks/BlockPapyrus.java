@@ -27,7 +27,7 @@ public class BlockPapyrus extends Block implements IPlantable {
 
 	public BlockPapyrus(int par1) {
 		super(par1, Material.plants);
-		this.setUnlocalizedName("atum:papyrus");
+		this.setUnlocalizedName("papyrus");
 		this.setHardness(0.0F);
 		this.setStepSound(Block.soundGrassFootstep);
 		float f = 0.375F;

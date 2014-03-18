@@ -17,7 +17,7 @@ public class BlockSandLayered extends Block {
 
 	public BlockSandLayered(int par1) {
 		super(par1, Material.sand);
-		this.setUnlocalizedName("atum:sandLayer");
+		this.setUnlocalizedName("sandLayer");
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.125F, 1.0F);
 		this.setTickRandomly(true);
 		this.func_96478_d(0);

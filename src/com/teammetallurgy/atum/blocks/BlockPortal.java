@@ -28,7 +28,7 @@ public class BlockPortal extends BlockBreakable {
 		super(par1, "atum:portal", Material.portal, true);
 		this.setTickRandomly(true);
 		this.setHardness(-1.0F);
-		this.setUnlocalizedName("atum:portal");
+		this.setUnlocalizedName("portal");
 	}
 
 	@Override

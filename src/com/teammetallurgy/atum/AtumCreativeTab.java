@@ -12,11 +12,6 @@ public class AtumCreativeTab extends CreativeTabs {
 	}
 
 	@Override
-	public String getTranslatedTabLabel() {
-		return LocalizationHelper.localize("itemGroup.Atum");
-	}
-
-	@Override
 	public String getBackgroundImageName() {
 		return super.getBackgroundImageName().replace("s.png", "_search.png");
 	}

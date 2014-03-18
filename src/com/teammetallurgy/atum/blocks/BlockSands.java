@@ -8,7 +8,7 @@ public class BlockSands extends BlockSand {
 
 	public BlockSands(int par1) {
 		super(par1);
-		this.setUnlocalizedName("atum:sand");
+		this.setUnlocalizedName("sand");
 		this.setStepSound(Block.soundSandFootstep);
 		this.setHardness(0.5F);
 	}

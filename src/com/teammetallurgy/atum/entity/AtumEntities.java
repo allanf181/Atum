@@ -3,7 +3,6 @@ package com.teammetallurgy.atum.entity;
 import net.minecraft.entity.EntityList;
 
 import com.teammetallurgy.atum.Atum;
-import com.teammetallurgy.atum.LocalizationHelper;
 import com.teammetallurgy.atum.entity.arrow.EntityArrowDoubleShot;
 import com.teammetallurgy.atum.entity.arrow.EntityArrowExplosive;
 import com.teammetallurgy.atum.entity.arrow.EntityArrowFire;
@@ -14,7 +13,6 @@ import com.teammetallurgy.atum.entity.arrow.EntityAtumFishHook;
 import com.teammetallurgy.atum.entity.arrow.EntityNutsCall;
 
 import cpw.mods.fml.common.registry.EntityRegistry;
-import cpw.mods.fml.common.registry.LanguageRegistry;
 
 public enum AtumEntities {
 	INSTANCE;
@@ -71,25 +69,6 @@ public enum AtumEntities {
 		EntityRegistry.registerModEntity(EntityNutsCall.class, "EntityNutsCall", 6, Atum.instance, 64, 1, true);
 		EntityRegistry.registerModEntity(EntityAtumFishHook.class, "EntityAtumFishHook", 7, Atum.instance, 64, 1, false);
 
-		addNames();
-	}
-
-	private void addNames() {
-		name("entity.AtumMummy.name", "mummy");
-		name("entity.AtumBanditWarrior.name", "banditWarrior");
-		name("entity.AtumBanditArcher.name", "banditArcher");
-		name("entity.AtumPharaoh.name", "pharaoh");
-		name("entity.AtumDustySkeleton.name", "dustySkeleton");
-		name("entity.AtumDesertGhost.name", "desertGhost");
-		
-		name("entity.AtumStoneSoldier.name", "stoneSoldier");
-		name("entity.AtumDesertWolf.name", "desertWolf");
-		name("entity.AtumBanditWarlord.name", "banditWarlord");
-		name("entity.AtumBarbarian.name", "barbarian");
-	}
-	
-	private void name(String name, String tag) {
-		LanguageRegistry.instance().addStringLocalization(name, LocalizationHelper.localize("entity." + tag + ".name"));
 	}
 
 }

@@ -2,6 +2,8 @@ package com.teammetallurgy.atum.blocks;
 
 import java.util.List;
 
+import com.teammetallurgy.atum.Atum;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockWall;
 import net.minecraft.client.renderer.texture.IconRegister;
@@ -10,9 +12,6 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.Icon;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeDirection;
-
-import com.teammetallurgy.atum.LocalizationHelper;
-
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -22,11 +21,8 @@ public class BlockWalls extends BlockWall {
 
 	public BlockWalls(int par1, Block par2Block) {
 		super(par1, par2Block);
-		this.setUnlocalizedName("atum:walls");
-	}
-
-	public String getLocalizedName(ItemStack stack) {
-		return LocalizationHelper.localize("block.walls" + stack.getItemDamage() + ".name");
+		this.setUnlocalizedName("walls");
+		this.setCreativeTab(Atum.creativeTab);
 	}
 
 	@Override

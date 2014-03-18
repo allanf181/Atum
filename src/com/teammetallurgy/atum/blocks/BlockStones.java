@@ -10,7 +10,7 @@ public class BlockStones extends BlockStone {
 
 	public BlockStones(int par1) {
 		super(par1);
-		this.setUnlocalizedName("atum:stone");
+		this.setUnlocalizedName("stone");
 		this.setStepSound(Block.soundSandFootstep);
 		this.setHardness(0.5F);
 	}

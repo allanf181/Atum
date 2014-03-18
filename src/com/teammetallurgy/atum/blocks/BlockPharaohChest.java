@@ -30,7 +30,7 @@ public class BlockPharaohChest extends BlockContainer {
 
 	protected BlockPharaohChest(int par1) {
 		super(par1, Material.wood);
-		this.setUnlocalizedName("atum:pharaohChest");
+		this.setUnlocalizedName("pharaohChest");
 		this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
 	}
 

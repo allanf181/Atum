@@ -18,7 +18,7 @@ public class BlockPalmLog extends Block {
 
 	protected BlockPalmLog(int par1) {
 		super(par1, Material.wood);
-		this.setUnlocalizedName("atum:palmLog");
+		this.setUnlocalizedName("palmLog");
 		this.setHardness(2.0F);
 		this.setStepSound(Block.soundWoodFootstep);
 		setBurnProperties(super.blockID, 5, 5);

@@ -25,7 +25,7 @@ public class BlockFertileSoilTilled extends Block {
 	public BlockFertileSoilTilled(int par1) {
 		super(par1, Material.ground);
 		this.setHardness(0.5F);
-		this.setUnlocalizedName("atum:fertileSoilTilled");
+		this.setUnlocalizedName("fertileSoilTilled");
 		this.setTickRandomly(true);
 		this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 0.9375F, 1.0F);
 		this.setLightOpacity(255);

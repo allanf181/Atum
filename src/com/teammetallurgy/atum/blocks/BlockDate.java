@@ -20,7 +20,7 @@ public class BlockDate extends Block {
 
 	public BlockDate(int par1) {
 		super(par1, Material.plants);
-		this.setUnlocalizedName("atum:date");
+		this.setUnlocalizedName("date");
 	}
 
 	@Override

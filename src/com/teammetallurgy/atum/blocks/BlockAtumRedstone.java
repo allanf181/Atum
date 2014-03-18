@@ -16,7 +16,7 @@ public class BlockAtumRedstone extends Block {
 
 	public BlockAtumRedstone(int par1) {
 		super(par1, Material.rock);
-		this.setUnlocalizedName("atum:redstoneOre");
+		this.setUnlocalizedName("redstoneOre");
 		this.setTextureName("atum:AtumRedstone");
 	}
 

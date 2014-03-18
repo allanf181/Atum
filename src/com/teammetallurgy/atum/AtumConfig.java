@@ -16,8 +16,8 @@ public class AtumConfig {
 		this.CONFIG.load();
 		AtumIDS.BLOCK_PORTAL_ID = getBlock("Portal Block", 1024);
 		AtumIDS.BLOCK_CURSEDCHEST_ID = getBlock("CursedChest", 1025);
-		AtumIDS.BLOCK_SAND_ID = getBlock("Strange Sand", 1026);
-		AtumIDS.BLOCK_STONE_ID = getBlock("Limestone", 1027);
+		AtumIDS.BLOCK_SAND_ID = getBlockTerrain("Strange Sand", 241);
+		AtumIDS.BLOCK_STONE_ID = getBlockTerrain("Limestone", 242);
 		AtumIDS.BLOCK_COBBLE_ID = getBlock("Cracked Limestone", 1028);
 		AtumIDS.BLOCK_LARGEBRICK_ID = getBlock("Large Brick", 1029);
 		AtumIDS.BLOCK_SMALLBRICK_ID = getBlock("Small Brick", 1030);
@@ -125,13 +125,17 @@ public class AtumConfig {
 		AtumIDS.ITEM_SPEAR_ID = getItem("Spear", 5064);
 
 		AtumIDS.DIMENSION_ID = get("Dimension", "Atum", 17);
-		
+
 		AtumIDS.BIOME_DESERT_ID = get("Biome", "Desert", 200);
 		this.CONFIG.save();
 	}
 
 	private int getItem(String name, int defaultId) {
 		return this.CONFIG.getItem(name, defaultId).getInt();
+	}
+
+	private int getBlockTerrain(String name, int defaultId) {
+		return this.CONFIG.getTerrainBlock("block", name, defaultId, "").getInt();
 	}
 
 	private int getBlock(String name, int defaultId) {
