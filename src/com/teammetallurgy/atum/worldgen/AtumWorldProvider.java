@@ -25,7 +25,7 @@ public class AtumWorldProvider extends WorldProvider {
 
 	@Override
 	public IChunkProvider createChunkGenerator() {
-		return new AtumChunkProvider(super.worldObj, super.worldObj.getSeed());
+		return new AtumChunkProvider(super.worldObj, super.worldObj.getSeed(), true);
 	}
 
 	@Override
@@ -41,6 +41,7 @@ public class AtumWorldProvider extends WorldProvider {
 				super.lightBrightnessTable[i] = scaledBrightness / (f1 * 3.0F + 1.0F) * (1.0F - f) + f;
 			}
 		}
+
 	}
 
 	@Override
@@ -82,7 +83,6 @@ public class AtumWorldProvider extends WorldProvider {
 		f3 = 0.9F * f2;
 		f4 = 0.75F * f2;
 		f5 = 0.6F * f2;
-
 		return super.worldObj.getWorldVec3Pool().getVecFromPool((double) f3, (double) f4, (double) f5);
 	}
 
