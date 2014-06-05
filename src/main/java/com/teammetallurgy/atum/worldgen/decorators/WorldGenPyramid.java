@@ -43,7 +43,7 @@ public class WorldGenPyramid extends WorldGenerator {
 
 		int width = 17;
 		int depth = 17;
-
+		System.out.println("x: " + i + ":" + j + ":" + k);
 		boolean[][] maze = new boolean[17][17];
 
 		ArrayList<Pair> points = new ArrayList<Pair>();
@@ -56,8 +56,9 @@ public class WorldGenPyramid extends WorldGenerator {
 		for (int y = -6; y < 10; y++) {
 			for (int x = y; x <= width - y; x++) {
 				for (int z = y; z <= depth - y; z++) {
-					Block block = world.getBlock(x + i, y + j + 3, z + k);
-					if (block == null || block == AtumBlocks.BLOCK_SAND)
+					Block id = world.getBlock(x + i, y + j + 3, z + k);
+					if (id == null || id == AtumBlocks.BLOCK_SAND)
+						world.setBlockToAir(x + i, y + j + 3, z + k);
 						world.setBlock(x + i, y + j + 3, z + k, AtumBlocks.BLOCK_LARGEBRICK, 1, 0);
 				}
 			}
@@ -66,6 +67,7 @@ public class WorldGenPyramid extends WorldGenerator {
 		for (int x = -3; x < width + 3; x++) {
 			for (int z = -3; z < depth + 3; z++) {
 				if (x >= 0 && x < width && z >= 0 && z < depth) {
+					world.setBlockToAir(x + i, j, z + k);
 					world.setBlock(x + i, j - 1, z + k, AtumBlocks.BLOCK_STONE);
 					if (!maze[x][z]) {
 						if (random.nextFloat() > 0.1F) {
@@ -152,20 +154,20 @@ public class WorldGenPyramid extends WorldGenerator {
 	public void placeTrap(World world, int x, int y, int z) {
 		int meta = 0;
 		if (world.isSideSolid(x, y, z + 1, NORTH)) {
-			meta = 2;
+			meta = 3;
 			;
 		}
 
 		if (world.isSideSolid(x, y, z - 1, SOUTH)) {
-			meta = 3;
-		}
-
-		if (world.isSideSolid(x + 1, y, z, WEST)) {
 			meta = 4;
 		}
 
-		if (world.isSideSolid(x - 1, y, z, EAST)) {
+		if (world.isSideSolid(x + 1, y, z, WEST)) {
 			meta = 5;
+		}
+
+		if (world.isSideSolid(x - 1, y, z, EAST)) {
+			meta = 2;
 		}
 
 		world.setBlock(x, y, z, AtumBlocks.BLOCK_TRAPARROW, meta, 0);

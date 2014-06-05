@@ -79,7 +79,7 @@ public class BiomeDecoratorAtum extends BiomeDecorator {
 			this.randomGenerator = null;
 		}
 	}
-	
+
 	@Override
 	protected void genDecorations(BiomeGenBase biome) {
 		MinecraftForge.EVENT_BUS.post(new Pre(this.currentWorld, this.randomGenerator, this.chunk_X, this.chunk_Z));
@@ -129,17 +129,6 @@ public class BiomeDecoratorAtum extends BiomeDecorator {
 			i1 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
 			time = System.nanoTime();
 			(new WorldGenShrub(AtumBlocks.BLOCK_WEED, 8)).generate(this.currentWorld, this.randomGenerator, k, l, i1);
-		}
-
-		doGen = TerrainGen.decorate(this.currentWorld, this.randomGenerator, this.chunk_X, this.chunk_Z, EventType.LAKE);
-		if (doGen && this.generateLakes) {
-			for (j = 0; j < 20; ++j) {
-				k = this.chunk_X + this.randomGenerator.nextInt(16) + 8;
-				l = this.randomGenerator.nextInt(this.randomGenerator.nextInt(this.randomGenerator.nextInt(112) + 8) + 8);
-				i1 = this.chunk_Z + this.randomGenerator.nextInt(16) + 8;
-				time = System.nanoTime();
-				(new WorldGenLiquids(Blocks.flowing_lava)).generate(this.currentWorld, this.randomGenerator, k, l, i1);
-			}
 		}
 
 		MinecraftForge.EVENT_BUS.post(new Post(this.currentWorld, this.randomGenerator, this.chunk_X, this.chunk_Z));
