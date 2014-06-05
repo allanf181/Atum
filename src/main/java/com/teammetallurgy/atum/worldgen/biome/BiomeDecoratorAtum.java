@@ -62,7 +62,7 @@ public class BiomeDecoratorAtum extends BiomeDecorator {
 		this.sandPerChunk2 = 3;
 		this.clayPerChunk = 1;
 		this.bigMushroomsPerChunk = 0;
-		this.generateLakes = true;
+		this.generateLakes = false;
 	}
 
 	@Override

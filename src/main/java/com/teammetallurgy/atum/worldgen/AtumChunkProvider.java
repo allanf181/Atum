@@ -13,6 +13,7 @@ import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
+import net.minecraft.block.material.Material;
 import net.minecraft.entity.EnumCreatureType;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.IProgressUpdate;
@@ -151,9 +152,9 @@ public class AtumChunkProvider implements IChunkProvider {
 
 							for (int k3 = 0; k3 < 4; ++k3) {
 								if ((d15 += d16) > 0.0D) {
-									p_147424_3_[j3 += short1] = Blocks.stone;
+									p_147424_3_[j3 += short1] = AtumBlocks.BLOCK_STONE;
 								} else if (k2 * 8 + l2 < b0) {
-									p_147424_3_[j3 += short1] = Blocks.water;
+									p_147424_3_[j3 += short1] = AtumBlocks.BLOCK_STONE;
 								} else {
 									p_147424_3_[j3 += short1] = null;
 								}
@@ -185,11 +186,106 @@ public class AtumChunkProvider implements IChunkProvider {
 		for (int k = 0; k < 16; ++k) {
 			for (int l = 0; l < 16; ++l) {
 				BiomeGenBase biomegenbase = p_147422_5_[l + k * 16];
-				biomegenbase.genTerrainBlocks(this.worldObj, this.rand, p_147422_3_, p_147422_4_, p_147422_1_ * 16 + k, p_147422_2_ * 16 + l, this.stoneNoise[l + k * 16]);
+				genBiomeTerrain(this.worldObj, biomegenbase, this.rand, p_147422_3_, p_147422_4_, p_147422_1_ * 16 + k, p_147422_2_ * 16 + l, this.stoneNoise[l + k * 16]);
 			}
 		}
 	}
 
+	   public void genBiomeTerrain(World p_150560_1_, BiomeGenBase biomegenbase, Random p_150560_2_, Block[] p_150560_3_, byte[] p_150560_4_, int p_150560_5_, int p_150560_6_, double p_150560_7_)
+	    {
+	        boolean flag = true;
+	        Block block = biomegenbase.topBlock;
+	        byte b0 = (byte)(biomegenbase.field_150604_aj & 255);
+	        Block block1 = biomegenbase.fillerBlock;
+	        int k = -1;
+	        int l = (int)(p_150560_7_ / 3.0D + 3.0D + p_150560_2_.nextDouble() * 0.25D);
+	        int i1 = p_150560_5_ & 15;
+	        int j1 = p_150560_6_ & 15;
+	        int k1 = p_150560_3_.length / 256;
+
+	        for (int l1 = 255; l1 >= 0; --l1)
+	        {
+	            int i2 = (j1 * 16 + i1) * k1 + l1;
+
+	            if (l1 <= 0 + p_150560_2_.nextInt(5))
+	            {
+	                p_150560_3_[i2] = Blocks.bedrock;
+	            }
+	            else
+	            {
+	                Block block2 = p_150560_3_[i2];
+
+	                if (block2 != null && block2.getMaterial() != Material.air)
+	                {
+	                    if (block2 == AtumBlocks.BLOCK_STONE)
+	                    {
+	                        if (k == -1)
+	                        {
+	                            if (l <= 0)
+	                            {
+	                                block = null;
+	                                b0 = 0;
+	                                block1 = AtumBlocks.BLOCK_STONE;
+	                            }
+	                            else if (l1 >= 59 && l1 <= 64)
+	                            {
+	                                block = biomegenbase.topBlock;
+	                                b0 = (byte)(biomegenbase.field_150604_aj & 255);
+	                                block1 = biomegenbase.fillerBlock;
+	                            }
+
+	                            if (l1 < 63 && (block == null || block.getMaterial() == Material.air))
+	                            {
+	                                if (biomegenbase.getFloatTemperature(p_150560_5_, l1, p_150560_6_) < 0.15F)
+	                                {
+	                                    block = Blocks.ice;
+	                                    b0 = 0;
+	                                }
+	                                else
+	                                {
+	                                    block = Blocks.water;
+	                                    b0 = 0;
+	                                }
+	                            }
+
+	                            k = l;
+
+	                            if (l1 >= 62)
+	                            {
+	                                p_150560_3_[i2] = block;
+	                                p_150560_4_[i2] = b0;
+	                            }
+	                            else if (l1 < 56 - l)
+	                            {
+	                                block = null;
+	                                block1 = Blocks.stone;
+	                                p_150560_3_[i2] = Blocks.gravel;
+	                            }
+	                            else
+	                            {
+	                                p_150560_3_[i2] = block1;
+	                            }
+	                        }
+	                        else if (k > 0)
+	                        {
+	                            --k;
+	                            p_150560_3_[i2] = block1;
+
+	                            if (k == 0 && block1 == Blocks.sand)
+	                            {
+	                                k = p_150560_2_.nextInt(4) + Math.max(0, l1 - 63);
+	                                block1 = Blocks.sandstone;
+	                            }
+	                        }
+	                    }
+	                }
+	                else
+	                {
+	                    k = -1;
+	                }
+	            }
+	        }
+	    }
 	/**
 	 * loads or generates the chunk at the chunk location specified
 	 */

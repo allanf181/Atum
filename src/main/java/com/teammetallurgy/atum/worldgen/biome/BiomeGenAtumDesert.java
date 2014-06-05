@@ -106,15 +106,15 @@ public class BiomeGenAtumDesert extends BiomeGenBase {
 			(new WorldGenPyramid()).generate(par1World, par2Random, k, par1World.getHeightValue(k, l), l);
 		}
 
-		if (par2Random.nextInt(160) == 0) {
-			k = par3 + par2Random.nextInt(16) + 8;
-			l = par4 + par2Random.nextInt(16) + 8;
-			height = par2Random.nextInt(10);
-			if (height <= 20) {
-				height += 30;
-			}
-			(new WorldGenPalace()).generate(par1World, par2Random, k, height, l);
-		}
+//		if (par2Random.nextInt(160) == 0) {
+//			k = par3 + par2Random.nextInt(16) + 8;
+//			l = par4 + par2Random.nextInt(16) + 8;
+//			height = par2Random.nextInt(10);
+//			if (height <= 20) {
+//				height += 30;
+//			}
+//			(new WorldGenPalace()).generate(par1World, par2Random, k, height, l);
+//		}
 
 	}
 }
