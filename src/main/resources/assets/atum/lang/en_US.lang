@@ -134,13 +134,13 @@ item.loot.Emerald.name=Emerald
 item.loot.Diamond.name=Diamond
 
 # Entity
-entity.AtumMummy.name=Mummy
-entity.AtumBanditWarrior.name=Bandit Warrior
-entity.AtumBanditArcher.name=Bandit Archer
-entity.AtumPharaoh.name=Pharaoh
-entity.AtumDustySkeleton.name=Dusty Skeleton
-entity.AtumDesertGhost.name=Desert Ghost
-entity.AtumStoneSoldier.name=Stone Soldier
-entity.AtumDesertWolf.name=Desert Wolf
-entity.AtumBanditWarlord.name=Bandit Warlord
-entity.AtumBarbarian.name=Barbarian
+entity.Atum.mummy.name=Mummy
+entity.Atum.nanditWarrior.name=Bandit Warrior
+entity.Atum.banditArcher.name=Bandit Archer
+entity.Atum.pharaoh.name=Pharaoh
+entity.Atum.dustySkeleton.name=Dusty Skeleton
+entity.Atum.desertGhost.name=Desert Ghost
+entity.Atum.stoneSoldier.name=Stone Soldier
+entity.Atum.desertWolf.name=Desert Wolf
+entity.Atum.banditWarlord.name=Bandit Warlord
+entity.Atum.barbarian.name=Barbarian
