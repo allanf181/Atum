@@ -548,7 +548,6 @@ public class AtumChunkProvider implements IChunkProvider {
 
 	@Override
 	public ChunkPosition func_147416_a(World var1, String var2, int var3, int var4, int var5) {
-		// TODO Auto-generated method stub
 		return null;
 	}
 }

@@ -27,4 +27,7 @@ public class CustomArrow extends EntityArrow {
 	protected void entityInit() {
 	}
 
+	public String getTexture() {
+		return "";
+	}
 }

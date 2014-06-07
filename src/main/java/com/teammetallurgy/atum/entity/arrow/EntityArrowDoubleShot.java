@@ -527,8 +527,8 @@ public class EntityArrowDoubleShot extends CustomArrow implements IProjectile, I
 		shootingEntity = entity;
 	}
 
-//	@Override
-//	public String getTexture() {
-//		return "atum:textures/projectiles/arrows_double.png";
-//	}
+	@Override
+	public String getTexture() {
+		return "Atum:textures/projectiles/arrows_double.png";
+	}
 }

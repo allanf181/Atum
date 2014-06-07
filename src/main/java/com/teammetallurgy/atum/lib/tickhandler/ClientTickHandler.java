@@ -59,7 +59,7 @@ public class ClientTickHandler {
 		if (player.dimension == AtumIDS.DIMENSION_ID) {
 			if (Minecraft.getMinecraft().gameSettings.renderDistanceChunks > 2) {
 				defaultFog = Minecraft.getMinecraft().gameSettings.renderDistanceChunks;
-				Minecraft.getMinecraft().gameSettings.renderDistanceChunks = nightvision ? 1 : 2;
+				Minecraft.getMinecraft().gameSettings.renderDistanceChunks = nightvision ? 3 : 2;
 			}
 
 			if (player.worldObj.isRaining()) {

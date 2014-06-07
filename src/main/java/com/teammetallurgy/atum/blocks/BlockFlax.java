@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockBush;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.init.Blocks;
@@ -23,12 +23,12 @@ import com.teammetallurgy.atum.items.AtumItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class BlockFlax extends BlockFlower {
+public class BlockFlax extends BlockBush {
 	@SideOnly(Side.CLIENT)
 	private IIcon[] iconArray;
 
 	protected BlockFlax() {
-		super(0);
+		super();
 		this.setBlockName("flax");
 		this.setTickRandomly(true);
 		float f = 0.5F;

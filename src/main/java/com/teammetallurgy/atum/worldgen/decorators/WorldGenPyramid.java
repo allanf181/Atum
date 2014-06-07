@@ -43,7 +43,7 @@ public class WorldGenPyramid extends WorldGenerator {
 
 		int width = 17;
 		int depth = 17;
-		System.out.println("x: " + i + ":" + j + ":" + k);
+
 		boolean[][] maze = new boolean[17][17];
 
 		ArrayList<Pair> points = new ArrayList<Pair>();

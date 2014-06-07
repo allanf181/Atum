@@ -535,8 +535,8 @@ public class EntityArrowExplosive extends CustomArrow implements IProjectile, IT
 		shootingEntity = entity;
 	}
 
-//	@Override
-//	public String getTexture() {
-//		return "atum:textures/projectiles/arrows_exploding.png";
-//	}
+	@Override
+	public String getTexture() {
+		return "Atum:textures/projectiles/arrows_exploding.png";
+	}
 }

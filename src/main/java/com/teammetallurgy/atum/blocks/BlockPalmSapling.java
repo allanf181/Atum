@@ -3,15 +3,15 @@ package com.teammetallurgy.atum.blocks;
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.block.BlockFlower;
+import net.minecraft.block.BlockBush;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 
-public class BlockPalmSapling extends BlockFlower {
+public class BlockPalmSapling extends BlockBush {
 
 	protected BlockPalmSapling() {
-		super(0);
+		super();
 		this.setBlockName("palmSapling");
 		float f = 0.4F;
 		this.setBlockBounds(0.5F - f, 0.0F, 0.5F - f, 0.5F + f, f * 2.0F, 0.5F + f);

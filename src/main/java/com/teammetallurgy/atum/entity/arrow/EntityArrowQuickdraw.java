@@ -527,8 +527,8 @@ public class EntityArrowQuickdraw extends CustomArrow implements IProjectile, IT
 		shootingEntity = entity;
 	}
 
-//	@Override
-//	public String getTexture() {
-//		return "atum:textures/projectiles/arrows_quickdraw.png";
-//	}
+	@Override
+	public String getTexture() {
+		return "Atum:textures/projectiles/arrows_quickdraw.png";
+	}
 }

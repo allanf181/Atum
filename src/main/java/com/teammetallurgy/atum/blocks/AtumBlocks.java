@@ -81,12 +81,12 @@ public enum AtumBlocks {
 		this.register(BLOCK_CRACKEDLARGEBRICK);
 		this.register(BLOCK_CRYSTALGLASS);
 		this.register(BLOCK_FRAMEDGLASS);
-		//this.register(BLOCK_PALMSAPLING);
+		this.register(BLOCK_PALMSAPLING);
 		this.register(BLOCK_DATEBLOCK);
-		//this.register(BLOCK_SHRUB);
+		this.register(BLOCK_SHRUB);
 		this.register(BLOCK_WEED);
 		this.register(BLOCK_PAPYRUS);
-		//this.register(BLOCK_FLAX);
+		this.register(BLOCK_FLAX);
 		this.register(BLOCK_FERTILESOIL);
 		this.register(BLOCK_FERTILESOILTILLED);
 		this.register(BLOCK_LOG);

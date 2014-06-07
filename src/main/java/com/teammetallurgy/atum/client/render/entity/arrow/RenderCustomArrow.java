@@ -17,7 +17,6 @@ import cpw.mods.fml.relauncher.SideOnly;
 @SideOnly(Side.CLIENT)
 public class RenderCustomArrow extends Render {
 	
-	private static final ResourceLocation arrowTextures = new ResourceLocation("textures/entity/arrow.png");
 	
 	public void renderArrow(CustomArrow entityArrow, double par2, double par4, double par6, float par8, float par9) {
 
@@ -88,6 +87,6 @@ public class RenderCustomArrow extends Render {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		return arrowTextures;
+		return new ResourceLocation(((CustomArrow)entity).getTexture());
 	}
 }

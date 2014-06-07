@@ -395,7 +395,7 @@ public class AtumTeleporter extends Teleporter {
 
 		for(int x1 = -1; x1 < 2; x1++) {
 			for(int z1 = -1; z1 < 2; z1++) {
-				this.worldServerInstance.setBlock(x1 + entityX, entityY + 1, z1 + entityZ, AtumBlocks.BLOCK_PORTAL);
+				this.worldServerInstance.setBlock(x1 + entityX, entityY + 1, z1 + entityZ, AtumBlocks.BLOCK_PORTAL, 0, 2);
 			}
 		}
 
