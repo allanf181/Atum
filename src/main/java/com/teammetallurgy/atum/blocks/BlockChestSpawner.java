@@ -191,6 +191,6 @@ public class BlockChestSpawner extends BlockContainer {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IIconRegister) {
-		this.blockIcon = par1IIconRegister.registerIcon("wood");
+		this.blockIcon = par1IIconRegister.registerIcon("log_oak");
 	}
 }

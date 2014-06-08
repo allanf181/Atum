@@ -394,7 +394,7 @@ public class EntityAtumFishHook extends EntityFishHook {
 		par1NBTTagCompound.setShort("xTile", (short) this.xTile);
 		par1NBTTagCompound.setShort("yTile", (short) this.yTile);
 		par1NBTTagCompound.setShort("zTile", (short) this.zTile);
-		par1NBTTagCompound.setString("inTile", this.inTile.getUnlocalizedName());
+		par1NBTTagCompound.setByte("inTile", (byte)Block.getIdFromBlock(this.inTile));
 		par1NBTTagCompound.setByte("shake", (byte) this.shake);
 		par1NBTTagCompound.setByte("inGround", (byte) (this.inGround ? 1 : 0));
 	}
@@ -406,7 +406,7 @@ public class EntityAtumFishHook extends EntityFishHook {
 		this.xTile = par1NBTTagCompound.getShort("xTile");
 		this.yTile = par1NBTTagCompound.getShort("yTile");
 		this.zTile = par1NBTTagCompound.getShort("zTile");
-		this.inTile = Block.getBlockFromName(par1NBTTagCompound.getString("inTile"));
+		this.inTile = Block.getBlockById(par1NBTTagCompound.getByte("inTile") & 255);
 		this.shake = par1NBTTagCompound.getByte("shake") & 255;
 		this.inGround = par1NBTTagCompound.getByte("inGround") == 1;
 	}

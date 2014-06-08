@@ -55,19 +55,27 @@ public enum AtumEntities {
 		entityID++;
 		EntityRegistry.registerModEntity(EntityBanditWarlord.class, "banditWarlord", entityID, Atum.instance, 64, 1, true);
 		EntityRegistry.registerGlobalEntityID(EntityBanditWarlord.class, "banditWarlord", entityID, 0x918354, 0x695D37);
-		
+
 		entityID++;
 		EntityRegistry.registerModEntity(EntityBarbarian.class, "barbarian", entityID, Atum.instance, 64, 1, true);
 		EntityRegistry.registerGlobalEntityID(EntityBarbarian.class, "barbarian", entityID, 0x918354, 0x695D37);
 
-		EntityRegistry.registerModEntity(EntityArrowVelocity.class, "ArrowVeloctiy", 0, Atum.instance, 64, 1, true);
-		EntityRegistry.registerModEntity(EntityArrowExplosive.class, "ArrowExplosive", 1, Atum.instance, 64, 1, true);
-		EntityRegistry.registerModEntity(EntityArrowPoison.class, "ArrowPoison", 2, Atum.instance, 64, 1, true);
-		EntityRegistry.registerModEntity(EntityArrowFire.class, "ArrowFire", 3, Atum.instance, 64, 1, true);
-		EntityRegistry.registerModEntity(EntityArrowDoubleShot.class, "ArrowFire", 4, Atum.instance, 64, 1, true);
-		EntityRegistry.registerModEntity(EntityArrowQuickdraw.class, "ArrowFire", 5, Atum.instance, 64, 1, true);
-		EntityRegistry.registerModEntity(EntityNutsCall.class, "EntityNutsCall", 6, Atum.instance, 64, 1, true);
-		EntityRegistry.registerModEntity(EntityAtumFishHook.class, "EntityAtumFishHook", 7, Atum.instance, 64, 1, false);
+		entityID++;
+		EntityRegistry.registerModEntity(EntityArrowVelocity.class, "ArrowVeloctiy", entityID, Atum.instance, 64, 1, true);
+		entityID++;
+		EntityRegistry.registerModEntity(EntityArrowExplosive.class, "ArrowExplosive", entityID, Atum.instance, 64, 1, true);
+		entityID++;
+		EntityRegistry.registerModEntity(EntityArrowPoison.class, "ArrowPoison", entityID, Atum.instance, 64, 1, true);
+		entityID++;
+		EntityRegistry.registerModEntity(EntityArrowFire.class, "ArrowFire", entityID, Atum.instance, 64, 1, true);
+		entityID++;
+		EntityRegistry.registerModEntity(EntityArrowDoubleShot.class, "ArrowFire", entityID, Atum.instance, 64, 1, true);
+		entityID++;
+		EntityRegistry.registerModEntity(EntityArrowQuickdraw.class, "ArrowFire", entityID, Atum.instance, 64, 1, true);
+		entityID++;
+		EntityRegistry.registerModEntity(EntityNutsCall.class, "EntityNutsCall", entityID, Atum.instance, 64, 1, true);
+		entityID++;
+		EntityRegistry.registerModEntity(EntityAtumFishHook.class, "EntityAtumFishHook", entityID, Atum.instance, 64, 1, false);
 
 	}
 

@@ -64,6 +64,6 @@ public class RenderNutsCall extends Render {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation("atum", "textures/projectiles/nutscall.png");
+		return new ResourceLocation("Atum:textures/projectiles/nutscall.png");
 	}
 }

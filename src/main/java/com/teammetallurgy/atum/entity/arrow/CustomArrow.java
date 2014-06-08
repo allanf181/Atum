@@ -28,6 +28,6 @@ public class CustomArrow extends EntityArrow {
 	}
 
 	public String getTexture() {
-		return "";
+		return "minecraft:arrow";
 	}
 }

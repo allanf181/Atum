@@ -409,7 +409,7 @@ public class EntityArrowDoubleShot extends CustomArrow implements IProjectile, I
 		par1NBTTagCompound.setShort("xTile", (short) this.xTile);
 		par1NBTTagCompound.setShort("yTile", (short) this.yTile);
 		par1NBTTagCompound.setShort("zTile", (short) this.zTile);
-		par1NBTTagCompound.setString("inTile", this.inTile.getUnlocalizedName());
+		par1NBTTagCompound.setByte("inTile", (byte)Block.getIdFromBlock(this.inTile));
 		par1NBTTagCompound.setByte("inData", (byte) this.inData);
 		par1NBTTagCompound.setByte("shake", (byte) this.arrowShake);
 		par1NBTTagCompound.setByte("inGround", (byte) (this.inGround ? 1 : 0));
@@ -424,7 +424,7 @@ public class EntityArrowDoubleShot extends CustomArrow implements IProjectile, I
 		this.xTile = par1NBTTagCompound.getShort("xTile");
 		this.yTile = par1NBTTagCompound.getShort("yTile");
 		this.zTile = par1NBTTagCompound.getShort("zTile");
-		this.inTile = Block.getBlockFromName(par1NBTTagCompound.getString("inTile"));
+		this.inTile = Block.getBlockById(par1NBTTagCompound.getByte("inTile") & 255);
 		this.inData = par1NBTTagCompound.getByte("inData") & 255;
 		this.arrowShake = par1NBTTagCompound.getByte("shake") & 255;
 		this.inGround = par1NBTTagCompound.getByte("inGround") == 1;
