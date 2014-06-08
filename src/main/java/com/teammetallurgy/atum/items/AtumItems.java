@@ -52,7 +52,7 @@ public enum AtumItems {
 	public static final Item ITEM_LINEN = new Item().setUnlocalizedName("linen").setTextureName("atum:Linen");
 	public static final Item ITEM_SCARAB = new ItemScarab().setUnlocalizedName("scarab");
 	public static final Item ITEM_LOOT = new ItemLoot().setUnlocalizedName("loot");
-	public static final Item ITEM_DATE = new ItemFood(5, 1.5F, false).setTextureName("atum:date").setUnlocalizedName("date");
+	public static final Item ITEM_DATE = new ItemFood(5, 1.5F, false).setTextureName("atum:Date").setUnlocalizedName("date");
 	public static final Item ITEM_SCIMITAR = new ItemScimitar(ToolMaterial.IRON).setUnlocalizedName("scimitar");
 	public static final Item ITEM_GREATSWORD = new ItemGreatsword(ToolMaterial.IRON).setUnlocalizedName("greatsword").setTextureName("atum:Greatsword");
 	public static final Item ITEM_BOW = new ItemAtumBow().setUnlocalizedName("bow");
