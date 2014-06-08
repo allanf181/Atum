@@ -68,7 +68,6 @@ public class ItemAnuketsBounty extends Item {
 
 	@Override
 	public void registerIcons(IIconRegister par1IIconRegister) {
-		super.registerIcons(par1IIconRegister);
 		this.itemIcon = par1IIconRegister.registerIcon("atum:AnuketsBounty");
 		this.theIcon = par1IIconRegister.registerIcon("fishing_rod_cast");
 	}

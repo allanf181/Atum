@@ -121,7 +121,6 @@ public class ItemMonthusBlast extends ItemBow {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister par1IIconRegister) {
-		super.registerIcons(par1IIconRegister);
 		this.iconArray = new IIcon[bowPullIconNameArray.length];
 		this.itemIcon = par1IIconRegister.registerIcon("atum:MonthusBlast");
 		for (int i = 0; i < this.iconArray.length; ++i) {

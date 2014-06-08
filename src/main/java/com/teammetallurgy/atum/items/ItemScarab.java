@@ -25,14 +25,14 @@ public class ItemScarab extends Item {
 
 	@Override
 	public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int x, int y, int z, int par7, float par8, float par9, float par10) {
-		Block blockID = par3World.getBlock(x, y, z);
+		Block block = par3World.getBlock(x, y, z);
 		Block temp = null;
-		if(blockID == Blocks.sandstone) {
+		if(block == Blocks.sandstone) {
 			temp = Blocks.sandstone;
-		} else if(blockID == AtumBlocks.BLOCK_LARGEBRICK) {
+		} else if(block == AtumBlocks.BLOCK_LARGEBRICK) {
 			temp = AtumBlocks.BLOCK_LARGEBRICK;
 		}
-		if(blockID != null) {
+		if(temp != null) {
 			if(!((BlockPortal) AtumBlocks.BLOCK_PORTAL).tryToCreatePortal(par3World, x, y, z, temp)) {
 				if(par2EntityPlayer.capabilities.isCreativeMode) {
 					for(int x1 = -2; x1 < 3; x1++) {

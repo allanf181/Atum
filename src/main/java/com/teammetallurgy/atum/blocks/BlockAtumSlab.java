@@ -5,6 +5,7 @@ import java.util.Random;
 
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
+import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
@@ -55,4 +56,7 @@ public class BlockAtumSlab extends BlockSlab {
 		return this.getUnlocalizedName();
 	}
 
+	@SideOnly(Side.CLIENT)
+	public void registerBlockIcons(IIconRegister p_149651_1_) {
+	}
 }

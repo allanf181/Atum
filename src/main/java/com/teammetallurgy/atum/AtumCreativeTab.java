@@ -12,16 +12,6 @@ public class AtumCreativeTab extends CreativeTabs {
 	}
 
 	@Override
-	public String getBackgroundImageName() {
-		return super.getBackgroundImageName().replace("s.png", "_search.png");
-	}
-
-	@Override
-	public boolean hasSearchBar() {
-		return true;
-	}
-	
-	@Override
 	public Item getTabIconItem() {
 		return AtumItems.ITEM_SCARAB;
 	}

@@ -34,6 +34,7 @@ public class BlockPharaohChest extends BlockContainer {
 		super(Material.wood);
 		this.setBlockName("pharaohChest");
 		this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
+		this.setHardness(4.0F);
 	}
 
 	@Override
@@ -193,7 +194,7 @@ public class BlockPharaohChest extends BlockContainer {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerBlockIcons(IIconRegister par1IIconRegister) {
-		this.blockIcon = par1IIconRegister.registerIcon("wood");
+		this.blockIcon = par1IIconRegister.registerIcon("log_oak");
 	}
 
 	@Override
