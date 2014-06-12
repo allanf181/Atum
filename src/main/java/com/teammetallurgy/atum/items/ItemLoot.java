@@ -12,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
@@ -42,7 +43,7 @@ public class ItemLoot extends Item {
 	@Override
 	public String getItemStackDisplayName(ItemStack par1ItemStack) {
 		int type = par1ItemStack.getItemDamage() >> 5 & 15;
-		return super.getItemStackDisplayName(par1ItemStack) + " " + typeArray[type];
+		return super.getItemStackDisplayName(par1ItemStack) + " " + StatCollector.translateToLocal("item.loot." + typeArray[type] + ".name");
 	}
 
 	@Override

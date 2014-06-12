@@ -133,6 +133,12 @@ item.loot.Ruby.name=Ruby
 item.loot.Emerald.name=Emerald
 item.loot.Diamond.name=Diamond
 
+item.loot.Idol.name=Idol
+item.loot.Necklace.name=Necklace
+item.loot.Ring.name=Ring
+item.loot.Broach.name=Broach
+item.loot.Scepter.name=Scepter
+
 # Entity
 entity.Atum.mummy.name=Mummy
 entity.Atum.nanditWarrior.name=Bandit Warrior
