@@ -133,6 +133,12 @@ item.loot.Ruby.name=Рубинов.
 item.loot.Emerald.name=Изумрудн.
 item.loot.Diamond.name=Алмазн.
 
+item.loot.Idol.name=идол
+item.loot.Necklace.name=ожерелье
+item.loot.Ring.name=кольцо
+item.loot.Broach.name=брошь
+item.loot.Scepter.name=скипетр
+
 # Entity
 entity.Atum.mummy.name=Мумия
 entity.Atum.nanditWarrior.name=Бандит-воин
