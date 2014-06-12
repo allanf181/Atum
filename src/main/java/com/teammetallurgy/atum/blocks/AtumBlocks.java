@@ -42,7 +42,7 @@ public enum AtumBlocks {
 	public static final Block BLOCK_FRAMEDGLASS = new BlockAtumGlass("atum:AtumFramedGlass").setBlockName("framedGlass");
 	public static final Block BLOCK_PALMSAPLING = new BlockPalmSapling();
 	public static final Block BLOCK_DATEBLOCK = new BlockDate();
-	public static final Block BLOCK_SHRUB = new BlockShrub().setBlockName("shrub").setBlockTextureName("atum:shrub");
+	public static final Block BLOCK_SHRUB = new BlockShrub().setBlockName("shrub").setBlockTextureName("atum:Shrub");
 	public static final Block BLOCK_WEED = new BlockShrub().setBlockName("weed").setBlockTextureName("atum:DeadBush");
 	public static final Block BLOCK_PAPYRUS = new BlockPapyrus();
 	public static final Block BLOCK_FLAX = new BlockFlax();
