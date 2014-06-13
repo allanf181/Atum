@@ -150,3 +150,6 @@ entity.Atum.stoneSoldier.name=Stone Soldier
 entity.Atum.desertWolf.name=Desert Wolf
 entity.Atum.banditWarlord.name=Bandit Warlord
 entity.Atum.barbarian.name=Barbarian
+
+# Chat
+chat.Atum.disabled=Scarab portal creation is disabled

@@ -3,7 +3,6 @@ package com.teammetallurgy.atum.world;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 
-import com.teammetallurgy.atum.AtumConfig;
 import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.worldgen.AtumWorldProvider;
 import com.teammetallurgy.atum.worldgen.biome.BiomeGenAtumDesert;
