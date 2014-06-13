@@ -15,7 +15,7 @@ tile.smoothSlab.name=Smooth-Limestone Slab
 tile.crackedSlab.name=Cracked-Limestone Slab
 tile.largeBrickSlab.name=Large Limestone Brick Slab
 tile.smallBrickSlab.name=Small Limestone Brick Slab
-tile.doubleSlab.name=Limestone Double Slab
+tile.doubleSlab.name=Limestone Slab
 tile.smoothStairs.name=Limestone Stairs
 tile.cobbleStairs.name=Limestone Cobble Stairs
 tile.largeStairs.name=Limestone Large Brick Stairs
@@ -50,7 +50,10 @@ tile.goldOre.name=Gold Ore
 tile.lapisOre.name=Lapis Ore
 tile.diamondOre.name=Diamond Ore
 tile.furnaceIdle.name=Limestone Furnace
-tile.furnaceBurning.name=Limestone Furnace Burning
+tile.furnaceBurning.name=Limestone Furnace
+
+# Containers
+container.furnace=Limestone Furnace
 
 # Item
 item.scarab.name=Scarab
