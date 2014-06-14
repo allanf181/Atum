@@ -140,11 +140,11 @@ public class BlockFlax extends BlockBush {
 	}
 
 	protected Item getSeedItem() {
-		return AtumItems.flaxSeeds;
+		return AtumItems.ITEM_FLAXSEED;
 	}
 
 	protected Item getCropItem() {
-		return AtumItems.flax;
+		return AtumItems.ITEM_FLAX;
 	}
 
 	@Override

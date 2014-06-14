@@ -18,8 +18,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemLoot extends Item {
 
-	private static String[] typeArray = new String[] { "Idol", "Necklace", "Ring", "Broach", "Scepter" };
-	private static String[] qualityArray = new String[] { "Dirty", "Silver", "Gold", "Sapphire", "Ruby", "Emerald", "Diamond" };
+	private static String[] typeArray = new String[] { "idol", "necklace", "ring", "broach", "scepter" };
+	private static String[] qualityArray = new String[] { "dirty", "silver", "gold", "sapphire", "ruby", "emerald", "diamond" };
 	IIcon[] iconArray;
 
 	public ItemLoot() {

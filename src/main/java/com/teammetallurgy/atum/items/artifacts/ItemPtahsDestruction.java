@@ -10,6 +10,7 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 
 import org.lwjgl.input.Keyboard;
 
@@ -31,11 +32,12 @@ public class ItemPtahsDestruction extends ItemPickaxe {
 		return true;
 	}
 
-//	@Override
-//	public float getDamageVsEntity(Entity entity, ItemStack stack) {
-//		float damage = 4 + super.toolMaterial.getDamageVsEntity();
-//		return entity instanceof EntityStoneSoldier ? (int) ((double) damage * (2.0D + Math.random())) : damage;
-//	}
+	// @Override
+	// public float getDamageVsEntity(Entity entity, ItemStack stack) {
+	// float damage = 4 + super.toolMaterial.getDamageVsEntity();
+	// return entity instanceof EntityStoneSoldier ? (int) ((double) damage *
+	// (2.0D + Math.random())) : damage;
+	// }
 
 	@Override
 	@SideOnly(Side.CLIENT)
@@ -46,13 +48,12 @@ public class ItemPtahsDestruction extends ItemPickaxe {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		if(Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "Stonecutter I: Increases damage");
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "to stone enemies");
+		if (Keyboard.isKeyDown(42)) {
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
 		} else {
-			par3List.add("Stonecutter I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
+			par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
 		}
-
 	}
 
 	@Override

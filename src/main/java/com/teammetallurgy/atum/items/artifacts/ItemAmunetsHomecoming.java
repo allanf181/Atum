@@ -12,6 +12,7 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 
@@ -36,16 +37,16 @@ public class ItemAmunetsHomecoming extends Item {
 	// TODO FIX
 	public ItemStack onItemRightClick(ItemStack par1ItemStack, World par3World, EntityPlayer par2EntityPlayer) {
 		ChunkCoordinates spawn = par2EntityPlayer.getBedLocation(par2EntityPlayer.dimension);
-		if(spawn == null) {
+		if (spawn == null) {
 			spawn = par3World.getSpawnPoint();
 		}
 
-		if(spawn == null) {
+		if (spawn == null) {
 			spawn = par3World.getSpawnPoint();
 		}
 
 		spawn = verifyRespawnCoordinates(par3World, spawn, false);
-		if(spawn == null) {
+		if (spawn == null) {
 			spawn = par3World.getSpawnPoint();
 		}
 
@@ -53,7 +54,7 @@ public class ItemAmunetsHomecoming extends Item {
 		par2EntityPlayer.rotationYaw = 0.0F;
 		par2EntityPlayer.setPositionAndUpdate((double) spawn.posX + 0.5D, (double) spawn.posY + 0.1D, (double) spawn.posZ);
 
-		while(!par3World.getCollidingBoundingBoxes(par2EntityPlayer, par2EntityPlayer.boundingBox).isEmpty()) {
+		while (!par3World.getCollidingBoundingBoxes(par2EntityPlayer, par2EntityPlayer.boundingBox).isEmpty()) {
 			par2EntityPlayer.setPosition(par2EntityPlayer.posX, par2EntityPlayer.posY + 1.0D, par2EntityPlayer.posZ);
 		}
 
@@ -62,7 +63,7 @@ public class ItemAmunetsHomecoming extends Item {
 	}
 
 	public static ChunkCoordinates verifyRespawnCoordinates(World par0World, ChunkCoordinates par1ChunkCoordinates, boolean par2) {
-		if(!par0World.isRemote) {
+		if (!par0World.isRemote) {
 			IChunkProvider c = par0World.getChunkProvider();
 			c.loadChunk(par1ChunkCoordinates.posX - 3 >> 4, par1ChunkCoordinates.posZ - 3 >> 4);
 			c.loadChunk(par1ChunkCoordinates.posX + 3 >> 4, par1ChunkCoordinates.posZ - 3 >> 4);
@@ -71,7 +72,7 @@ public class ItemAmunetsHomecoming extends Item {
 		}
 
 		Block block = par0World.getBlock(par1ChunkCoordinates.posX, par1ChunkCoordinates.posY, par1ChunkCoordinates.posZ);
-		if(block != null && block.isBed(par0World, par1ChunkCoordinates.posX, par1ChunkCoordinates.posY, par1ChunkCoordinates.posZ, (EntityLiving) null)) {
+		if (block != null && block.isBed(par0World, par1ChunkCoordinates.posX, par1ChunkCoordinates.posY, par1ChunkCoordinates.posZ, (EntityLiving) null)) {
 			ChunkCoordinates material1 = block.getBedSpawnPosition(par0World, par1ChunkCoordinates.posX, par1ChunkCoordinates.posY, par1ChunkCoordinates.posZ, (EntityPlayer) null);
 			return material1;
 		} else {
@@ -92,14 +93,12 @@ public class ItemAmunetsHomecoming extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		if(Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "Return I: Teleports you back");
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "to your spawn point");
+		if (Keyboard.isKeyDown(42)) {
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
 		} else {
-			par3List.add("Return I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
+			par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
 		}
-
-		par3List.add(par1ItemStack.getMaxDamage() - par1ItemStack.getItemDamage() + " Uses Remaining");
 	}
 
 	@Override

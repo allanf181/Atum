@@ -205,7 +205,7 @@ public class EntityDesertWolf extends EntityTameable implements IAtumDayMob {
 		}
 		if (rand.nextInt(4) == 0) {
 			int amount = rand.nextInt(2) + 1;
-			this.dropItem(AtumItems.pelt, amount);
+			this.dropItem(AtumItems.ITEM_PELT, amount);
 		}
 	}
 

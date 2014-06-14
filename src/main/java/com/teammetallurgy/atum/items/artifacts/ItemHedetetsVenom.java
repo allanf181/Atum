@@ -13,6 +13,7 @@ import net.minecraft.item.ItemBow;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.IIcon;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
@@ -39,10 +40,12 @@ public class ItemHedetetsVenom extends ItemBow {
 		return true;
 	}
 
+	@Override
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
 		return par2ItemStack.getItem() == Items.diamond;
 	}
 
+	@Override
 	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World par2World, EntityPlayer par3EntityPlayer, int par4) {
 		int j = this.getMaxItemUseDuration(par1ItemStack) - par4;
 		ArrowLooseEvent event = new ArrowLooseEvent(par3EntityPlayer, par1ItemStack, j);
@@ -97,22 +100,24 @@ public class ItemHedetetsVenom extends ItemBow {
 		}
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public EnumRarity getRarity(ItemStack par1ItemStack) {
 		return EnumRarity.rare;
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if (Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "Poison Arrow I: Fires an");
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "arrow that poisons foes");
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
 		} else {
-			par3List.add("Poison Arrow I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
+			par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
 		}
-
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public void registerIcons(IIconRegister par1IIconRegister) {
 		this.iconArray = new IIcon[bowPullIconNameArray.length];
@@ -123,6 +128,7 @@ public class ItemHedetetsVenom extends ItemBow {
 
 	}
 
+	@Override
 	public IIcon getIcon(ItemStack stack, int renderPass, EntityPlayer player, ItemStack usingItem, int useRemaining) {
 		if (usingItem != null) {
 			int j = this.getMaxItemUseDuration(stack) - useRemaining;
@@ -142,6 +148,7 @@ public class ItemHedetetsVenom extends ItemBow {
 		return this.getIcon(stack, renderPass);
 	}
 
+	@Override
 	@SideOnly(Side.CLIENT)
 	public IIcon getItemIconForUseDuration(int par1) {
 		return this.iconArray[par1];

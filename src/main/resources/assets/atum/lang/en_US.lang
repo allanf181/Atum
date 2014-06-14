@@ -1,5 +1,5 @@
 # Misc
-itemGroup.Atum=Atum
+itemGroup.atum=Atum
 biome.desert.name=Desert
 
 # Blocks
@@ -53,7 +53,7 @@ tile.furnaceIdle.name=Limestone Furnace
 tile.furnaceBurning.name=Limestone Furnace
 
 # Containers
-container.furnace=Limestone Furnace
+container.limestoneFurnace=Limestone Furnace
 
 # Item
 item.scarab.name=Scarab
@@ -63,37 +63,6 @@ item.greatsword.name=Greatsword
 item.scepter.name=Scepter
 item.stoneSoldierSword.name=Stone Soldier Sword
 item.bow.name=Shortbow
-
-item.ptahsDecadence.name=Ptahs' Decadence
-item.soteksRage.name=Soteks' Rage
-item.osirisWill.name=Osiris' Will
-item.akersToil.name=Akers' Toil
-item.gebsBlessing.name=Gebs' Blessing
-item.atensFury.name=Atens' Fury
-item.rasGlory.name=Ras' Glory
-item.sekhmetsWrath.name=Sekhmets' Wrath
-item.nutsAgility.name=Nuts' Agility
-item.horusFlight.name=Horus' Flight
-item.monthusStrike.name=Monthus' Strike
-item.anhursMight.name=Anhurs' Might
-item.hedetetsSting.name=Hedetets' Sting
-item.horusSoaring.name=Horus' Soaring
-item.shusBreath.name=Shus' Breath
-item.ptahsDestruction.name=Ptahs' Destruction
-item.monthusBlast.name=Monthus' Blast
-item.nusFlux.name=Nus' Flux
-item.mnevisHorns.name=Mnevis' Horns
-item.isisEmbrace.name=Isis' Embrace
-item.maatsBalance.name=Maats' Balance
-item.hedetetsVenom.name=Hedetets' Venom
-item.gebsSolidarity.name=Gebs' Solidarity
-item.nutsCall.name=Nuts' Call
-item.anuketsBounty.name=Anukets' Bounty
-item.mafdetsQuickness.name=Mafdets' Quickness
-item.isisHealing.name=Isis' Healing
-item.amunetsHomecoming.name=Amunets' Homecoming
-item.anubisMercy.name=Anubis's Mercy
-
 item.limestoneShovel.name=Limestone Shovel
 item.limestonePickaxe.name=Limestone Pickaxe
 item.limestoneAxe.name=Limestone Axe
@@ -125,34 +94,263 @@ item.fish.0.name=Forsaken Fish
 item.fish.1.name=Mummified Fish
 item.fish.2.name=Jeweled Fish
 item.fish.3.name=Skeletal Fish
+
+item.ptahsDecadence.name=Ptahs' Decadence
+item.soteksRage.name=Soteks' Rage
+item.osirisWill.name=Osiris' Will
+item.akersToil.name=Akers' Toil
+item.gebsBlessing.name=Gebs' Blessing
+item.atensFury.name=Atens' Fury
+item.rasGlory.name=Ras' Glory
+item.sekhmetsWrath.name=Sekhmets' Wrath
+item.nutsAgility.name=Nuts' Agility
+item.horusFlight.name=Horus' Flight
+item.monthusStrike.name=Monthus' Strike
+item.anhursMight.name=Anhurs' Might
+item.hedetetsSting.name=Hedetets' Sting
+item.horusSoaring.name=Horus' Soaring
+item.shusBreath.name=Shus' Breath
+item.ptahsDestruction.name=Ptahs' Destruction
+item.monthusBlast.name=Monthus' Blast
+item.nusFlux.name=Nus' Flux
+item.mnevisHorns.name=Mnevis' Horns
+item.isisEmbrace.name=Isis' Embrace
+item.maatsBalance.name=Maats' Balance
+item.hedetetsVenom.name=Hedetets' Venom
+item.gebsSolidarity.name=Gebs' Solidarity
+item.nutsCall.name=Nuts' Call
+item.anuketsBounty.name=Anukets' Bounty
+item.mafdetsQuickness.name=Mafdets' Quickness
+item.isisHealing.name=Isis' Healing
+item.amunetsHomecoming.name=Amunets' Homecoming
+item.anubisMercy.name=Anubis's Mercy
 item.neithsAudacity.name=Neiths Audacity
 
-# Loot
-item.loot.Dirty.name=Dirty
-item.loot.Silver.name=Silver
-item.loot.Gold.name=Gold
-item.loot.Sapphire.name=Sapphire
-item.loot.Ruby.name=Ruby
-item.loot.Emerald.name=Emerald
-item.loot.Diamond.name=Diamond
 
-item.loot.Idol.name=Idol
-item.loot.Necklace.name=Necklace
-item.loot.Ring.name=Ring
-item.loot.Broach.name=Broach
-item.loot.Scepter.name=Scepter
+# Item Information
+item.akersToil.line1=Performance I: Faster, does
+item.akersToil.line2=not consume fatique
+item.akersToil.line3=Performance I
+
+item.amunetsHomecoming.line1=Return I: Teleports you back
+item.amunetsHomecoming.line2=to your spawn point
+item.amunetsHomecoming.line3=Return I
+
+item.anhursMight.line1=Mighty I: Slows player,
+item.anhursMight.line2=Chance to stun foes
+item.anhursMight.line3=Mighty I
+
+item.ptahsDecadence.line1=Wealth I: Gain an extra
+item.ptahsDecadence.line2=diamond from each ore
+item.ptahsDecadence.line3=Wealth I
+
+item.soteksRage.line1=Exile I: Knocks foes
+item.soteksRage.line2=back a large amount
+item.soteksRage.line3=Exile I
+
+item.osirisWill.line1=Banish I: Bonus damage to undead,
+item.osirisWill.line2=chance to drop ectoplasm
+item.osirisWill.line3=Banish I
+
+item.gebsBlessing.line1=Sowing I: Tilled ground is blessed,
+item.gebsBlessing.line2=granting increased growth rate
+item.gebsBlessing.line3=Sowing I
+
+item.atensFury.line1=Fire Shot I: Flaming arrow
+item.atensFury.line2=ignites blocks and foes
+item.atensFury.line3=Fire Shot I
+
+item.rasGlory.line1=Divine Vision I: Night vision, increased
+item.rasGlory.line2=range of vision in Atum
+item.rasGlory.line3=Divine Vision I
+
+item.sekhmetsWrath.line1=Immolation I: Protection from fire,,
+item.sekhmetsWrath.line2=chance to ignite attackers
+item.sekhmetsWrath.line3=Immolation I
+
+item.nutsAgility.line1=Agility I: Increased run
+item.nutsAgility.line2=and swinging speed
+item.nutsAgility.line3=Agility I
+
+item.horusFlight.line1=Nimbleness I: Increased jump height,
+item.horusFlight.line2=protection from fall damage
+item.horusFlight.line3=Nimbleness I
+
+item.monthusStrike.line1=Slam I: Increased damage,
+item.monthusStrike.line2=charge for AOE knockback
+item.monthusStrike.line3=Slam I
+
+item.hedetetsSting.line1=Poison II: Chance
+item.hedetetsSting.line2=to poison foes
+item.hedetetsSting.line3=Poison II
+
+# I need to talk to shadow
+item.horusSoaring.line1=Mighty I: Slows player,
+item.horusSoaring.line2=Chance to stun foes
+item.horusSoaring.line3=Mighty I
+
+item.shusBreath.line1=Quickdraw I: Reduced
+item.shusBreath.line2=drawback speed
+item.shusBreath.line3=Mighty I
+
+item.ptahsDestruction.line1=Stonecutter I: Increases damage
+item.ptahsDestruction.line2=to stone enemies
+item.ptahsDestruction.line3=Stonecutter I
+
+item.monthusBlast.line1=Explosive Shot I: Arrows explode
+item.monthusBlast.line2=on impact
+item.monthusBlast.line3=Explosive Shot I
+
+item.nusFlux.line1=Sweep I: Chance to launch
+item.nusFlux.line2=foes into the air
+item.nusFlux.line3=Sweep I
+
+item.mnevisHorns.line1=Melee Reflection I: Deals
+item.mnevisHorns.line2=damage to attackers
+item.mnevisHorns.line3=Melee Reflection I
+
+item.isisEmbrace.line1=Regeneration I: Regens
+item.isisEmbrace.line2=health slowly
+item.isisEmbrace.line3=Regeneration I
+
+item.maatsBalance.line1=Balance I: Decreases damage
+item.maatsBalance.line2=dealt, Decreases damage taken
+item.maatsBalance.line3=Balance I
+
+item.hedetetsVenom.line1=Poison Arrow I: Fires an
+item.hedetetsVenom.line2=arrow that poisons foes
+item.hedetetsVenom.line3=Poison Arrow I
+
+item.gebsSolidarity.line1=Stalwart I: Decreased movement
+item.gebsSolidarity.line2=speed, decreased knockback (WIP)
+item.gebsSolidarity.line3=Stalwart I
+
+item.nutsCall.line1=Wrath I: Chance to strike
+item.nutsCall.line2=foe with lightning
+item.nutsCall.line3=Wrath I
+
+item.anuketsBounty.line1=Alluring I: Chance to catch
+item.anuketsBounty.line2=special fish in Atum
+item.anuketsBounty.line3=Alluring I
+
+item.mafdetsQuickness.line1=Swiftness I: You run
+item.mafdetsQuickness.line2=faster when held
+item.mafdetsQuickness.line3=Swiftness I
+
+item.isisHealing.line1=Regeneration I: Regenerates
+item.isisHealing.line2=health slowly while held
+item.isisHealing.line3=Regeneration I
+
+item.anubisMercy.line1=Return I: On Death teleports you back,
+item.anubisMercy.line2=to your spawn point
+item.anubisMercy.line3=Return I
+
+item.neithsAudacity.line1=Double Shot I: Fires
+item.neithsAudacity.line2=two arrows
+item.neithsAudacity.line3=Double Shot I
+
+# Loot
+item.loot.dirty.name=Dirty
+item.loot.silver.name=Silver
+item.loot.gold.name=Gold
+item.loot.sapphire.name=Sapphire
+item.loot.ruby.name=Ruby
+item.loot.emerald.name=Emerald
+item.loot.diamond.name=Diamond
+
+item.loot.idol.name=Idol
+item.loot.necklace.name=Necklace
+item.loot.ring.name=Ring
+item.loot.broach.name=Broach
+item.loot.scepter.name=Scepter
 
 # Entity
-entity.Atum.mummy.name=Mummy
-entity.Atum.nanditWarrior.name=Bandit Warrior
-entity.Atum.banditArcher.name=Bandit Archer
-entity.Atum.pharaoh.name=Pharaoh
-entity.Atum.dustySkeleton.name=Dusty Skeleton
-entity.Atum.desertGhost.name=Desert Ghost
-entity.Atum.stoneSoldier.name=Stone Soldier
-entity.Atum.desertWolf.name=Desert Wolf
-entity.Atum.banditWarlord.name=Bandit Warlord
-entity.Atum.barbarian.name=Barbarian
+entity.atum.mummy.name=Mummy
+entity.atum.nanditWarrior.name=Bandit Warrior
+entity.atum.banditArcher.name=Bandit Archer
+entity.atum.pharaoh.name=Pharaoh
+entity.atum.dustySkeleton.name=Dusty Skeleton
+entity.atum.desertGhost.name=Desert Ghost
+entity.atum.stoneSoldier.name=Stone Soldier
+entity.atum.desertWolf.name=Desert Wolf
+entity.atum.banditWarlord.name=Bandit Warlord
+entity.atum.barbarian.name=Barbarian
+
+# Pharaoh Names
+entity.atum.pharaoh.Ama=Ama'
+entity.atum.pharaoh.Ata=Ata'
+entity.atum.pharaoh.Ato=Ato'
+entity.atum.pharaoh.Bak=Bak'
+entity.atum.pharaoh.Cal=Cal'
+entity.atum.pharaoh.Djet=Djet'
+entity.atum.pharaoh.Eje=Eje'
+entity.atum.pharaoh.For=For'
+entity.atum.pharaoh.Gol=Gol'
+entity.atum.pharaoh.Gut=Gut'
+entity.atum.pharaoh.Hop=Hop'
+entity.atum.pharaoh.Hor=Hor'
+entity.atum.pharaoh.Huni=Huni'
+entity.atum.pharaoh.Iam=Iam'
+entity.atum.pharaoh.Jor=Jor'
+entity.atum.pharaoh.Kal=Kal'
+entity.atum.pharaoh.Khas=Khas'
+entity.atum.pharaoh.Khor=Khor'
+entity.atum.pharaoh.Lat=Lat'
+entity.atum.pharaoh.Mal=Mal'
+entity.atum.pharaoh.Not=Not'
+entity.atum.pharaoh.Oap=Oap'
+entity.atum.pharaoh.Pra=Pra'
+entity.atum.pharaoh.Qo=Qo'
+entity.atum.pharaoh.Ras=Ras'
+entity.atum.pharaoh.Shas=Shas'
+entity.atum.pharaoh.Thoth=Thoth'
+entity.atum.pharaoh.Tui=Tui'
+entity.atum.pharaoh.Uld=Uld'
+entity.atum.pharaoh.Ver=Ver'
+entity.atum.pharaoh.Wot=Wot'
+entity.atum.pharaoh.Xo=Xo'
+entity.atum.pharaoh.Yat=Yat'
+entity.atum.pharaoh.Zyt=Zyt'
+entity.atum.pharaoh.Khep=Khep'
+
+entity.atum.pharaoh.Ahat=Ahat
+entity.atum.pharaoh.Amesh=Amesh
+entity.atum.pharaoh.Amon=Amon
+entity.atum.pharaoh.Anut=Anut
+entity.atum.pharaoh.Baroom=Baroom
+entity.atum.pharaoh.Chanta=Chanta
+entity.atum.pharaoh.Erant=Erant
+entity.atum.pharaoh.Funam=Funam
+entity.atum.pharaoh.Daresh=Daresh
+entity.atum.pharaoh.Djer=Djer
+entity.atum.pharaoh.Hotesh=Hotesh
+entity.atum.pharaoh.Khaden=Khaden
+entity.atum.pharaoh.Kron=Kron
+entity.atum.pharaoh.Gorkum=Gorkum
+entity.atum.pharaoh.Ialenter=Ialenter
+entity.atum.pharaoh.Ma'at=Ma'at
+entity.atum.pharaoh.Narmer=Narmer
+entity.atum.pharaoh.Radeem=Radeem
+entity.atum.pharaoh.Jaloom=Jaloom
+entity.atum.pharaoh.Lepsha=Lepsha
+entity.atum.pharaoh.Quor=Quor
+entity.atum.pharaoh.Oleshet=Oleshet
+entity.atum.pharaoh.Peput=Peput
+entity.atum.pharaoh.Talat=Talat
+entity.atum.pharaoh.Ulam=Ulam
+entity.atum.pharaoh.Veresh=Veresh
+entity.atum.pharaoh.Ranesh=Ranesh
+entity.atum.pharaoh.Snef=Snef
+entity.atum.pharaoh.Wollolo=Wollolo
+entity.atum.pharaoh.Hathor=Hathor
+entity.atum.pharaoh.Intef=Intef
+entity.atum.pharaoh.Neferk=Neferk
+entity.atum.pharaoh.Khatne=Khatne
+entity.atum.pharaoh.Tepy=Tepy
+entity.atum.pharaoh.Moret=Moret
 
 # Chat
-chat.Atum.disabled=Scarab portal creation is disabled
+chat.atum.disabled=Scarab portal creation is disabled
+chat.atum.enemies=There are too many enemies nearby to search this chest
+chat.atum.summonPharaoh=was summoned by
+chat.atum.killPharaoh=was slain by

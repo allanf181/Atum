@@ -38,8 +38,8 @@ public enum CraftingHandler {
 		GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_WALL, 6, 2), "XXX", "XXX", 'X', AtumBlocks.BLOCK_LARGEBRICK);
 		GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_WALL, 6, 3), "XXX", "XXX", 'X', AtumBlocks.BLOCK_SMALLBRICK);
 		GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_FRAMEDGLASS), " X ", "XSX", " X ", 'X', Items.stick, 'S', AtumBlocks.BLOCK_CRYSTALGLASS);
-		GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_CRACKEDLARGEBRICK, 4), "XX", "XX", 'X', AtumItems.stoneChunk);
-		GameRegistry.addRecipe(new ItemStack(Items.experience_bottle), " X ", "XBX", " X ", 'X', AtumItems.ectoplasm, 'B', Items.potionitem);
+		GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_CRACKEDLARGEBRICK, 4), "XX", "XX", 'X', AtumItems.ITEM_STONECHUNK);
+		GameRegistry.addRecipe(new ItemStack(Items.experience_bottle), " X ", "XBX", " X ", 'X', AtumItems.ITEM_ECTOPLASM, 'B', Items.potionitem);
 		GameRegistry.addRecipe(new ItemStack(AtumItems.limestoneSword), "L", "L", "S", 'L', AtumBlocks.BLOCK_LIMESTONECOBBLE, 'S', Items.stick);
 		GameRegistry.addRecipe(new ItemStack(AtumItems.limestoneShovel), "L", "S", "S", 'L', AtumBlocks.BLOCK_LIMESTONECOBBLE, 'S', Items.stick);
 		GameRegistry.addRecipe(new ItemStack(AtumItems.limestonePickaxe), "LLL", " S ", " S ", 'L', AtumBlocks.BLOCK_LIMESTONECOBBLE, 'S', Items.stick);
@@ -53,11 +53,11 @@ public enum CraftingHandler {
 		GameRegistry.addRecipe(new ItemStack(AtumItems.wandererChest), "X X", "XXX", "XXX", 'X', AtumItems.ITEM_LINEN);
 		GameRegistry.addRecipe(new ItemStack(AtumItems.wandererLegs), "XXX", "X X", "X X", 'X', AtumItems.ITEM_LINEN);
 		GameRegistry.addRecipe(new ItemStack(AtumItems.wandererBoots), "X X", "X X", 'X', AtumItems.ITEM_LINEN);
-		GameRegistry.addRecipe(new ItemStack(AtumItems.ITEM_LINEN), "XXX", 'X', AtumItems.flax);
+		GameRegistry.addRecipe(new ItemStack(AtumItems.ITEM_LINEN), "XXX", 'X', AtumItems.ITEM_FLAX);
 		GameRegistry.addRecipe(new ItemStack(Items.glass_bottle, 3), "X X", " X ", 'X', AtumBlocks.BLOCK_CRYSTALGLASS);
 		GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_THINCRYSTALGLASS, 16), "XXX", "XXX", 'X', AtumBlocks.BLOCK_CRYSTALGLASS);
 		GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_THINFRAMEDGLASS, 16), "XXX", "XXX", 'X', AtumBlocks.BLOCK_FRAMEDGLASS);
-		GameRegistry.addRecipe(new ItemStack(AtumItems.scroll), "XXX", "SXS", "XXX", 'X', AtumItems.papyrusPlant, 'S', Items.stick);
+		GameRegistry.addRecipe(new ItemStack(AtumItems.ITEM_SCROLL), "XXX", "SXS", "XXX", 'X', AtumItems.papyrusPlant, 'S', Items.stick);
 		GameRegistry.addRecipe(new ItemStack(AtumItems.ITEM_SCARAB), " G ", "GDG", " G ", 'G', Items.gold_ingot, 'D', Items.diamond);
 		GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_FURNACEIDLE), "XXX", "X X", "XXX", 'X', AtumBlocks.BLOCK_LIMESTONECOBBLE);
 	}
@@ -81,7 +81,7 @@ public enum CraftingHandler {
 		GameRegistry.addShapelessRecipe(new ItemStack(AtumItems.desertLegs), AtumItems.wandererLegs, Items.iron_leggings);
 		GameRegistry.addShapelessRecipe(new ItemStack(AtumItems.desertBoots), AtumItems.wandererBoots, Items.iron_boots);
 		GameRegistry.addShapelessRecipe(new ItemStack(Blocks.sand), AtumBlocks.BLOCK_SAND);
-		GameRegistry.addShapelessRecipe(new ItemStack(Items.string, 3), AtumItems.flax);
+		GameRegistry.addShapelessRecipe(new ItemStack(Items.string, 3), AtumItems.ITEM_FLAX);
 	}
 
 }

@@ -23,7 +23,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 
 @Mod(modid = Atum.MODID, name = Atum.NAME, version = Atum.VERSION)
 public class Atum {
-	public static final String MODID = "Atum";
+	public static final String MODID = "atum";
 	public static final String NAME = "Atum";
 	public static final String VERSION = "0.5.9B";
 

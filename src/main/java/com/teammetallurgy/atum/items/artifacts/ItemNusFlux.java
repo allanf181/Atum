@@ -14,6 +14,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.item.ItemSword;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import org.lwjgl.input.Keyboard;
@@ -49,7 +50,8 @@ public class ItemNusFlux extends ItemSword {
 				entity.motionY = 1.0D;
 			}
 
-			//entity.attackEntityFrom(DamageSource.generic, this.getDamageVsEntity(entity, par1ItemStack));
+			// entity.attackEntityFrom(DamageSource.generic,
+			// this.getDamageVsEntity(entity, par1ItemStack));
 			if (player.worldObj.isRemote) {
 				this.spawnParticle(player.worldObj, entity);
 			}
@@ -73,12 +75,11 @@ public class ItemNusFlux extends ItemSword {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if (Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "Sweep I: Chance to launch");
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "foes into the air");
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
 		} else {
-			par3List.add("Sweep I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
+			par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
 		}
-
 	}
 
 	@Override

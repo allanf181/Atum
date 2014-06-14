@@ -8,6 +8,7 @@ import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 
 import org.lwjgl.input.Keyboard;
 
@@ -16,9 +17,9 @@ import com.teammetallurgy.atum.items.ItemTexturedArmor;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 
-public class IsisEmbrace extends ItemTexturedArmor {
+public class ItemIsisEmbrace extends ItemTexturedArmor {
 
-	public IsisEmbrace(ArmorMaterial par2ArmorMaterial, int par3, int par4) {
+	public ItemIsisEmbrace(ArmorMaterial par2ArmorMaterial, int par3, int par4) {
 		super(par2ArmorMaterial, par3, par4);
 		this.setRepairItem(Items.diamond);
 	}
@@ -38,12 +39,11 @@ public class IsisEmbrace extends ItemTexturedArmor {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if (Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "Regeneration I: Regens");
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "health slowly");
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
 		} else {
-			par3List.add("Regeneration I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
+			par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
 		}
-
 	}
 
 	@Override

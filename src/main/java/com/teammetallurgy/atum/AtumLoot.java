@@ -24,7 +24,7 @@ public enum AtumLoot {
 		goodLoot = new AtumWeightedLootSet();
 		junkLoot = new AtumWeightedLootSet();
 
-		ItemStack stack = new ItemStack(AtumItems.ptahsPick);
+		ItemStack stack = new ItemStack(AtumItems.ITEM_PTAHSPICK);
 		artifacts.add(stack);
 
 		artifacts.add(new ItemStack(AtumItems.sobeksRage));
@@ -57,7 +57,7 @@ public enum AtumLoot {
 		artifacts.add(new ItemStack(AtumItems.mafdetsQuickness));
 
 		// Junk Loot Stuff
-		junkLoot.addLoot(new ItemStack(AtumItems.flaxSeeds), 5, 1, 2);
+		junkLoot.addLoot(new ItemStack(AtumItems.ITEM_FLAXSEED), 5, 1, 2);
 		junkLoot.addLoot(new ItemStack(Items.stick), 5, 1, 5);
 		junkLoot.addLoot(new ItemStack(AtumItems.ITEM_DATE), 5, 1, 2);
 		junkLoot.addLoot(new ItemStack(Items.bone), 10, 1, 3);

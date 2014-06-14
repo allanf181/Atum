@@ -16,6 +16,7 @@ import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.IChatComponent;
+import net.minecraft.util.StatCollector;
 
 import com.teammetallurgy.atum.entity.EntityMummy;
 import com.teammetallurgy.atum.entity.EntityPharaoh;
@@ -295,7 +296,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 
 			while (i.hasNext()) {
 				EntityPlayer p = (EntityPlayer) i.next();
-				p.addChatMessage(new ChatComponentText(pharaoh.getCommandSenderName() + " was summoned by " + player.getGameProfile().getName()));
+				p.addChatMessage(new ChatComponentText(pharaoh.getCommandSenderName() + " "+StatCollector.translateToLocal("chat.Atum.summonPharaoh")+" " + player.getGameProfile().getName()));
 			}
 		}
 

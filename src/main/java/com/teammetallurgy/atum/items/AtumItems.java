@@ -1,6 +1,5 @@
 package com.teammetallurgy.atum.items;
 
-import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
@@ -11,9 +10,7 @@ import net.minecraft.item.ItemSeeds;
 import net.minecraftforge.common.util.EnumHelper;
 
 import com.teammetallurgy.atum.Atum;
-import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.blocks.AtumBlocks;
-import com.teammetallurgy.atum.items.artifacts.IsisEmbrace;
 import com.teammetallurgy.atum.items.artifacts.ItemAkersToil;
 import com.teammetallurgy.atum.items.artifacts.ItemAmunetsHomecoming;
 import com.teammetallurgy.atum.items.artifacts.ItemAnhursMight;
@@ -26,6 +23,7 @@ import com.teammetallurgy.atum.items.artifacts.ItemHedetetsSting;
 import com.teammetallurgy.atum.items.artifacts.ItemHedetetsVenom;
 import com.teammetallurgy.atum.items.artifacts.ItemHorusFlight;
 import com.teammetallurgy.atum.items.artifacts.ItemHorusSoaring;
+import com.teammetallurgy.atum.items.artifacts.ItemIsisEmbrace;
 import com.teammetallurgy.atum.items.artifacts.ItemIsisHealing;
 import com.teammetallurgy.atum.items.artifacts.ItemMaatsBalance;
 import com.teammetallurgy.atum.items.artifacts.ItemMafdetsQuickness;
@@ -58,7 +56,7 @@ public enum AtumItems {
 	public static final Item ITEM_BOW = new ItemAtumBow().setUnlocalizedName("bow");
 	public static final Item ITEM_STONESOLDIER_SWORD = new ItemStoneSoldierSword(ToolMaterial.IRON).setUnlocalizedName("stoneSoldierSword");
 	public static final Item ITEM_SCEPTER = new ItemScepter(ToolMaterial.GOLD).setUnlocalizedName("scepter");
-	public static final Item ptahsPick = new ItemPtahsDecadence(ToolMaterial.EMERALD).setUnlocalizedName("ptahsDecadence");
+	public static final Item ITEM_PTAHSPICK = new ItemPtahsDecadence(ToolMaterial.EMERALD).setUnlocalizedName("ptahsDecadence");
 	public static final Item sobeksRage = new ItemSobeksRage(ToolMaterial.EMERALD).setUnlocalizedName("soteksRage");
 	public static final Item osirisWill = new ItemOsirisWill(ToolMaterial.EMERALD).setUnlocalizedName("osirisWill");
 	public static final Item akersToil = new ItemAkersToil(ToolMaterial.EMERALD).setUnlocalizedName("akersToil");
@@ -77,7 +75,7 @@ public enum AtumItems {
 	public static final Item monthusBlast = new ItemMonthusBlast().setUnlocalizedName("monthusBlast");
 	public static final Item nusFlux = new ItemNusFlux(ToolMaterial.EMERALD).setUnlocalizedName("nusFlux");
 	public static final Item mnevisHorns = new ItemMnevisHorns(ArmorMaterial.DIAMOND, 0, 0).setTextureFile("RubyArtifactArmor_1").setUnlocalizedName("mnevisHorns");
-	public static final Item isisEmbrace = new IsisEmbrace(ArmorMaterial.DIAMOND, 1, 1).setTextureFile("RubyArtifactArmor_1").setUnlocalizedName("isisEmbrace");
+	public static final Item isisEmbrace = new ItemIsisEmbrace(ArmorMaterial.DIAMOND, 1, 1).setTextureFile("RubyArtifactArmor_1").setUnlocalizedName("isisEmbrace");
 	public static final Item maatsBalance = new ItemMaatsBalance(ArmorMaterial.DIAMOND, 2, 2).setTextureFile("RubyArtifactArmor_2").setUnlocalizedName("maatsBalance");
 	public static final Item hedetetsVenom = new ItemHedetetsVenom().setUnlocalizedName("hedetetsVenom");
 	public static final Item gebsSolidarity = new ItemGebsSolidarity(ArmorMaterial.DIAMOND, 3, 3).setTextureFile("RubyArtifactArmor_1").setUnlocalizedName("gebsSolidarity");
@@ -92,32 +90,32 @@ public enum AtumItems {
 	public static final Item limestoneAxe = new LimestoneAxe(ToolMaterial.STONE).setUnlocalizedName("limestoneAxe");
 	public static final Item limestoneSword = new LimestoneSword(ToolMaterial.STONE).setUnlocalizedName("limestoneSword");
 	public static final Item limestoneHoe = new LimestoneHoe(ToolMaterial.STONE).setUnlocalizedName("limestoneHoe");
-	
+
 	private static ArmorMaterial mummyEnum = EnumHelper.addArmorMaterial("Mummy", 5, new int[] { 1, 3, 2, 1 }, 15);
 	public static final Item mummyHelmet = new ItemTexturedArmor(mummyEnum, 0, 0).setRepairItem(ITEM_SCRAP).setTextureFile("MummyArmor_1").setUnlocalizedName("mummyHelmet").setTextureName("atum:MummyHelmet");
 	public static final Item mummyChest = new ItemTexturedArmor(mummyEnum, 0, 1).setRepairItem(ITEM_SCRAP).setTextureFile("MummyArmor_1").setUnlocalizedName("mummyChest").setTextureName("atum:MummyChest");
 	public static final Item mummyLegs = new ItemTexturedArmor(mummyEnum, 0, 2).setRepairItem(ITEM_SCRAP).setTextureFile("MummyArmor_2").setUnlocalizedName("mummyLegs").setTextureName("atum:MummyLegs");
 	public static final Item mummyBoots = new ItemTexturedArmor(mummyEnum, 0, 3).setRepairItem(ITEM_SCRAP).setTextureFile("MummyArmor_1").setUnlocalizedName("mummyBoots").setTextureName("atum:MummyBoots");
-	
+
 	private static ArmorMaterial wandererEnum = EnumHelper.addArmorMaterial("Wanderer", 10, new int[] { 2, 3, 3, 2 }, 15);
 	public static final Item wandererHelmet = new ItemTexturedArmor(wandererEnum, 0, 0).setRepairItem(ITEM_LINEN).setTextureFile("WandererArmor_1").setUnlocalizedName("wandererHelmet").setTextureName("atum:WandererHelmet");
 	public static final Item wandererChest = new ItemTexturedArmor(wandererEnum, 0, 1).setRepairItem(ITEM_LINEN).setTextureFile("WandererArmor_1").setUnlocalizedName("wandererChest").setTextureName("atum:WandererChest");
 	public static final Item wandererLegs = new ItemTexturedArmor(wandererEnum, 0, 2).setRepairItem(ITEM_LINEN).setTextureFile("WandererArmor_2").setUnlocalizedName("wandererLegs").setTextureName("atum:WandererLegs");
 	public static final Item wandererBoots = new ItemTexturedArmor(wandererEnum, 0, 3).setRepairItem(ITEM_LINEN).setTextureFile("WandererArmor_1").setUnlocalizedName("wandererBoots").setTextureName("atum:WandererBoots");
-	
+
 	private static ArmorMaterial desertEnum = EnumHelper.addArmorMaterial("Desert", 20, new int[] { 3, 6, 5, 3 }, 15);
 	public static final Item desertHelmet = new ItemTexturedArmor(desertEnum, 0, 0).setRepairItem(Items.iron_ingot).setTextureFile("DesertArmor_1").setUnlocalizedName("desertHelmet").setTextureName("atum:DesertHelmet");
 	public static final Item desertChest = new ItemTexturedArmor(desertEnum, 0, 1).setRepairItem(Items.iron_ingot).setTextureFile("DesertArmor_1").setUnlocalizedName("desertChest").setTextureName("atum:DesertChest");
 	public static final Item desertLegs = new ItemTexturedArmor(desertEnum, 0, 2).setRepairItem(Items.iron_ingot).setTextureFile("DesertArmor_2").setUnlocalizedName("desertLegs").setTextureName("atum:DesertLegs");
 	public static final Item desertBoots = new ItemTexturedArmor(desertEnum, 0, 3).setRepairItem(Items.iron_ingot).setTextureFile("DesertArmor_1").setUnlocalizedName("desertBoots").setTextureName("atum:DesertBoots");
-	
+
 	public static final Item papyrusPlant = new ItemPapyrusPlant(AtumBlocks.BLOCK_PAPYRUS).setUnlocalizedName("papyrusPlant");
-	public static final Item ectoplasm = new Item().setUnlocalizedName("ectoplasm").setTextureName("atum:Ectoplasm");
-	public static final Item stoneChunk = new Item().setUnlocalizedName("stoneChunk").setTextureName("atum:StoneChunk");
-	public static final Item scroll = new Item().setUnlocalizedName("scroll").setTextureName("atum:Scroll");
-	public static final Item pelt = new Item().setUnlocalizedName("wolfPelt").setTextureName("atum:WolfPelt");
-	public static final Item flax = new Item().setUnlocalizedName("flax").setTextureName("atum:FlaxItem");
-	public static final Item flaxSeeds = new ItemSeeds(AtumBlocks.BLOCK_FLAX, Blocks.farmland).setUnlocalizedName("flaxSeeds").setTextureName("atum:FlaxSeeds");
+	public static final Item ITEM_ECTOPLASM = new Item().setUnlocalizedName("ectoplasm").setTextureName("atum:Ectoplasm");
+	public static final Item ITEM_STONECHUNK = new Item().setUnlocalizedName("stoneChunk").setTextureName("atum:StoneChunk");
+	public static final Item ITEM_SCROLL = new Item().setUnlocalizedName("scroll").setTextureName("atum:Scroll");
+	public static final Item ITEM_PELT = new Item().setUnlocalizedName("wolfPelt").setTextureName("atum:WolfPelt");
+	public static final Item ITEM_FLAX = new Item().setUnlocalizedName("flax").setTextureName("atum:FlaxItem");
+	public static final Item ITEM_FLAXSEED = new ItemSeeds(AtumBlocks.BLOCK_FLAX, Blocks.farmland).setUnlocalizedName("flaxSeeds").setTextureName("atum:FlaxSeeds");
 	public static final Item ITEM_FISH = new ItemFish().setUnlocalizedName("fish");
 	public static final Item neithsAudacity = new ItemNeithsAudacity().setUnlocalizedName("neithsAudacity");
 
@@ -130,7 +128,7 @@ public enum AtumItems {
 		this.register(ITEM_SCEPTER);
 		this.register(ITEM_STONESOLDIER_SWORD);
 		this.register(ITEM_BOW);
-		this.register(ptahsPick);
+		this.register(ITEM_PTAHSPICK);
 		this.register(sobeksRage);
 		this.register(osirisWill);
 		this.register(akersToil);
@@ -177,14 +175,14 @@ public enum AtumItems {
 		this.register(desertLegs);
 		this.register(desertBoots);
 		this.register(papyrusPlant);
-		this.register(ectoplasm);
-		this.register(stoneChunk);
+		this.register(ITEM_ECTOPLASM);
+		this.register(ITEM_STONECHUNK);
 		this.register(ITEM_SCRAP);
-		this.register(scroll);
-		this.register(pelt);
+		this.register(ITEM_SCROLL);
+		this.register(ITEM_PELT);
 		this.register(ITEM_LINEN);
-		this.register(flax);
-		this.register(flaxSeeds);
+		this.register(ITEM_FLAX);
+		this.register(ITEM_FLAXSEED);
 		this.register(ITEM_FISH);
 		this.register(neithsAudacity);
 	}

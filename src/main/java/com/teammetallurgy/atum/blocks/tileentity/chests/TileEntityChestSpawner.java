@@ -16,6 +16,7 @@ import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntityChest;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
+import net.minecraft.util.StatCollector;
 
 public class TileEntityChestSpawner extends TileEntityChest implements IInventory {
 
@@ -201,7 +202,7 @@ public class TileEntityChestSpawner extends TileEntityChest implements IInventor
 		List list = super.worldObj.getEntitiesWithinAABB(EntityMob.class, AxisAlignedBB.getAABBPool().getAABB((double) super.xCoord - d0, (double) super.yCoord - d1, (double) super.zCoord - d0, (double) super.xCoord + d0, (double) super.yCoord + d1, (double) super.zCoord + d0));
 		if (!list.isEmpty()) {
 			if (!super.worldObj.isRemote) {
-				par1EntityPlayer.addChatMessage(new ChatComponentText("There are too many enemies nearby to search this chest"));
+				par1EntityPlayer.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("chat.Atum.enemies")));
 			}
 
 			return false;

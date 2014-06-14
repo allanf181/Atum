@@ -12,6 +12,7 @@ import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 
 import org.lwjgl.input.Keyboard;
 
@@ -33,10 +34,10 @@ public class ItemSobeksRage extends ItemAxe {
 		return true;
 	}
 
-//	@Override
-//	public float getDamageVsEntity(Entity entity, ItemStack stack) {
-//		return 4 + super.toolMaterial.getDamageVsEntity();
-//	}
+	// @Override
+	// public float getDamageVsEntity(Entity entity, ItemStack stack) {
+	// return 4 + super.toolMaterial.getDamageVsEntity();
+	// }
 
 	@Override
 	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase mob, EntityLivingBase player) {
@@ -58,12 +59,11 @@ public class ItemSobeksRage extends ItemAxe {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if (Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "Exile I: Knocks foes ");
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "back a large amount");
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
 		} else {
-			par3List.add("Exile I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
+			par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
 		}
-
 	}
 
 	@Override

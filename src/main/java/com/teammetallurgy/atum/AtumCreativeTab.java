@@ -8,7 +8,7 @@ import com.teammetallurgy.atum.items.AtumItems;
 public class AtumCreativeTab extends CreativeTabs {
 
 	public AtumCreativeTab() {
-		super("Atum");
+		super("atum");
 	}
 
 	@Override

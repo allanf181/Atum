@@ -21,6 +21,7 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.ChatComponentText;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import com.teammetallurgy.atum.AtumLoot;
@@ -37,7 +38,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 
 	int stage;
 
-	public static String[] prefix = { "Ama'", "Ata'", "Ato'", "Bak'", "Cal'", "Djet'", "Eje'", "For'", "Gol'", "Gut'", "Hop'", "Hor'", "Huni'", "Iam'", "Jor'", "Kal'", "Khas'", "Khor'", "Lat'", "Mal'", "Not'", "Oap'", "Pra'", "Qo'", "Ras'", "Shas'", "Thoth'", "Tui'", "Uld'", "Ver'", "Wot'", "Xo'", "Yat'", "Zyt'", "Khep'" };
+	public static String[] prefix = { "Ama", "Ata", "Ato", "Bak", "Cal", "Djet", "Eje", "For", "Gol", "Gut", "Hop", "Hor", "Huni", "Iam", "Jor", "Kal", "Khas", "Khor", "Lat", "Mal", "Not", "Oap", "Pra", "Qo", "Ras", "Shas", "Thoth", "Tui", "Uld", "Ver", "Wot", "Xo", "Yat", "Zyt", "Khep" };
 	public static String[] suffix = { "Ahat", "Amesh", "Amon", "Anut", "Baroom", "Chanta", "Erant", "Funam", "Daresh", "Djer", "Hotesh", "Khaden", "Kron", "Gorkum", "Ialenter", "Ma'at", "Narmer", "Radeem", "Jaloom", "Lepsha", "Quor", "Oleshet", "Peput", "Talat", "Ulam", "Veresh", "Ranesh", "Snef", "Wollolo", "Hathor", "Intef", "Neferk", "Khatne", "Tepy", "Moret" };
 	public static String[] numeral = { "I", "II", "III", "IV", "V", "VI", "VII", "VIII", "IX", "X", "XI", "XII", "XIII", "XIV", "XV" };
 
@@ -68,15 +69,6 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 		this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(10.0D);
 	}
 
-	public void setName(int par1, int par2, int par3) {
-		suffixID = par1;
-		prefixID = par2;
-		numID = par3;
-		this.dataWatcher.updateObject(18, new Integer(suffixID));
-		this.dataWatcher.updateObject(19, new Integer(prefixID));
-		this.dataWatcher.updateObject(20, new Integer(numID));
-	}
-
 	public void link(int x, int y, int z) {
 		linkedX = x;
 		linkedY = y;
@@ -99,7 +91,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 			if (!worldObj.isRemote) {
 				List<EntityPlayer> players = FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().playerEntityList;
 				for (EntityPlayer player : players) {
-					player.addChatMessage(new ChatComponentText(this.getCommandSenderName() + " was slain by " + slayer.getGameProfile().getName()));
+					player.addChatMessage(new ChatComponentText(this.getCommandSenderName() + " " + StatCollector.translateToLocal("chat.Atum.killPharaoh") + " " + slayer.getGameProfile().getName()));
 				}
 			}
 		}
@@ -121,7 +113,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 			int s = this.dataWatcher.getWatchableObjectInt(18);
 			int p = this.dataWatcher.getWatchableObjectInt(19);
 			int n = this.dataWatcher.getWatchableObjectInt(20);
-			return "Pharaoh " + prefix[p] + suffix[s] + " " + numeral[n];
+			return "Pharaoh " + StatCollector.translateToFallback("entity.Atum.pharaoh." + prefix[p]) + StatCollector.translateToFallback("entity.Atum.pharaoh." + suffix[s]) + " " + numeral[n];
 		} catch (Exception e) {
 			return "";
 		}

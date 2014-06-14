@@ -108,7 +108,7 @@ public class EntityStoneSoldier extends EntityStone implements IAtumNightMob, IA
 	protected void dropFewItems(boolean par1, int par2) {
 		if(this.rand.nextInt(4) == 0) {
 			int amount = rand.nextInt(2) + 1;
-			this.dropItem(AtumItems.stoneChunk, amount);
+			this.dropItem(AtumItems.ITEM_STONECHUNK, amount);
 		}
 	}
 

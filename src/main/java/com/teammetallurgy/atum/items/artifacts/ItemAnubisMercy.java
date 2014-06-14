@@ -13,6 +13,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.potion.Potion;
 import net.minecraft.util.ChunkCoordinates;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraft.world.chunk.IChunkProvider;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
@@ -37,35 +38,35 @@ public class ItemAnubisMercy extends Item {
 
 	@SubscribeEvent
 	public void onDamage(LivingHurtEvent event) {
-		if(event.entityLiving instanceof EntityPlayer) {
+		if (event.entityLiving instanceof EntityPlayer) {
 			EntityPlayer player = (EntityPlayer) event.entityLiving;
 			ItemStack stack = null;
 			ItemStack[] damageAmount = player.inventory.mainInventory;
 			int resistance = damageAmount.length;
 
-			for(int i = 0; i < resistance; ++i) {
+			for (int i = 0; i < resistance; ++i) {
 				ItemStack currStack = damageAmount[i];
-				if(currStack != null && currStack.getItem() == this) {
+				if (currStack != null && currStack.getItem() == this) {
 					stack = currStack;
 					break;
 				}
 			}
 
-			if(stack == null) {
+			if (stack == null) {
 				return;
 			}
 
 			float var8 = (float) event.ammount;
-			if(!event.source.isUnblockable()) {
+			if (!event.source.isUnblockable()) {
 				var8 = (float) (event.ammount * (25 - player.getTotalArmorValue()) + player.getAbsorptionAmount()) / 25.0F;
 			}
 
-			if(player.isPotionActive(Potion.resistance)) {
+			if (player.isPotionActive(Potion.resistance)) {
 				resistance = 25 - (player.getActivePotionEffect(Potion.resistance).getAmplifier() + 1) * 5;
 				var8 = var8 * (float) resistance / 25.0F;
 			}
 
-			if(Math.ceil((double) var8) >= (double) player.getHealth()) {
+			if (Math.ceil((double) var8) >= (double) player.getHealth()) {
 				event.setCanceled(true);
 				this.respawnPlayer(event.entityLiving.worldObj, player);
 				player.setHealth(player.getMaxHealth());
@@ -74,7 +75,7 @@ public class ItemAnubisMercy extends Item {
 				// player.spawnExplosionParticle();
 				stack.damageItem(1, player);
 				System.out.println(stack.getItemDamage());
-				if(stack.getItemDamage() >= 20){
+				if (stack.getItemDamage() >= 20) {
 					stack = null;
 				}
 			}
@@ -84,16 +85,16 @@ public class ItemAnubisMercy extends Item {
 
 	public void respawnPlayer(World par3World, EntityPlayer par2EntityPlayer) {
 		ChunkCoordinates spawn = par2EntityPlayer.getBedLocation(par2EntityPlayer.dimension);
-		if(spawn == null) {
+		if (spawn == null) {
 			spawn = par3World.getSpawnPoint();
 		}
 
-		if(spawn == null) {
+		if (spawn == null) {
 			spawn = par3World.getSpawnPoint();
 		}
 
 		spawn = verifyRespawnCoordinates(par3World, spawn, false);
-		if(spawn == null) {
+		if (spawn == null) {
 			spawn = par3World.getSpawnPoint();
 		}
 
@@ -101,14 +102,14 @@ public class ItemAnubisMercy extends Item {
 		par2EntityPlayer.rotationYaw = 0.0F;
 		par2EntityPlayer.setPositionAndUpdate((double) spawn.posX + 0.5D, (double) spawn.posY + 0.1D, (double) spawn.posZ);
 
-		while(!par3World.getCollidingBoundingBoxes(par2EntityPlayer, par2EntityPlayer.boundingBox).isEmpty()) {
+		while (!par3World.getCollidingBoundingBoxes(par2EntityPlayer, par2EntityPlayer.boundingBox).isEmpty()) {
 			par2EntityPlayer.setPosition(par2EntityPlayer.posX, par2EntityPlayer.posY + 1.0D, par2EntityPlayer.posZ);
 		}
 
 	}
 
 	public static ChunkCoordinates verifyRespawnCoordinates(World par0World, ChunkCoordinates par1ChunkCoordinates, boolean par2) {
-		if(!par0World.isRemote) {
+		if (!par0World.isRemote) {
 			IChunkProvider c = par0World.getChunkProvider();
 			c.loadChunk(par1ChunkCoordinates.posX - 3 >> 4, par1ChunkCoordinates.posZ - 3 >> 4);
 			c.loadChunk(par1ChunkCoordinates.posX + 3 >> 4, par1ChunkCoordinates.posZ - 3 >> 4);
@@ -117,7 +118,7 @@ public class ItemAnubisMercy extends Item {
 		}
 
 		Block block = par0World.getBlock(par1ChunkCoordinates.posX, par1ChunkCoordinates.posY, par1ChunkCoordinates.posZ);
-		if(block != null && block.isBed(par0World, par1ChunkCoordinates.posX, par1ChunkCoordinates.posY, par1ChunkCoordinates.posZ, (EntityLiving) null)) {
+		if (block != null && block.isBed(par0World, par1ChunkCoordinates.posX, par1ChunkCoordinates.posY, par1ChunkCoordinates.posZ, (EntityLiving) null)) {
 			ChunkCoordinates material1 = block.getBedSpawnPosition(par0World, par1ChunkCoordinates.posX, par1ChunkCoordinates.posY, par1ChunkCoordinates.posZ, (EntityPlayer) null);
 			return material1;
 		} else {
@@ -138,13 +139,13 @@ public class ItemAnubisMercy extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		if(Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "Return I: On Death teleports you back");
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "to your spawn point");
+		if (Keyboard.isKeyDown(42)) {
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
 		} else {
-			par3List.add("Return I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
+			par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
 		}
-
+		// TODO
 		par3List.add(par1ItemStack.getMaxDamage() - par1ItemStack.getItemDamage() + " Uses Remaining");
 	}
 

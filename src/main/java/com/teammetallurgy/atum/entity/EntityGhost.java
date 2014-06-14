@@ -129,7 +129,7 @@ public class EntityGhost extends EntityMob implements IAtumNightMob {
 	protected void dropFewItems(boolean par1, int par2) {
 		if (this.rand.nextInt(4) == 0) {
 			int amount = rand.nextInt(3) + 1;
-			this.dropItem(AtumItems.ectoplasm, amount);
+			this.dropItem(AtumItems.ITEM_ECTOPLASM, amount);
 		}
 	}
 

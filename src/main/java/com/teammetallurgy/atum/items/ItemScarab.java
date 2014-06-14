@@ -67,7 +67,7 @@ public class ItemScarab extends Item {
 				}
 			}
 		}else{
-			par2EntityPlayer.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("chat.Atum.disabled")));
+			par2EntityPlayer.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("chat.atum.disabled")));
 		}
 
 		return true;

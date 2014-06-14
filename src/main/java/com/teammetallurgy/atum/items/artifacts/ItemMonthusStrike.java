@@ -17,6 +17,7 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
+import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 
 import org.lwjgl.input.Keyboard;
@@ -39,17 +40,21 @@ public class ItemMonthusStrike extends ItemAxe {
 		return true;
 	}
 
+	@Override
 	public int getMaxItemUseDuration(ItemStack par1ItemStack) {
 		return 7200;
 	}
 
+	@Override
 	public EnumAction getItemUseAction(ItemStack par1ItemStack) {
 		return EnumAction.bow;
 	}
 
+	@Override
 	public void onUpdate(ItemStack stack, World world, Entity player, int par4, boolean par5) {
 	}
 
+	@Override
 	public void onPlayerStoppedUsing(ItemStack par1ItemStack, World world, EntityPlayer player, int par4) {
 		int j = this.getMaxItemUseDuration(par1ItemStack) - par4;
 		if (j > 21) {
@@ -72,7 +77,9 @@ public class ItemMonthusStrike extends ItemAxe {
 						entity.motionY = 0.4000000059604645D;
 					}
 
-					//((EntityLiving) entity).attackEntityFrom(DamageSource.generic, this.getDamageVsEntity(entity, par1ItemStack));
+					// ((EntityLiving)
+					// entity).attackEntityFrom(DamageSource.generic,
+					// this.getDamageVsEntity(entity, par1ItemStack));
 					if (world.isRemote) {
 						this.spawnParticle(world, entity);
 					}
@@ -104,18 +111,17 @@ public class ItemMonthusStrike extends ItemAxe {
 	@SideOnly(Side.CLIENT)
 	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
 		if (Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "Slam I: Increased damage,");
-			par3List.add(EnumChatFormatting.DARK_PURPLE + "charge for AOE knockback");
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
+			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
 		} else {
-			par3List.add("Slam I " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
+			par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
 		}
-
 	}
 
-//	@Override
-//	public float getDamageVsEntity(Entity par1Entity, ItemStack stack) {
-//		return 4 + super.toolMaterial.getDamageVsEntity();
-//	}
+	// @Override
+	// public float getDamageVsEntity(Entity par1Entity, ItemStack stack) {
+	// return 4 + super.toolMaterial.getDamageVsEntity();
+	// }
 
 	@Override
 	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {

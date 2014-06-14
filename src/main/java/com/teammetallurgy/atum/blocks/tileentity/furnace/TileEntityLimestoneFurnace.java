@@ -123,7 +123,7 @@ public class TileEntityLimestoneFurnace extends TileEntityFurnace implements ISi
 	 */
 	@Override
 	public String getInventoryName() {
-		return this.hasCustomInventoryName() ? this.field_94130_e : "container.furnace";
+		return this.hasCustomInventoryName() ? this.field_94130_e : "container.limestoneFurnace";
 	}
 
 	/**
