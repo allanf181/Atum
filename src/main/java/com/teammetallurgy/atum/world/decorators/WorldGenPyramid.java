@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum.worldgen.decorators;
+package com.teammetallurgy.atum.world.decorators;
 
 import static net.minecraftforge.common.util.ForgeDirection.EAST;
 import static net.minecraftforge.common.util.ForgeDirection.NORTH;

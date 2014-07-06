@@ -2,6 +2,7 @@ package com.teammetallurgy.atum.blocks;
 
 import java.util.Random;
 
+import com.teammetallurgy.atum.lib.tickhandler.ClientEvents;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -17,7 +18,6 @@ import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
 import com.teammetallurgy.atum.AtumIDS;
-import com.teammetallurgy.atum.lib.tickhandler.ClientTickHandler;
 import com.teammetallurgy.atum.world.AtumTeleporter;
 
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
@@ -126,7 +126,7 @@ public class BlockPortal extends BlockBreakable {
 				if (dimID == AtumIDS.DIMENSION_ID) {
 					minecraftserver.getConfigurationManager().transferPlayerToDimension((EntityPlayerMP) par5Entity, 0, new AtumTeleporter(worldserver));
 					if (par1World.isRemote) {
-						Minecraft.getMinecraft().gameSettings.renderDistanceChunks = ClientTickHandler.defaultFog;
+						Minecraft.getMinecraft().gameSettings.renderDistanceChunks = ClientEvents.defaultFog;
 					}
 				} else {
 					minecraftserver.getConfigurationManager().transferPlayerToDimension((EntityPlayerMP) par5Entity, AtumIDS.DIMENSION_ID, new AtumTeleporter(worldserver1));

@@ -1,9 +1,8 @@
-package com.teammetallurgy.atum.worldgen.decorators;
+package com.teammetallurgy.atum.world.decorators;
 
 import java.util.Random;
 
 import net.minecraft.block.Block;
-import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 

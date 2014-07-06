@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum.worldgen.biome;
+package com.teammetallurgy.atum.world.biome;
 
 import java.util.Random;
 
@@ -17,12 +17,11 @@ import com.teammetallurgy.atum.entity.EntityDustySkeleton;
 import com.teammetallurgy.atum.entity.EntityGhost;
 import com.teammetallurgy.atum.entity.EntityMummy;
 import com.teammetallurgy.atum.entity.EntityStoneSoldier;
-import com.teammetallurgy.atum.worldgen.decorators.WorldGenAtumTrees;
-import com.teammetallurgy.atum.worldgen.decorators.WorldGenOasis;
-import com.teammetallurgy.atum.worldgen.decorators.WorldGenPalace;
-import com.teammetallurgy.atum.worldgen.decorators.WorldGenPalm;
-import com.teammetallurgy.atum.worldgen.decorators.WorldGenPyramid;
-import com.teammetallurgy.atum.worldgen.decorators.WorldGenRuins;
+import com.teammetallurgy.atum.world.decorators.WorldGenAtumTrees;
+import com.teammetallurgy.atum.world.decorators.WorldGenOasis;
+import com.teammetallurgy.atum.world.decorators.WorldGenPalm;
+import com.teammetallurgy.atum.world.decorators.WorldGenPyramid;
+import com.teammetallurgy.atum.world.decorators.WorldGenRuins;
 
 public class BiomeGenAtumDesert extends BiomeGenBase {
 

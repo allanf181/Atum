@@ -1,7 +1,6 @@
-package com.teammetallurgy.atum.worldgen;
+package com.teammetallurgy.atum.world;
 
 import com.teammetallurgy.atum.AtumIDS;
-import com.teammetallurgy.atum.world.AtumWorlds;
 
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum.worldgen;
+package com.teammetallurgy.atum.world;
 
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
 import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE;

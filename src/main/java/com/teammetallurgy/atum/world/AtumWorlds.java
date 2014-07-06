@@ -4,8 +4,7 @@ import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.DimensionManager;
 
 import com.teammetallurgy.atum.AtumIDS;
-import com.teammetallurgy.atum.worldgen.AtumWorldProvider;
-import com.teammetallurgy.atum.worldgen.biome.BiomeGenAtumDesert;
+import com.teammetallurgy.atum.world.biome.BiomeGenAtumDesert;
 
 public enum AtumWorlds {
 	INSTANCE;

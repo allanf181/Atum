@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum.worldgen.decorators;
+package com.teammetallurgy.atum.world.decorators;
 
 import java.util.Random;
 

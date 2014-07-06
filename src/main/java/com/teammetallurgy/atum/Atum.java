@@ -74,9 +74,4 @@ public class Atum {
 
 		NetworkRegistry.INSTANCE.registerGuiHandler(this, new AtumGuiHandler());
 	}
-
-	@EventHandler
-	public void postInit(FMLPostInitializationEvent event) {
-
-	}
 }

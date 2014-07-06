@@ -11,7 +11,7 @@ import com.teammetallurgy.atum.items.AtumItems;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
 
-public class ServerTickHandler {
+public class ServerEvents {
 
 	private boolean raining;
 

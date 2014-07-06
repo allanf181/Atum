@@ -4,24 +4,23 @@ import java.util.List;
 import java.util.Random;
 
 import net.minecraft.block.Block;
+import net.minecraft.client.renderer.entity.RenderDragon;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
+import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.tileentity.TileEntity;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.ChatComponentText;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.StatCollector;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 
 import com.teammetallurgy.atum.AtumLoot;
@@ -48,9 +47,8 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 	private int regenTime = 0;
 
 	public EntityPharaoh(World par1World) {
-		super(par1World);
+        super(par1World);
 		this.experienceValue = 250;
-		Random rand = new Random();
 		stage = 0;
 
 		this.setCurrentItemOrArmor(0, new ItemStack(AtumItems.ITEM_SCEPTER));
@@ -91,7 +89,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 			if (!worldObj.isRemote) {
 				List<EntityPlayer> players = FMLCommonHandler.instance().getMinecraftServerInstance().getConfigurationManager().playerEntityList;
 				for (EntityPlayer player : players) {
-					player.addChatMessage(new ChatComponentText(this.getCommandSenderName() + " " + StatCollector.translateToLocal("chat.Atum.killPharaoh") + " " + slayer.getGameProfile().getName()));
+					player.addChatMessage(new ChatComponentText(this.getCommandSenderName() + " " + StatCollector.translateToLocal("chat.atum.killPharaoh") + " " + slayer.getGameProfile().getName()));
 				}
 			}
 		}
@@ -113,7 +111,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 			int s = this.dataWatcher.getWatchableObjectInt(18);
 			int p = this.dataWatcher.getWatchableObjectInt(19);
 			int n = this.dataWatcher.getWatchableObjectInt(20);
-			return "Pharaoh " + StatCollector.translateToFallback("entity.Atum.pharaoh." + prefix[p]) + StatCollector.translateToFallback("entity.Atum.pharaoh." + suffix[s]) + " " + numeral[n];
+			return "Pharaoh " + StatCollector.translateToLocal("entity.atum.pharaoh." + prefix[p]) + StatCollector.translateToLocal("entity.atum.pharaoh." + suffix[s]) + " " + numeral[n];
 		} catch (Exception e) {
 			return "";
 		}
@@ -206,7 +204,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 					int metadata = this.worldObj.getBlockMetadata(x, y, z);
 
 					if (block != null) {
-						if (block != AtumBlocks.BLOCK_LARGEBRICK && block != AtumBlocks.BLOCK_PHARAOHCHEST && block.isBlockSolid(worldObj, x, y, z, 0)) {
+						if (block != AtumBlocks.BLOCK_LARGEBRICK && block != AtumBlocks.BLOCK_PHARAOHCHEST && block != Blocks.bedrock && block.isBlockSolid(worldObj, x, y, z, 0)) {
 							block.dropBlockAsItem(worldObj, x, y, z, metadata, 0);
 							flag1 = this.worldObj.setBlockToAir(x, y, z) || flag1;
 						}
@@ -336,6 +334,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
 	/**
 	 * Called to update the entity's position/logic.
 	 */
+    @Override
 	public void onUpdate() {
 		super.onUpdate();
 

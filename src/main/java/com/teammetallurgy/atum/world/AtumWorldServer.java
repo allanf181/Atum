@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum.worldgen;
+package com.teammetallurgy.atum.world;
 
 import net.minecraft.profiler.Profiler;
 import net.minecraft.server.MinecraftServer;

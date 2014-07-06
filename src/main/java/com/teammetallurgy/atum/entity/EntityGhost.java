@@ -15,7 +15,7 @@ import net.minecraftforge.common.ForgeHooks;
 
 import com.teammetallurgy.atum.items.AtumItems;
 
-public class EntityGhost extends EntityMob implements IAtumNightMob {
+public class EntityGhost extends EntityMob {
 	private int cycleHeight = 0;
 	private int cycleTime = 100;
 

@@ -25,7 +25,7 @@ import net.minecraft.world.World;
 
 import com.teammetallurgy.atum.items.AtumItems;
 
-public class EntityBanditArcher extends EntityMob implements IRangedAttackMob, IAtumDayMob {
+public class EntityBanditArcher extends EntityMob implements IRangedAttackMob {
 	private EntityAIArrowAttack aiArrowAttack = new EntityAIArrowAttack(this, 1.0D, 20, 60, 15.0F);
 
 	public EntityBanditArcher(World par1World) {

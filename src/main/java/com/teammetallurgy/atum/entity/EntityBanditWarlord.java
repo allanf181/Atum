@@ -10,7 +10,7 @@ import net.minecraft.world.World;
 
 import com.teammetallurgy.atum.items.AtumItems;
 
-public class EntityBanditWarlord extends EntityMob implements IAtumDayMob {
+public class EntityBanditWarlord extends EntityMob {
 
 	public EntityBanditWarlord(World par1World) {
 		super(par1World);
