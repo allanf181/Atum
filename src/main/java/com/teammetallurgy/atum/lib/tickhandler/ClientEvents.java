@@ -23,11 +23,10 @@ public class ClientEvents {
 	@SubscribeEvent
 	public void onRender(TickEvent.RenderTickEvent event) {
 		EntityPlayer player = Minecraft.getMinecraft().thePlayer;
-		ItemStack currentItemStack = null;
 
 		if (player != null && player.getCurrentArmor(3) != null) {
 			if (player.getCurrentArmor(3).getItem() == AtumItems.mummyHelmet) {
-				ScaledResolution scaledresolution = new ScaledResolution(Minecraft.getMinecraft().gameSettings, Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
+				ScaledResolution scaledresolution = new ScaledResolution(Minecraft.getMinecraft(), Minecraft.getMinecraft().displayWidth, Minecraft.getMinecraft().displayHeight);
 				int par1 = scaledresolution.getScaledWidth();
 				int par2 = scaledresolution.getScaledHeight();
 

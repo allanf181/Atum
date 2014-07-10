@@ -124,7 +124,7 @@ public class BlockPapyrus extends Block implements IPlantable {
 		} else if (plantType != EnumPlantType.Beach) {
 			return false;
 		} else {
-			boolean isBeach = this == Blocks.dirt || this == Blocks.sand;
+			boolean isBeach = this == Blocks.dirt || (Block)this == Blocks.sand;
 			boolean hasWater = world.getBlock(x - 1, y, z).getMaterial() == Material.water || world.getBlock(x + 1, y, z).getMaterial() == Material.water || world.getBlock(x, y, z - 1).getMaterial() == Material.water || world.getBlock(x, y, z + 1).getMaterial() == Material.water;
 			return isBeach && hasWater;
 		}

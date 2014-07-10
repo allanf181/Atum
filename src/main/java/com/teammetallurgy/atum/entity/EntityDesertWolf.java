@@ -384,7 +384,7 @@ public class EntityDesertWolf extends EntityTameable {
                 }
             }
 
-            if (par1EntityPlayer.getGameProfile().getName().equalsIgnoreCase(this.getOwnerName()) && !this.worldObj.isRemote && !this.isBreedingItem(itemstack)) {
+            if (this.func_152114_e(par1EntityPlayer) && !this.worldObj.isRemote && !this.isBreedingItem(itemstack)) {
                 this.aiSit.setSitting(!this.isSitting());
                 this.isJumping = false;
                 this.setPathToEntity((PathEntity) null);
@@ -404,7 +404,7 @@ public class EntityDesertWolf extends EntityTameable {
                     this.setPathToEntity((PathEntity) null);
                     this.setAttackTarget((EntityLiving) null);
                     this.aiSit.setSitting(true);
-                    this.setOwner(par1EntityPlayer.getGameProfile().getName());
+                    this.func_152115_b(par1EntityPlayer.getUniqueID().toString());
                     this.playTameEffect(true);
                     this.worldObj.setEntityState(this, (byte) 7);
                 } else {
@@ -473,22 +473,6 @@ public class EntityDesertWolf extends EntityTameable {
         }
     }
 
-    /**
-     * This function is used when two same-species animals in 'love mode' breed
-     * to generate the new baby animal.
-     */
-    public EntityDesertWolf spawnBabyAnimal(EntityAgeable par1EntityAgeable) {
-        EntityDesertWolf entitywolf = new EntityDesertWolf(this.worldObj);
-        String s = this.getOwnerName();
-
-        if (s != null && s.trim().length() > 0) {
-            entitywolf.setOwner(s);
-            entitywolf.setTamed(true);
-        }
-
-        return entitywolf;
-    }
-
     public void func_70918_i(boolean par1) {
         byte b0 = this.dataWatcher.getWatchableObjectByte(19);
 
@@ -522,7 +506,16 @@ public class EntityDesertWolf extends EntityTameable {
 
     @Override
     public EntityAgeable createChild(EntityAgeable par1EntityAgeable) {
-        return this.spawnBabyAnimal(par1EntityAgeable);
+        EntityDesertWolf entitywolf = new EntityDesertWolf(this.worldObj);
+        String s = this.func_152113_b();
+
+        if (s != null && s.trim().length() > 0)
+        {
+            entitywolf.func_152115_b(s);
+            entitywolf.setTamed(true);
+        }
+
+        return entitywolf;
     }
 
     @Override

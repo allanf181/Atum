@@ -37,7 +37,7 @@ public class TileEntityBurningTrap extends TileEntity {
 		yMax += facing.getFrontOffsetY() * range;
 		zMin += facing.getFrontOffsetZ() * range;
 		zMax += facing.getFrontOffsetZ() * range;
-		AxisAlignedBB bb = AxisAlignedBB.getAABBPool().getAABB((double) xMin, (double) yMin, (double) zMin, (double) xMax, (double) yMax, (double) zMax);
+		AxisAlignedBB bb = AxisAlignedBB.getBoundingBox((double) xMin, (double) yMin, (double) zMin, (double) xMax, (double) yMax, (double) zMax);
 		List list = super.worldObj.getEntitiesWithinAABB(EntityMob.class, bb);
 		if(p != null && bb.isVecInside(Vec3.createVectorHelper(p.posX, p.posY + 0.5D, p.posZ))) {
 			p.setFire(2);

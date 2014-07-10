@@ -200,7 +200,7 @@ public class TileEntityChestSpawner extends TileEntityChest implements IInventor
 	public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
 		double d0 = 4.0D;
 		double d1 = 3.0D;
-		List list = super.worldObj.getEntitiesWithinAABB(EntityMob.class, AxisAlignedBB.getAABBPool().getAABB((double) super.xCoord - d0, (double) super.yCoord - d1, (double) super.zCoord - d0, (double) super.xCoord + d0, (double) super.yCoord + d1, (double) super.zCoord + d0));
+		List list = super.worldObj.getEntitiesWithinAABB(EntityMob.class, AxisAlignedBB.getBoundingBox((double) super.xCoord - d0, (double) super.yCoord - d1, (double) super.zCoord - d0, (double) super.xCoord + d0, (double) super.yCoord + d1, (double) super.zCoord + d0));
 		if (!list.isEmpty()) {
 			if (!super.worldObj.isRemote) {
 				par1EntityPlayer.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("chat.Atum.enemies")));
@@ -223,7 +223,7 @@ public class TileEntityChestSpawner extends TileEntityChest implements IInventor
         {
             this.numPlayersUsing = 0;
             f = 5.0F;
-            List list = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getAABBPool().getAABB((double)((float)this.xCoord - f), (double)((float)this.yCoord - f), (double)((float)this.zCoord - f), (double)((float)(this.xCoord + 1) + f), (double)((float)(this.yCoord + 1) + f), (double)((float)(this.zCoord + 1) + f)));
+            List list = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox((double)((float)this.xCoord - f), (double)((float)this.yCoord - f), (double)((float)this.zCoord - f), (double)((float)(this.xCoord + 1) + f), (double)((float)(this.yCoord + 1) + f), (double)((float)(this.zCoord + 1) + f)));
             Iterator iterator = list.iterator();
 
             while (iterator.hasNext())

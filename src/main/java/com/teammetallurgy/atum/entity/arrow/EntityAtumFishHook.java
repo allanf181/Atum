@@ -243,14 +243,14 @@ public class EntityAtumFishHook extends EntityFishHook {
 				++this.ticksInAir;
 			}
 
-			Vec3 vec3 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX, this.posY, this.posZ);
-			Vec3 vec31 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+			Vec3 vec3 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
+			Vec3 vec31 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 			MovingObjectPosition movingobjectposition = this.worldObj.rayTraceBlocks(vec3, vec31);
-			vec3 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX, this.posY, this.posZ);
-			vec31 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+			vec3 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
+			vec31 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
 			if (movingobjectposition != null) {
-				vec31 = this.worldObj.getWorldVec3Pool().getVecFromPool(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
+				vec31 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
 			}
 
 			Entity entity = null;
@@ -326,7 +326,7 @@ public class EntityAtumFishHook extends EntityFishHook {
 				for (int k = 0; k < b0; ++k) {
 					double d7 = this.boundingBox.minY + (this.boundingBox.maxY - this.boundingBox.minY) * (double) (k + 0) / (double) b0 - 0.125D + 0.125D;
 					double d8 = this.boundingBox.minY + (this.boundingBox.maxY - this.boundingBox.minY) * (double) (k + 1) / (double) b0 - 0.125D + 0.125D;
-					AxisAlignedBB axisalignedbb1 = AxisAlignedBB.getAABBPool().getAABB(this.boundingBox.minX, d7, this.boundingBox.minZ, this.boundingBox.maxX, d8, this.boundingBox.maxZ);
+					AxisAlignedBB axisalignedbb1 = AxisAlignedBB.getBoundingBox(this.boundingBox.minX, d7, this.boundingBox.minZ, this.boundingBox.maxX, d8, this.boundingBox.maxZ);
 
 					if (this.worldObj.isAABBInMaterial(axisalignedbb1, Material.water)) {
 						d6 += 1.0D / (double) b0;

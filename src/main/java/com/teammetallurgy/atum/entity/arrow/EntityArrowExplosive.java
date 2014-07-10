@@ -188,7 +188,7 @@ public class EntityArrowExplosive extends CustomArrow implements IProjectile, IT
 			i.setBlockBoundsBasedOnState(this.worldObj, this.xTile, this.yTile, this.zTile);
 			AxisAlignedBB axisalignedbb = i.getCollisionBoundingBoxFromPool(this.worldObj, this.xTile, this.yTile, this.zTile);
 
-			if (axisalignedbb != null && axisalignedbb.isVecInside(this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX, this.posY, this.posZ))) {
+			if (axisalignedbb != null && axisalignedbb.isVecInside(Vec3.createVectorHelper(this.posX, this.posY, this.posZ))) {
 				this.worldObj.newExplosion(this, this.posX, this.posY, this.posZ, 2.0F, this.isBurning(), true);
 				this.inGround = true;
 			}
@@ -218,14 +218,14 @@ public class EntityArrowExplosive extends CustomArrow implements IProjectile, IT
 			}
 		} else {
 			++this.ticksInAir;
-			Vec3 vec3 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX, this.posY, this.posZ);
-			Vec3 vec31 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+			Vec3 vec3 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
+			Vec3 vec31 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 			MovingObjectPosition movingobjectposition = this.worldObj.func_147447_a(vec31, vec3, false, true, false);
-			vec3 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX, this.posY, this.posZ);
-			vec31 = this.worldObj.getWorldVec3Pool().getVecFromPool(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
+			vec3 = Vec3.createVectorHelper(this.posX, this.posY, this.posZ);
+			vec31 = Vec3.createVectorHelper(this.posX + this.motionX, this.posY + this.motionY, this.posZ + this.motionZ);
 
 			if (movingobjectposition != null) {
-				vec31 = this.worldObj.getWorldVec3Pool().getVecFromPool(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
+				vec31 = Vec3.createVectorHelper(movingobjectposition.hitVec.xCoord, movingobjectposition.hitVec.yCoord, movingobjectposition.hitVec.zCoord);
 			}
 
 			Entity entity = null;

@@ -51,7 +51,7 @@ public class BlockFertileSoilTilled extends Block {
 
 	@Override
 	public AxisAlignedBB getCollisionBoundingBoxFromPool(World par1World, int par2, int par3, int par4) {
-		return AxisAlignedBB.getAABBPool().getAABB((double) (par2 + 0), (double) (par3 + 0), (double) (par4 + 0), (double) (par2 + 1), (double) (par3 + 1), (double) (par4 + 1));
+		return AxisAlignedBB.getBoundingBox((double) (par2 + 0), (double) (par3 + 0), (double) (par4 + 0), (double) (par2 + 1), (double) (par3 + 1), (double) (par4 + 1));
 	}
 
 	@Override
