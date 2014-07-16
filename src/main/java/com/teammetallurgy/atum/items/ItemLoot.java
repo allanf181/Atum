@@ -18,8 +18,8 @@ import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemLoot extends Item {
 
-	private static String[] typeArray = new String[] { "idol", "necklace", "ring", "broach", "scepter" };
-	private static String[] qualityArray = new String[] { "dirty", "silver", "gold", "sapphire", "ruby", "emerald", "diamond" };
+	private static String[] typeArray = new String[]{"idol", "necklace", "ring", "broach", "scepter"};
+	private static String[] qualityArray = new String[]{"dirty", "silver", "gold", "sapphire", "ruby", "emerald", "diamond"};
 	IIcon[] iconArray;
 
 	public ItemLoot() {
@@ -92,13 +92,16 @@ public class ItemLoot extends Item {
 		this.iconArray = new IIcon[typeArray.length * (qualityArray.length + 1)];
 
 		for (int type = 0; type < 5; ++type) {
-			this.iconArray[type * 7] = par1IIconRegister.registerIcon("atum:Dirty" + typeArray[type]);
+			this.iconArray[type * 7] = par1IIconRegister.registerIcon("atum:Dirty" + firstUpperCase(typeArray[type]));
 
 			for (int quality = 1; quality < 7; ++quality) {
-				this.iconArray[type * 7 + quality] = par1IIconRegister.registerIcon("atum:" + qualityArray[quality] + typeArray[type]);
+				this.iconArray[type * 7 + quality] = par1IIconRegister.registerIcon("atum:" + firstUpperCase(qualityArray[quality]) + firstUpperCase(typeArray[type]));
 			}
 		}
 
 	}
 
+	public String firstUpperCase(String s) {
+		return Character.toString(s.charAt(0)).toUpperCase() + s.substring(1, s.length());
+	}
 }
