@@ -1,8 +1,8 @@
 package com.teammetallurgy.atum;
 
-import java.io.File;
-
 import net.minecraftforge.common.config.Configuration;
+
+import java.io.File;
 
 public class AtumConfig {
 
@@ -27,6 +27,7 @@ public class AtumConfig {
 	private int getInt(String category, String name, int defaultId) {
 		return this.CONFIG.get(category, name, defaultId).getInt();
 	}
+
 	private boolean getBoolean(String category, String name, boolean defaultId) {
 		return this.CONFIG.get(category, name, defaultId).getBoolean(true);
 	}

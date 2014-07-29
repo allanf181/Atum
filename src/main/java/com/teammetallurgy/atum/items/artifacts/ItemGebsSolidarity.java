@@ -1,7 +1,9 @@
 package com.teammetallurgy.atum.items.artifacts;
 
-import java.util.List;
-
+import com.teammetallurgy.atum.items.ItemTexturedArmor;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.Entity;
@@ -17,14 +19,9 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-
 import org.lwjgl.input.Keyboard;
 
-import com.teammetallurgy.atum.items.ItemTexturedArmor;
-
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
 
 public class ItemGebsSolidarity extends ItemTexturedArmor {
 

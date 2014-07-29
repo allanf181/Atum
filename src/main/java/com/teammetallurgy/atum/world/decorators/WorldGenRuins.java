@@ -1,13 +1,12 @@
 package com.teammetallurgy.atum.world.decorators;
 
-import java.util.Random;
-
+import com.teammetallurgy.atum.AtumLoot;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import com.teammetallurgy.atum.AtumLoot;
-import com.teammetallurgy.atum.blocks.AtumBlocks;
+import java.util.Random;
 
 public class WorldGenRuins extends WorldGenerator {
 	@Override

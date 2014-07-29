@@ -1,16 +1,7 @@
 package com.teammetallurgy.atum.world;
 
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
-import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ANIMALS;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.DUNGEON;
-import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.ICE;
-
-import java.util.List;
-import java.util.Random;
-
 import com.teammetallurgy.atum.blocks.AtumBlocks;
-
+import cpw.mods.fml.common.eventhandler.Event.Result;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
@@ -25,56 +16,70 @@ import net.minecraft.world.WorldType;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.chunk.Chunk;
 import net.minecraft.world.chunk.IChunkProvider;
-import net.minecraft.world.gen.MapGenBase;
-import net.minecraft.world.gen.MapGenCaves;
-import net.minecraft.world.gen.MapGenRavine;
-import net.minecraft.world.gen.NoiseGenerator;
-import net.minecraft.world.gen.NoiseGeneratorOctaves;
-import net.minecraft.world.gen.NoiseGeneratorPerlin;
+import net.minecraft.world.gen.*;
 import net.minecraft.world.gen.structure.MapGenScatteredFeature;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.ChunkProviderEvent;
 import net.minecraftforge.event.terraingen.PopulateChunkEvent;
 import net.minecraftforge.event.terraingen.TerrainGen;
-import cpw.mods.fml.common.eventhandler.Event.Result;
+
+import java.util.List;
+import java.util.Random;
+
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.CAVE;
+import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVINE;
+import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.*;
 
 public class AtumChunkProvider implements IChunkProvider {
-	/** RNG. */
-	private Random rand;
-	private NoiseGeneratorOctaves field_147431_j;
-	private NoiseGeneratorOctaves field_147432_k;
-	private NoiseGeneratorOctaves field_147429_l;
-	private NoiseGeneratorPerlin field_147430_m;
-	/** A NoiseGeneratorOctaves used in generating terrain */
-	public NoiseGeneratorOctaves noiseGen5;
-	/** A NoiseGeneratorOctaves used in generating terrain */
-	public NoiseGeneratorOctaves noiseGen6;
-	public NoiseGeneratorOctaves mobSpawnerNoise;
-	/** Reference to the World object. */
-	private World worldObj;
-	/** are map structures going to be generated (e.g. strongholds) */
+	private static final String __OBFID = "CL_00000396";
+	{
+		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
+		ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
+	}
+	/**
+	 * are map structures going to be generated (e.g. strongholds)
+	 */
 	private final boolean mapFeaturesEnabled;
-	private WorldType field_147435_p;
 	private final double[] field_147434_q;
 	private final float[] parabolicField;
-	private double[] stoneNoise = new double[256];
-	private MapGenBase caveGenerator = new MapGenCaves();
-	private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
-	/** Holds ravine generator */
-	private MapGenBase ravineGenerator = new MapGenRavine();
-	/** The biomes that are used to generate the chunk */
-	private BiomeGenBase[] biomesForGeneration;
+	/**
+	 * A NoiseGeneratorOctaves used in generating terrain
+	 */
+	public NoiseGeneratorOctaves noiseGen5;
+	/**
+	 * A NoiseGeneratorOctaves used in generating terrain
+	 */
+	public NoiseGeneratorOctaves noiseGen6;
+	public NoiseGeneratorOctaves mobSpawnerNoise;
 	double[] field_147427_d;
 	double[] field_147428_e;
 	double[] field_147425_f;
 	double[] field_147426_g;
 	int[][] field_73219_j = new int[32][32];
-	private static final String __OBFID = "CL_00000396";
-
-	{
-		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
-		ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
-	}
+	/**
+	 * RNG.
+	 */
+	private Random rand;
+	private NoiseGeneratorOctaves field_147431_j;
+	private NoiseGeneratorOctaves field_147432_k;
+	private NoiseGeneratorOctaves field_147429_l;
+	private NoiseGeneratorPerlin field_147430_m;
+	/**
+	 * Reference to the World object.
+	 */
+	private World worldObj;
+	private WorldType field_147435_p;
+	private double[] stoneNoise = new double[256];
+	private MapGenBase caveGenerator = new MapGenCaves();
+	private MapGenScatteredFeature scatteredFeatureGenerator = new MapGenScatteredFeature();
+	/**
+	 * Holds ravine generator
+	 */
+	private MapGenBase ravineGenerator = new MapGenRavine();
+	/**
+	 * The biomes that are used to generate the chunk
+	 */
+	private BiomeGenBase[] biomesForGeneration;
 
 	public AtumChunkProvider(World par1World, long par2, boolean par4) {
 		this.worldObj = par1World;
@@ -98,7 +103,7 @@ public class AtumChunkProvider implements IChunkProvider {
 			}
 		}
 
-		NoiseGenerator[] noiseGens = { field_147431_j, field_147432_k, field_147429_l, field_147430_m, noiseGen5, noiseGen6, mobSpawnerNoise };
+		NoiseGenerator[] noiseGens = {field_147431_j, field_147432_k, field_147429_l, field_147430_m, noiseGen5, noiseGen6, mobSpawnerNoise};
 		noiseGens = TerrainGen.getModdedNoiseGenerators(par1World, this.rand, noiseGens);
 		this.field_147431_j = (NoiseGeneratorOctaves) noiseGens[0];
 		this.field_147432_k = (NoiseGeneratorOctaves) noiseGens[1];
@@ -191,101 +196,77 @@ public class AtumChunkProvider implements IChunkProvider {
 		}
 	}
 
-	   public void genBiomeTerrain(World p_150560_1_, BiomeGenBase biomegenbase, Random p_150560_2_, Block[] p_150560_3_, byte[] p_150560_4_, int p_150560_5_, int p_150560_6_, double p_150560_7_)
-	    {
-	        boolean flag = true;
-	        Block block = biomegenbase.topBlock;
-	        byte b0 = (byte)(biomegenbase.field_150604_aj & 255);
-	        Block block1 = biomegenbase.fillerBlock;
-	        int k = -1;
-	        int l = (int)(p_150560_7_ / 3.0D + 3.0D + p_150560_2_.nextDouble() * 0.25D);
-	        int i1 = p_150560_5_ & 15;
-	        int j1 = p_150560_6_ & 15;
-	        int k1 = p_150560_3_.length / 256;
+	public void genBiomeTerrain(World p_150560_1_, BiomeGenBase biomegenbase, Random p_150560_2_, Block[] p_150560_3_, byte[] p_150560_4_, int p_150560_5_, int p_150560_6_, double p_150560_7_) {
+		boolean flag = true;
+		Block block = biomegenbase.topBlock;
+		byte b0 = (byte) (biomegenbase.field_150604_aj & 255);
+		Block block1 = biomegenbase.fillerBlock;
+		int k = -1;
+		int l = (int) (p_150560_7_ / 3.0D + 3.0D + p_150560_2_.nextDouble() * 0.25D);
+		int i1 = p_150560_5_ & 15;
+		int j1 = p_150560_6_ & 15;
+		int k1 = p_150560_3_.length / 256;
 
-	        for (int l1 = 255; l1 >= 0; --l1)
-	        {
-	            int i2 = (j1 * 16 + i1) * k1 + l1;
+		for (int l1 = 255; l1 >= 0; --l1) {
+			int i2 = (j1 * 16 + i1) * k1 + l1;
 
-	            if (l1 <= 0 + p_150560_2_.nextInt(5))
-	            {
-	                p_150560_3_[i2] = Blocks.bedrock;
-	            }
-	            else
-	            {
-	                Block block2 = p_150560_3_[i2];
+			if (l1 <= 0 + p_150560_2_.nextInt(5)) {
+				p_150560_3_[i2] = Blocks.bedrock;
+			} else {
+				Block block2 = p_150560_3_[i2];
 
-	                if (block2 != null && block2.getMaterial() != Material.air)
-	                {
-	                    if (block2 == AtumBlocks.BLOCK_STONE)
-	                    {
-	                        if (k == -1)
-	                        {
-	                            if (l <= 0)
-	                            {
-	                                block = null;
-	                                b0 = 0;
-	                                block1 = AtumBlocks.BLOCK_STONE;
-	                            }
-	                            else if (l1 >= 59 && l1 <= 64)
-	                            {
-	                                block = biomegenbase.topBlock;
-	                                b0 = (byte)(biomegenbase.field_150604_aj & 255);
-	                                block1 = biomegenbase.fillerBlock;
-	                            }
+				if (block2 != null && block2.getMaterial() != Material.air) {
+					if (block2 == AtumBlocks.BLOCK_STONE) {
+						if (k == -1) {
+							if (l <= 0) {
+								block = null;
+								b0 = 0;
+								block1 = AtumBlocks.BLOCK_STONE;
+							} else if (l1 >= 59 && l1 <= 64) {
+								block = biomegenbase.topBlock;
+								b0 = (byte) (biomegenbase.field_150604_aj & 255);
+								block1 = biomegenbase.fillerBlock;
+							}
 
-	                            if (l1 < 63 && (block == null || block.getMaterial() == Material.air))
-	                            {
-	                                if (biomegenbase.getFloatTemperature(p_150560_5_, l1, p_150560_6_) < 0.15F)
-	                                {
-	                                    block = Blocks.ice;
-	                                    b0 = 0;
-	                                }
-	                                else
-	                                {
-	                                    block = Blocks.water;
-	                                    b0 = 0;
-	                                }
-	                            }
+							if (l1 < 63 && (block == null || block.getMaterial() == Material.air)) {
+								if (biomegenbase.getFloatTemperature(p_150560_5_, l1, p_150560_6_) < 0.15F) {
+									block = Blocks.ice;
+									b0 = 0;
+								} else {
+									block = Blocks.water;
+									b0 = 0;
+								}
+							}
 
-	                            k = l;
+							k = l;
 
-	                            if (l1 >= 62)
-	                            {
-	                                p_150560_3_[i2] = block;
-	                                p_150560_4_[i2] = b0;
-	                            }
-	                            else if (l1 < 56 - l)
-	                            {
-	                                block = null;
-	                                block1 = Blocks.stone;
-	                                p_150560_3_[i2] = Blocks.gravel;
-	                            }
-	                            else
-	                            {
-	                                p_150560_3_[i2] = block1;
-	                            }
-	                        }
-	                        else if (k > 0)
-	                        {
-	                            --k;
-	                            p_150560_3_[i2] = block1;
+							if (l1 >= 62) {
+								p_150560_3_[i2] = block;
+								p_150560_4_[i2] = b0;
+							} else if (l1 < 56 - l) {
+								block = null;
+								block1 = Blocks.stone;
+								p_150560_3_[i2] = Blocks.gravel;
+							} else {
+								p_150560_3_[i2] = block1;
+							}
+						} else if (k > 0) {
+							--k;
+							p_150560_3_[i2] = block1;
 
-	                            if (k == 0 && block1 == Blocks.sand)
-	                            {
-	                                k = p_150560_2_.nextInt(4) + Math.max(0, l1 - 63);
-	                                block1 = Blocks.sandstone;
-	                            }
-	                        }
-	                    }
-	                }
-	                else
-	                {
-	                    k = -1;
-	                }
-	            }
-	        }
-	    }
+							if (k == 0 && block1 == Blocks.sand) {
+								k = p_150560_2_.nextInt(4) + Math.max(0, l1 - 63);
+								block1 = Blocks.sandstone;
+							}
+						}
+					}
+				} else {
+					k = -1;
+				}
+			}
+		}
+	}
+
 	/**
 	 * loads or generates the chunk at the chunk location specified
 	 */

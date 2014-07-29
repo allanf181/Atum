@@ -1,18 +1,14 @@
 package com.teammetallurgy.atum.client.render.entity;
 
+import com.teammetallurgy.atum.entity.EntityDesertWolf;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.model.ModelBase;
 import net.minecraft.client.renderer.entity.RenderLiving;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.passive.EntitySheep;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
-
-import com.teammetallurgy.atum.entity.EntityDesertWolf;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
 
 @SideOnly(Side.CLIENT)
 public class RenderDesertWolf extends RenderLiving {
@@ -28,7 +24,7 @@ public class RenderDesertWolf extends RenderLiving {
 	protected int func_82447_a(EntityDesertWolf par1EntityDesertWolf, int par2, float par3) {
 		float f1;
 		this.bindEntityTexture(par1EntityDesertWolf);
-		if(par2 == 0 && par1EntityDesertWolf.getWolfShaking()) {
+		if (par2 == 0 && par1EntityDesertWolf.getWolfShaking()) {
 			f1 = par1EntityDesertWolf.getBrightness(par3) * par1EntityDesertWolf.getShadingWhileShaking(par3);
 			GL11.glColor3f(f1, f1, f1);
 			return 1;

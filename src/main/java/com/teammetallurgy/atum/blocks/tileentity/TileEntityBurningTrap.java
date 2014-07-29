@@ -1,9 +1,5 @@
 package com.teammetallurgy.atum.blocks.tileentity;
 
-import java.util.Iterator;
-import java.util.List;
-import java.util.Random;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.monster.EntityMob;
@@ -14,11 +10,15 @@ import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.EnumFacing;
 import net.minecraft.util.Vec3;
 
+import java.util.Iterator;
+import java.util.List;
+import java.util.Random;
+
 public class TileEntityBurningTrap extends TileEntity {
 
+	protected String field_94050_c;
 	private ItemStack[] dispenserContents = new ItemStack[9];
 	private Random dispenserRandom = new Random();
-	protected String field_94050_c;
 
 	@Override
 	public void updateEntity() {
@@ -39,16 +39,16 @@ public class TileEntityBurningTrap extends TileEntity {
 		zMax += facing.getFrontOffsetZ() * range;
 		AxisAlignedBB bb = AxisAlignedBB.getBoundingBox((double) xMin, (double) yMin, (double) zMin, (double) xMax, (double) yMax, (double) zMax);
 		List list = super.worldObj.getEntitiesWithinAABB(EntityMob.class, bb);
-		if(p != null && bb.isVecInside(Vec3.createVectorHelper(p.posX, p.posY + 0.5D, p.posZ))) {
+		if (p != null && bb.isVecInside(Vec3.createVectorHelper(p.posX, p.posY + 0.5D, p.posZ))) {
 			p.setFire(2);
 			this.spawnFlames();
 		}
 
 		Iterator i = list.iterator();
 
-		while(i.hasNext()) {
+		while (i.hasNext()) {
 			Entity e = (Entity) i.next();
-			if(e instanceof EntityLiving) {
+			if (e instanceof EntityLiving) {
 				e.setFire(2);
 			}
 		}
@@ -66,16 +66,16 @@ public class TileEntityBurningTrap extends TileEntity {
 		double mx = par5Random.nextDouble() * 0.08D - 0.04D;
 		double my = par5Random.nextDouble() * 0.08D - 0.04D;
 		double mz = par5Random.nextDouble() * 0.08D - 0.04D;
-		if(l == 4) {
+		if (l == 4) {
 			super.worldObj.spawnParticle("smoke", (double) (f - f3), (double) f1, (double) (f2 + f4), mx - 0.1D, my, mz);
 			super.worldObj.spawnParticle("flame", (double) (f - f3), (double) f1, (double) (f2 + f4), mx - 0.1D, my, mz);
-		} else if(l == 5) {
+		} else if (l == 5) {
 			super.worldObj.spawnParticle("smoke", (double) (f + f3), (double) f1, (double) (f2 + f4), mx + 0.1D, my, mz);
 			super.worldObj.spawnParticle("flame", (double) (f + f3), (double) f1, (double) (f2 + f4), mx + 0.1D, my, mz);
-		} else if(l == 2) {
+		} else if (l == 2) {
 			super.worldObj.spawnParticle("smoke", (double) (f + f4), (double) f1, (double) (f2 - f3), mx, my, mz - 0.1D);
 			super.worldObj.spawnParticle("flame", (double) (f + f4), (double) f1, (double) (f2 - f3), mx, my, mz - 0.1D);
-		} else if(l == 3) {
+		} else if (l == 3) {
 			super.worldObj.spawnParticle("smoke", (double) (f + f4), (double) f1, (double) (f2 + f3), mx, my, mz + 0.1D);
 			super.worldObj.spawnParticle("flame", (double) (f + f4), (double) f1, (double) (f2 + f3), mx, my, mz + 0.1D);
 		}

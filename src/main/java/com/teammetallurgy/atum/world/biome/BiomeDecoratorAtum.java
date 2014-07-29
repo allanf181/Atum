@@ -1,19 +1,12 @@
 package com.teammetallurgy.atum.world.biome;
 
-import java.util.Random;
-
+import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.world.decorators.WorldGenShrub;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenBigMushroom;
-import net.minecraft.world.gen.feature.WorldGenCactus;
-import net.minecraft.world.gen.feature.WorldGenFlowers;
-import net.minecraft.world.gen.feature.WorldGenMinable;
-import net.minecraft.world.gen.feature.WorldGenReed;
-import net.minecraft.world.gen.feature.WorldGenSand;
-import net.minecraft.world.gen.feature.WorldGenWaterlily;
-import net.minecraft.world.gen.feature.WorldGenerator;
+import net.minecraft.world.gen.feature.*;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType;
 import net.minecraftforge.event.terraingen.OreGenEvent;
@@ -21,8 +14,7 @@ import net.minecraftforge.event.terraingen.OreGenEvent.Post;
 import net.minecraftforge.event.terraingen.OreGenEvent.Pre;
 import net.minecraftforge.event.terraingen.TerrainGen;
 
-import com.teammetallurgy.atum.blocks.AtumBlocks;
-import com.teammetallurgy.atum.world.decorators.WorldGenShrub;
+import java.util.Random;
 
 public class BiomeDecoratorAtum extends BiomeDecorator {
 

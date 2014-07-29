@@ -1,7 +1,8 @@
 package com.teammetallurgy.atum.items.artifacts;
 
-import java.util.List;
-
+import com.teammetallurgy.atum.entity.arrow.EntityArrowVelocity;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -16,14 +17,11 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
 
-import com.teammetallurgy.atum.entity.arrow.EntityArrowVelocity;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
 
 public class ItemHorusSoaring extends ItemBow {
 
-	public static final String[] bowPullIconNameArray = new String[] { "HorusSoaring_pull_0", "HorusSoaring_pull_1", "HorusSoaring_pull_2" };
+	public static final String[] bowPullIconNameArray = new String[]{"HorusSoaring_pull_0", "HorusSoaring_pull_1", "HorusSoaring_pull_2"};
 	IIcon[] iconArray;
 
 	public ItemHorusSoaring() {
@@ -114,7 +112,7 @@ public class ItemHorusSoaring extends ItemBow {
 	public void registerIcons(IIconRegister par1IIconRegister) {
 		this.itemIcon = par1IIconRegister.registerIcon("atum:HorusSoaring");
 		this.iconArray = new IIcon[bowPullIconNameArray.length];
-		
+
 		for (int i = 0; i < this.iconArray.length; ++i) {
 			this.iconArray[i] = par1IIconRegister.registerIcon("atum:" + bowPullIconNameArray[i]);
 		}

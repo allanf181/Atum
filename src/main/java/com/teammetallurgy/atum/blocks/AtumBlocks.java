@@ -1,22 +1,17 @@
 package com.teammetallurgy.atum.blocks;
 
-import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
-import net.minecraft.init.Blocks;
-import net.minecraft.init.Items;
-import net.minecraft.item.ItemStack;
-import net.minecraftforge.common.ForgeHooks;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.oredict.OreDictionary;
-
 import com.teammetallurgy.atum.Atum;
-import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityChestSpawner;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
 import com.teammetallurgy.atum.blocks.tileentity.furnace.TileEntityLimestoneFurnace;
-
 import cpw.mods.fml.common.registry.GameRegistry;
+import net.minecraft.block.Block;
+import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.ItemStack;
+import net.minecraftforge.common.ForgeHooks;
+import net.minecraftforge.oredict.OreDictionary;
 
 public enum AtumBlocks {
 	INSTANCE;
@@ -25,6 +20,7 @@ public enum AtumBlocks {
 	public static final Block BLOCK_CURSEDCHEST = new BlockChestSpawner();
 	public static final Block BLOCK_SAND = new BlockSands();
 	public static final Block BLOCK_STONE = new BlockStones();
+	public static final Block BLOCK_WALL = new BlockWalls(BLOCK_STONE);
 	public static final Block BLOCK_LIMESTONECOBBLE = new BlockAtum("cobble").setBlockTextureName("atum:AtumCobble");
 	public static final Block BLOCK_LARGEBRICK = new BlockAtum("largeBrick").setBlockTextureName("atum:AtumBrickLarge");
 	public static final Block BLOCK_SMALLBRICK = new BlockAtum("smallBrick").setBlockTextureName("atum:AtumBrickSmall");
@@ -37,7 +33,6 @@ public enum AtumBlocks {
 	public static final Block BLOCK_SMALLSTONESTAIRS = new BlockAtumStairs(BLOCK_SMALLBRICK, 0).setBlockName("smallStairs");
 	public static final Block BLOCK_SANDLAYERED = new BlockSandLayered();
 	public static final Block BLOCK_CRACKEDLARGEBRICK = new BlockAtum("crackedLargeBrick").setBlockTextureName("atum:AtumCrackedLargeBrick");
-	public static final Block BLOCK_WALL = new BlockWalls(BLOCK_STONE);
 	public static final Block BLOCK_CRYSTALGLASS = new BlockAtumGlass("atum:AtumCrystalGlass").setBlockName("crystalGlass");
 	public static final Block BLOCK_FRAMEDGLASS = new BlockAtumGlass("atum:AtumFramedGlass").setBlockName("framedGlass");
 	public static final Block BLOCK_PALMSAPLING = new BlockPalmSapling();
@@ -113,11 +108,11 @@ public enum AtumBlocks {
 		BLOCK_LAPISORE.setHarvestLevel("pickaxe", 1);
 		BLOCK_DIAMONDORE.setHarvestLevel("pickaxe", 2);
 		BLOCK_REDSTONEORE.setHarvestLevel("pickaxe", 2);
-		
+
 		Blocks.fire.setFireInfo(BLOCK_PLANKS, 5, 20);
 		Blocks.fire.setFireInfo(BLOCK_LEAVES, 30, 60);
 		Blocks.fire.setFireInfo(BLOCK_LOG, 5, 5);
-		
+
 		GameRegistry.registerTileEntity(TileEntityChestSpawner.class, "CursedChest");
 		GameRegistry.registerTileEntity(TileEntityPharaohChest.class, "PharaohChest");
 		GameRegistry.registerTileEntity(TileEntityBurningTrap.class, "BurningTrap");

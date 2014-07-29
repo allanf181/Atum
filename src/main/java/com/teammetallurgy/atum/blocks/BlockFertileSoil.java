@@ -1,7 +1,7 @@
 package com.teammetallurgy.atum.blocks;
 
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.BlockFlower;
@@ -15,8 +15,8 @@ import net.minecraft.world.World;
 import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BlockFertileSoil extends BlockFarmland {
 	@SideOnly(Side.CLIENT)
@@ -74,22 +74,22 @@ public class BlockFertileSoil extends BlockFarmland {
 		}
 
 		switch (plantType.ordinal()) {
-		case 1:
-			return false;
-		case 2:
-			return false;
-		case 3:
-			return false;
-		case 4:
-			return isSideSolid(world, x, y, z, ForgeDirection.UP);
-		case 5:
-			return true;
-		case 6:
-			return false;
-		case 7:
-			boolean hasWater = (world.getBlock(x - 1, y, z).getMaterial() == Material.water) || (world.getBlock(x + 1, y, z).getMaterial() == Material.water) || (world.getBlock(x, y, z - 1).getMaterial() == Material.water) || (world.getBlock(x, y, z + 1).getMaterial() == Material.water);
+			case 1:
+				return false;
+			case 2:
+				return false;
+			case 3:
+				return false;
+			case 4:
+				return isSideSolid(world, x, y, z, ForgeDirection.UP);
+			case 5:
+				return true;
+			case 6:
+				return false;
+			case 7:
+				boolean hasWater = (world.getBlock(x - 1, y, z).getMaterial() == Material.water) || (world.getBlock(x + 1, y, z).getMaterial() == Material.water) || (world.getBlock(x, y, z - 1).getMaterial() == Material.water) || (world.getBlock(x, y, z + 1).getMaterial() == Material.water);
 
-			return hasWater;
+				return hasWater;
 		}
 
 		return false;

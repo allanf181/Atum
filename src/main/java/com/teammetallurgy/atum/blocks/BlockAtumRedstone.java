@@ -1,7 +1,7 @@
 package com.teammetallurgy.atum.blocks;
 
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -10,8 +10,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BlockAtumRedstone extends Block {
 
@@ -47,7 +47,7 @@ public class BlockAtumRedstone extends Block {
 	private void glow(World par1World, int par2, int par3, int par4) {
 		this.sparkle(par1World, par2, par3, par4);
 		Block meta = par1World.getBlock(par2, par3, par4);
-		if(meta != Blocks.stone) {
+		if (meta != Blocks.stone) {
 			par1World.setBlockMetadataWithNotify(par2, par3, par4, 1, 2);
 		}
 
@@ -56,7 +56,7 @@ public class BlockAtumRedstone extends Block {
 	@Override
 	public void updateTick(World par1World, int par2, int par3, int par4, Random par5Random) {
 		int meta = par1World.getBlockMetadata(par2, par3, par4);
-		if(meta == 1) {
+		if (meta == 1) {
 			par1World.setBlockMetadataWithNotify(par2, par3, par4, 0, 2);
 		}
 
@@ -66,7 +66,7 @@ public class BlockAtumRedstone extends Block {
 	@SideOnly(Side.CLIENT)
 	public void randomDisplayTick(World par1World, int par2, int par3, int par4, Random par5Random) {
 		int meta = par1World.getBlockMetadata(par2, par3, par4);
-		if(meta == 1) {
+		if (meta == 1) {
 			this.sparkle(par1World, par2, par3, par4);
 		}
 
@@ -76,35 +76,35 @@ public class BlockAtumRedstone extends Block {
 		Random random = par1World.rand;
 		double d0 = 0.0625D;
 
-		for(int l = 0; l < 6; ++l) {
+		for (int l = 0; l < 6; ++l) {
 			double d1 = (double) ((float) par2 + random.nextFloat());
 			double d2 = (double) ((float) par3 + random.nextFloat());
 			double d3 = (double) ((float) par4 + random.nextFloat());
-			if(l == 0 && !par1World.getBlock(par2, par3 + 1, par4).isOpaqueCube()) {
+			if (l == 0 && !par1World.getBlock(par2, par3 + 1, par4).isOpaqueCube()) {
 				d2 = (double) (par3 + 1) + d0;
 			}
 
-			if(l == 1 && !par1World.getBlock(par2, par3 - 1, par4).isOpaqueCube()) {
+			if (l == 1 && !par1World.getBlock(par2, par3 - 1, par4).isOpaqueCube()) {
 				d2 = (double) (par3 + 0) - d0;
 			}
 
-			if(l == 2 && !par1World.getBlock(par2, par3, par4 + 1).isOpaqueCube()) {
+			if (l == 2 && !par1World.getBlock(par2, par3, par4 + 1).isOpaqueCube()) {
 				d3 = (double) (par4 + 1) + d0;
 			}
 
-			if(l == 3 && !par1World.getBlock(par2, par3, par4 - 1).isOpaqueCube()) {
+			if (l == 3 && !par1World.getBlock(par2, par3, par4 - 1).isOpaqueCube()) {
 				d3 = (double) (par4 + 0) - d0;
 			}
 
-			if(l == 4 && !par1World.getBlock(par2 + 1, par3, par4).isOpaqueCube()) {
+			if (l == 4 && !par1World.getBlock(par2 + 1, par3, par4).isOpaqueCube()) {
 				d1 = (double) (par2 + 1) + d0;
 			}
 
-			if(l == 5 && !par1World.getBlock(par2 - 1, par3, par4).isOpaqueCube()) {
+			if (l == 5 && !par1World.getBlock(par2 - 1, par3, par4).isOpaqueCube()) {
 				d1 = (double) (par2 + 0) - d0;
 			}
 
-			if(d1 < (double) par2 || d1 > (double) (par2 + 1) || d2 < 0.0D || d2 > (double) (par3 + 1) || d3 < (double) par4 || d3 > (double) (par4 + 1)) {
+			if (d1 < (double) par2 || d1 > (double) (par2 + 1) || d2 < 0.0D || d2 > (double) (par3 + 1) || d3 < (double) par4 || d3 > (double) (par4 + 1)) {
 				par1World.spawnParticle("reddust", d1, d2, d3, 0.0D, 0.0D, 0.0D);
 			}
 		}

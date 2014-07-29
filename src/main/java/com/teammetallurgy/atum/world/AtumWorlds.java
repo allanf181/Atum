@@ -1,10 +1,9 @@
 package com.teammetallurgy.atum.world;
 
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraftforge.common.DimensionManager;
-
 import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.world.biome.BiomeGenAtumDesert;
+import net.minecraft.world.biome.BiomeGenBase;
+import net.minecraftforge.common.DimensionManager;
 
 public enum AtumWorlds {
 	INSTANCE;

@@ -1,9 +1,8 @@
 package com.teammetallurgy.atum;
 
+import com.teammetallurgy.atum.items.AtumItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
-
-import com.teammetallurgy.atum.items.AtumItems;
 
 public class AtumFish {
 	private static AtumWeightedLootSet fish;

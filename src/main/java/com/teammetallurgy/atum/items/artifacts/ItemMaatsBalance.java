@@ -1,7 +1,9 @@
 package com.teammetallurgy.atum.items.artifacts;
 
-import java.util.List;
-
+import com.teammetallurgy.atum.items.ItemTexturedArmor;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -14,14 +16,9 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
-
 import org.lwjgl.input.Keyboard;
 
-import com.teammetallurgy.atum.items.ItemTexturedArmor;
-
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
 
 public class ItemMaatsBalance extends ItemTexturedArmor {
 
@@ -37,7 +34,7 @@ public class ItemMaatsBalance extends ItemTexturedArmor {
 	@SubscribeEvent
 	public void onLivingAttack(LivingHurtEvent event) {
 		if (event.entityLiving.getEquipmentInSlot(3) != null && event.entityLiving.getEquipmentInSlot(3).getItem() == this) {
-			event.ammount = (int) ((float) (event.ammount + 1) / 1.5F) - 1;
+			event.ammount = (event.ammount + 1) / 1.5F - 1;
 		}
 
 		if (event.source instanceof EntityDamageSource) {
@@ -45,7 +42,7 @@ public class ItemMaatsBalance extends ItemTexturedArmor {
 			if (source.getEntity() != null && source.getEntity() instanceof EntityLiving) {
 				EntityLiving entity = (EntityLiving) source.getEntity();
 				if (entity.getEquipmentInSlot(3) != null && entity.getEquipmentInSlot(3).getItem() == this) {
-					event.ammount = (int) ((float) (event.ammount + 1) / 1.5F) - 1;
+					event.ammount = (event.ammount + 1) / 1.5F - 1;
 				}
 			}
 		}

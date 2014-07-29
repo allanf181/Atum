@@ -1,14 +1,12 @@
 package com.teammetallurgy.atum.blocks;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockOre;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.util.MathHelper;
 
-import com.teammetallurgy.atum.world.AtumWorlds;
+import java.util.Random;
 
 public class BlockAtumOres extends BlockOre {
 

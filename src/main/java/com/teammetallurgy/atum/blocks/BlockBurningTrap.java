@@ -1,7 +1,8 @@
 package com.teammetallurgy.atum.blocks;
 
-import java.util.Random;
-
+import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.BlockPistonBase;
@@ -19,10 +20,7 @@ import net.minecraft.util.IRegistry;
 import net.minecraft.util.RegistryDefaulted;
 import net.minecraft.world.World;
 
-import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Random;
 
 public class BlockBurningTrap extends BlockContainer {
 
@@ -36,6 +34,10 @@ public class BlockBurningTrap extends BlockContainer {
 		this.setBlockName("burningTrap");
 		this.setCreativeTab(CreativeTabs.tabRedstone);
 		this.setHardness(-1.0F);
+	}
+
+	public static EnumFacing getFacing(int par0) {
+		return EnumFacing.getFront(par0 & 7);
 	}
 
 	@Override
@@ -132,10 +134,6 @@ public class BlockBurningTrap extends BlockContainer {
 	public void onBlockPlacedBy(World par1World, int par2, int par3, int par4, EntityLivingBase par5EntityLiving, ItemStack par6ItemStack) {
 		int l = BlockPistonBase.determineOrientation(par1World, par2, par3, par4, par5EntityLiving);
 		par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
-	}
-
-	public static EnumFacing getFacing(int par0) {
-		return EnumFacing.getFront(par0 & 7);
 	}
 
 	@Override

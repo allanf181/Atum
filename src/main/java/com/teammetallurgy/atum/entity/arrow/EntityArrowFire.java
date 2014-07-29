@@ -1,10 +1,10 @@
 package com.teammetallurgy.atum.entity.arrow;
 
-import java.util.List;
-
+import cpw.mods.fml.common.registry.IThrowableEntity;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.enchantment.EnchantmentHelper;
-import net.minecraft.enchantment.EnchantmentThorns;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EntityLivingBase;
@@ -17,37 +17,37 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.network.play.server.S2BPacketChangeGameState;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
-import cpw.mods.fml.common.registry.IThrowableEntity;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class EntityArrowFire extends CustomArrow implements IProjectile, IThrowableEntity {
+	/**
+	 * 1 if the player can pick up the arrow
+	 */
+	public int canBePickedUp = 0;
+	/**
+	 * Seems to be some sort of timer for animating an arrow.
+	 */
+	public int arrowShake = 0;
+	/**
+	 * The owner of this arrow.
+	 */
+	public Entity shootingEntity;
 	private int xTile = -1;
 	private int yTile = -1;
 	private int zTile = -1;
 	private Block inTile = null;
 	private int inData = 0;
 	private boolean inGround = false;
-
-	/** 1 if the player can pick up the arrow */
-	public int canBePickedUp = 0;
-
-	/** Seems to be some sort of timer for animating an arrow. */
-	public int arrowShake = 0;
-
-	/** The owner of this arrow. */
-	public Entity shootingEntity;
 	private int ticksInGround;
 	private int ticksInAir = 0;
 	private double damage = 2.0D;
 
-	/** The amount of knockback an arrow applies when it hits a mob. */
+	/**
+	 * The amount of knockback an arrow applies when it hits a mob.
+	 */
 	private int knockbackStrength;
 
 	public EntityArrowFire(World par1World) {
@@ -413,7 +413,7 @@ public class EntityArrowFire extends CustomArrow implements IProjectile, IThrowa
 		par1NBTTagCompound.setShort("xTile", (short) this.xTile);
 		par1NBTTagCompound.setShort("yTile", (short) this.yTile);
 		par1NBTTagCompound.setShort("zTile", (short) this.zTile);
-		par1NBTTagCompound.setByte("inTile", (byte)Block.getIdFromBlock(this.inTile));
+		par1NBTTagCompound.setByte("inTile", (byte) Block.getIdFromBlock(this.inTile));
 		par1NBTTagCompound.setByte("inData", (byte) this.inData);
 		par1NBTTagCompound.setByte("shake", (byte) this.arrowShake);
 		par1NBTTagCompound.setByte("inGround", (byte) (this.inGround ? 1 : 0));
@@ -476,12 +476,12 @@ public class EntityArrowFire extends CustomArrow implements IProjectile, IThrowa
 		return 0.0F;
 	}
 
-	public void setDamage(double par1) {
-		this.damage = par1;
-	}
-
 	public double getDamage() {
 		return this.damage;
+	}
+
+	public void setDamage(double par1) {
+		this.damage = par1;
 	}
 
 	/**
@@ -502,6 +502,15 @@ public class EntityArrowFire extends CustomArrow implements IProjectile, IThrowa
 	 * Whether the arrow has a stream of critical hit particles flying behind
 	 * it.
 	 */
+	public boolean getIsCritical() {
+		byte b0 = this.dataWatcher.getWatchableObjectByte(16);
+		return (b0 & 1) != 0;
+	}
+
+	/**
+	 * Whether the arrow has a stream of critical hit particles flying behind
+	 * it.
+	 */
 	public void setIsCritical(boolean par1) {
 		byte b0 = this.dataWatcher.getWatchableObjectByte(16);
 
@@ -510,15 +519,6 @@ public class EntityArrowFire extends CustomArrow implements IProjectile, IThrowa
 		} else {
 			this.dataWatcher.updateObject(16, Byte.valueOf((byte) (b0 & -2)));
 		}
-	}
-
-	/**
-	 * Whether the arrow has a stream of critical hit particles flying behind
-	 * it.
-	 */
-	public boolean getIsCritical() {
-		byte b0 = this.dataWatcher.getWatchableObjectByte(16);
-		return (b0 & 1) != 0;
 	}
 
 	@Override

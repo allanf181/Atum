@@ -1,23 +1,20 @@
 package com.teammetallurgy.atum.client.render.entity.arrow;
 
+import com.teammetallurgy.atum.entity.arrow.CustomArrow;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.client.renderer.entity.Render;
 import net.minecraft.entity.Entity;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import com.teammetallurgy.atum.entity.arrow.CustomArrow;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 @SideOnly(Side.CLIENT)
 public class RenderCustomArrow extends Render {
-	
-	
+
+
 	public void renderArrow(CustomArrow entityArrow, double par2, double par4, double par6, float par8, float par9) {
 		this.bindEntityTexture(entityArrow);
 		GL11.glPushMatrix();
@@ -38,7 +35,7 @@ public class RenderCustomArrow extends Render {
 		GL11.glEnable(GL12.GL_RESCALE_NORMAL);
 		float f11 = (float) entityArrow.arrowShake - par9;
 
-		if(f11 > 0.0F) {
+		if (f11 > 0.0F) {
 			float f12 = -MathHelper.sin(f11 * 3.0F) * f11;
 			GL11.glRotatef(f12, 0.0F, 0.0F, 1.0F);
 		}
@@ -61,7 +58,7 @@ public class RenderCustomArrow extends Render {
 		tessellator.addVertexWithUV(-7.0D, -2.0D, -2.0D, (double) f6, (double) f9);
 		tessellator.draw();
 
-		for(int i = 0; i < 4; ++i) {
+		for (int i = 0; i < 4; ++i) {
 			GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
 			GL11.glNormal3f(0.0F, 0.0F, f10);
 			tessellator.startDrawingQuads();
@@ -87,6 +84,6 @@ public class RenderCustomArrow extends Render {
 
 	@Override
 	protected ResourceLocation getEntityTexture(Entity entity) {
-		return new ResourceLocation(((CustomArrow)entity).getTexture());
+		return new ResourceLocation(((CustomArrow) entity).getTexture());
 	}
 }

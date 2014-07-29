@@ -1,11 +1,11 @@
 package com.teammetallurgy.atum.blocks;
 
-import java.util.Random;
-
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockStone;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.Item;
+
+import java.util.Random;
 
 public class BlockStones extends BlockStone {
 

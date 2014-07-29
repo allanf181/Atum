@@ -1,6 +1,5 @@
 package com.teammetallurgy.atum.entity.arrow;
 
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.world.World;

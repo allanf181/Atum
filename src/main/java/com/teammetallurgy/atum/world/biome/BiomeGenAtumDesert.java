@@ -1,27 +1,14 @@
 package com.teammetallurgy.atum.world.biome;
 
-import java.util.Random;
-
+import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.entity.*;
+import com.teammetallurgy.atum.world.decorators.*;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import com.teammetallurgy.atum.blocks.AtumBlocks;
-import com.teammetallurgy.atum.entity.EntityBanditArcher;
-import com.teammetallurgy.atum.entity.EntityBanditWarlord;
-import com.teammetallurgy.atum.entity.EntityBanditWarrior;
-import com.teammetallurgy.atum.entity.EntityBarbarian;
-import com.teammetallurgy.atum.entity.EntityDesertWolf;
-import com.teammetallurgy.atum.entity.EntityDustySkeleton;
-import com.teammetallurgy.atum.entity.EntityGhost;
-import com.teammetallurgy.atum.entity.EntityMummy;
-import com.teammetallurgy.atum.entity.EntityStoneSoldier;
-import com.teammetallurgy.atum.world.decorators.WorldGenAtumTrees;
-import com.teammetallurgy.atum.world.decorators.WorldGenOasis;
-import com.teammetallurgy.atum.world.decorators.WorldGenPalm;
-import com.teammetallurgy.atum.world.decorators.WorldGenPyramid;
-import com.teammetallurgy.atum.world.decorators.WorldGenRuins;
+import java.util.Random;
 
 public class BiomeGenAtumDesert extends BiomeGenBase {
 

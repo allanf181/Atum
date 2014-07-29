@@ -1,16 +1,15 @@
 package com.teammetallurgy.atum.blocks;
 
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.init.Blocks;
 import net.minecraft.util.IIcon;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.Random;
 
 public class BlockPalmLog extends Block {
 
@@ -58,17 +57,17 @@ public class BlockPalmLog extends Block {
 		int j1 = par9 & 3;
 		byte b0 = 0;
 		switch (par5) {
-		case 0:
-		case 1:
-			b0 = 0;
-			break;
-		case 2:
-		case 3:
-			b0 = 8;
-			break;
-		case 4:
-		case 5:
-			b0 = 4;
+			case 0:
+			case 1:
+				b0 = 0;
+				break;
+			case 2:
+			case 3:
+				b0 = 8;
+				break;
+			case 4:
+			case 5:
+				b0 = 4;
 		}
 
 		return j1 | b0;

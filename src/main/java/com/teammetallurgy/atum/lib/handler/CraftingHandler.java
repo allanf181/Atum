@@ -1,16 +1,14 @@
 package com.teammetallurgy.atum.lib.handler;
 
+import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.items.AtumItems;
+import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
-
-import com.teammetallurgy.atum.blocks.AtumBlocks;
-import com.teammetallurgy.atum.items.AtumItems;
-
-import cpw.mods.fml.common.registry.GameRegistry;
 
 public enum CraftingHandler {
 	INSTANCE;

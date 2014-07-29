@@ -1,7 +1,9 @@
 package com.teammetallurgy.atum.blocks;
 
-import java.util.Random;
-
+import com.teammetallurgy.atum.Atum;
+import com.teammetallurgy.atum.blocks.tileentity.furnace.TileEntityLimestoneFurnace;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -19,22 +21,9 @@ import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
-import com.teammetallurgy.atum.Atum;
-import com.teammetallurgy.atum.blocks.tileentity.furnace.TileEntityLimestoneFurnace;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Random;
 
 public class BlockLimeStoneFurnace extends BlockContainer {
-
-	/**
-	 * Is the random generator used by furnace to drop the inventory contents in
-	 * random directions.
-	 */
-	private final Random furnaceRand = new Random();
-
-	/** True if this is an active furnace, false if idle */
-	private final boolean isActive;
 
 	/**
 	 * This flag is used to prevent the furnace inventory to be dropped upon
@@ -42,6 +31,15 @@ public class BlockLimeStoneFurnace extends BlockContainer {
 	 * idle to active and vice-versa.
 	 */
 	private static boolean keepFurnaceInventory = false;
+	/**
+	 * Is the random generator used by furnace to drop the inventory contents in
+	 * random directions.
+	 */
+	private final Random furnaceRand = new Random();
+	/**
+	 * True if this is an active furnace, false if idle
+	 */
+	private final boolean isActive;
 	@SideOnly(Side.CLIENT)
 	private IIcon field_94458_cO;
 	@SideOnly(Side.CLIENT)
@@ -50,6 +48,30 @@ public class BlockLimeStoneFurnace extends BlockContainer {
 	public BlockLimeStoneFurnace(boolean par2) {
 		super(Material.rock);
 		isActive = par2;
+	}
+
+	/**
+	 * Update which block ID the furnace is using depending on whether or not it
+	 * is burning
+	 */
+	public static void updateFurnaceBlockState(boolean par0, World par1World, int par2, int par3, int par4) {
+		int l = par1World.getBlockMetadata(par2, par3, par4);
+		TileEntity tileentity = par1World.getTileEntity(par2, par3, par4);
+		keepFurnaceInventory = true;
+
+		if (par0) {
+			par1World.setBlock(par2, par3, par4, AtumBlocks.BLOCK_FURNACEBURNING);
+		} else {
+			par1World.setBlock(par2, par3, par4, AtumBlocks.BLOCK_FURNACEIDLE);
+		}
+
+		keepFurnaceInventory = false;
+		par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
+
+		if (tileentity != null) {
+			tileentity.validate();
+			par1World.setTileEntity(par2, par3, par4, tileentity);
+		}
 	}
 
 	@Override
@@ -136,30 +158,6 @@ public class BlockLimeStoneFurnace extends BlockContainer {
 			}
 
 			return true;
-		}
-	}
-
-	/**
-	 * Update which block ID the furnace is using depending on whether or not it
-	 * is burning
-	 */
-	public static void updateFurnaceBlockState(boolean par0, World par1World, int par2, int par3, int par4) {
-		int l = par1World.getBlockMetadata(par2, par3, par4);
-		TileEntity tileentity = par1World.getTileEntity(par2, par3, par4);
-		keepFurnaceInventory = true;
-
-		if (par0) {
-			par1World.setBlock(par2, par3, par4, AtumBlocks.BLOCK_FURNACEBURNING);
-		} else {
-			par1World.setBlock(par2, par3, par4, AtumBlocks.BLOCK_FURNACEIDLE);
-		}
-
-		keepFurnaceInventory = false;
-		par1World.setBlockMetadataWithNotify(par2, par3, par4, l, 2);
-
-		if (tileentity != null) {
-			tileentity.validate();
-			par1World.setTileEntity(par2, par3, par4, tileentity);
 		}
 	}
 

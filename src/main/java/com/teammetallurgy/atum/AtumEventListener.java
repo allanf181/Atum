@@ -1,7 +1,12 @@
 package com.teammetallurgy.atum;
 
-import java.util.Random;
-
+import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.blocks.BlockFlax;
+import com.teammetallurgy.atum.blocks.BlockPalmSapling;
+import com.teammetallurgy.atum.entity.*;
+import com.teammetallurgy.atum.items.AtumItems;
+import cpw.mods.fml.common.eventhandler.Event.Result;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
@@ -9,18 +14,7 @@ import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 
-import com.teammetallurgy.atum.blocks.AtumBlocks;
-import com.teammetallurgy.atum.blocks.BlockFlax;
-import com.teammetallurgy.atum.blocks.BlockPalmSapling;
-import com.teammetallurgy.atum.entity.EntityDustySkeleton;
-import com.teammetallurgy.atum.entity.EntityGhost;
-import com.teammetallurgy.atum.entity.EntityMummy;
-import com.teammetallurgy.atum.entity.EntityPharaoh;
-import com.teammetallurgy.atum.entity.EntityStoneSoldier;
-import com.teammetallurgy.atum.items.AtumItems;
-
-import cpw.mods.fml.common.eventhandler.Event.Result;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import java.util.Random;
 
 public class AtumEventListener {
 	@SubscribeEvent

@@ -1,41 +1,19 @@
 package com.teammetallurgy.atum.world.decorators;
 
-import static net.minecraftforge.common.util.ForgeDirection.EAST;
-import static net.minecraftforge.common.util.ForgeDirection.NORTH;
-import static net.minecraftforge.common.util.ForgeDirection.SOUTH;
-import static net.minecraftforge.common.util.ForgeDirection.WEST;
-
-import java.util.ArrayList;
-import java.util.Random;
-
+import com.teammetallurgy.atum.AtumLoot;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import com.teammetallurgy.atum.AtumLoot;
-import com.teammetallurgy.atum.blocks.AtumBlocks;
-import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
+import java.util.ArrayList;
+import java.util.Random;
+
+import static net.minecraftforge.common.util.ForgeDirection.*;
 
 public class WorldGenPyramid extends WorldGenerator {
-	class Pair {
-		public int x;
-		public int y;
-
-		Pair(int x, int y) {
-			this.x = x;
-			this.y = y;
-		}
-
-		@Override
-		public boolean equals(Object p) {
-			if (p instanceof Pair)
-				return ((Pair) p).x == x && ((Pair) p).y == y;
-			else
-				return false;
-		}
-	}
-
 	@Override
 	public boolean generate(World world, Random random, int i, int j, int k) {
 		if (random.nextFloat() > 0.3)
@@ -59,7 +37,7 @@ public class WorldGenPyramid extends WorldGenerator {
 					Block id = world.getBlock(x + i, y + j + 3, z + k);
 					if (id == null || id == AtumBlocks.BLOCK_SAND)
 						world.setBlockToAir(x + i, y + j + 3, z + k);
-						world.setBlock(x + i, y + j + 3, z + k, AtumBlocks.BLOCK_LARGEBRICK, 1, 0);
+					world.setBlock(x + i, y + j + 3, z + k, AtumBlocks.BLOCK_LARGEBRICK, 1, 0);
 				}
 			}
 		}
@@ -222,5 +200,23 @@ public class WorldGenPyramid extends WorldGenerator {
 			}
 
 		} while (choices.size() > 0);
+	}
+
+	class Pair {
+		public int x;
+		public int y;
+
+		Pair(int x, int y) {
+			this.x = x;
+			this.y = y;
+		}
+
+		@Override
+		public boolean equals(Object p) {
+			if (p instanceof Pair)
+				return ((Pair) p).x == x && ((Pair) p).y == y;
+			else
+				return false;
+		}
 	}
 }

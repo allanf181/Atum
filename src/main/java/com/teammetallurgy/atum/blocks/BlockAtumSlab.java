@@ -1,8 +1,8 @@
 package com.teammetallurgy.atum.blocks;
 
-import java.util.List;
-import java.util.Random;
-
+import com.teammetallurgy.atum.Atum;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -11,13 +11,10 @@ import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
-import com.teammetallurgy.atum.Atum;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
 
 public class BlockAtumSlab extends BlockSlab {
-	public static final String[] slabType = { "smooth", "cracked", "largeBrick", "smallBrick" };
+	public static final String[] slabType = {"smooth", "cracked", "largeBrick", "smallBrick"};
 
 	public BlockAtumSlab(boolean par2) {
 		super(par2, Material.rock);

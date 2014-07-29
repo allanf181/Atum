@@ -1,16 +1,5 @@
 package com.teammetallurgy.atum.lib.proxy;
 
-import com.teammetallurgy.atum.lib.tickhandler.ClientEvents;
-import net.minecraft.client.model.ModelBiped;
-import net.minecraft.client.model.ModelZombie;
-import net.minecraft.client.renderer.entity.RenderBiped;
-import net.minecraft.client.renderer.entity.RenderFish;
-import net.minecraft.client.renderer.entity.RenderLiving;
-import net.minecraft.entity.Entity;
-import net.minecraft.util.ResourceLocation;
-import net.minecraftforge.client.MinecraftForgeClient;
-import net.minecraftforge.common.MinecraftForge;
-
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.blocks.BlockDate;
 import com.teammetallurgy.atum.blocks.BlockPapyrus;
@@ -25,23 +14,22 @@ import com.teammetallurgy.atum.client.render.entity.arrow.RenderNutsCall;
 import com.teammetallurgy.atum.client.render.item.RendererItemBow;
 import com.teammetallurgy.atum.client.render.tileentity.RenderDate;
 import com.teammetallurgy.atum.client.render.tileentity.RenderPapyrus;
-import com.teammetallurgy.atum.entity.EntityBanditArcher;
-import com.teammetallurgy.atum.entity.EntityBanditWarlord;
-import com.teammetallurgy.atum.entity.EntityBanditWarrior;
-import com.teammetallurgy.atum.entity.EntityBarbarian;
-import com.teammetallurgy.atum.entity.EntityDesertWolf;
-import com.teammetallurgy.atum.entity.EntityDustySkeleton;
-import com.teammetallurgy.atum.entity.EntityGhost;
-import com.teammetallurgy.atum.entity.EntityMummy;
-import com.teammetallurgy.atum.entity.EntityPharaoh;
-import com.teammetallurgy.atum.entity.EntityStoneSoldier;
+import com.teammetallurgy.atum.entity.*;
 import com.teammetallurgy.atum.entity.arrow.CustomArrow;
 import com.teammetallurgy.atum.entity.arrow.EntityAtumFishHook;
 import com.teammetallurgy.atum.entity.arrow.EntityNutsCall;
 import com.teammetallurgy.atum.items.AtumItems;
-
+import com.teammetallurgy.atum.lib.tickhandler.ClientEvents;
 import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.common.FMLCommonHandler;
+import net.minecraft.client.model.ModelBiped;
+import net.minecraft.client.model.ModelZombie;
+import net.minecraft.client.renderer.entity.RenderBiped;
+import net.minecraft.client.renderer.entity.RenderFish;
+import net.minecraft.client.renderer.entity.RenderLiving;
+import net.minecraft.entity.Entity;
+import net.minecraft.util.ResourceLocation;
+import net.minecraftforge.client.MinecraftForgeClient;
+import net.minecraftforge.common.MinecraftForge;
 
 public class ClientProxy extends CommonProxy {
 
@@ -49,12 +37,13 @@ public class ClientProxy extends CommonProxy {
 	public void init() {
 		ClientEvents ticker = new ClientEvents();
 		MinecraftForge.EVENT_BUS.register(ticker);
-		FMLCommonHandler.instance().bus().register(ticker);
 
-		MinecraftForge.EVENT_BUS.register(AtumItems.sekhmetsWrath);
-		MinecraftForge.EVENT_BUS.register(AtumItems.mnevisHorns);
-		MinecraftForge.EVENT_BUS.register(AtumItems.maatsBalance);
 		MinecraftForge.EVENT_BUS.register(AtumItems.anubisMercy);
+		MinecraftForge.EVENT_BUS.register(AtumItems.gebsSolidarity);
+		MinecraftForge.EVENT_BUS.register(AtumItems.horusFlight);
+		MinecraftForge.EVENT_BUS.register(AtumItems.maatsBalance);
+		MinecraftForge.EVENT_BUS.register(AtumItems.mnevisHorns);
+		MinecraftForge.EVENT_BUS.register(AtumItems.sekhmetsWrath);
 	}
 
 	@Override

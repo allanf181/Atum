@@ -1,7 +1,6 @@
 package com.teammetallurgy.atum.blocks.tileentity.chests;
 
 import com.teammetallurgy.atum.blocks.BlockChestSpawner;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -22,10 +21,10 @@ import java.util.List;
 public class TileEntityChestSpawner extends TileEntityChest implements IInventory {
 
 	private final CursedChestSpawnerLogic chestSpawner = new CursedChestSpawnerLogic(this);
-	private ItemStack[] chestContents = new ItemStack[36];
 	public float f;
 	public float g;
 	public int h;
+	private ItemStack[] chestContents = new ItemStack[36];
 	private int ticksSinceSync;
 	private int field_94046_i = -1;
 	private String field_94045_s;
@@ -216,97 +215,81 @@ public class TileEntityChestSpawner extends TileEntityChest implements IInventor
 	@Override
 	public void updateEntity() {
 		this.chestSpawner.updateSpawner();
-        ++this.ticksSinceSync;
-        float f;
+		++this.ticksSinceSync;
+		float f;
 
-        if (!this.worldObj.isRemote && this.numPlayersUsing != 0 && (this.ticksSinceSync + this.xCoord + this.yCoord + this.zCoord) % 200 == 0)
-        {
-            this.numPlayersUsing = 0;
-            f = 5.0F;
-            List list = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox((double)((float)this.xCoord - f), (double)((float)this.yCoord - f), (double)((float)this.zCoord - f), (double)((float)(this.xCoord + 1) + f), (double)((float)(this.yCoord + 1) + f), (double)((float)(this.zCoord + 1) + f)));
-            Iterator iterator = list.iterator();
+		if (!this.worldObj.isRemote && this.numPlayersUsing != 0 && (this.ticksSinceSync + this.xCoord + this.yCoord + this.zCoord) % 200 == 0) {
+			this.numPlayersUsing = 0;
+			f = 5.0F;
+			List list = this.worldObj.getEntitiesWithinAABB(EntityPlayer.class, AxisAlignedBB.getBoundingBox((double) ((float) this.xCoord - f), (double) ((float) this.yCoord - f), (double) ((float) this.zCoord - f), (double) ((float) (this.xCoord + 1) + f), (double) ((float) (this.yCoord + 1) + f), (double) ((float) (this.zCoord + 1) + f)));
+			Iterator iterator = list.iterator();
 
-            while (iterator.hasNext())
-            {
-                EntityPlayer entityplayer = (EntityPlayer)iterator.next();
+			while (iterator.hasNext()) {
+				EntityPlayer entityplayer = (EntityPlayer) iterator.next();
 
-                if (entityplayer.openContainer instanceof ContainerChest)
-                {
-                    IInventory iinventory = ((ContainerChest)entityplayer.openContainer).getLowerChestInventory();
+				if (entityplayer.openContainer instanceof ContainerChest) {
+					IInventory iinventory = ((ContainerChest) entityplayer.openContainer).getLowerChestInventory();
 
-                    if (iinventory == this || iinventory instanceof InventoryLargeChest && ((InventoryLargeChest)iinventory).isPartOfLargeChest(this))
-                    {
-                        ++this.numPlayersUsing;
-                    }
-                }
-            }
-        }
+					if (iinventory == this || iinventory instanceof InventoryLargeChest && ((InventoryLargeChest) iinventory).isPartOfLargeChest(this)) {
+						++this.numPlayersUsing;
+					}
+				}
+			}
+		}
 
-        this.prevLidAngle = this.lidAngle;
-        f = 0.1F;
-        double d2;
+		this.prevLidAngle = this.lidAngle;
+		f = 0.1F;
+		double d2;
 
-        if (this.numPlayersUsing > 0 && this.lidAngle == 0.0F && this.adjacentChestZNeg == null && this.adjacentChestXNeg == null)
-        {
-            double d1 = (double)this.xCoord + 0.5D;
-            d2 = (double)this.zCoord + 0.5D;
+		if (this.numPlayersUsing > 0 && this.lidAngle == 0.0F && this.adjacentChestZNeg == null && this.adjacentChestXNeg == null) {
+			double d1 = (double) this.xCoord + 0.5D;
+			d2 = (double) this.zCoord + 0.5D;
 
-            if (this.adjacentChestZPos != null)
-            {
-                d2 += 0.5D;
-            }
+			if (this.adjacentChestZPos != null) {
+				d2 += 0.5D;
+			}
 
-            if (this.adjacentChestXPos != null)
-            {
-                d1 += 0.5D;
-            }
+			if (this.adjacentChestXPos != null) {
+				d1 += 0.5D;
+			}
 
-            this.worldObj.playSoundEffect(d1, (double)this.yCoord + 0.5D, d2, "random.chestopen", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
-        }
+			this.worldObj.playSoundEffect(d1, (double) this.yCoord + 0.5D, d2, "random.chestopen", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
+		}
 
-        if (this.numPlayersUsing == 0 && this.lidAngle > 0.0F || this.numPlayersUsing > 0 && this.lidAngle < 1.0F)
-        {
-            float f1 = this.lidAngle;
+		if (this.numPlayersUsing == 0 && this.lidAngle > 0.0F || this.numPlayersUsing > 0 && this.lidAngle < 1.0F) {
+			float f1 = this.lidAngle;
 
-            if (this.numPlayersUsing > 0)
-            {
-                this.lidAngle += f;
-            }
-            else
-            {
-                this.lidAngle -= f;
-            }
+			if (this.numPlayersUsing > 0) {
+				this.lidAngle += f;
+			} else {
+				this.lidAngle -= f;
+			}
 
-            if (this.lidAngle > 1.0F)
-            {
-                this.lidAngle = 1.0F;
-            }
+			if (this.lidAngle > 1.0F) {
+				this.lidAngle = 1.0F;
+			}
 
-            float f2 = 0.5F;
+			float f2 = 0.5F;
 
-            if (this.lidAngle < f2 && f1 >= f2 && this.adjacentChestZNeg == null && this.adjacentChestXNeg == null)
-            {
-                d2 = (double)this.xCoord + 0.5D;
-                double d0 = (double)this.zCoord + 0.5D;
+			if (this.lidAngle < f2 && f1 >= f2 && this.adjacentChestZNeg == null && this.adjacentChestXNeg == null) {
+				d2 = (double) this.xCoord + 0.5D;
+				double d0 = (double) this.zCoord + 0.5D;
 
-                if (this.adjacentChestZPos != null)
-                {
-                    d0 += 0.5D;
-                }
+				if (this.adjacentChestZPos != null) {
+					d0 += 0.5D;
+				}
 
-                if (this.adjacentChestXPos != null)
-                {
-                    d2 += 0.5D;
-                }
+				if (this.adjacentChestXPos != null) {
+					d2 += 0.5D;
+				}
 
-                this.worldObj.playSoundEffect(d2, (double)this.yCoord + 0.5D, d0, "random.chestclosed", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
-            }
+				this.worldObj.playSoundEffect(d2, (double) this.yCoord + 0.5D, d0, "random.chestclosed", 0.5F, this.worldObj.rand.nextFloat() * 0.1F + 0.9F);
+			}
 
-            if (this.lidAngle < 0.0F)
-            {
-                this.lidAngle = 0.0F;
-            }
-        }
+			if (this.lidAngle < 0.0F) {
+				this.lidAngle = 0.0F;
+			}
+		}
 	}
 
 	@Override

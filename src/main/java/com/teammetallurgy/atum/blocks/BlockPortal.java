@@ -1,8 +1,11 @@
 package com.teammetallurgy.atum.blocks;
 
-import java.util.Random;
-
+import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.lib.tickhandler.ClientEvents;
+import com.teammetallurgy.atum.world.AtumTeleporter;
+import cpw.mods.fml.common.ObfuscationReflectionHelper;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockBreakable;
 import net.minecraft.block.material.Material;
@@ -17,12 +20,7 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraft.world.WorldServer;
 
-import com.teammetallurgy.atum.AtumIDS;
-import com.teammetallurgy.atum.world.AtumTeleporter;
-
-import cpw.mods.fml.common.ObfuscationReflectionHelper;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Random;
 
 public class BlockPortal extends BlockBreakable {
 
@@ -134,9 +132,9 @@ public class BlockPortal extends BlockBreakable {
 
 				try {
 					EntityPlayerMP e = (EntityPlayerMP) player;
-					ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[] { "lastExperience", "cp", "field_71144_ck" });
-					ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[] { "lastHealth", "cm", "field_71149_ch" });
-					ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[] { "lastFoodLevel", "cn", "field_71146_ci" });
+					ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[]{"lastExperience", "cp", "field_71144_ck"});
+					ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[]{"lastHealth", "cm", "field_71149_ch"});
+					ObfuscationReflectionHelper.setPrivateValue(EntityPlayerMP.class, e, Integer.valueOf(-1), new String[]{"lastFoodLevel", "cn", "field_71146_ci"});
 				} catch (Exception var12) {
 					var12.printStackTrace();
 				}

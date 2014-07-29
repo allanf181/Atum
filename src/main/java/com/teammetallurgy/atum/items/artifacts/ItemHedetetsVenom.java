@@ -1,7 +1,8 @@
 package com.teammetallurgy.atum.items.artifacts;
 
-import java.util.List;
-
+import com.teammetallurgy.atum.entity.arrow.EntityArrowPoison;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.enchantment.Enchantment;
 import net.minecraft.enchantment.EnchantmentHelper;
@@ -17,17 +18,13 @@ import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.entity.player.ArrowLooseEvent;
-
 import org.lwjgl.input.Keyboard;
 
-import com.teammetallurgy.atum.entity.arrow.EntityArrowPoison;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
 
 public class ItemHedetetsVenom extends ItemBow {
 
-	public static final String[] bowPullIconNameArray = new String[] { "HedetetsVenom_pull_0", "HedetetsVenom_pull_1", "HedetetsVenom_pull_2" };
+	public static final String[] bowPullIconNameArray = new String[]{"HedetetsVenom_pull_0", "HedetetsVenom_pull_1", "HedetetsVenom_pull_2"};
 	IIcon[] iconArray;
 
 	public ItemHedetetsVenom() {

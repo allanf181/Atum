@@ -1,14 +1,14 @@
 package com.teammetallurgy.atum.items;
 
-import java.util.List;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
 
 public class ItemFish extends Item {
 
@@ -33,7 +33,7 @@ public class ItemFish extends Item {
 	@Override
 	@SideOnly(Side.CLIENT)
 	public void getSubItems(Item par1, CreativeTabs par2CreativeTabs, List par3List) {
-		for(int i = 0; i < 4; ++i) {
+		for (int i = 0; i < 4; ++i) {
 			par3List.add(new ItemStack(par1, 1, i));
 		}
 
@@ -44,7 +44,7 @@ public class ItemFish extends Item {
 	public void registerIcons(IIconRegister par1IIconRegister) {
 		this.icons = new IIcon[4];
 
-		for(int i = 0; i < 4; ++i) {
+		for (int i = 0; i < 4; ++i) {
 			this.icons[i] = par1IIconRegister.registerIcon("atum:Fish" + i);
 		}
 	}

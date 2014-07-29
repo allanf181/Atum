@@ -7,8 +7,6 @@ import net.minecraft.world.WorldServer;
 import net.minecraft.world.WorldSettings;
 import net.minecraft.world.storage.ISaveHandler;
 
-import com.teammetallurgy.atum.world.AtumTeleporter;
-
 public class AtumWorldServer extends WorldServer {
 
 	public AtumWorldServer(MinecraftServer par1MinecraftServer, ISaveHandler par2iSaveHandler, String par3Str, int par4, WorldSettings par5WorldSettings, Profiler par6Profiler) {

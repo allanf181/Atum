@@ -1,50 +1,93 @@
 package com.teammetallurgy.atum.blocks.tileentity.furnace;
 
+import com.teammetallurgy.atum.blocks.BlockLimeStoneFurnace;
+import cpw.mods.fml.common.registry.GameRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.ISidedInventory;
-import net.minecraft.item.Item;
-import net.minecraft.item.ItemBlock;
-import net.minecraft.item.ItemHoe;
-import net.minecraft.item.ItemStack;
-import net.minecraft.item.ItemSword;
-import net.minecraft.item.ItemTool;
+import net.minecraft.item.*;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
 import net.minecraft.tileentity.TileEntityFurnace;
 
-import com.teammetallurgy.atum.blocks.BlockLimeStoneFurnace;
-
-import cpw.mods.fml.common.registry.GameRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
-
 public class TileEntityLimestoneFurnace extends TileEntityFurnace implements ISidedInventory {
-	private static final int[] field_102010_d = new int[] { 0 };
-	private static final int[] field_102011_e = new int[] { 2, 1 };
-	private static final int[] field_102009_f = new int[] { 1 };
-
+	private static final int[] field_102010_d = new int[]{0};
+	private static final int[] field_102011_e = new int[]{2, 1};
+	private static final int[] field_102009_f = new int[]{1};
 	/**
-	 * The ItemStacks that hold the items currently being used in the furnace
+	 * The number of ticks that the furnace will keep burning
 	 */
-	private ItemStack[] furnaceItemStacks = new ItemStack[3];
-
-	/** The number of ticks that the furnace will keep burning */
 	public int furnaceBurnTime = 0;
-
 	/**
 	 * The number of ticks that a fresh copy of the currently-burning item would
 	 * keep the furnace burning for
 	 */
 	public int currentItemBurnTime = 0;
-
-	/** The number of ticks that the current item has been cooking for */
+	/**
+	 * The number of ticks that the current item has been cooking for
+	 */
 	public int furnaceCookTime = 0;
+	/**
+	 * The ItemStacks that hold the items currently being used in the furnace
+	 */
+	private ItemStack[] furnaceItemStacks = new ItemStack[3];
 	private String field_94130_e;
+
+	/**
+	 * Returns the number of ticks that the supplied fuel item will keep the
+	 * furnace burning, or 0 if the item isn't fuel
+	 */
+	public static int getItemBurnTime(ItemStack par0ItemStack) {
+		if (par0ItemStack == null) {
+			return 0;
+		} else {
+			Item i = par0ItemStack.getItem();
+			Item item = par0ItemStack.getItem();
+
+			if (par0ItemStack.getItem() instanceof ItemBlock && i != null) {
+				Block block = Block.getBlockFromItem(i);
+
+				if (block == Blocks.wooden_slab) {
+					return 150;
+				}
+
+				if (block.getMaterial() == Material.wood) {
+					return 300;
+				}
+			}
+
+			if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD"))
+				return 200;
+			if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD"))
+				return 200;
+			if (item instanceof ItemHoe && ((ItemHoe) item).getToolMaterialName().equals("WOOD"))
+				return 200;
+			if (i == Items.stick)
+				return 100;
+			if (i == Items.coal)
+				return 1600;
+			if (i == Items.lava_bucket)
+				return 20000;
+			if (Block.getBlockFromItem(i) == Blocks.sapling)
+				return 100;
+			if (i == Items.blaze_rod)
+				return 2400;
+			return GameRegistry.getFuelValue(par0ItemStack);
+		}
+	}
+
+	/**
+	 * Return true if item is a fuel source (getItemBurnTime() > 0).
+	 */
+	public static boolean isItemFuel(ItemStack par0ItemStack) {
+		return getItemBurnTime(par0ItemStack) > 0;
+	}
 
 	/**
 	 * Returns the number of slots in the inventory.
@@ -325,56 +368,6 @@ public class TileEntityLimestoneFurnace extends TileEntityFurnace implements ISi
 				this.furnaceItemStacks[0] = null;
 			}
 		}
-	}
-
-	/**
-	 * Returns the number of ticks that the supplied fuel item will keep the
-	 * furnace burning, or 0 if the item isn't fuel
-	 */
-	public static int getItemBurnTime(ItemStack par0ItemStack) {
-		if (par0ItemStack == null) {
-			return 0;
-		} else {
-			Item i = par0ItemStack.getItem();
-			Item item = par0ItemStack.getItem();
-
-			if (par0ItemStack.getItem() instanceof ItemBlock && i != null) {
-				Block block = Block.getBlockFromItem(i);
-
-				if (block == Blocks.wooden_slab) {
-					return 150;
-				}
-
-				if (block.getMaterial() == Material.wood) {
-					return 300;
-				}
-			}
-
-			if (item instanceof ItemTool && ((ItemTool) item).getToolMaterialName().equals("WOOD"))
-				return 200;
-			if (item instanceof ItemSword && ((ItemSword) item).getToolMaterialName().equals("WOOD"))
-				return 200;
-			if (item instanceof ItemHoe && ((ItemHoe) item).getToolMaterialName().equals("WOOD"))
-				return 200;
-			if (i == Items.stick)
-				return 100;
-			if (i == Items.coal)
-				return 1600;
-			if (i == Items.lava_bucket)
-				return 20000;
-			if (Block.getBlockFromItem(i) == Blocks.sapling)
-				return 100;
-			if (i == Items.blaze_rod)
-				return 2400;
-			return GameRegistry.getFuelValue(par0ItemStack);
-		}
-	}
-
-	/**
-	 * Return true if item is a fuel source (getItemBurnTime() > 0).
-	 */
-	public static boolean isItemFuel(ItemStack par0ItemStack) {
-		return getItemBurnTime(par0ItemStack) > 0;
 	}
 
 	/**

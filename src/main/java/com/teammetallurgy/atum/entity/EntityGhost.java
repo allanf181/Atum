@@ -1,5 +1,6 @@
 package com.teammetallurgy.atum.entity;
 
+import com.teammetallurgy.atum.items.AtumItems;
 import net.minecraft.block.Block;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
@@ -12,8 +13,6 @@ import net.minecraft.util.DamageSource;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 import net.minecraftforge.common.ForgeHooks;
-
-import com.teammetallurgy.atum.items.AtumItems;
 
 public class EntityGhost extends EntityMob {
 	private int cycleHeight = 0;

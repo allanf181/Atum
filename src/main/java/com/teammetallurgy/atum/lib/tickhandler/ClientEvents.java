@@ -1,24 +1,21 @@
 package com.teammetallurgy.atum.lib.tickhandler;
 
-import java.util.Random;
-
+import com.teammetallurgy.atum.AtumIDS;
+import com.teammetallurgy.atum.items.AtumItems;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.common.gameevent.TickEvent;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.ScaledResolution;
 import net.minecraft.client.renderer.Tessellator;
 import net.minecraft.entity.player.EntityPlayer;
-import net.minecraft.item.ItemStack;
 import net.minecraft.util.ResourceLocation;
 
-import com.teammetallurgy.atum.AtumIDS;
-import com.teammetallurgy.atum.items.AtumItems;
-
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.common.gameevent.TickEvent;
+import java.util.Random;
 
 public class ClientEvents {
+	public static int defaultFog;
 	private boolean raining;
 	private boolean overlay;
-	public static int defaultFog;
 
 	@SubscribeEvent
 	public void onRender(TickEvent.RenderTickEvent event) {

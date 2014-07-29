@@ -1,9 +1,10 @@
 package com.teammetallurgy.atum.items.artifacts;
 
-import java.util.List;
-
+import com.teammetallurgy.atum.entity.EntityPharaoh;
+import com.teammetallurgy.atum.entity.EntityStoneSoldier;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
-import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -13,14 +14,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
-
 import org.lwjgl.input.Keyboard;
 
-import com.teammetallurgy.atum.entity.EntityPharaoh;
-import com.teammetallurgy.atum.entity.EntityStoneSoldier;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
 
 public class ItemSobeksRage extends ItemAxe {
 

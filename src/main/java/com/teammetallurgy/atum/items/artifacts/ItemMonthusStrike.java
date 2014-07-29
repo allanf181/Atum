@@ -1,8 +1,9 @@
 package com.teammetallurgy.atum.items.artifacts;
 
-import java.util.Iterator;
-import java.util.List;
-
+import com.teammetallurgy.atum.entity.EntityPharaoh;
+import com.teammetallurgy.atum.entity.EntityStoneSoldier;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.particle.EntityCrit2FX;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -15,18 +16,13 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemAxe;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
-
 import org.lwjgl.input.Keyboard;
 
-import com.teammetallurgy.atum.entity.EntityPharaoh;
-import com.teammetallurgy.atum.entity.EntityStoneSoldier;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Iterator;
+import java.util.List;
 
 public class ItemMonthusStrike extends ItemAxe {
 

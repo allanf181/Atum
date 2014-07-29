@@ -1,7 +1,9 @@
 package com.teammetallurgy.atum.blocks;
 
-import java.util.Random;
-
+import com.teammetallurgy.atum.items.AtumItems;
+import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -16,16 +18,12 @@ import net.minecraftforge.common.EnumPlantType;
 import net.minecraftforge.common.IPlantable;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import com.teammetallurgy.atum.items.AtumItems;
-
-import cpw.mods.fml.client.registry.RenderingRegistry;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Random;
 
 public class BlockPapyrus extends Block implements IPlantable {
+	public int renderID = RenderingRegistry.getNextAvailableRenderId();
 	IIcon iconPapyrus;
 	IIcon iconPapyrusTop;
-	public int renderID = RenderingRegistry.getNextAvailableRenderId();
 
 	public BlockPapyrus() {
 		super(Material.plants);
@@ -124,7 +122,7 @@ public class BlockPapyrus extends Block implements IPlantable {
 		} else if (plantType != EnumPlantType.Beach) {
 			return false;
 		} else {
-			boolean isBeach = this == Blocks.dirt || (Block)this == Blocks.sand;
+			boolean isBeach = this == Blocks.dirt || (Block) this == Blocks.sand;
 			boolean hasWater = world.getBlock(x - 1, y, z).getMaterial() == Material.water || world.getBlock(x + 1, y, z).getMaterial() == Material.water || world.getBlock(x, y, z - 1).getMaterial() == Material.water || world.getBlock(x, y, z + 1).getMaterial() == Material.water;
 			return isBeach && hasWater;
 		}

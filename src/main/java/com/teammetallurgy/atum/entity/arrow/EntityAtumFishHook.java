@@ -1,7 +1,10 @@
 package com.teammetallurgy.atum.entity.arrow;
 
-import java.util.List;
-
+import com.teammetallurgy.atum.AtumFish;
+import com.teammetallurgy.atum.AtumIDS;
+import com.teammetallurgy.atum.items.AtumItems;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
@@ -13,45 +16,40 @@ import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.stats.StatList;
-import net.minecraft.util.AxisAlignedBB;
-import net.minecraft.util.DamageSource;
-import net.minecraft.util.MathHelper;
-import net.minecraft.util.MovingObjectPosition;
-import net.minecraft.util.Vec3;
+import net.minecraft.util.*;
 import net.minecraft.world.World;
 
-import com.teammetallurgy.atum.AtumFish;
-import com.teammetallurgy.atum.AtumIDS;
-import com.teammetallurgy.atum.items.AtumItems;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
 
 public class EntityAtumFishHook extends EntityFishHook {
-	/** The tile this entity is on, X position */
-	private int xTile;
-
-	/** The tile this entity is on, Y position */
-	private int yTile;
-
-	/** The tile this entity is on, Z position */
-	private int zTile;
-	private Block inTile;
-	private boolean inGround;
 	public int shake;
 	public EntityPlayer angler;
-	private int ticksInGround;
-	private int ticksInAir;
-
-	/** the number of ticks remaining until this fish can no longer be caught */
-	private int ticksCatchable;
-
 	/**
 	 * The entity that the fishing rod is connected to, if any. When you right
 	 * click on the fishing rod and the hook falls on to an entity, this it that
 	 * entity.
 	 */
 	public Entity bobber;
+	/**
+	 * The tile this entity is on, X position
+	 */
+	private int xTile;
+	/**
+	 * The tile this entity is on, Y position
+	 */
+	private int yTile;
+	/**
+	 * The tile this entity is on, Z position
+	 */
+	private int zTile;
+	private Block inTile;
+	private boolean inGround;
+	private int ticksInGround;
+	private int ticksInAir;
+	/**
+	 * the number of ticks remaining until this fish can no longer be caught
+	 */
+	private int ticksCatchable;
 	private int fishPosRotationIncrements;
 	private double fishX;
 	private double fishY;
@@ -394,7 +392,7 @@ public class EntityAtumFishHook extends EntityFishHook {
 		par1NBTTagCompound.setShort("xTile", (short) this.xTile);
 		par1NBTTagCompound.setShort("yTile", (short) this.yTile);
 		par1NBTTagCompound.setShort("zTile", (short) this.zTile);
-		par1NBTTagCompound.setByte("inTile", (byte)Block.getIdFromBlock(this.inTile));
+		par1NBTTagCompound.setByte("inTile", (byte) Block.getIdFromBlock(this.inTile));
 		par1NBTTagCompound.setByte("shake", (byte) this.shake);
 		par1NBTTagCompound.setByte("inGround", (byte) (this.inGround ? 1 : 0));
 	}

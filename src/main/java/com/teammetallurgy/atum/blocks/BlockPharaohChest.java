@@ -1,8 +1,9 @@
 package com.teammetallurgy.atum.blocks;
 
-import java.util.Iterator;
-import java.util.Random;
-
+import com.teammetallurgy.atum.AtumLoot;
+import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.block.BlockContainer;
 import net.minecraft.block.material.Material;
@@ -22,11 +23,8 @@ import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
 import net.minecraftforge.common.util.ForgeDirection;
 
-import com.teammetallurgy.atum.AtumLoot;
-import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Iterator;
+import java.util.Random;
 
 public class BlockPharaohChest extends BlockContainer {
 
@@ -35,6 +33,19 @@ public class BlockPharaohChest extends BlockContainer {
 		this.setBlockName("pharaohChest");
 		this.setBlockBounds(0.0625F, 0.0F, 0.0625F, 0.9375F, 0.875F, 0.9375F);
 		this.setHardness(4.0F);
+	}
+
+	public static boolean isOcelotBlockingChest(World par0World, int par1, int par2, int par3) {
+		Iterator iterator = par0World.getEntitiesWithinAABB(EntityOcelot.class, AxisAlignedBB.getBoundingBox((double) par1, (double) (par2 + 1), (double) par3, (double) (par1 + 1), (double) (par2 + 2), (double) (par3 + 1))).iterator();
+
+		while (iterator.hasNext()) {
+			EntityOcelot entityocelot1 = (EntityOcelot) iterator.next();
+			if (entityocelot1.isSitting()) {
+				return true;
+			}
+		}
+
+		return false;
 	}
 
 	@Override
@@ -166,19 +177,6 @@ public class BlockPharaohChest extends BlockContainer {
 	@Override
 	public int isProvidingStrongPower(IBlockAccess par1IBlockAccess, int par2, int par3, int par4, int par5) {
 		return par5 == 1 ? this.isProvidingWeakPower(par1IBlockAccess, par2, par3, par4, par5) : 0;
-	}
-
-	public static boolean isOcelotBlockingChest(World par0World, int par1, int par2, int par3) {
-		Iterator iterator = par0World.getEntitiesWithinAABB(EntityOcelot.class, AxisAlignedBB.getBoundingBox((double) par1, (double) (par2 + 1), (double) par3, (double) (par1 + 1), (double) (par2 + 2), (double) (par3 + 1))).iterator();
-
-		while (iterator.hasNext()) {
-			EntityOcelot entityocelot1 = (EntityOcelot) iterator.next();
-			if (entityocelot1.isSitting()) {
-				return true;
-			}
-		}
-
-		return false;
 	}
 
 	@Override

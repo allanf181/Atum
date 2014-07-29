@@ -1,7 +1,10 @@
 package com.teammetallurgy.atum.items.artifacts;
 
-import java.util.List;
-
+import com.teammetallurgy.atum.items.AtumItems;
+import com.teammetallurgy.atum.items.ItemTexturedArmor;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
@@ -11,21 +14,14 @@ import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraftforge.event.entity.living.LivingEvent.LivingJumpEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
-
 import org.lwjgl.input.Keyboard;
 
-import com.teammetallurgy.atum.items.AtumItems;
-import com.teammetallurgy.atum.items.ItemTexturedArmor;
-
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
 
 public class ItemHorusFlight extends ItemTexturedArmor {
 
 	public ItemHorusFlight(ArmorMaterial par2ArmorMaterial, int par3, int par4) {
 		super(par2ArmorMaterial, par3, par4);
-
 	}
 
 	@Override

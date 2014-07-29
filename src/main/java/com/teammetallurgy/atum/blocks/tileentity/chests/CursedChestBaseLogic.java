@@ -1,14 +1,8 @@
 package com.teammetallurgy.atum.blocks.tileentity.chests;
 
-import java.util.ArrayList;
-import java.util.Iterator;
-import java.util.List;
-
-import net.minecraft.entity.Entity;
-import net.minecraft.entity.EntityList;
-import net.minecraft.entity.EntityLiving;
-import net.minecraft.entity.EntityLivingBase;
-import net.minecraft.entity.IEntityLivingData;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.entity.*;
 import net.minecraft.nbt.NBTBase;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
@@ -16,32 +10,40 @@ import net.minecraft.tileentity.MobSpawnerBaseLogic;
 import net.minecraft.util.AxisAlignedBB;
 import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.World;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.ArrayList;
+import java.util.Iterator;
+import java.util.List;
 
 public abstract class CursedChestBaseLogic extends MobSpawnerBaseLogic {
-	/** The delay to spawn. */
+	/**
+	 * The delay to spawn.
+	 */
 	public int spawnDelay = 20;
-	private String entityTypeName = "Pig";
-
-	/** List of minecart to spawn. */
-	private List minecartToSpawn;
-	private WeightedRandomMinecart randomMinecart;
 	public double field_98287_c;
 	public double field_98284_d;
 	public int minSpawnDelay = 200;
 	public int maxSpawnDelay = 800;
-
-	/** A counter for spawn tries. */
+	/**
+	 * A counter for spawn tries.
+	 */
 	public int spawnCount = 4;
+	/**
+	 * The range coefficient for spawning entities around.
+	 */
+	public int spawnRange = 4;
+	private String entityTypeName = "Pig";
+	/**
+	 * List of minecart to spawn.
+	 */
+	private List minecartToSpawn;
+	private WeightedRandomMinecart randomMinecart;
 	private Entity field_98291_j;
 	private int maxNearbyEntities = 6;
-
-	/** The distance from which a player activates the spawner. */
+	/**
+	 * The distance from which a player activates the spawner.
+	 */
 	private int activatingRangeFromPlayer = 16;
-
-	/** The range coefficient for spawning entities around. */
-	public int spawnRange = 4;
 
 	/**
 	 * Gets the entity name that should be spawned.

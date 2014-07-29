@@ -1,7 +1,8 @@
 package com.teammetallurgy.atum.client.render.entity;
 
-import java.util.Random;
-
+import com.teammetallurgy.atum.entity.EntityGhost;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.gui.FontRenderer;
 import net.minecraft.client.model.ModelBase;
@@ -17,20 +18,18 @@ import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.ResourceLocation;
-
 import org.lwjgl.opengl.GL11;
 import org.lwjgl.opengl.GL12;
 
-import com.teammetallurgy.atum.entity.EntityGhost;
-
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Random;
 
 @SideOnly(Side.CLIENT)
 public class RenderGhost extends Render {
 	protected ModelBase mainModel;
 
-	/** The model to be used during the render passes. */
+	/**
+	 * The model to be used during the render passes.
+	 */
 	protected ModelBase renderPassModel;
 
 	public RenderGhost(ModelBase par1ModelBase, float par2) {

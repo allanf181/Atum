@@ -1,12 +1,11 @@
 package com.teammetallurgy.atum.world.decorators;
 
-import java.util.Random;
-
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.gen.feature.WorldGenerator;
 
-import com.teammetallurgy.atum.blocks.AtumBlocks;
+import java.util.Random;
 
 public class WorldGenPalace extends WorldGenerator {
 

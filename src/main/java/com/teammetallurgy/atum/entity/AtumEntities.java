@@ -1,17 +1,7 @@
 package com.teammetallurgy.atum.entity;
 
-import net.minecraft.entity.EntityList;
-
 import com.teammetallurgy.atum.Atum;
-import com.teammetallurgy.atum.entity.arrow.EntityArrowDoubleShot;
-import com.teammetallurgy.atum.entity.arrow.EntityArrowExplosive;
-import com.teammetallurgy.atum.entity.arrow.EntityArrowFire;
-import com.teammetallurgy.atum.entity.arrow.EntityArrowPoison;
-import com.teammetallurgy.atum.entity.arrow.EntityArrowQuickdraw;
-import com.teammetallurgy.atum.entity.arrow.EntityArrowVelocity;
-import com.teammetallurgy.atum.entity.arrow.EntityAtumFishHook;
-import com.teammetallurgy.atum.entity.arrow.EntityNutsCall;
-
+import com.teammetallurgy.atum.entity.arrow.*;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
 public enum AtumEntities {

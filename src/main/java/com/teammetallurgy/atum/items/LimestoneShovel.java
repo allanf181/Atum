@@ -1,11 +1,10 @@
 package com.teammetallurgy.atum.items;
 
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.item.ItemSpade;
 import net.minecraft.item.ItemStack;
-
-import com.teammetallurgy.atum.blocks.AtumBlocks;
 
 public class LimestoneShovel extends ItemSpade {
 
