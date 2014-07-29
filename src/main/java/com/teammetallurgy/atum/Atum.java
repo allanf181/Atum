@@ -41,7 +41,7 @@ public class Atum {
 	@EventHandler
 	public void init(FMLInitializationEvent event) {
 		LOGGER.info("Register Blocks");
-		AtumBlocks.INSTANCE.registerBlocks();
+		new AtumBlocks();
 
 		LOGGER.info("Register Item");
 		new AtumItems();
