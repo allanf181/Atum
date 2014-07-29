@@ -31,11 +31,7 @@ import static net.minecraftforge.event.terraingen.InitMapGenEvent.EventType.RAVI
 import static net.minecraftforge.event.terraingen.PopulateChunkEvent.Populate.EventType.*;
 
 public class AtumChunkProvider implements IChunkProvider {
-	private static final String __OBFID = "CL_00000396";
-	{
-		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
-		ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
-	}
+
 	/**
 	 * are map structures going to be generated (e.g. strongholds)
 	 */
@@ -55,7 +51,6 @@ public class AtumChunkProvider implements IChunkProvider {
 	double[] field_147428_e;
 	double[] field_147425_f;
 	double[] field_147426_g;
-	int[][] field_73219_j = new int[32][32];
 	/**
 	 * RNG.
 	 */
@@ -80,6 +75,11 @@ public class AtumChunkProvider implements IChunkProvider {
 	 * The biomes that are used to generate the chunk
 	 */
 	private BiomeGenBase[] biomesForGeneration;
+
+	{
+		caveGenerator = TerrainGen.getModdedMapGen(caveGenerator, CAVE);
+		ravineGenerator = TerrainGen.getModdedMapGen(ravineGenerator, RAVINE);
+	}
 
 	public AtumChunkProvider(World par1World, long par2, boolean par4) {
 		this.worldObj = par1World;

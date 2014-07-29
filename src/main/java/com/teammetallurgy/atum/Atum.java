@@ -44,7 +44,7 @@ public class Atum {
 		AtumBlocks.INSTANCE.registerBlocks();
 
 		LOGGER.info("Register Item");
-		AtumItems.INSTANCE.registerItems();
+		new AtumItems();
 
 		LOGGER.info("Register Crafting Recipes");
 		CraftingHandler.INSTANCE.register();
