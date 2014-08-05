@@ -22,7 +22,7 @@ import java.util.logging.Logger;
 public class Atum {
 	public static final String MODID = "atum";
 	public static final String NAME = "Atum";
-	public static final String VERSION = "0.5.9B";
+	public static final String VERSION = "0.6.13";
 	public static final Logger LOGGER = Logger.getLogger(Atum.class.getSimpleName());
 	@Instance(Atum.MODID)
 	public static Atum instance;
