@@ -5,15 +5,15 @@ import net.minecraftforge.common.MinecraftForge;
 
 public class CommonProxy {
 
-	public void init() {
-		ServerEvents ticker = new ServerEvents();
-		MinecraftForge.EVENT_BUS.register(ticker);
-	}
+    public void init() {
+        ServerEvents ticker = new ServerEvents();
+        MinecraftForge.EVENT_BUS.register(ticker);
+    }
 
-	public void initRenders() {
-	}
+    public void initRenders() {
+    }
 
-	public void initTiles() {
-	}
+    public void initTiles() {
+    }
 
 }

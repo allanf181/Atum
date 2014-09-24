@@ -9,17 +9,17 @@ import net.minecraft.util.MathHelper;
 
 public class ItemGreatsword extends ItemSword {
 
-	public ItemGreatsword(ToolMaterial par2ToolMaterial) {
-		super(par2ToolMaterial);
-	}
+    public ItemGreatsword(ToolMaterial par2ToolMaterial) {
+        super(par2ToolMaterial);
+    }
 
-	@Override
-	public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase mob, EntityLivingBase player) {
-		if (!(mob instanceof EntityStoneSoldier) && !(mob instanceof EntityPharaoh)) {
-			float j = 1.2F;
-			mob.addVelocity((double) (-MathHelper.sin(player.rotationYaw * 3.1415927F / 180.0F) * j * 0.5F), 0.1D, (double) (MathHelper.cos(player.rotationYaw * 3.1415927F / 180.0F) * j * 0.5F));
-		}
+    @Override
+    public boolean hitEntity(ItemStack par1ItemStack, EntityLivingBase mob, EntityLivingBase player) {
+        if (!(mob instanceof EntityStoneSoldier) && !(mob instanceof EntityPharaoh)) {
+            float j = 1.2F;
+            mob.addVelocity((double) (-MathHelper.sin(player.rotationYaw * 3.1415927F / 180.0F) * j * 0.5F), 0.1D, (double) (MathHelper.cos(player.rotationYaw * 3.1415927F / 180.0F) * j * 0.5F));
+        }
 
-		return super.hitEntity(par1ItemStack, mob, player);
-	}
+        return super.hitEntity(par1ItemStack, mob, player);
+    }
 }

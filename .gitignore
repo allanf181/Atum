@@ -226,6 +226,7 @@ pip-log.txt
 #############
 .gradle/
 build/
+run/
 eclipse/
 CREDITS-fml.txt
 forge-*-*-changelog.txt

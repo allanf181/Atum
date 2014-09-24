@@ -20,51 +20,53 @@ import java.util.logging.Logger;
 
 @Mod(modid = Atum.MODID, name = Atum.NAME, version = Atum.VERSION)
 public class Atum {
-	public static final String MODID = "atum";
-	public static final String NAME = "Atum";
-	public static final String VERSION = "0.6.13";
-	public static final Logger LOGGER = Logger.getLogger(Atum.class.getSimpleName());
-	@Instance(Atum.MODID)
-	public static Atum instance;
-	@SidedProxy(clientSide = "com.teammetallurgy.atum.lib.proxy.ClientProxy", serverSide = "com.teammetallurgy.atum.lib.proxy.CommonProxy")
-	public static CommonProxy proxy;
-	public static AtumConfig config;
-	public static CreativeTabs creativeTab = new AtumCreativeTab();
+    public static final String MODID = "atum";
+    public static final String NAME = "Atum";
+    public static final String VERSION = "0.6.13";
+    public static final Logger LOGGER = Logger.getLogger(Atum.class.getSimpleName());
 
-	@EventHandler
-	public void preInit(FMLPreInitializationEvent event) {
-		LOGGER.info("Loading Configuration");
-		config = new AtumConfig(event.getSuggestedConfigurationFile());
-		config.load();
-	}
+    @Instance(Atum.MODID)
+    public static Atum instance;
 
-	@EventHandler
-	public void init(FMLInitializationEvent event) {
-		LOGGER.info("Register Blocks");
-		new AtumBlocks();
+    @SidedProxy(clientSide = "com.teammetallurgy.atum.lib.proxy.ClientProxy", serverSide = "com.teammetallurgy.atum.lib.proxy.CommonProxy")
+    public static CommonProxy proxy;
 
-		LOGGER.info("Register Item");
-		new AtumItems();
+    public static CreativeTabs creativeTab = new AtumCreativeTab();
 
-		LOGGER.info("Register Crafting Recipes");
-		CraftingHandler.INSTANCE.register();
+    @EventHandler
+    public void preInit(FMLPreInitializationEvent event) {
+        LOGGER.info("Loading Configuration");
+        AtumConfig config = new AtumConfig(event.getSuggestedConfigurationFile());
+        config.load();
+    }
 
-		LOGGER.info("Register World");
-		AtumWorlds.INSTANCE.register();
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
+        LOGGER.info("Register Blocks");
+        new AtumBlocks();
 
-		LOGGER.info("Register Entity");
-		AtumEntities.INSTANCE.register();
+        LOGGER.info("Register Item");
+        new AtumItems();
 
-		LOGGER.info("Register Loot");
-		AtumLoot.INSTANCE.register();
+        LOGGER.info("Register Crafting Recipes");
+        CraftingHandler.INSTANCE.register();
 
-		LOGGER.info("Proxy Init");
-		proxy.init();
-		proxy.initRenders();
-		proxy.initTiles();
+        LOGGER.info("Register World");
+        AtumWorlds.INSTANCE.register();
 
-		MinecraftForge.EVENT_BUS.register(new AtumEventListener());
+        LOGGER.info("Register Entity");
+        AtumEntities.INSTANCE.register();
 
-		NetworkRegistry.INSTANCE.registerGuiHandler(this, new AtumGuiHandler());
-	}
+        LOGGER.info("Register Loot");
+        AtumLoot.INSTANCE.register();
+
+        LOGGER.info("Proxy Init");
+        proxy.init();
+        proxy.initRenders();
+        proxy.initTiles();
+
+        MinecraftForge.EVENT_BUS.register(new AtumEventListener());
+
+        NetworkRegistry.INSTANCE.registerGuiHandler(this, new AtumGuiHandler());
+    }
 }

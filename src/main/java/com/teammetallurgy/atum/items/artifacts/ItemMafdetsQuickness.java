@@ -20,65 +20,65 @@ import java.util.List;
 
 public class ItemMafdetsQuickness extends Item {
 
-	public ItemMafdetsQuickness() {
-		super();
-		this.setMaxDamage(24000);
-	}
+    public ItemMafdetsQuickness() {
+        super();
+        this.setMaxDamage(24000);
+    }
 
-	@Override
-	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
-		return true;
-	}
+    @Override
+    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+        return true;
+    }
 
-	@Override
-	public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
-		if (par3Entity instanceof EntityPlayer) {
-			EntityPlayer player = (EntityPlayer) par3Entity;
-			if (player.inventory.armorInventory[1] != null && player.inventory.armorInventory[1].getItem() == this) {
-				doEffect(player, player.inventory.armorInventory[1]);
-			}
-		}
+    @Override
+    public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
+        if (par3Entity instanceof EntityPlayer) {
+            EntityPlayer player = (EntityPlayer) par3Entity;
+            if (player.inventory.armorInventory[1] != null && player.inventory.armorInventory[1].getItem() == this) {
+                doEffect(player, player.inventory.armorInventory[1]);
+            }
+        }
 
-	}
+    }
 
-	public void doEffect(EntityPlayer player, ItemStack item) {
-		player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 2, 0, false));
-		if (!player.capabilities.isCreativeMode) {
-			if (item.getItemDamage() == 1) {
-				item.damageItem(1, player);
-			} else {
-				item.setItemDamage(item.getItemDamage() + 1);
-			}
-		}
+    public void doEffect(EntityPlayer player, ItemStack item) {
+        player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 2, 0, false));
+        if (!player.capabilities.isCreativeMode) {
+            if (item.getItemDamage() == 1) {
+                item.damageItem(1, player);
+            } else {
+                item.setItemDamage(item.getItemDamage() + 1);
+            }
+        }
 
-	}
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public EnumRarity getRarity(ItemStack par1ItemStack) {
-		return EnumRarity.rare;
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public EnumRarity getRarity(ItemStack par1ItemStack) {
+        return EnumRarity.rare;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		if (Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
-			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
-		} else {
-			par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
-		}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+        if (Keyboard.isKeyDown(42)) {
+            par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
+            par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
+        } else {
+            par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
+        }
 
-		par3List.add((double) ((par1ItemStack.getMaxDamage() - par1ItemStack.getItemDamage()) / 12) / 100.0D + " Minutes Remaining");
-	}
+        par3List.add((double) ((par1ItemStack.getMaxDamage() - par1ItemStack.getItemDamage()) / 12) / 100.0D + " Minutes Remaining");
+    }
 
-	@Override
-	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-		return par2ItemStack.getItem() == Items.diamond;
-	}
+    @Override
+    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
+        return par2ItemStack.getItem() == Items.diamond;
+    }
 
-	@Override
-	public void registerIcons(IIconRegister par1IIconRegister) {
-		this.itemIcon = par1IIconRegister.registerIcon("atum:MafdetsQuickness");
-	}
+    @Override
+    public void registerIcons(IIconRegister par1IIconRegister) {
+        this.itemIcon = par1IIconRegister.registerIcon("atum:MafdetsQuickness");
+    }
 }

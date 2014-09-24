@@ -5,12 +5,12 @@ import net.minecraft.item.ItemSword;
 
 public class ItemScimitar extends ItemSword {
 
-	public ItemScimitar(ToolMaterial par2ToolMaterial) {
-		super(par2ToolMaterial);
-	}
+    public ItemScimitar(ToolMaterial par2ToolMaterial) {
+        super(par2ToolMaterial);
+    }
 
-	@Override
-	public void registerIcons(IIconRegister par1IIconRegister) {
-		this.itemIcon = par1IIconRegister.registerIcon("atum:Scimitar");
-	}
+    @Override
+    public void registerIcons(IIconRegister par1IIconRegister) {
+        this.itemIcon = par1IIconRegister.registerIcon("atum:Scimitar");
+    }
 }

@@ -39,7 +39,6 @@ configFile.withReader {
 
 minecraft {
     version = config.minecraft_version + "-" + config.forge_version
-    assetDir = "eclipse/assets"
 }
 
 task buildInfo() {

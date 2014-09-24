@@ -8,8 +8,8 @@ import net.minecraft.client.renderer.entity.RenderBiped;
 @SideOnly(Side.CLIENT)
 public class RenderBandit extends RenderBiped {
 
-	public RenderBandit(ModelBiped par1ModelBiped, float par2) {
-		super(par1ModelBiped, par2);
-	}
+    public RenderBandit(ModelBiped par1ModelBiped, float par2) {
+        super(par1ModelBiped, par2);
+    }
 
 }

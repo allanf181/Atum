@@ -9,20 +9,20 @@ import java.util.Random;
 
 public class WorldGenPalace extends WorldGenerator {
 
-	public Block largeLimestoneBricks;
-	public Block smallLimestoneBricks;
-	public Block carvedLimestone;
-	public Block largeLimestoneBricksStairs;
+    public Block largeLimestoneBricks;
+    public Block smallLimestoneBricks;
+    public Block carvedLimestone;
+    public Block largeLimestoneBricksStairs;
 
-	public WorldGenPalace() {
-		this.largeLimestoneBricks = AtumBlocks.BLOCK_LARGEBRICK;
-		this.smallLimestoneBricks = AtumBlocks.BLOCK_SMALLBRICK;
-		this.carvedLimestone = AtumBlocks.BLOCK_CARVEDBRICK;
-		this.largeLimestoneBricksStairs = AtumBlocks.BLOCK_LARGESTONESTAIRS;
-	}
+    public WorldGenPalace() {
+        this.largeLimestoneBricks = AtumBlocks.BLOCK_LARGEBRICK;
+        this.smallLimestoneBricks = AtumBlocks.BLOCK_SMALLBRICK;
+        this.carvedLimestone = AtumBlocks.BLOCK_CARVEDBRICK;
+        this.largeLimestoneBricksStairs = AtumBlocks.BLOCK_LARGESTONESTAIRS;
+    }
 
-	@Override
-	public boolean generate(World world, Random random, int i, int j, int k) {
+    @Override
+    public boolean generate(World world, Random random, int i, int j, int k) {
 //		world.setBlock(i + 0, j + 0, k + 8, this.largeLimestoneBricks);
 //		world.setBlock(i + 0, j + 0, k + 9, this.largeLimestoneBricks);
 //		world.setBlock(i + 0, j + 0, k + 10, this.largeLimestoneBricks);
@@ -6209,6 +6209,6 @@ public class WorldGenPalace extends WorldGenerator {
 //		world.setBlockMetadataWithNotify(i + 38, j + 6, k + 47, this.largeLimestoneBricksStairs, 1);
 //		world.setBlockMetadataWithNotify(i + 38, j + 6, k + 48, this.largeLimestoneBricksStairs, 1);
 //		world.setBlockMetadataWithNotify(i + 38, j + 6, k + 49, this.largeLimestoneBricksStairs, 1);
-		return true;
-	}
+        return true;
+    }
 }

@@ -8,17 +8,17 @@ import net.minecraft.item.ItemStack;
 
 public class LimestonePickaxe extends ItemPickaxe {
 
-	public LimestonePickaxe(ToolMaterial par2ToolMaterial) {
-		super(par2ToolMaterial);
-	}
+    public LimestonePickaxe(ToolMaterial par2ToolMaterial) {
+        super(par2ToolMaterial);
+    }
 
-	@Override
-	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-		return Block.getBlockFromItem(par2ItemStack.getItem()) == AtumBlocks.BLOCK_LIMESTONECOBBLE;
-	}
+    @Override
+    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
+        return Block.getBlockFromItem(par2ItemStack.getItem()) == AtumBlocks.BLOCK_LIMESTONECOBBLE;
+    }
 
-	@Override
-	public void registerIcons(IIconRegister par1IIconRegister) {
-		this.itemIcon = par1IIconRegister.registerIcon("atum:LimestonePickaxe");
-	}
+    @Override
+    public void registerIcons(IIconRegister par1IIconRegister) {
+        this.itemIcon = par1IIconRegister.registerIcon("atum:LimestonePickaxe");
+    }
 }

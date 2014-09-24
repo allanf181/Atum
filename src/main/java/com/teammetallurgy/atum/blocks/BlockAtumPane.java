@@ -6,10 +6,10 @@ import net.minecraft.block.material.Material;
 
 public class BlockAtumPane extends BlockPane {
 
-	protected BlockAtumPane(String par2Str, String par3Str) {
-		super(par2Str, par3Str, Material.glass, false);
-		this.setHardness(0.3F);
-		this.setStepSound(Block.soundTypeGrass);
-	}
+    protected BlockAtumPane(String par2Str, String par3Str) {
+        super(par2Str, par3Str, Material.glass, false);
+        this.setHardness(0.3F);
+        this.setStepSound(Block.soundTypeGrass);
+    }
 
 }

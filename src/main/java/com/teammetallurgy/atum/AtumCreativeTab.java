@@ -6,12 +6,12 @@ import net.minecraft.item.Item;
 
 public class AtumCreativeTab extends CreativeTabs {
 
-	public AtumCreativeTab() {
-		super("atum");
-	}
+    public AtumCreativeTab() {
+        super("atum");
+    }
 
-	@Override
-	public Item getTabIconItem() {
-		return AtumItems.ITEM_SCARAB;
-	}
+    @Override
+    public Item getTabIconItem() {
+        return AtumItems.ITEM_SCARAB;
+    }
 }
