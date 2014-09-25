@@ -1,5 +1,7 @@
 package com.teammetallurgy.atum.lib.proxy;
 
+import com.teammetallurgy.atum.AtumFogEventListener;
+import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.blocks.BlockDate;
 import com.teammetallurgy.atum.blocks.BlockPapyrus;
@@ -20,6 +22,7 @@ import com.teammetallurgy.atum.entity.arrow.EntityAtumFishHook;
 import com.teammetallurgy.atum.entity.arrow.EntityNutsCall;
 import com.teammetallurgy.atum.items.AtumItems;
 import com.teammetallurgy.atum.lib.tickhandler.ClientEvents;
+
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;
@@ -44,6 +47,10 @@ public class ClientProxy extends CommonProxy {
         MinecraftForge.EVENT_BUS.register(AtumItems.maatsBalance);
         MinecraftForge.EVENT_BUS.register(AtumItems.mnevisHorns);
         MinecraftForge.EVENT_BUS.register(AtumItems.sekhmetsWrath);
+
+        if (AtumIDS.FOG_ENABLED) {
+            MinecraftForge.EVENT_BUS.register(new AtumFogEventListener());
+        }
     }
 
     @Override

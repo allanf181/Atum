@@ -19,6 +19,7 @@ public class AtumConfig {
 
         AtumIDS.BIOME_DESERT_ID = getInt("Biome", "Desert", 200);
         AtumIDS.ALLOW_CREATION = getBoolean("Scarab", "Create Portal", true);
+        AtumIDS.FOG_ENABLED = getBoolean("Fog", "Enabled", true);
         this.CONFIG.save();
     }
 

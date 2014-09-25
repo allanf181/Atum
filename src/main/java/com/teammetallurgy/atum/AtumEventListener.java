@@ -1,32 +1,28 @@
 package com.teammetallurgy.atum;
 
-import com.teammetallurgy.atum.blocks.AtumBlocks;
-import com.teammetallurgy.atum.blocks.BlockFlax;
-import com.teammetallurgy.atum.blocks.BlockPalmSapling;
-import com.teammetallurgy.atum.entity.*;
-import com.teammetallurgy.atum.items.AtumItems;
-import cpw.mods.fml.common.eventhandler.Event.Result;
-import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
-import net.minecraftforge.client.event.EntityViewRenderEvent;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 
-import java.util.Random;
+import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.blocks.BlockFlax;
+import com.teammetallurgy.atum.blocks.BlockPalmSapling;
+import com.teammetallurgy.atum.entity.EntityDustySkeleton;
+import com.teammetallurgy.atum.entity.EntityGhost;
+import com.teammetallurgy.atum.entity.EntityMummy;
+import com.teammetallurgy.atum.entity.EntityPharaoh;
+import com.teammetallurgy.atum.entity.EntityStoneSoldier;
+import com.teammetallurgy.atum.items.AtumItems;
+
+import cpw.mods.fml.common.eventhandler.Event.Result;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 
 public class AtumEventListener {
-
-    @SubscribeEvent
-    public void renderFog(EntityViewRenderEvent.RenderFogEvent event) {
-        //if (event.entity.dimension == AtumIDS.DIMENSION_ID) {
-        //}
-        if (event.farPlaneDistance > 32) {
-            event.setResult(Result.DENY);
-        }
-    }
 
     @SubscribeEvent
     public void onFallDamage(LivingFallEvent event) {
