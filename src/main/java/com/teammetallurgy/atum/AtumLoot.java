@@ -34,7 +34,6 @@ public enum AtumLoot {
 
     public static void fillChest(IInventory inventory, int multiplier, float quality) {
         if (inventory == null) {
-            System.out.println("Error trying to fill empty chest");
             return;
         }
 

@@ -26,7 +26,6 @@ public class AtumEventListener {
         if (event.farPlaneDistance > 32) {
             event.setResult(Result.DENY);
         }
-        System.out.println(event.farPlaneDistance);
     }
 
     @SubscribeEvent

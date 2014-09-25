@@ -9,7 +9,6 @@ public class AtumConfig {
     private final Configuration CONFIG;
 
     public AtumConfig(File file) {
-        System.out.println(file);
         this.CONFIG = new Configuration(file);
     }
 

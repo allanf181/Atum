@@ -94,7 +94,6 @@ public class ItemAnubisMercy extends Item {
                 player.getFoodStats().setFoodSaturationLevel(20.0F);
                 // player.spawnExplosionParticle();
                 stack.damageItem(1, player);
-                System.out.println(stack.getItemDamage());
                 if (stack.getItemDamage() >= 20) {
                     stack = null;
                 }

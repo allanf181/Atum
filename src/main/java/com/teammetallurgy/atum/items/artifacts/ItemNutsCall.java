@@ -48,7 +48,6 @@ public class ItemNutsCall extends Item {
     @Override
     public void onPlayerStoppedUsing(ItemStack par1ItemStack, World world, EntityPlayer player, int par4) {
         int j = this.getMaxItemUseDuration(par1ItemStack) - par4;
-        System.out.println("charge strength: " + j);
         if (j > 21) {
             j = 21;
         }

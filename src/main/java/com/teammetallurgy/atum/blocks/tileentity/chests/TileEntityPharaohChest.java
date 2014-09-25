@@ -320,7 +320,6 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
         }
 
         if (!super.worldObj.isRemote) {
-            System.out.println("Playing Sound");
             super.worldObj.playSoundAtEntity(pharaoh, "Atum.pharaohspawn", 1.0F, 1.0F);
         }
 

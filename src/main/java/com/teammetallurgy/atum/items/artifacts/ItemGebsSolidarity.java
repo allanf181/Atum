@@ -42,7 +42,6 @@ public class ItemGebsSolidarity extends ItemTexturedArmor {
             byte j = 0;
             if (par1Entity instanceof EntityLiving) {
                 int j1 = j + EnchantmentHelper.getKnockbackModifier((EntityLiving) par1Entity, event.entityLiving);
-                System.out.println("undo knockback " + j1);
                 if (j1 >= 0) {
                     event.entityLiving.motionX /= 0.6D;
                     event.entityLiving.motionZ /= 0.6D;
