@@ -1,11 +1,14 @@
 package com.teammetallurgy.atum;
 
+import org.apache.logging.log4j.Logger;
+
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.entity.AtumEntities;
 import com.teammetallurgy.atum.items.AtumItems;
 import com.teammetallurgy.atum.lib.handler.CraftingHandler;
 import com.teammetallurgy.atum.lib.proxy.CommonProxy;
 import com.teammetallurgy.atum.world.AtumWorlds;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -16,14 +19,12 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 
-import java.util.logging.Logger;
-
 @Mod(modid = Atum.MODID, name = Atum.NAME, version = Atum.VERSION)
 public class Atum {
     public static final String MODID = "atum";
     public static final String NAME = "Atum";
     public static final String VERSION = "0.6.13";
-    public static final Logger LOGGER = Logger.getLogger(Atum.class.getSimpleName());
+    public static Logger LOGGER ;
 
     @Instance(Atum.MODID)
     public static Atum instance;
@@ -35,6 +36,7 @@ public class Atum {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        LOGGER = event.getModLog();
         LOGGER.info("Loading Configuration");
         AtumConfig config = new AtumConfig(event.getSuggestedConfigurationFile());
         config.load();
