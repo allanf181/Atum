@@ -64,6 +64,7 @@ public class BlockDate extends Block {
     }
 
     @SideOnly(Side.CLIENT)
-    public void registerBlockIcons(IIconRegister p_149651_1_) {
+    public void registerBlockIcons(IIconRegister iconRegistry) {
+        this.blockIcon = iconRegistry.registerIcon("atum:AtumDate");
     }
 }
