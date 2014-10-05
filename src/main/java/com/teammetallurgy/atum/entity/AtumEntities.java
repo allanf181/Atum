@@ -11,60 +11,69 @@ public enum AtumEntities {
         int entityID;
 
         entityID = EntityRegistry.findGlobalUniqueEntityId();
-        EntityRegistry.registerModEntity(EntityMummy.class, "mummy", entityID, Atum.instance, 64, 1, true);
         EntityRegistry.registerGlobalEntityID(EntityMummy.class, "mummy", entityID, 0x515838, 0x868F6B);
+        EntityRegistry.registerModEntity(EntityMummy.class, "mummy", entityID, Atum.instance, 64, 1, true);
 
-        entityID++;
-        EntityRegistry.registerModEntity(EntityBanditWarrior.class, "banditWarrior", entityID, Atum.instance, 64, 1, true);
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(EntityBanditWarrior.class, "banditWarrior", entityID, 0xC2C2C2, 0x040F85);
+        EntityRegistry.registerModEntity(EntityBanditWarrior.class, "banditWarrior", entityID, Atum.instance, 64, 1, true);
+        
 
-        entityID++;
-        EntityRegistry.registerModEntity(EntityBanditArcher.class, "banditArcher", entityID, Atum.instance, 64, 1, true);
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(EntityBanditArcher.class, "banditArcher", entityID, 0xC2C2C2, 0x7E0C0C);
+        EntityRegistry.registerModEntity(EntityBanditArcher.class, "banditArcher", entityID, Atum.instance, 64, 1, true);
+        
 
-        entityID++;
-        EntityRegistry.registerModEntity(EntityPharaoh.class, "pharaoh", entityID, Atum.instance, 64, 1, true);
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(EntityPharaoh.class, "pharaoh", entityID, 0xD4BC37, 0x3A4BE0);
+        EntityRegistry.registerModEntity(EntityPharaoh.class, "pharaoh", entityID, Atum.instance, 64, 1, true);
+        
 
-        entityID++;
-        EntityRegistry.registerModEntity(EntityDustySkeleton.class, "dustySkeleton", entityID, Atum.instance, 64, 1, true);
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(EntityDustySkeleton.class, "dustySkeleton", entityID, 0xB59C7D, 0x6F5C43);
+        EntityRegistry.registerModEntity(EntityDustySkeleton.class, "dustySkeleton", entityID, Atum.instance, 64, 1, true);
+        
 
-        entityID++;
-        EntityRegistry.registerModEntity(EntityGhost.class, "desertGhost", entityID, Atum.instance, 64, 1, true);
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(EntityGhost.class, "desertGhost", entityID, 0xE7DBC8, 0xAD9467);
+        EntityRegistry.registerModEntity(EntityGhost.class, "desertGhost", entityID, Atum.instance, 64, 1, true);
+        
 
-        entityID++;
-        EntityRegistry.registerModEntity(EntityStoneSoldier.class, "stoneSoldier", entityID, Atum.instance, 64, 1, true);
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(EntityStoneSoldier.class, "stoneSoldier", entityID, 0x918354, 0x695D37);
+        EntityRegistry.registerModEntity(EntityStoneSoldier.class, "stoneSoldier", entityID, Atum.instance, 64, 1, true);
+        
 
-        entityID++;
-        EntityRegistry.registerModEntity(EntityDesertWolf.class, "desertWolf", entityID, Atum.instance, 64, 1, true);
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(EntityDesertWolf.class, "desertWolf", entityID, 0x918354, 0x695D37);
+        EntityRegistry.registerModEntity(EntityDesertWolf.class, "desertWolf", entityID, Atum.instance, 64, 1, true);
+        
 
-        entityID++;
-        EntityRegistry.registerModEntity(EntityBanditWarlord.class, "banditWarlord", entityID, Atum.instance, 64, 1, true);
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(EntityBanditWarlord.class, "banditWarlord", entityID, 0x918354, 0x695D37);
+        EntityRegistry.registerModEntity(EntityBanditWarlord.class, "banditWarlord", entityID, Atum.instance, 64, 1, true);
+        
 
-        entityID++;
-        EntityRegistry.registerModEntity(EntityBarbarian.class, "barbarian", entityID, Atum.instance, 64, 1, true);
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(EntityBarbarian.class, "barbarian", entityID, 0x918354, 0x695D37);
+        EntityRegistry.registerModEntity(EntityBarbarian.class, "barbarian", entityID, Atum.instance, 64, 1, true);
+        
 
-        entityID++;
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerModEntity(EntityArrowVelocity.class, "ArrowVeloctiy", entityID, Atum.instance, 64, 1, true);
-        entityID++;
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerModEntity(EntityArrowExplosive.class, "ArrowExplosive", entityID, Atum.instance, 64, 1, true);
-        entityID++;
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerModEntity(EntityArrowPoison.class, "ArrowPoison", entityID, Atum.instance, 64, 1, true);
-        entityID++;
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerModEntity(EntityArrowFire.class, "ArrowFire", entityID, Atum.instance, 64, 1, true);
-        entityID++;
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerModEntity(EntityArrowDoubleShot.class, "ArrowFire", entityID, Atum.instance, 64, 1, true);
-        entityID++;
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerModEntity(EntityArrowQuickdraw.class, "ArrowFire", entityID, Atum.instance, 64, 1, true);
-        entityID++;
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerModEntity(EntityNutsCall.class, "EntityNutsCall", entityID, Atum.instance, 64, 1, true);
-        entityID++;
+        entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerModEntity(EntityAtumFishHook.class, "EntityAtumFishHook", entityID, Atum.instance, 64, 1, false);
 
     }
