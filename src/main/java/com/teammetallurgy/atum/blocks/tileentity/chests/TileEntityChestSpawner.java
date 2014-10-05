@@ -202,7 +202,7 @@ public class TileEntityChestSpawner extends TileEntityChest implements IInventor
         List list = super.worldObj.getEntitiesWithinAABB(EntityMob.class, AxisAlignedBB.getBoundingBox((double) super.xCoord - d0, (double) super.yCoord - d1, (double) super.zCoord - d0, (double) super.xCoord + d0, (double) super.yCoord + d1, (double) super.zCoord + d0));
         if (!list.isEmpty()) {
             if (!super.worldObj.isRemote) {
-                par1EntityPlayer.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("chat.Atum.enemies")));
+                par1EntityPlayer.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("chat.atum.enemies")));
             }
 
             return false;
