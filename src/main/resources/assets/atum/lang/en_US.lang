@@ -266,7 +266,7 @@ item.loot.scepter.name=Scepter
 
 # Entity
 entity.atum.mummy.name=Mummy
-entity.atum.nanditWarrior.name=Bandit Warrior
+entity.atum.banditWarrior.name=Bandit Warrior
 entity.atum.banditArcher.name=Bandit Archer
 entity.atum.pharaoh.name=Pharaoh
 entity.atum.dustySkeleton.name=Dusty Skeleton
