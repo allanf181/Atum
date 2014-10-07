@@ -22,7 +22,7 @@ import net.minecraftforge.common.MinecraftForge;
 @Mod(modid = Atum.MODID, name = Atum.NAME, version = Atum.VERSION)
 public class Atum {
     public static final String MODID = "atum";
-    public static final String NAME = "Atum: Journey Into the Sands";
+    public static final String NAME = "Atum";
     public static final String VERSION = "0.6";
     public static Logger LOGGER ;
 
