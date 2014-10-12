@@ -1,6 +1,6 @@
 package com.teammetallurgy.atum.lib.tickhandler;
 
-import com.teammetallurgy.atum.AtumIDS;
+import com.teammetallurgy.atum.AtumConfig;
 import com.teammetallurgy.atum.items.AtumItems;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;
@@ -41,7 +41,7 @@ public class ClientEvents {
     public void onUpdate(TickEvent.PlayerTickEvent event) {
         EntityPlayer player = event.player;
 
-        if (player.dimension == AtumIDS.DIMENSION_ID) {
+        if (player.dimension == AtumConfig.DIMENSION_ID) {
             if (player.worldObj.isRaining()) {
                 raining = true;
 

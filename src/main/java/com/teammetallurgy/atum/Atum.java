@@ -1,5 +1,6 @@
 package com.teammetallurgy.atum;
 
+import com.teammetallurgy.atum.gui.AtumGuiHandler;
 import org.apache.logging.log4j.Logger;
 
 import com.teammetallurgy.atum.blocks.AtumBlocks;
@@ -19,7 +20,7 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 
-@Mod(modid = Atum.MODID, name = Atum.NAME, version = Atum.VERSION)
+@Mod(modid = Atum.MODID, name = Atum.NAME, version = Atum.VERSION, guiFactory = "com.teammetallurgy.atum.gui.AtumGuiFactory")
 public class Atum {
     public static final String MODID = "atum";
     public static final String NAME = "Atum";
@@ -38,8 +39,7 @@ public class Atum {
     public void preInit(FMLPreInitializationEvent event) {
         LOGGER = event.getModLog();
         LOGGER.info("Loading Configuration");
-        AtumConfig config = new AtumConfig(event.getSuggestedConfigurationFile());
-        config.load();
+       new AtumConfig(event.getSuggestedConfigurationFile());
     }
 
     @EventHandler

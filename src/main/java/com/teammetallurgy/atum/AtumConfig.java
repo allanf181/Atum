@@ -1,34 +1,46 @@
 package com.teammetallurgy.atum;
 
+import cpw.mods.fml.client.event.ConfigChangedEvent;
+import cpw.mods.fml.common.FMLCommonHandler;
+import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;
 
 import java.io.File;
 
 public class AtumConfig {
 
-    private final Configuration CONFIG;
+    public static Configuration config;
+
+    public static String general = "general settings";
+    public static boolean ALLOW_CREATION;
+    public static boolean FOG_ENABLED;
+
+    public static int DIMENSION_ID;
+    public static int BIOME_DESERT_ID;
 
     public AtumConfig(File file) {
-        this.CONFIG = new Configuration(file);
+        this.config = new Configuration(file);
+
+        FMLCommonHandler.instance().bus().register(this);
+        syncConfigData();
     }
 
-    public void load() {
-        this.CONFIG.load();
+    @SubscribeEvent
+    public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent event) {
 
-        AtumIDS.DIMENSION_ID = getInt("Dimension", "Atum", 17);
-
-        AtumIDS.BIOME_DESERT_ID = getInt("Biome", "Desert", 200);
-        AtumIDS.ALLOW_CREATION = getBoolean("Scarab", "Create Portal", true);
-        AtumIDS.FOG_ENABLED = getBoolean("Fog", "Enabled", true);
-        this.CONFIG.save();
+        if (event.modID.equals(Atum.MODID))
+            syncConfigData();
     }
 
+    private void syncConfigData() {
 
-    private int getInt(String category, String name, int defaultId) {
-        return this.CONFIG.get(category, name, defaultId).getInt();
+        ALLOW_CREATION = config.get(general, "Can a non-creative player create a portal?", true).getBoolean(true);
+        FOG_ENABLED = config.get(general, "Should the client show fog?", true).getBoolean(true);
+
+        DIMENSION_ID = config.get("ID", "The dimension id of Atum", 17).getInt();
+        BIOME_DESERT_ID = config.get("ID", "The biomeID of Desert for Atum", 200).getInt();
+
+        this.config.save();
     }
 
-    private boolean getBoolean(String category, String name, boolean defaultId) {
-        return this.CONFIG.get(category, name, defaultId).getBoolean(true);
-    }
 }

@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum;
+package com.teammetallurgy.atum.gui;
 
 import com.teammetallurgy.atum.blocks.tileentity.furnace.ContainerLimestoneFurnace;
 import com.teammetallurgy.atum.blocks.tileentity.furnace.GuiLimestoneFurnace;

@@ -1,7 +1,7 @@
 package com.teammetallurgy.atum.entity.arrow;
 
+import com.teammetallurgy.atum.AtumConfig;
 import com.teammetallurgy.atum.AtumFish;
-import com.teammetallurgy.atum.AtumIDS;
 import com.teammetallurgy.atum.items.AtumItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -432,7 +432,7 @@ public class EntityAtumFishHook extends EntityFishHook {
                 b0 = 3;
             } else if (this.ticksCatchable > 0) {
                 EntityItem entityitem = new EntityItem(this.worldObj, this.posX, this.posY, this.posZ, new ItemStack(Items.fish));
-                if (worldObj.provider.dimensionId == AtumIDS.DIMENSION_ID)
+                if (worldObj.provider.dimensionId == AtumConfig.DIMENSION_ID)
                     entityitem.setEntityItemStack(AtumFish.getRandomFish());
                 double d5 = this.angler.posX - this.posX;
                 double d6 = this.angler.posY - this.posY;

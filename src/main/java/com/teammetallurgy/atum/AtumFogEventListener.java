@@ -10,7 +10,7 @@ public class AtumFogEventListener {
 
     @SubscribeEvent
     public void renderFog(EntityViewRenderEvent.RenderFogEvent event) {
-        if (event.entity.dimension == AtumIDS.DIMENSION_ID) {
+        if (event.entity.dimension == AtumConfig.DIMENSION_ID) {
             GL11.glFogi(GL11.GL_FOG_MODE, GL11.GL_EXP);
             GL11.glFogf(GL11.GL_FOG_DENSITY, 0.08F);
         }

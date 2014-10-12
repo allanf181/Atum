@@ -1,6 +1,6 @@
 package com.teammetallurgy.atum.items;
 
-import com.teammetallurgy.atum.AtumIDS;
+import com.teammetallurgy.atum.AtumConfig;
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -26,8 +26,7 @@ public class ItemScarab extends Item {
 
     @Override
     public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int x, int y, int z, int par7, float par8, float par9, float par10) {
-        if (AtumIDS.ALLOW_CREATION) {
-
+        if (AtumConfig.ALLOW_CREATION || par2EntityPlayer.capabilities.isCreativeMode) {
             Block block = par3World.getBlock(x, y, z);
             Block temp = null;
             if (block == Blocks.sandstone) {
@@ -36,7 +35,7 @@ public class ItemScarab extends Item {
                 temp = AtumBlocks.BLOCK_LARGEBRICK;
             }
             if (temp != null) {
-                if (!(AtumBlocks.BLOCK_PORTAL).tryToCreatePortal(par3World, x, y, z, temp)) {
+                if (!AtumBlocks.BLOCK_PORTAL.tryToCreatePortal(par3World, x, y, z, temp)) {
                     if (par2EntityPlayer.capabilities.isCreativeMode) {
                         for (int x1 = -2; x1 < 3; x1++) {
                             for (int z1 = -2; z1 < 3; z1++) {
@@ -59,6 +58,7 @@ public class ItemScarab extends Item {
                                 }
                             }
                         }
+                        AtumBlocks.BLOCK_PORTAL.tryToCreatePortal(par3World, x, y, z, temp);
                     }
                 } else {
                     --par2EntityPlayer.getCurrentEquippedItem().stackSize;

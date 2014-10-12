@@ -1,6 +1,6 @@
 package com.teammetallurgy.atum.blocks;
 
-import com.teammetallurgy.atum.AtumIDS;
+import com.teammetallurgy.atum.AtumConfig;
 import com.teammetallurgy.atum.world.AtumTeleporter;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.relauncher.Side;
@@ -117,12 +117,13 @@ public class BlockPortal extends BlockBreakable {
                 par5Entity.timeUntilPortal = 100;
                 MinecraftServer minecraftserver = MinecraftServer.getServer();
                 int dimID = par5Entity.dimension;
+                int atumId = AtumConfig.DIMENSION_ID;
                 WorldServer worldserver = minecraftserver.worldServerForDimension(0);
-                WorldServer worldserver1 = minecraftserver.worldServerForDimension(AtumIDS.DIMENSION_ID);
-                if (dimID == AtumIDS.DIMENSION_ID) {
+                WorldServer worldserver1 = minecraftserver.worldServerForDimension(atumId);
+                if (dimID == atumId) {
                     minecraftserver.getConfigurationManager().transferPlayerToDimension((EntityPlayerMP) par5Entity, 0, new AtumTeleporter(worldserver));
                 } else {
-                    minecraftserver.getConfigurationManager().transferPlayerToDimension((EntityPlayerMP) par5Entity, AtumIDS.DIMENSION_ID, new AtumTeleporter(worldserver1));
+                    minecraftserver.getConfigurationManager().transferPlayerToDimension((EntityPlayerMP) par5Entity, atumId, new AtumTeleporter(worldserver1));
                 }
 
                 try {
