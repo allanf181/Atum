@@ -1,5 +1,5 @@
 # Misc
-itemGroup.Atum=Atum
+itemGroup.atum=Atum
 biome.desert.name=Пустыня
 
 # Blocks
@@ -51,6 +51,9 @@ tile.lapisOre.name=Лазуритовая руда
 tile.diamondOre.name=Алмазная руда
 tile.furnaceIdle.name=Известняковая печь
 tile.furnaceBurning.name=Известняковая печь
+
+# Containers
+container.limestoneFurnace=Известняковая печь
 
 # Item
 item.scarab.name=Скарабей
@@ -123,6 +126,129 @@ item.amunetsHomecoming.name=Возвращение Амаунета
 item.anubisMercy.name=Милость Анубиса
 item.neithsAudacity.name=Смелость Нейт
 
+
+# Item Information
+item.akersToil.line1=Эффективность I: Быстрота, не
+item.akersToil.line2=убирает усталость
+item.akersToil.line3=Эффективность I
+
+item.amunetsHomecoming.line1=Возвращение I: Телепортирует Вас
+item.amunetsHomecoming.line2=обратно на точку появления
+item.amunetsHomecoming.line3=Возвращение I
+
+item.anhursMight.line1=Могущество I: Замедляет игрока,
+item.anhursMight.line2=Шанс оглушить врагов
+item.anhursMight.line3=Могущество I
+
+item.ptahsDecadence.line1=Богатство I: Даёт дополнительный
+item.ptahsDecadence.line2=алмаз с каждой алмазной руды
+item.ptahsDecadence.line3=Богатство I
+
+item.soteksRage.line1=Отброс I: Откидывает врагов
+item.soteksRage.line2=на большое расстояние
+item.soteksRage.line3=Отброс I
+
+item.osirisWill.line1=Изгнание I: Дополнительный урон нежити,
+item.osirisWill.line2=шанс получить эктоплазму
+item.osirisWill.line3=Изгнание I
+
+item.gebsBlessing.line1=Засевание I: Вспашенная земля - благословенна,
+item.gebsBlessing.line2=даёт повышенную скорость роста
+item.gebsBlessing.line3=Засевание I
+
+item.atensFury.line1=Огненный выстрел I: Огненная стрела
+item.atensFury.line2=поджигает блоки и врагов
+item.atensFury.line3=Огненный выстрел I
+
+item.rasGlory.line1=Божественное зрение I: Ночное зрение, увеличенное
+item.rasGlory.line2=зрение в «Атуме»
+item.rasGlory.line3=Божественное зрение I
+
+item.sekhmetsWrath.line1=Поджигание I: Защита от огня,
+item.sekhmetsWrath.line2=шанс поджечь врагов
+item.sekhmetsWrath.line3=Поджигание I
+
+item.nutsAgility.line1=Быстрота I: Увеличенная
+item.nutsAgility.line2=скорость бега и плавания
+item.nutsAgility.line3=Быстрота I
+
+item.horusFlight.line1=Ловкость I: Увеличенный прыжок,
+item.horusFlight.line2=защита от падения
+item.horusFlight.line3=Ловкость I
+
+item.monthusStrike.line1=Хлопок I: Увеличенный урон,
+item.monthusStrike.line2=заряд для отброса
+item.monthusStrike.line3=Хлопок I
+
+item.hedetetsSting.line1=Отравление II: Шанс
+item.hedetetsSting.line2=отравления игроков
+item.hedetetsSting.line3=Отравление II
+
+# I need to talk to shadow
+item.horusSoaring.line1=Могущество I: Замедляет игрока,
+item.horusSoaring.line2=Шанс оглушить врагов
+item.horusSoaring.line3=Могущество I
+
+item.shusBreath.line1=Быстрое натяжение I: Увеличенная
+item.shusBreath.line2=скорость натяжения стрелы
+item.shusBreath.line3=Быстрое натяжение I
+
+item.ptahsDestruction.line1=Каменотёс I: Увеличивает урон
+item.ptahsDestruction.line2=каменным врагам
+item.ptahsDestruction.line3=Каменотёс I
+
+item.monthusBlast.line1=Разрывной выстрел I: Стрелы взрываются
+item.monthusBlast.line2=при ударе
+item.monthusBlast.line3=Разрывной выстрел I
+
+item.nusFlux.line1=Размах I: Шанс отправить
+item.nusFlux.line2=врагов в воздух
+item.nusFlux.line3=Размах I
+
+item.mnevisHorns.line1=Отражение рукопашного урона I: Наносит
+item.mnevisHorns.line2=урон врагам
+item.mnevisHorns.line3=Отражение рукопашного урона I
+
+item.isisEmbrace.line1=Регенерация I: Восстанавливает
+item.isisEmbrace.line2=здоровье
+item.isisEmbrace.line3=Регенерация I
+
+item.maatsBalance.line1=Баланс I: Уменьшает наносимый
+item.maatsBalance.line2=и получаемый урон
+item.maatsBalance.line3=Баланс I
+
+item.hedetetsVenom.line1=Ядовитая стрела I: Выпускает
+item.hedetetsVenom.line2=стрелу, которая отравляет врагов
+item.hedetetsVenom.line3=Ядовитая стрела I
+
+item.gebsSolidarity.line1=Стойкость I: Уменьшает скорость
+item.gebsSolidarity.line2=передвижения, уменьшает отброс (WIP)
+item.gebsSolidarity.line3=Стойкость I
+
+item.nutsCall.line1=Гнев I: Шанс ударить
+item.nutsCall.line2=врага молнией
+item.nutsCall.line3=Гнев I
+
+item.anuketsBounty.line1=Соблазнение I: Шанс поймать
+item.anuketsBounty.line2=уникальную рыбу в «Атуме»
+item.anuketsBounty.line3=Соблазнение I
+
+item.mafdetsQuickness.line1=Стремительность I: Вы бежите
+item.mafdetsQuickness.line2=быстрее, когда держите
+item.mafdetsQuickness.line3=Стремительность I
+
+item.isisHealing.line1=Регенерация I: Восстанавливает
+item.isisHealing.line2=здоровье, когда держите
+item.isisHealing.line3=Регенерация I
+
+item.anubisMercy.line1=Возвращение I: Телепортирует Вас обратно
+item.anubisMercy.line2=на точку появления, когда Вы умираете
+item.anubisMercy.line3=Возвращение I
+
+item.neithsAudacity.line1=Двойной выстрел I: Выпускает
+item.neithsAudacity.line2=две стрелы за раз
+item.neithsAudacity.line3=Двойной выстрел I
+
 # Loot
 item.loot.dirty.name=Грязн.
 item.loot.silver.name=Серебрян.
@@ -139,13 +265,92 @@ item.loot.broach.name=брошь
 item.loot.scepter.name=скипетр
 
 # Entity
-entity.Atum.mummy.name=Мумия
-entity.Atum.nanditWarrior.name=Бандит-воин
-entity.Atum.banditArcher.name=Бандит-стрелок
-entity.Atum.pharaoh.name=Фараон
-entity.Atum.dustySkeleton.name=Пыльный скелет
-entity.Atum.desertGhost.name=Пустынный призрак
-entity.Atum.stoneSoldier.name=Каменный воин
-entity.Atum.desertWolf.name=Пустынный волк
-entity.Atum.banditWarlord.name=Бандит военачальник
-entity.Atum.barbarian.name=Варвар
+entity.atum.mummy.name=Мумия
+entity.atum.banditWarrior.name=Бандит-воин
+entity.atum.banditArcher.name=Бандит-стрелок
+entity.atum.pharaoh.name=Фараон
+entity.atum.dustySkeleton.name=Пыльный скелет
+entity.atum.desertGhost.name=Пустынный призрак
+entity.atum.stoneSoldier.name=Каменный воин
+entity.atum.desertWolf.name=Пустынный волк
+entity.atum.banditWarlord.name=Бандит военачальник
+entity.atum.barbarian.name=Варвар
+
+# Pharaoh Names
+entity.atum.pharaoh.Ama=Ama'
+entity.atum.pharaoh.Ata=Ata'
+entity.atum.pharaoh.Ato=Ato'
+entity.atum.pharaoh.Bak=Bak'
+entity.atum.pharaoh.Cal=Cal'
+entity.atum.pharaoh.Djet=Djet'
+entity.atum.pharaoh.Eje=Eje'
+entity.atum.pharaoh.For=For'
+entity.atum.pharaoh.Gol=Gol'
+entity.atum.pharaoh.Gut=Gut'
+entity.atum.pharaoh.Hop=Hop'
+entity.atum.pharaoh.Hor=Hor'
+entity.atum.pharaoh.Huni=Huni'
+entity.atum.pharaoh.Iam=Iam'
+entity.atum.pharaoh.Jor=Jor'
+entity.atum.pharaoh.Kal=Kal'
+entity.atum.pharaoh.Khas=Khas'
+entity.atum.pharaoh.Khor=Khor'
+entity.atum.pharaoh.Lat=Lat'
+entity.atum.pharaoh.Mal=Mal'
+entity.atum.pharaoh.Not=Not'
+entity.atum.pharaoh.Oap=Oap'
+entity.atum.pharaoh.Pra=Pra'
+entity.atum.pharaoh.Qo=Qo'
+entity.atum.pharaoh.Ras=Ras'
+entity.atum.pharaoh.Shas=Shas'
+entity.atum.pharaoh.Thoth=Thoth'
+entity.atum.pharaoh.Tui=Tui'
+entity.atum.pharaoh.Uld=Uld'
+entity.atum.pharaoh.Ver=Ver'
+entity.atum.pharaoh.Wot=Wot'
+entity.atum.pharaoh.Xo=Xo'
+entity.atum.pharaoh.Yat=Yat'
+entity.atum.pharaoh.Zyt=Zyt'
+entity.atum.pharaoh.Khep=Khep'
+
+entity.atum.pharaoh.Ahat=Ahat
+entity.atum.pharaoh.Amesh=Amesh
+entity.atum.pharaoh.Amon=Amon
+entity.atum.pharaoh.Anut=Anut
+entity.atum.pharaoh.Baroom=Baroom
+entity.atum.pharaoh.Chanta=Chanta
+entity.atum.pharaoh.Erant=Erant
+entity.atum.pharaoh.Funam=Funam
+entity.atum.pharaoh.Daresh=Daresh
+entity.atum.pharaoh.Djer=Djer
+entity.atum.pharaoh.Hotesh=Hotesh
+entity.atum.pharaoh.Khaden=Khaden
+entity.atum.pharaoh.Kron=Kron
+entity.atum.pharaoh.Gorkum=Gorkum
+entity.atum.pharaoh.Ialenter=Ialenter
+entity.atum.pharaoh.Ma'at=Ma'at
+entity.atum.pharaoh.Narmer=Narmer
+entity.atum.pharaoh.Radeem=Radeem
+entity.atum.pharaoh.Jaloom=Jaloom
+entity.atum.pharaoh.Lepsha=Lepsha
+entity.atum.pharaoh.Quor=Quor
+entity.atum.pharaoh.Oleshet=Oleshet
+entity.atum.pharaoh.Peput=Peput
+entity.atum.pharaoh.Talat=Talat
+entity.atum.pharaoh.Ulam=Ulam
+entity.atum.pharaoh.Veresh=Veresh
+entity.atum.pharaoh.Ranesh=Ranesh
+entity.atum.pharaoh.Snef=Snef
+entity.atum.pharaoh.Wollolo=Wollolo
+entity.atum.pharaoh.Hathor=Hathor
+entity.atum.pharaoh.Intef=Intef
+entity.atum.pharaoh.Neferk=Neferk
+entity.atum.pharaoh.Khatne=Khatne
+entity.atum.pharaoh.Tepy=Tepy
+entity.atum.pharaoh.Moret=Moret
+
+# Chat
+chat.atum.disabled=Создание портала скарабеем отключено
+chat.atum.enemies=Рядом слишком много врагов, сундук нельзя обыскать
+chat.atum.summonPharaoh=был вызван
+chat.atum.killPharaoh=был убит
