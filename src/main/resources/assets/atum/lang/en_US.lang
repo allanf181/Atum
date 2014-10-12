@@ -164,7 +164,7 @@ item.rasGlory.line1=Divine Vision I: Night vision, increased
 item.rasGlory.line2=range of vision in Atum
 item.rasGlory.line3=Divine Vision I
 
-item.sekhmetsWrath.line1=Immolation I: Protection from fire,,
+item.sekhmetsWrath.line1=Immolation I: Protection from fire,
 item.sekhmetsWrath.line2=chance to ignite attackers
 item.sekhmetsWrath.line3=Immolation I
 
@@ -191,7 +191,7 @@ item.horusSoaring.line3=Mighty I
 
 item.shusBreath.line1=Quickdraw I: Reduced
 item.shusBreath.line2=drawback speed
-item.shusBreath.line3=Mighty I
+item.shusBreath.line3=Quickdraw I
 
 item.ptahsDestruction.line1=Stonecutter I: Increases damage
 item.ptahsDestruction.line2=to stone enemies
