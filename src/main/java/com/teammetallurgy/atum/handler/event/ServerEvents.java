@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum.lib.tickhandler;
+package com.teammetallurgy.atum.handler.event;
 
 import com.teammetallurgy.atum.items.AtumItems;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;

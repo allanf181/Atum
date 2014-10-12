@@ -1,15 +1,17 @@
 package com.teammetallurgy.atum;
 
-import com.teammetallurgy.atum.gui.AtumGuiHandler;
-import org.apache.logging.log4j.Logger;
-
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.entity.AtumEntities;
+import com.teammetallurgy.atum.gui.AtumGuiHandler;
+import com.teammetallurgy.atum.handler.AtumConfig;
+import com.teammetallurgy.atum.handler.AtumCreativeTab;
+import com.teammetallurgy.atum.handler.event.AtumEventListener;
 import com.teammetallurgy.atum.items.AtumItems;
-import com.teammetallurgy.atum.lib.handler.CraftingHandler;
-import com.teammetallurgy.atum.lib.proxy.CommonProxy;
+import com.teammetallurgy.atum.handler.CraftingHandler;
+import com.teammetallurgy.atum.items.AtumLoot;
+import com.teammetallurgy.atum.proxy.CommonProxy;
+import com.teammetallurgy.atum.utils.Constants;
 import com.teammetallurgy.atum.world.AtumWorlds;
-
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -20,49 +22,44 @@ import cpw.mods.fml.common.network.NetworkRegistry;
 import net.minecraft.creativetab.CreativeTabs;
 import net.minecraftforge.common.MinecraftForge;
 
-@Mod(modid = Atum.MODID, name = Atum.NAME, version = Atum.VERSION, guiFactory = "com.teammetallurgy.atum.gui.AtumGuiFactory")
+@Mod(modid = Constants.MODID, name = Constants.MOD_NAME, version = Constants.VERSION, guiFactory = Constants.FACTORY)
 public class Atum {
-    public static final String MODID = "atum";
-    public static final String NAME = "Atum";
-    public static final String VERSION = "0.6";
-    public static Logger LOGGER ;
 
-    @Instance(Atum.MODID)
+    @Instance(Constants.MODID)
     public static Atum instance;
 
-    @SidedProxy(clientSide = "com.teammetallurgy.atum.lib.proxy.ClientProxy", serverSide = "com.teammetallurgy.atum.lib.proxy.CommonProxy")
+    @SidedProxy(clientSide = Constants.CLIENT, serverSide = Constants.SERVER)
     public static CommonProxy proxy;
 
     public static CreativeTabs creativeTab = new AtumCreativeTab();
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
-        LOGGER = event.getModLog();
-        LOGGER.info("Loading Configuration");
-       new AtumConfig(event.getSuggestedConfigurationFile());
+        Constants.LOG.info("Loading Configuration");
+        new AtumConfig(event.getSuggestedConfigurationFile());
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        LOGGER.info("Register Blocks");
+        Constants.LOG.info("Register Blocks");
         new AtumBlocks();
 
-        LOGGER.info("Register Item");
+        Constants.LOG.info("Register Item");
         new AtumItems();
 
-        LOGGER.info("Register Crafting Recipes");
-        CraftingHandler.INSTANCE.register();
+        Constants.LOG.info("Register Crafting Recipes");
+        new CraftingHandler().register();
 
-        LOGGER.info("Register World");
-        AtumWorlds.INSTANCE.register();
+        Constants.LOG.info("Register World");
+        new AtumWorlds().register();
 
-        LOGGER.info("Register Entity");
-        AtumEntities.INSTANCE.register();
+        Constants.LOG.info("Register Entity");
+        new AtumEntities().register();
 
-        LOGGER.info("Register Loot");
-        AtumLoot.INSTANCE.register();
+        Constants.LOG.info("Register Loot");
+        new AtumLoot().register();
 
-        LOGGER.info("Proxy Init");
+        Constants.LOG.info("Proxy Init");
         proxy.init();
         proxy.initRenders();
         proxy.initTiles();

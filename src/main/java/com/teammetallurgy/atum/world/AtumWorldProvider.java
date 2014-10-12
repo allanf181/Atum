@@ -1,6 +1,6 @@
 package com.teammetallurgy.atum.world;
 
-import com.teammetallurgy.atum.AtumConfig;
+import com.teammetallurgy.atum.handler.AtumConfig;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.MathHelper;

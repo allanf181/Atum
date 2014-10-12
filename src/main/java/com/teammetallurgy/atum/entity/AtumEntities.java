@@ -4,8 +4,7 @@ import com.teammetallurgy.atum.Atum;
 import com.teammetallurgy.atum.entity.arrow.*;
 import cpw.mods.fml.common.registry.EntityRegistry;
 
-public enum AtumEntities {
-    INSTANCE;
+public class AtumEntities {
 
     public void register() {
         int entityID;

@@ -1,6 +1,6 @@
 package com.teammetallurgy.atum.world.decorators;
 
-import com.teammetallurgy.atum.AtumLoot;
+import com.teammetallurgy.atum.items.AtumLoot;
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
 import net.minecraft.block.Block;

@@ -1,7 +1,7 @@
 package com.teammetallurgy.atum.entity.arrow;
 
-import com.teammetallurgy.atum.AtumConfig;
-import com.teammetallurgy.atum.AtumFish;
+import com.teammetallurgy.atum.handler.AtumConfig;
+import com.teammetallurgy.atum.items.AtumFish;
 import com.teammetallurgy.atum.items.AtumItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

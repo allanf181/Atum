@@ -1,5 +1,6 @@
-package com.teammetallurgy.atum;
+package com.teammetallurgy.atum.handler.event;
 
+import com.teammetallurgy.atum.handler.AtumConfig;
 import net.minecraftforge.client.event.EntityViewRenderEvent;
 
 import org.lwjgl.opengl.GL11;

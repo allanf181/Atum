@@ -1,6 +1,6 @@
 package com.teammetallurgy.atum.items;
 
-import com.teammetallurgy.atum.AtumConfig;
+import com.teammetallurgy.atum.handler.AtumConfig;
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;

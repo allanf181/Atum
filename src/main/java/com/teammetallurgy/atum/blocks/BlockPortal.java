@@ -1,6 +1,6 @@
 package com.teammetallurgy.atum.blocks;
 
-import com.teammetallurgy.atum.AtumConfig;
+import com.teammetallurgy.atum.handler.AtumConfig;
 import com.teammetallurgy.atum.world.AtumTeleporter;
 import cpw.mods.fml.common.ObfuscationReflectionHelper;
 import cpw.mods.fml.relauncher.Side;

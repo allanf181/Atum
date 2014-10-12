@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum;
+package com.teammetallurgy.atum.handler.event;
 
 import java.util.Random;
 

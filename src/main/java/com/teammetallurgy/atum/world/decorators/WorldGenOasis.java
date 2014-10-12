@@ -1,6 +1,6 @@
 package com.teammetallurgy.atum.world.decorators;
 
-import com.teammetallurgy.atum.AtumLoot;
+import com.teammetallurgy.atum.items.AtumLoot;
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;

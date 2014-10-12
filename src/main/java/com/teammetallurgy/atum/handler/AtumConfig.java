@@ -1,5 +1,6 @@
-package com.teammetallurgy.atum;
+package com.teammetallurgy.atum.handler;
 
+import com.teammetallurgy.atum.utils.Constants;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
@@ -28,7 +29,7 @@ public class AtumConfig {
     @SubscribeEvent
     public void onConfigChange(ConfigChangedEvent.OnConfigChangedEvent event) {
 
-        if (event.modID.equals(Atum.MODID))
+        if (event.modID.equals(Constants.MODID))
             syncConfigData();
     }
 

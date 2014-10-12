@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum;
+package com.teammetallurgy.atum.handler;
 
 import com.teammetallurgy.atum.items.AtumItems;
 import net.minecraft.creativetab.CreativeTabs;

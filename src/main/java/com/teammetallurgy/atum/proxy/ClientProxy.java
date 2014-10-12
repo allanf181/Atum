@@ -1,7 +1,7 @@
-package com.teammetallurgy.atum.lib.proxy;
+package com.teammetallurgy.atum.proxy;
 
-import com.teammetallurgy.atum.AtumConfig;
-import com.teammetallurgy.atum.AtumFogEventListener;
+import com.teammetallurgy.atum.handler.AtumConfig;
+import com.teammetallurgy.atum.handler.event.AtumFogEventListener;
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.blocks.BlockDate;
 import com.teammetallurgy.atum.blocks.BlockPapyrus;
@@ -21,7 +21,7 @@ import com.teammetallurgy.atum.entity.arrow.CustomArrow;
 import com.teammetallurgy.atum.entity.arrow.EntityAtumFishHook;
 import com.teammetallurgy.atum.entity.arrow.EntityNutsCall;
 import com.teammetallurgy.atum.items.AtumItems;
-import com.teammetallurgy.atum.lib.tickhandler.ClientEvents;
+import com.teammetallurgy.atum.handler.event.ClientEvents;
 import cpw.mods.fml.client.registry.RenderingRegistry;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;

@@ -1,4 +1,4 @@
-package com.teammetallurgy.atum.lib.handler;
+package com.teammetallurgy.atum.handler;
 
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.items.AtumItems;
@@ -10,9 +10,7 @@ import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraftforge.oredict.ShapedOreRecipe;
 import net.minecraftforge.oredict.ShapelessOreRecipe;
 
-public enum CraftingHandler {
-    INSTANCE;
-
+public class CraftingHandler {
     public void register() {
         addRecipes();
         addSmeltingRecipes();

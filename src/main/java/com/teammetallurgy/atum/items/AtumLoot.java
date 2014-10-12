@@ -1,8 +1,6 @@
-package com.teammetallurgy.atum;
+package com.teammetallurgy.atum.items;
 
 import com.teammetallurgy.atum.blocks.AtumBlocks;
-import com.teammetallurgy.atum.items.AtumItems;
-import com.teammetallurgy.atum.items.ItemLoot;
 import net.minecraft.init.Items;
 import net.minecraft.inventory.IInventory;
 import net.minecraft.item.ItemStack;
@@ -11,8 +9,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
 
-public enum AtumLoot {
-    INSTANCE;
+public class AtumLoot {
 
     public static List<ItemStack> artifacts;
     public static AtumWeightedLootSet goodLoot;

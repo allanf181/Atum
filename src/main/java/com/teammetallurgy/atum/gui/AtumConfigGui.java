@@ -1,7 +1,7 @@
 package com.teammetallurgy.atum.gui;
 
-import com.teammetallurgy.atum.Atum;
-import com.teammetallurgy.atum.AtumConfig;
+import com.teammetallurgy.atum.handler.AtumConfig;
+import com.teammetallurgy.atum.utils.Constants;
 import cpw.mods.fml.client.config.GuiConfig;
 import cpw.mods.fml.client.config.IConfigElement;
 import net.minecraft.client.gui.GuiScreen;
@@ -17,7 +17,7 @@ public class AtumConfigGui extends GuiConfig {
     static AtumConfig cfgh;
 
     public AtumConfigGui(GuiScreen parent) {
-        super(parent, generateConfigList(), Atum.MODID, false, false, GuiConfig.getAbridgedConfigPath(AtumConfig.config.toString()));
+        super(parent, generateConfigList(), Constants.MODID, false, false, GuiConfig.getAbridgedConfigPath(AtumConfig.config.toString()));
     }
 
     public static List<IConfigElement> generateConfigList() {

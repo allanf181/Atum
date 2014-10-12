@@ -1,6 +1,6 @@
-package com.teammetallurgy.atum.lib.tickhandler;
+package com.teammetallurgy.atum.handler.event;
 
-import com.teammetallurgy.atum.AtumConfig;
+import com.teammetallurgy.atum.handler.AtumConfig;
 import com.teammetallurgy.atum.items.AtumItems;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.common.gameevent.TickEvent;

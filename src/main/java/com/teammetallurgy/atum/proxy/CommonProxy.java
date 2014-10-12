@@ -1,6 +1,6 @@
-package com.teammetallurgy.atum.lib.proxy;
+package com.teammetallurgy.atum.proxy;
 
-import com.teammetallurgy.atum.lib.tickhandler.ServerEvents;
+import com.teammetallurgy.atum.handler.event.ServerEvents;
 import net.minecraftforge.common.MinecraftForge;
 
 public class CommonProxy {

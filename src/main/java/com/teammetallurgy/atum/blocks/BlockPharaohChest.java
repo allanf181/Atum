@@ -1,6 +1,6 @@
 package com.teammetallurgy.atum.blocks;
 
-import com.teammetallurgy.atum.AtumLoot;
+import com.teammetallurgy.atum.items.AtumLoot;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;

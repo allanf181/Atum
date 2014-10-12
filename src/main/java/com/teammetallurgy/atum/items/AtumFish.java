@@ -1,6 +1,5 @@
-package com.teammetallurgy.atum;
+package com.teammetallurgy.atum.items;
 
-import com.teammetallurgy.atum.items.AtumItems;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 
