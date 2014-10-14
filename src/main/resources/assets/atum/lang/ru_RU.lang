@@ -265,7 +265,6 @@ item.loot.broach.name=брошь
 item.loot.scepter.name=скипетр
 
 # Entity
-<<<<<<< Updated upstream
 entity.atum.mummy.name=Мумия
 entity.atum.banditWarrior.name=Бандит-воин
 entity.atum.banditArcher.name=Бандит-стрелок
@@ -355,16 +354,3 @@ chat.atum.disabled=Создание портала скарабеем отклю
 chat.atum.enemies=Рядом слишком много врагов, сундук нельзя обыскать
 chat.atum.summonPharaoh=был вызван
 chat.atum.killPharaoh=был убит
-
-#Entity
-entity.Atum.mummy.name=Мумия
-entity.Atum.nanditWarrior.name=Бандит-воин
-entity.Atum.banditArcher.name=Бандит-стрелок
-entity.Atum.pharaoh.name=Фараон
-entity.Atum.dustySkeleton.name=Пыльный скелет
-entity.Atum.desertGhost.name=Пустынный призрак
-entity.Atum.stoneSoldier.name=Каменный воин
-entity.Atum.desertWolf.name=Пустынный волк
-entity.Atum.banditWarlord.name=Бандит военачальник
-entity.Atum.barbarian.name=Варвар
-
