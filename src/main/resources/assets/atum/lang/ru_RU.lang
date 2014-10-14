@@ -354,3 +354,9 @@ chat.atum.disabled=Создание портала скарабеем отклю
 chat.atum.enemies=Рядом слишком много врагов, сундук нельзя обыскать
 chat.atum.summonPharaoh=был вызван
 chat.atum.killPharaoh=был убит
+
+# Gui
+atum.configGui.portalCreation=Портал «Атума»
+atum.configGui.fog=Туман «Атума»
+atum.configGui.dimensionID=ID измерения «Атума»
+atum.configGui.biomeID=ID биома пустыня «Атума»
