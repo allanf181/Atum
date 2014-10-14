@@ -354,3 +354,9 @@ chat.atum.disabled=Scarab portal creation is disabled
 chat.atum.enemies=There are too many enemies nearby to search this chest
 chat.atum.summonPharaoh=was summoned by
 chat.atum.killPharaoh=was slain by
+
+# Gui
+atum.configGui.portalCreation=Atum Portal
+atum.configGui.fog=Atum Fog
+atum.configGui.dimensionID=Atum Dimension ID
+atum.configGui.biomeID=Atum Desert Biome ID

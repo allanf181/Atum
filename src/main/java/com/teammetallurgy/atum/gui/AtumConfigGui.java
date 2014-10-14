@@ -11,6 +11,8 @@ import net.minecraftforge.common.config.Configuration;
 import java.util.ArrayList;
 import java.util.List;
 
+import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
+
 public class AtumConfigGui extends GuiConfig {
 
     static Configuration cfg = AtumConfig.config;
@@ -24,7 +26,7 @@ public class AtumConfigGui extends GuiConfig {
 
         ArrayList<IConfigElement> elements = new ArrayList<IConfigElement>();
 
-        elements.add(new ConfigElement(cfg.getCategory(cfgh.general)));
+        elements.add(new ConfigElement(cfg.getCategory(CATEGORY_GENERAL)));
         System.out.println(cfgh.general);
         return elements;
     }

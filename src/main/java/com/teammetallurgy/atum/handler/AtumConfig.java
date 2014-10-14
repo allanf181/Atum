@@ -5,8 +5,13 @@ import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import net.minecraftforge.common.config.Configuration;
+import net.minecraftforge.common.config.Property;
 
 import java.io.File;
+import java.util.ArrayList;
+import java.util.List;
+
+import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
 
 public class AtumConfig {
 
@@ -34,14 +39,38 @@ public class AtumConfig {
     }
 
     private void syncConfigData() {
+        List<String> propOrder = new ArrayList<String>();
+        Property prop;
 
-        ALLOW_CREATION = config.get(general, "Can a non-creative player create a portal?", true).getBoolean(true);
-        FOG_ENABLED = config.get(general, "Should the client show fog?", true).getBoolean(true);
+        prop = config.get(CATEGORY_GENERAL, "Atum Portal", true);
+        prop.comment = "Can a non-creative user create a portal using the scarab?";
+        prop.setLanguageKey("atum.configGui.portalCreation");
+        ALLOW_CREATION = prop.getBoolean(true);
+        propOrder.add(prop.getName());
 
-        DIMENSION_ID = config.get("ID", "The dimension id of Atum", 17).getInt();
-        BIOME_DESERT_ID = config.get("ID", "The biomeID of Desert for Atum", 200).getInt();
+        prop = config.get(CATEGORY_GENERAL, "Atum Fog", true);
+        prop.comment = "Should clientside fog be rendered?";
+        prop.setLanguageKey("atum.configGui.fog");
+        FOG_ENABLED = prop.getBoolean(true);
+        propOrder.add(prop.getName());
 
-        this.config.save();
+        prop = config.get(CATEGORY_GENERAL, "Atum Dimension ID", 17);
+        prop.comment = "The ID of the Atum Dimension";
+        prop.setLanguageKey("atum.configGui.dimensionID").setRequiresMcRestart(true);
+        DIMENSION_ID = prop.getInt();
+        propOrder.add(prop.getName());
+
+        prop = config.get(CATEGORY_GENERAL, "Atum Desert Biome ID", 200);
+        prop.comment = "The ID of the Atum Dimension biome Desert";
+        prop.setLanguageKey("atum.configGui.biomeID").setRequiresMcRestart(true);
+        BIOME_DESERT_ID = prop.getInt();
+        propOrder.add(prop.getName());
+
+        config.setCategoryPropertyOrder(CATEGORY_GENERAL, propOrder);
+
+        if (config.hasChanged()) {
+            config.save();
+        }
     }
 
 }

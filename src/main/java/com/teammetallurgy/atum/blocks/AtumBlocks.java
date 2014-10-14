@@ -17,7 +17,7 @@ public class AtumBlocks {
     public static BlockPortal BLOCK_PORTAL = new BlockPortal();
     public static Block BLOCK_CURSEDCHEST = new BlockChestSpawner();
     public static Block BLOCK_SAND = new BlockSands();
-    public static Block BLOCK_STONE = new BlockStones();
+    public static Block BLOCK_STONE = new BlockAtumStone();
     public static Block BLOCK_WALL = new BlockWalls(BLOCK_STONE);
     public static Block BLOCK_LIMESTONECOBBLE = new BlockAtum("cobble").setBlockTextureName("atum:AtumCobble");
     public static Block BLOCK_LARGEBRICK = new BlockAtum("largeBrick").setBlockTextureName("atum:AtumBrickLarge");

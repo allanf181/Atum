@@ -7,17 +7,17 @@ import net.minecraft.item.Item;
 
 import java.util.Random;
 
-public class BlockStones extends BlockStone {
+public class BlockAtumStone extends BlockStone {
 
-    public BlockStones() {
+    public BlockAtumStone() {
         super();
         this.setBlockName("stone");
-        this.setStepSound(Block.soundTypeSand);
+        this.setStepSound(Block.soundTypeStone);
         this.setHardness(0.5F);
     }
 
     @Override
-    public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
+    public Item getItemDropped(int p_149650_1_, Random rand, int p_149650_3_) {
         return Item.getItemFromBlock(AtumBlocks.BLOCK_LIMESTONECOBBLE);
     }
 
