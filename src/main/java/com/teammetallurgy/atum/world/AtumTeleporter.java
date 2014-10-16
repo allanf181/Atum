@@ -24,51 +24,51 @@ public class AtumTeleporter extends Teleporter {
     private final LongHashMap destinationCoordinateCache = new LongHashMap();
     private final List destinationCoordinateKeys = new ArrayList();
 
-    public AtumTeleporter(WorldServer par1WorldServer) {
-        super(par1WorldServer);
-        this.worldServerInstance = par1WorldServer;
-        this.random = new Random(par1WorldServer.getSeed());
+    public AtumTeleporter(WorldServer worldServer) {
+        super(worldServer);
+        this.worldServerInstance = worldServer;
+        this.random = new Random(worldServer.getSeed());
     }
 
     @Override
-    public void placeInPortal(Entity par1Entity, double par2, double par4, double par6, float par8) {
+    public void placeInPortal(Entity entityPlayer, double par2, double par4, double par6, float par8) {
         if (this.worldServerInstance.provider.dimensionId != 1) {
-            if (!this.placeInExistingPortal(par1Entity, par2, par4, par6, par8)) {
-                this.makePortal(par1Entity);
-                this.placeInExistingPortal(par1Entity, par2, par4, par6, par8);
+            if (!this.placeInExistingPortal(entityPlayer, par2, par4, par6, par8)) {
+                this.makePortal(entityPlayer);
+                this.placeInExistingPortal(entityPlayer, par2, par4, par6, par8);
             }
         } else {
-            int i = MathHelper.floor_double(par1Entity.posX);
-            int j = MathHelper.floor_double(par1Entity.posY) + 2;
-            int k = MathHelper.floor_double(par1Entity.posZ);
+            int x = MathHelper.floor_double(entityPlayer.posX);
+            int y = MathHelper.floor_double(entityPlayer.posY) - 1;
+            int z = MathHelper.floor_double(entityPlayer.posZ);
             byte b0 = 1;
             byte b1 = 0;
 
             for (int l = -2; l <= 2; ++l) {
                 for (int i1 = -2; i1 <= 2; ++i1) {
                     for (int j1 = -1; j1 < 3; ++j1) {
-                        int k1 = i + i1 * b0 + l * b1;
-                        int l1 = j + j1;
-                        int i2 = k + i1 * b1 - l * b0;
+                        int k1 = x + i1 * b0 + l * b1;
+                        int l1 = y + j1;
+                        int i2 = z + i1 * b1 - l * b0;
                         boolean flag = j1 < 0;
-                        this.worldServerInstance.setBlock(k1, l1, i2, flag ? Blocks.sandstone : null);
+                        this.worldServerInstance.setBlock(k1, l1, i2, flag ? Blocks.sandstone : Blocks.air);
                     }
                 }
             }
 
-            par1Entity.setLocationAndAngles((double) i, (double) j, (double) k, par1Entity.rotationYaw, 0.0F);
-            par1Entity.motionX = par1Entity.motionY = par1Entity.motionZ = 0.0D;
+            entityPlayer.setLocationAndAngles((double) x, (double) y, (double) z, entityPlayer.rotationYaw, 0.0F);
+            entityPlayer.motionX = entityPlayer.motionY = entityPlayer.motionZ = 0.0D;
         }
 
     }
 
     @Override
-    public boolean placeInExistingPortal(Entity par1Entity, double par2, double par4, double par6, float par8) {
+    public boolean placeInExistingPortal(Entity par1Entity, double posX, double posY, double posZ, float par8) {
         short short1 = 128;
         double d3 = -1.0D;
-        int i = 0;
-        int j = 0;
-        int k = 0;
+        int x = 0;
+        int y = 0;
+        int z = 0;
         int l = MathHelper.floor_double(par1Entity.posX);
         int i1 = MathHelper.floor_double(par1Entity.posZ);
         long j1 = ChunkCoordIntPair.chunkXZ2Int(l, i1);
@@ -80,15 +80,14 @@ public class AtumTeleporter extends Teleporter {
         if (this.destinationCoordinateCache.containsItem(j1)) {
             AtumPortalPosition portalposition = (AtumPortalPosition) this.destinationCoordinateCache.getValueByKey(j1);
             d3 = 0.0D;
-            i = portalposition.posX;
-            j = portalposition.posY;
-            k = portalposition.posZ;
+            x = portalposition.posX;
+            y = portalposition.posY;
+            z = portalposition.posZ;
             portalposition.lastUpdateTime = this.worldServerInstance.getTotalWorldTime();
             flag = false;
         } else {
             for (k1 = l - short1; k1 <= l + short1; ++k1) {
                 var46 = (double) k1 + 0.5D - par1Entity.posX;
-
                 for (int d9 = i1 - short1; d9 <= i1 + short1; ++d9) {
                     double d6 = (double) d9 + 0.5D - par1Entity.posZ;
 
@@ -102,9 +101,9 @@ public class AtumTeleporter extends Teleporter {
                             double l2 = var46 * var46 + d4 * d4 + d6 * d6;
                             if (d3 < 0.0D || l2 < d3) {
                                 d3 = l2;
-                                i = k1;
-                                j = k2;
-                                k = d9;
+                                x = k1;
+                                y = k2;
+                                z = d9;
                             }
                         }
                     }
@@ -114,27 +113,27 @@ public class AtumTeleporter extends Teleporter {
 
         if (d3 >= 0.0D) {
             if (flag) {
-                this.destinationCoordinateCache.add(j1, new AtumPortalPosition(i, j, k, this.worldServerInstance.getTotalWorldTime()));
+                this.destinationCoordinateCache.add(j1, new AtumPortalPosition(x, y, z, this.worldServerInstance.getTotalWorldTime()));
                 this.destinationCoordinateKeys.add(Long.valueOf(j1));
             }
 
-            var46 = (double) i + 0.5D;
-            double var47 = (double) j + 0.5D;
-            d4 = (double) k + 0.5D;
+            var46 = (double) x + 0.5D;
+            double var47 = (double) y + 0.5D;
+            d4 = (double) z + 0.5D;
             int j2 = -1;
-            if (this.worldServerInstance.getBlock(i - 1, j, k) == AtumBlocks.BLOCK_PORTAL) {
+            if (this.worldServerInstance.getBlock(x - 1, y, z) == AtumBlocks.BLOCK_PORTAL) {
                 j2 = 2;
             }
 
-            if (this.worldServerInstance.getBlock(i + 1, j, k) == AtumBlocks.BLOCK_PORTAL) {
+            if (this.worldServerInstance.getBlock(x + 1, y, z) == AtumBlocks.BLOCK_PORTAL) {
                 j2 = 0;
             }
 
-            if (this.worldServerInstance.getBlock(i, j, k - 1) == AtumBlocks.BLOCK_PORTAL) {
+            if (this.worldServerInstance.getBlock(x, y, z - 1) == AtumBlocks.BLOCK_PORTAL) {
                 j2 = 3;
             }
 
-            if (this.worldServerInstance.getBlock(i, j, k + 1) == AtumBlocks.BLOCK_PORTAL) {
+            if (this.worldServerInstance.getBlock(x, y, z + 1) == AtumBlocks.BLOCK_PORTAL) {
                 j2 = 1;
             }
 
@@ -145,8 +144,8 @@ public class AtumTeleporter extends Teleporter {
                 int j3 = Direction.offsetZ[j2];
                 int k3 = Direction.offsetX[var48];
                 int l3 = Direction.offsetZ[var48];
-                boolean flag1 = !this.worldServerInstance.isAirBlock(i + i3 + k3, j, k + j3 + l3) || !this.worldServerInstance.isAirBlock(i + i3 + k3, j + 1, k + j3 + l3);
-                boolean flag2 = !this.worldServerInstance.isAirBlock(i + i3, j, k + j3) || !this.worldServerInstance.isAirBlock(i + i3, j + 1, k + j3);
+                boolean flag1 = !this.worldServerInstance.isAirBlock(x + i3 + k3, y, z + j3 + l3) || !this.worldServerInstance.isAirBlock(x + i3 + k3, y + 1, z + j3 + l3);
+                boolean flag2 = !this.worldServerInstance.isAirBlock(x + i3, y, z + j3) || !this.worldServerInstance.isAirBlock(x + i3, y + 1, z + j3);
                 if (flag1 && flag2) {
                     j2 = Direction.rotateOpposite[j2];
                     var48 = Direction.rotateOpposite[var48];
@@ -154,12 +153,12 @@ public class AtumTeleporter extends Teleporter {
                     j3 = Direction.offsetZ[j2];
                     k3 = Direction.offsetX[var48];
                     l3 = Direction.offsetZ[var48];
-                    k1 = i - k3;
+                    k1 = x - k3;
                     var46 -= (double) k3;
-                    int f1 = k - l3;
+                    int f1 = z - l3;
                     d4 -= (double) l3;
-                    flag1 = !this.worldServerInstance.isAirBlock(k1 + i3 + k3, j, f1 + j3 + l3) || !this.worldServerInstance.isAirBlock(k1 + i3 + k3, j + 1, f1 + j3 + l3);
-                    flag2 = !this.worldServerInstance.isAirBlock(k1 + i3, j, f1 + j3) || !this.worldServerInstance.isAirBlock(k1 + i3, j + 1, f1 + j3);
+                    flag1 = !this.worldServerInstance.isAirBlock(k1 + i3 + k3, y, f1 + j3 + l3) || !this.worldServerInstance.isAirBlock(k1 + i3 + k3, y + 1, f1 + j3 + l3);
+                    flag2 = !this.worldServerInstance.isAirBlock(k1 + i3, y, f1 + j3) || !this.worldServerInstance.isAirBlock(k1 + i3, y + 1, f1 + j3);
                 }
 
                 float var49 = 0.5F;
@@ -224,16 +223,7 @@ public class AtumTeleporter extends Teleporter {
         int i2;
         double d1;
         double d2;
-        int k2;
-        int j2;
-        int i3;
-        int l2;
-        int k3;
-        int j3;
-        int i4;
-        int l3;
-        int k4;
-        int j4;
+        int k2 = 0, j2 = 0, i3 = 0, l2 = 0, k3 = 0, j3 = 0, i4 = 0, l3 = 0, k4 = 0, j4 = 0;
         double d3;
         double d4;
         int i5;
@@ -365,6 +355,7 @@ public class AtumTeleporter extends Teleporter {
                 }
             }
         }
+
         Block block;
         if (par1Entity.dimension == 0) {
             block = Blocks.sandstone;
@@ -374,13 +365,13 @@ public class AtumTeleporter extends Teleporter {
         for (int x1 = -2; x1 < 3; x1++) {
             for (int z1 = -2; z1 < 3; z1++) {
 
-                this.worldServerInstance.setBlock(entityX + x1, entityY, entityZ + z1, block);
+                this.worldServerInstance.setBlock(l + x1, i1, j1 + z1, block);
             }
         }
         for (int x1 = -2; x1 < 3; x1++) {
             for (int z1 = -2; z1 < 3; z1++) {
                 if (x1 == 2 || z1 == 2 || x1 == -2 || z1 == -2) {
-                    this.worldServerInstance.setBlock(entityX + x1, entityY + 1, entityZ + z1, block);
+                    this.worldServerInstance.setBlock(l + x1, i1 + 1, j1 + z1, block);
                 }
             }
         }
@@ -388,7 +379,7 @@ public class AtumTeleporter extends Teleporter {
             for (int x1 = -2; x1 < 3; x1++) {
                 for (int z1 = -2; z1 < 3; z1++) {
                     if ((x1 == 2 && z1 == 2) || (x1 == -2 && z1 == 2) || (x1 == 2 && z1 == -2) || (x1 == -2 && z1 == -2)) {
-                        this.worldServerInstance.setBlock(entityX + x1, entityY + y1, entityZ + z1, block);
+                        this.worldServerInstance.setBlock(l + x1, i1 + y1, j1 + z1, block);
                     }
                 }
             }
@@ -396,10 +387,9 @@ public class AtumTeleporter extends Teleporter {
 
         for (int x1 = -1; x1 < 2; x1++) {
             for (int z1 = -1; z1 < 2; z1++) {
-                this.worldServerInstance.setBlock(x1 + entityX, entityY + 1, z1 + entityZ, AtumBlocks.BLOCK_PORTAL, 0, 2);
+                this.worldServerInstance.setBlock(l + x1 , i1 + 1, j1 + z1, AtumBlocks.BLOCK_PORTAL, 0, 2);
             }
         }
-
         return true;
     }
 
@@ -411,8 +401,8 @@ public class AtumTeleporter extends Teleporter {
 
             while (iterator.hasNext()) {
                 Long olong = (Long) iterator.next();
-                AtumPortalPosition portalposition = (AtumPortalPosition) this.destinationCoordinateCache.getValueByKey(olong.longValue());
-                if (portalposition == null || portalposition.lastUpdateTime < j) {
+                AtumPortalPosition portalPosition = (AtumPortalPosition) this.destinationCoordinateCache.getValueByKey(olong.longValue());
+                if (portalPosition == null || portalPosition.lastUpdateTime < j) {
                     iterator.remove();
                     this.destinationCoordinateCache.remove(olong.longValue());
                 }
