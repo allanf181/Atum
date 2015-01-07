@@ -1,7 +1,7 @@
 package com.teammetallurgy.atum.items;
 
-import com.teammetallurgy.atum.handler.AtumConfig;
 import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.handler.AtumConfig;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
@@ -29,39 +29,41 @@ public class ItemScarab extends Item {
         if (AtumConfig.ALLOW_CREATION || par2EntityPlayer.capabilities.isCreativeMode) {
             Block block = par3World.getBlock(x, y, z);
             Block temp = null;
-            if (block == Blocks.sandstone) {
-                temp = Blocks.sandstone;
-            } else if (block == AtumBlocks.BLOCK_LARGEBRICK) {
-                temp = AtumBlocks.BLOCK_LARGEBRICK;
+            if (block == Blocks.sandstone || block == AtumBlocks.BLOCK_LARGEBRICK) {
+                temp = block;
             }
             if (temp != null) {
-                if (!AtumBlocks.BLOCK_PORTAL.tryToCreatePortal(par3World, x, y, z, temp)) {
-                    if (par2EntityPlayer.capabilities.isCreativeMode) {
-                        for (int x1 = -2; x1 < 3; x1++) {
-                            for (int z1 = -2; z1 < 3; z1++) {
-                                par3World.setBlock(x + x1, y, z + z1, temp);
-                            }
+                for (int x1 = -1; x1 < 1; x1++) {
+                    for (int z1 = -1; z1 < 1; z1++) {
+                        if (AtumBlocks.BLOCK_PORTAL.tryToCreatePortal(par3World, x1 + x, y, z1 + z, temp)) {
+                            --par2EntityPlayer.getCurrentEquippedItem().stackSize;
+                            return true;
                         }
-                        for (int x1 = -2; x1 < 3; x1++) {
-                            for (int z1 = -2; z1 < 3; z1++) {
-                                if (x1 + x == x + 2 || z1 + z == z + 2 || x1 + x == x - 2 || z1 + z == z - 2) {
-                                    par3World.setBlock(x + x1, y + 1, z + z1, temp);
-                                }
-                            }
-                        }
-                        for (int y1 = 2; y1 < 4; y1++) {
-                            for (int x1 = -2; x1 < 3; x1++) {
-                                for (int z1 = -2; z1 < 3; z1++) {
-                                    if ((x1 + x == x + 2 && z1 + z == z + 2) || (x1 + x == x - 2 && z1 + z == z + 2) || (x1 + x == x + 2 && z1 + z == z - 2) || (x1 + x == x - 2 && z1 + z == z - 2)) {
-                                        par3World.setBlock(x + x1, y + y1, z + z1, temp);
-                                    }
-                                }
-                            }
-                        }
-                        AtumBlocks.BLOCK_PORTAL.tryToCreatePortal(par3World, x, y, z, temp);
                     }
-                } else {
-                    --par2EntityPlayer.getCurrentEquippedItem().stackSize;
+                }
+
+                if (par2EntityPlayer.capabilities.isCreativeMode) {
+                    for (int x1 = -2; x1 < 3; x1++) {
+                        for (int z1 = -2; z1 < 3; z1++) {
+                            for (int y1 = 0; y1 < 2; y1++) {
+                                par3World.setBlock(x + x1, y + y1, z + z1, temp);
+                            }
+                        }
+                    }
+
+                    for (int x1 = -1; x1 < 2; x1++) {
+                        for (int z1 = -1; z1 < 2; z1++) {
+                            par3World.setBlockToAir(x + x1, y + 1, z + z1);
+                        }
+                    }
+
+                    for (int y1 = 2; y1 < 4; y1++) {
+                        par3World.setBlock(x - 2, y + y1, z - 2, temp);
+                        par3World.setBlock(x + 2, y + y1, z - 2, temp);
+                        par3World.setBlock(x - 2, y + y1, z + 2, temp);
+                        par3World.setBlock(x + 2, y + y1, z + 2, temp);
+                    }
+                    AtumBlocks.BLOCK_PORTAL.tryToCreatePortal(par3World, x, y, z, temp);
                 }
             }
         } else {

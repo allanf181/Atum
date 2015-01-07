@@ -68,8 +68,7 @@ public class BlockPortal extends BlockBreakable {
     public boolean tryToCreatePortal(World par1World, int x, int y, int z, Block block) {
         for (int x1 = -2; x1 < 3; x1++) {
             for (int z1 = -2; z1 < 3; z1++) {
-                Block blocks = par1World.getBlock(x + x1, y, z + z1);
-                if (blocks != block) {
+                if (par1World.getBlock(x + x1, y, z + z1) != block) {
                     return false;
                 }
             }
@@ -77,8 +76,7 @@ public class BlockPortal extends BlockBreakable {
         for (int x1 = -2; x1 < 3; x1++) {
             for (int z1 = -2; z1 < 3; z1++) {
                 if (x1 + x == x + 2 || z1 + z == z + 2 || x1 + x == x - 2 || z1 + z == z - 2) {
-                    Block blocks = par1World.getBlock(x + x1, y + 1, z + z1);
-                    if (blocks != block) {
+                    if (par1World.getBlock(x + x1, y + 1, z + z1) != block) {
                         return false;
                     }
                 }
@@ -88,8 +86,7 @@ public class BlockPortal extends BlockBreakable {
             for (int x1 = -2; x1 < 3; x1++) {
                 for (int z1 = -2; z1 < 3; z1++) {
                     if ((x1 + x == x + 2 && z1 + z == z + 2) || (x1 + x == x - 2 && z1 + z == z + 2) || (x1 + x == x + 2 && z1 + z == z - 2) || (x1 + x == x - 2 && z1 + z == z - 2)) {
-                        Block blocks = par1World.getBlock(x + x1, y + y1, z + z1);
-                        if (blocks != block) {
+                        if (par1World.getBlock(x + x1, y + y1, z + z1) != block) {
                             return false;
                         }
                     }

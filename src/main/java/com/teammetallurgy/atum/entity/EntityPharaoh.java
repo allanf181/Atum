@@ -11,6 +11,7 @@ import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLiving;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
+import net.minecraft.entity.boss.BossStatus;
 import net.minecraft.entity.boss.IBossDisplayData;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.entity.player.EntityPlayer;
@@ -343,7 +344,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
         if (!this.worldObj.isRemote) {
             this.dataWatcher.updateObject(16, Float.valueOf(this.prevHealth));
         }
-
+        BossStatus.setBossStatus(this,true);
         if (regenTime++ > 20) {
             regenTime = 0;
             this.heal(1);
