@@ -250,13 +250,13 @@ item.neithsAudacity.line2=две стрелы за раз
 item.neithsAudacity.line3=Двойной выстрел I
 
 # Loot
-item.loot.dirty.name=Грязн.
-item.loot.silver.name=Серебрян.
-item.loot.gold.name=Золот.
-item.loot.sapphire.name=Сапфиров.
-item.loot.ruby.name=Рубинов.
-item.loot.emerald.name=Изумрудн.
-item.loot.diamond.name=Алмазн.
+item.loot.dirty.name=Грязный
+item.loot.silver.name=Серебряный
+item.loot.gold.name=Золотой
+item.loot.sapphire.name=Сапфировый
+item.loot.ruby.name=Рубиновый
+item.loot.emerald.name=Изумрудный
+item.loot.diamond.name=Алмазный
 
 item.loot.idol.name=идол
 item.loot.necklace.name=ожерелье
@@ -360,3 +360,28 @@ atum.configGui.portalCreation=Портал «Атума»
 atum.configGui.fog=Туман «Атума»
 atum.configGui.dimensionID=ID измерения «Атума»
 atum.configGui.biomeID=ID биома пустыня «Атума»
+
+# Custom Loot Names
+item.loot.dirty.necklace.name=Грязное ожерелье
+item.loot.silver.necklace.name=Серебряное ожерелье
+item.loot.gold.necklace.name=Золотое ожерелье
+item.loot.sapphire.necklace.name=Сапфировое ожерелье
+item.loot.ruby.necklace.name=Рубиновое ожерелье
+item.loot.emerald.necklace.name=Изумрудное ожерелье
+item.loot.diamond.necklace.name=Алмазное ожерелье
+
+item.loot.dirty.ring.name=Грязное кольцо
+item.loot.silver.ring.name=Серебряное кольцо
+item.loot.gold.ring.name=Золотое кольцо
+item.loot.sapphire.ring.name=Сапфировое кольцо
+item.loot.ruby.ring.name=Рубиновое кольцо
+item.loot.emerald.ring.name=Изумрудное кольцо
+item.loot.diamond.ring.name=Алмазное кольцо
+
+item.loot.dirty.broach.name=Грязная брошь
+item.loot.silver.broach.name=Серебряная брошь
+item.loot.gold.broach.name=Золотая брошь
+item.loot.sapphire.broach.name=Сапфировая брошь
+item.loot.ruby.broach.name=Рубиновая брошь
+item.loot.emerald.broach.name=Изумрудная брошь
+item.loot.diamond.broach.name=Алмазная брошь
