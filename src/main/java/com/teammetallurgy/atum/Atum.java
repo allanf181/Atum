@@ -37,31 +37,31 @@ public class Atum {
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
         Constants.LOG = event.getModLog();
-        Constants.LOG.info("Loading Configuration");
+        Constants.LOG.trace("Loading Configuration");
         new AtumConfig(event.getSuggestedConfigurationFile());
     }
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
-        Constants.LOG.info("Register Blocks");
+        Constants.LOG.trace("Register Blocks");
         new AtumBlocks();
 
-        Constants.LOG.info("Register Item");
+        Constants.LOG.trace("Register Item");
         new AtumItems();
 
-        Constants.LOG.info("Register Crafting Recipes");
+        Constants.LOG.trace("Register Crafting Recipes");
         new CraftingHandler().register();
 
-        Constants.LOG.info("Register World");
+        Constants.LOG.trace("Register World");
         new AtumWorlds().register();
 
-        Constants.LOG.info("Register Entity");
+        Constants.LOG.trace("Register Entity");
         new AtumEntities().register();
 
-        Constants.LOG.info("Register Loot");
+        Constants.LOG.trace("Register Loot");
         new AtumLoot().register();
 
-        Constants.LOG.info("Proxy Init");
+        Constants.LOG.trace("Proxy Init");
         proxy.init();
         proxy.initRenders();
         proxy.initTiles();
