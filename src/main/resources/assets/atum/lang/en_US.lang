@@ -264,6 +264,11 @@ item.loot.ring.name=Ring
 item.loot.broach.name=Broach
 item.loot.scepter.name=Scepter
 
+# Individual loot names
+item.loot.gold.idol.name=Golden Idol
+item.loot.gold.broach.name=Golden Broach
+item.loot.gold.scepter.name=Golden Scepter
+
 # Entity
 entity.atum.mummy.name=Mummy
 entity.atum.banditWarrior.name=Bandit Warrior

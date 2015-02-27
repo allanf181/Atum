@@ -37,13 +37,40 @@ public class ItemLoot extends Item {
     @Override
     public String getUnlocalizedName(ItemStack par1ItemStack) {
         int quality = par1ItemStack.getItemDamage() >> 1 & 15;
-        return super.getUnlocalizedName() + "." + qualityArray[quality];
+        int type = par1ItemStack.getItemDamage() >> 5 & 15;
+        if (type < typeArray.length && quality < qualityArray.length)
+            return "item.loot." +  qualityArray[quality] + "." + typeArray[type];
+
+        return "item.loot.unknown";
     }
 
     @Override
     public String getItemStackDisplayName(ItemStack par1ItemStack) {
+
+        int quality = par1ItemStack.getItemDamage() >> 1 & 15;
         int type = par1ItemStack.getItemDamage() >> 5 & 15;
-        return super.getItemStackDisplayName(par1ItemStack) + " " + StatCollector.translateToLocal("item.loot." + typeArray[type] + ".name");
+        if (type < typeArray.length && quality < qualityArray.length) {
+
+            // Individual localization
+            String unlocalizedName = this.getUnlocalizedName(par1ItemStack) + ".name";
+            if (StatCollector.canTranslate(unlocalizedName))
+                return StatCollector.translateToLocal(unlocalizedName);
+
+            // General localization
+            String unlocalizedQuality = "item.loot." + qualityArray[quality] + ".name";
+            String unlocalizedType = "item.loot." + typeArray[type] + ".name";
+
+            if (StatCollector.canTranslate(unlocalizedQuality) && StatCollector.canTranslate(unlocalizedType)) {
+                String LocalizedGeneralName = StatCollector.translateToLocal(unlocalizedQuality);
+                LocalizedGeneralName += " " + StatCollector.translateToLocal(unlocalizedType);
+                return LocalizedGeneralName;
+            }
+
+            // No localization
+            return unlocalizedName;
+        }
+
+        return super.getItemStackDisplayName(par1ItemStack);
     }
 
     @Override
