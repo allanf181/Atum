@@ -12,6 +12,7 @@ import com.teammetallurgy.atum.items.AtumLoot;
 import com.teammetallurgy.atum.proxy.CommonProxy;
 import com.teammetallurgy.atum.utils.Constants;
 import com.teammetallurgy.atum.world.AtumWorlds;
+
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
 import cpw.mods.fml.common.Mod.Instance;
@@ -35,6 +36,7 @@ public class Atum {
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event) {
+        Constants.LOG = event.getModLog();
         Constants.LOG.info("Loading Configuration");
         new AtumConfig(event.getSuggestedConfigurationFile());
     }

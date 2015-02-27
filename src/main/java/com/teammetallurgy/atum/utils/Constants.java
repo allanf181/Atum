@@ -1,6 +1,5 @@
 package com.teammetallurgy.atum.utils;
 
-import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
 public class Constants {
@@ -13,6 +12,6 @@ public class Constants {
     public static final String FACTORY = "com.teammetallurgy.atum.gui.AtumGuiFactory";
     public static final String DEPENDENCIES = "required-after:Forge@[10.13.0.1199,);";
 
-    public static final Logger LOG = LogManager.getLogger(MOD_NAME);
+    public static Logger LOG;
 
 }
