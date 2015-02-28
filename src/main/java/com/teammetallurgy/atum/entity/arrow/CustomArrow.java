@@ -29,4 +29,9 @@ public class CustomArrow extends EntityArrow {
     public String getTexture() {
         return "minecraft:arrow";
     }
+
+    @Override
+    public void onUpdate() {
+        this.onEntityUpdate();
+    }
 }
