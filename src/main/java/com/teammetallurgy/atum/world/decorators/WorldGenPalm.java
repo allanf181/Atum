@@ -48,7 +48,7 @@ public class WorldGenPalm extends WorldGenerator {
                     for (j1 = par5 - b0; j1 <= par5 + b0 && flag; ++j1) {
                         if (i1 >= 0 && i1 < 256) {
                             k1 = par1World.getBlock(soil, i1, j1);
-                            if (k1 != null && !k1.isLeaves(par1World, soil, i1, j1) && k1 != AtumBlocks.BLOCK_FERTILESOIL && k1 != Blocks.dirt && !k1.isWood(par1World, soil, i1, j1)) {
+                            if (k1 != null && !k1.isLeaves(par1World, soil, i1, j1) && k1 != AtumBlocks.BLOCK_FERTILESOIL && k1 != Blocks.dirt && !k1.isWood(par1World, soil, i1, j1) && k1 != AtumBlocks.BLOCK_SAND && k1 != Blocks.air) {
                                 flag = false;
                             }
                         } else {
@@ -111,7 +111,7 @@ public class WorldGenPalm extends WorldGenerator {
 
                     for (j1 = 0; j1 <= l; ++j1) {
                         Block var23 = par1World.getBlock(par3, par4 + j1, par5);
-                        if (var23 == null || var23.isLeaves(par1World, par3, par4 + j1, par5)) {
+                        if (var23 == null || var23.isLeaves(par1World, par3, par4 + j1, par5) || var23 == Blocks.air) {
                             this.setBlockAndNotifyAdequately(par1World, par3, par4 + j1, par5, AtumBlocks.BLOCK_LOG, this.metaWood);
                         }
                     }
