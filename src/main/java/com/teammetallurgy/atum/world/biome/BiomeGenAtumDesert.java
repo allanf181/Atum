@@ -65,7 +65,7 @@ public class BiomeGenAtumDesert extends BiomeGenBase {
             (new WorldGenOasis(false)).generate(par1World, par2Random, k, par1World.getHeightValue(k, l), l);
         }
 
-        if (par2Random.nextInt(20) == 0) {
+        if (par2Random.nextInt(100) == 0) {
             k = par3 + par2Random.nextInt(16) + 8;
             l = par4 + par2Random.nextInt(16) + 8;
             this.ruinsGenerator.generate(par1World, par2Random, k, par1World.getHeightValue(k, l) + 1, l);
@@ -86,13 +86,13 @@ public class BiomeGenAtumDesert extends BiomeGenBase {
             (new WorldGenAtumTrees(true)).generate(par1World, par2Random, k, par1World.getHeightValue(k, l), l);
         }
 
-        if (par2Random.nextInt(120) == 0) {
+        if (par2Random.nextInt(240) == 0) {
             k = par3 + par2Random.nextInt(16) + 8;
             l = par4 + par2Random.nextInt(16) + 8;
             (new WorldGenPyramid()).generate(par1World, par2Random, k, par1World.getHeightValue(k, l), l);
         }
 
-		if (par2Random.nextInt(160) == 0) {
+		if (par2Random.nextInt(320) == 0) {
 			k = par3 + par2Random.nextInt(16) + 8;
 			l = par4 + par2Random.nextInt(16) + 8;
 			height = par2Random.nextInt(10);
