@@ -73,20 +73,7 @@ public class BlockFertileSoil extends BlockFarmland {
             return true;
         }
 
-        switch (plantType.ordinal()) {
-            case 1:
-                return false;
-            case 2:
-                return false;
-            case 3:
-                return false;
-            case 4:
-                return isSideSolid(world, x, y, z, ForgeDirection.UP);
-            case 5:
-                return true;
-            case 6:
-                return false;
-            case 7:
+        if (plantType == EnumPlantType.Beach) {
                 boolean hasWater = (world.getBlock(x - 1, y, z).getMaterial() == Material.water) || (world.getBlock(x + 1, y, z).getMaterial() == Material.water) || (world.getBlock(x, y, z - 1).getMaterial() == Material.water) || (world.getBlock(x, y, z + 1).getMaterial() == Material.water);
 
                 return hasWater;
