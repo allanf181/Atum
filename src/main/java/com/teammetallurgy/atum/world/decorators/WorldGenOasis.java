@@ -158,9 +158,9 @@ public class WorldGenOasis extends WorldGenerator {
                                     for (dx = -1; dx <= 1; ++dx) {
                                         for (dz = -1; dz <= 1; ++dz) {
                                             int currentY = world.getHeightValue(par3 + var28, par5 + z);
-                                            Block belowID = world.getBlock(par3 + var28 + dx, currentY - 1, par5 + z + dz);
-                                            Block currentID = world.getBlock(par3 + var28 + dx, currentY, par5 + z + dz);
-                                            if (par2Random.nextInt(3) == 0 && belowID == AtumBlocks.BLOCK_FERTILESOIL && currentID == null) {
+                                            Block belowBlock = world.getBlock(par3 + var28 + dx, currentY - 1, par5 + z + dz);
+                                            Block currentBlock = world.getBlock(par3 + var28 + dx, currentY, par5 + z + dz);
+                                            if (par2Random.nextInt(3) == 0 && belowBlock == AtumBlocks.BLOCK_FERTILESOIL && currentBlock == Blocks.air) {
                                                 world.setBlock(par3 + var28 + dx, currentY, par5 + z + dz, AtumBlocks.BLOCK_FLAX, 13, 0);
                                             }
                                         }
