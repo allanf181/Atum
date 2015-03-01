@@ -5,6 +5,7 @@ import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityChestSpawner;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
 import com.teammetallurgy.atum.blocks.tileentity.furnace.TileEntityLimestoneFurnace;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
@@ -122,6 +123,15 @@ public class AtumBlocks {
 
         OreDictionary.registerOre("logWood", BLOCK_LOG);
         OreDictionary.registerOre("plankWood", BLOCK_PLANKS);
+
+        OreDictionary.registerOre("oreGold", BLOCK_GOLDORE);
+        OreDictionary.registerOre("oreIron", BLOCK_IRONORE);
+        OreDictionary.registerOre("oreLapis", BLOCK_LAPISORE);
+        OreDictionary.registerOre("oreDiamond", BLOCK_DIAMONDORE);
+        OreDictionary.registerOre("oreRedstone", BLOCK_REDSTONEORE);
+        OreDictionary.registerOre("oreCoal", BLOCK_COALORE);
+
+        OreDictionary.registerOre("blockGlass", BLOCK_CRYSTALGLASS);
 
         GameRegistry.registerBlock(BLOCK_SLABS, ItemBlockSlab.class, BLOCK_SLABS.getUnlocalizedName());
         GameRegistry.registerBlock(BLOCK_DOUBLESLAB, ItemBlockSlab.class, BLOCK_DOUBLESLAB.getUnlocalizedName());
