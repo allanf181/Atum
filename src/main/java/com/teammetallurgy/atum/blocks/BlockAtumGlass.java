@@ -12,7 +12,7 @@ public class BlockAtumGlass extends BlockBreakable {
 
     public BlockAtumGlass(String texture) {
         super(texture, Material.glass, false);
-        this.setStepSound(Block.soundTypeGrass);
+        this.setStepSound(Block.soundTypeGlass);
         this.setHardness(0.3F);
     }
 
