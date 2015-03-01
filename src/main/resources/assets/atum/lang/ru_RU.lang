@@ -355,7 +355,7 @@ chat.atum.enemies=Рядом слишком много врагов, сунду�
 chat.atum.summonPharaoh=был вызван
 chat.atum.killPharaoh=был убит
 
-# Gui
+# GUI
 atum.configGui.portalCreation=Портал «Атума»
 atum.configGui.fog=Туман «Атума»
 atum.configGui.dimensionID=ID измерения «Атума»

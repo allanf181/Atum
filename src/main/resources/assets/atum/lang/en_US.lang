@@ -11,8 +11,8 @@ tile.cobble.name=Cracked Limestone
 tile.largeBrick.name=Limestone Large Bricks
 tile.smallBrick.name=Limestone Small Bricks
 tile.carvedBrick.name=Limestone Carved Bricks
-tile.smoothSlab.name=Smooth-Limestone Slab
-tile.crackedSlab.name=Cracked-Limestone Slab
+tile.smoothSlab.name=Smooth Limestone Slab
+tile.crackedSlab.name=Cracked Limestone Slab
 tile.largeBrickSlab.name=Large Limestone Brick Slab
 tile.smallBrickSlab.name=Small Limestone Brick Slab
 tile.doubleSlab.name=Limestone Slab
@@ -22,8 +22,8 @@ tile.largeStairs.name=Limestone Large Brick Stairs
 tile.smallStairs.name=Limestone Small Brick Stairs
 tile.sandLayer.name=Sand Layer
 tile.crackedLargeBrick.name=Limestone Cracked Large Bricks
-tile.smoothWall.name=Smooth-Limestone Wall
-tile.crackedWall.name=Cracked-Limestone Wall
+tile.smoothWall.name=Smooth Limestone Wall
+tile.crackedWall.name=Cracked Limestone Wall
 tile.largeBrickWall.name=Large Limestone Brick Wall
 tile.smallBrickWall.name=Small Limestone Brick Wall
 tile.crystalGlass.name=Crystal Glass
@@ -360,7 +360,7 @@ chat.atum.enemies=There are too many enemies nearby to search this chest
 chat.atum.summonPharaoh=was summoned by
 chat.atum.killPharaoh=was slain by
 
-# Gui
+# GUI
 atum.configGui.portalCreation=Atum Portal
 atum.configGui.fog=Atum Fog
 atum.configGui.dimensionID=Atum Dimension ID
