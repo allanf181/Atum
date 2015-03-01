@@ -5,6 +5,7 @@ import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityChestSpawner;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
 import com.teammetallurgy.atum.blocks.tileentity.furnace.TileEntityLimestoneFurnace;
+import com.teammetallurgy.atum.items.ItemBlockStainedGlass;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -33,7 +34,9 @@ public class AtumBlocks {
     public static Block BLOCK_SANDLAYERED = new BlockSandLayered();
     public static Block BLOCK_CRACKEDLARGEBRICK = new BlockAtum("crackedLargeBrick").setBlockTextureName("atum:AtumCrackedLargeBrick");
     public static Block BLOCK_CRYSTALGLASS = new BlockAtumGlass("atum:AtumCrystalGlass").setBlockName("crystalGlass");
+    public static Block BLOCK_CRYSTALSTAINEDGLASS = new BlockAtumGlassStained("atum:AtumCrystalGlass").setBlockName("crystalStainedGlass");
     public static Block BLOCK_FRAMEDGLASS = new BlockAtumGlass("atum:AtumFramedGlass").setBlockName("framedGlass");
+    public static Block BLOCK_FRAMEDSTAINEDGLASS = new BlockAtumGlassStained("atum:AtumFramedGlass").setBlockName("framedStainedGlass");
     public static Block BLOCK_PALMSAPLING = new BlockPalmSapling();
     public static Block BLOCK_DATEBLOCK = new BlockDate();
     public static Block BLOCK_SHRUB = new BlockShrub().setBlockName("shrub").setBlockTextureName("atum:Shrub");
@@ -46,7 +49,9 @@ public class AtumBlocks {
     public static Block BLOCK_LEAVES = new BlockLeave();
     public static Block BLOCK_PLANKS = new BlockAtumPlank();
     public static Block BLOCK_THINCRYSTALGLASS = new BlockAtumPane("atum:AtumCrystalGlass", "atum:thinglass_top").setBlockName("thinCrystalGlass");
+    public static Block BLOCK_THINCRYSTALSTAINEDGLASS = new BlockAtumPaneStained("atum:AtumCrystalGlass", "atum:thinglass_top").setBlockName("thinCrystalStainedlass");
     public static Block BLOCK_THINFRAMEDGLASS = new BlockAtumPane("atum:AtumFramedGlass", "atum:thinglass_top").setBlockName("thinFramedGlass");
+    public static Block BLOCK_THINFRAMEDSTAINEDGLASS = new BlockAtumPaneStained("atum:AtumFramedGlass", "atum:thinglass_top").setBlockName("thinFramedStainedGlass");
     public static Block BLOCK_TRAPARROW = new BlockBurningTrap();
     public static Block BLOCK_PHARAOHCHEST = new BlockPharaohChest();
     public static Block BLOCK_REDSTONEORE = new BlockAtumRedstone();
@@ -133,6 +138,12 @@ public class AtumBlocks {
 
         OreDictionary.registerOre("blockGlass", BLOCK_CRYSTALGLASS);
 
+        GameRegistry.registerBlock(BLOCK_CRYSTALSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_CRYSTALSTAINEDGLASS.getUnlocalizedName());
+        GameRegistry.registerBlock(BLOCK_FRAMEDSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_FRAMEDSTAINEDGLASS.getUnlocalizedName());
+        
+        GameRegistry.registerBlock(BLOCK_THINCRYSTALSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_THINCRYSTALSTAINEDGLASS.getUnlocalizedName());
+        GameRegistry.registerBlock(BLOCK_THINFRAMEDSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_THINFRAMEDSTAINEDGLASS.getUnlocalizedName());
+        
         GameRegistry.registerBlock(BLOCK_SLABS, ItemBlockSlab.class, BLOCK_SLABS.getUnlocalizedName());
         GameRegistry.registerBlock(BLOCK_DOUBLESLAB, ItemBlockSlab.class, BLOCK_DOUBLESLAB.getUnlocalizedName());
 

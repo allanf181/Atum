@@ -13,5 +13,7 @@ public class Constants {
     public static final String DEPENDENCIES = "required-after:Forge@[10.13.0.1199,);";
 
     public static Logger LOG;
+    
+    public static final String[] COLOURS = {"Black", "Red", "Green", "Brown", "Blue", "Purple", "Cyan", "Silver", "Gray", "Pink", "Lime", "Yellow", "LightBlue", "Magenta", "Orange", "White"};
 
 }
