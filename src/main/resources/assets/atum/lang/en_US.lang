@@ -52,6 +52,75 @@ tile.diamondOre.name=Diamond Ore
 tile.furnaceIdle.name=Limestone Furnace
 tile.furnaceBurning.name=Limestone Furnace
 
+# Stained Glass
+tile.crystalStainedGlassBlack.name=Black Stained Crystal Glass
+tile.crystalStainedGlassRed.name=Red Stained Crystal Glass
+tile.crystalStainedGlassGreen.name=Green Stained Crystal Glass
+tile.crystalStainedGlassBrown.name=Brown Stained Crystal Glass
+tile.crystalStainedGlassBlue.name=Blue Stained Crystal Glass
+tile.crystalStainedGlassPurple.name=Purple Stained Crystal Glass
+tile.crystalStainedGlassCyan.name=Cyan Stained Crystal Glass
+tile.crystalStainedGlassSilver.name=Silver Stained Crystal Glass
+tile.crystalStainedGlassGray.name=Gray Stained Crystal Glass
+tile.crystalStainedGlassPink.name=Pink Stained Crystal Glass
+tile.crystalStainedGlassLime.name=Lime Stained Crystal Glass
+tile.crystalStainedGlassYellow.name=Yellow Stained Crystal Glass
+tile.crystalStainedGlassLightBlue.name=Light Blue Stained Crystal Glass
+tile.crystalStainedGlassMagenta.name=Magenta Stained Crystal Glass
+tile.crystalStainedGlassOrange.name=Orange Stained Crystal Glass
+tile.crystalStainedGlassWhite.name=White Stained Crystal Glass
+
+tile.framedStainedGlassBlack.name=Black Stained Framed Glass
+tile.framedStainedGlassRed.name=Red Stained Framed Glass
+tile.framedStainedGlassGreen.name=Green Stained Framed Glass
+tile.framedStainedGlassBrown.name=Brown Stained Framed Glass
+tile.framedStainedGlassBlue.name=Blue Stained Framed Glass
+tile.framedStainedGlassPurple.name=Purple Stained Framed Glass
+tile.framedStainedGlassCyan.name=Cyan Stained Framed Glass
+tile.framedStainedGlassSilver.name=Silver Stained Framed Glass
+tile.framedStainedGlassGray.name=Gray Stained Framed Glass
+tile.framedStainedGlassPink.name=Pink Stained Framed Glass
+tile.framedStainedGlassLime.name=Lime Stained Framed Glass
+tile.framedStainedGlassYellow.name=Yellow Stained Framed Glass
+tile.framedStainedGlassLightBlue.name=Light Blue Stained Framed Glass
+tile.framedStainedGlassMagenta.name=Magenta Stained Framed Glass
+tile.framedStainedGlassOrange.name=Orange Stained Framed Glass
+tile.framedStainedGlassWhite.name=White Stained Framed Glass
+
+tile.thinCrystalStainedGlassBlack.name=Black Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassRed.name=Red Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassGreen.name=Green Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassBrown.name=Brown Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassBlue.name=Blue Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassPurple.name=Purple Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassCyan.name=Cyan Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassSilver.name=Silver Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassGray.name=Gray Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassPink.name=Pink Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassLime.name=Lime Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassYellow.name=Yellow Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassLightBlue.name=Light Blue Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassMagenta.name=Magenta Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassOrange.name=Orange Stained Thin Crystal Glass
+tile.thinCrystalStainedGlassWhite.name=White Stained Thin Crystal Glass
+
+tile.thinFramedStainedGlassBlack.name=Black Stained Thin Framed Glass
+tile.thinFramedStainedGlassRed.name=Red Stained Thin Framed Glass
+tile.thinFramedStainedGlassGreen.name=Green Stained Thin Framed Glass
+tile.thinFramedStainedGlassBrown.name=Brown Stained Thin Framed Glass
+tile.thinFramedStainedGlassBlue.name=Blue Stained Thin Framed Glass
+tile.thinFramedStainedGlassPurple.name=Purple Stained Thin Framed Glass
+tile.thinFramedStainedGlassCyan.name=Cyan Stained Thin Framed Glass
+tile.thinFramedStainedGlassSilver.name=Silver Stained Thin Framed Glass
+tile.thinFramedStainedGlassGray.name=Gray Stained Thin Framed Glass
+tile.thinFramedStainedGlassPink.name=Pink Stained Thin Framed Glass
+tile.thinFramedStainedGlassLime.name=Lime Stained Thin Framed Glass
+tile.thinFramedStainedGlassYellow.name=Yellow Stained Thin Framed Glass
+tile.thinFramedStainedGlassLightBlue.name=Light Blue Stained Thin Framed Glass
+tile.thinFramedStainedGlassMagenta.name=Magenta Stained Thin Framed Glass
+tile.thinFramedStainedGlassOrange.name=Orange Stained Thin Framed Glass
+tile.thinFramedStainedGlassWhite.name=White Stained Thin Framed Glass
+
 # Containers
 container.limestoneFurnace=Limestone Furnace
 

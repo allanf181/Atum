@@ -49,7 +49,7 @@ public class AtumBlocks {
     public static Block BLOCK_LEAVES = new BlockLeave();
     public static Block BLOCK_PLANKS = new BlockAtumPlank();
     public static Block BLOCK_THINCRYSTALGLASS = new BlockAtumPane("atum:AtumCrystalGlass", "atum:thinglass_top").setBlockName("thinCrystalGlass");
-    public static Block BLOCK_THINCRYSTALSTAINEDGLASS = new BlockAtumPaneStained("atum:AtumCrystalGlass", "atum:thinglass_top").setBlockName("thinCrystalStainedlass");
+    public static Block BLOCK_THINCRYSTALSTAINEDGLASS = new BlockAtumPaneStained("atum:AtumCrystalGlass", "atum:thinglass_top").setBlockName("thinCrystalStainedGlass");
     public static Block BLOCK_THINFRAMEDGLASS = new BlockAtumPane("atum:AtumFramedGlass", "atum:thinglass_top").setBlockName("thinFramedGlass");
     public static Block BLOCK_THINFRAMEDSTAINEDGLASS = new BlockAtumPaneStained("atum:AtumFramedGlass", "atum:thinglass_top").setBlockName("thinFramedStainedGlass");
     public static Block BLOCK_TRAPARROW = new BlockBurningTrap();
