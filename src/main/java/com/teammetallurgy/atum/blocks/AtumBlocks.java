@@ -108,6 +108,17 @@ public class AtumBlocks {
         this.register(BLOCK_FURNACEIDLE);
         this.register(BLOCK_FURNACEBURNING);
 
+        GameRegistry.registerBlock(BLOCK_CRYSTALSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_CRYSTALSTAINEDGLASS.getUnlocalizedName());
+        GameRegistry.registerBlock(BLOCK_FRAMEDSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_FRAMEDSTAINEDGLASS.getUnlocalizedName());
+
+        GameRegistry.registerBlock(BLOCK_THINCRYSTALSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_THINCRYSTALSTAINEDGLASS.getUnlocalizedName());
+        GameRegistry.registerBlock(BLOCK_THINFRAMEDSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_THINFRAMEDSTAINEDGLASS.getUnlocalizedName());
+
+        GameRegistry.registerBlock(BLOCK_SLABS, ItemBlockSlab.class, BLOCK_SLABS.getUnlocalizedName());
+        GameRegistry.registerBlock(BLOCK_DOUBLESLAB, ItemBlockSlab.class, BLOCK_DOUBLESLAB.getUnlocalizedName());
+
+        GameRegistry.registerBlock(BLOCK_WALL, ItemBlockWall.class, BLOCK_WALL.getUnlocalizedName());
+
         ForgeHooks.canToolHarvestBlock(BLOCK_SAND, 0, new ItemStack(Items.iron_shovel));
         BLOCK_SAND.setHarvestLevel("shovel", 0);
         BLOCK_COALORE.setHarvestLevel("pickaxe", 0);
@@ -138,16 +149,7 @@ public class AtumBlocks {
 
         OreDictionary.registerOre("blockGlass", BLOCK_CRYSTALGLASS);
 
-        GameRegistry.registerBlock(BLOCK_CRYSTALSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_CRYSTALSTAINEDGLASS.getUnlocalizedName());
-        GameRegistry.registerBlock(BLOCK_FRAMEDSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_FRAMEDSTAINEDGLASS.getUnlocalizedName());
         
-        GameRegistry.registerBlock(BLOCK_THINCRYSTALSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_THINCRYSTALSTAINEDGLASS.getUnlocalizedName());
-        GameRegistry.registerBlock(BLOCK_THINFRAMEDSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_THINFRAMEDSTAINEDGLASS.getUnlocalizedName());
-        
-        GameRegistry.registerBlock(BLOCK_SLABS, ItemBlockSlab.class, BLOCK_SLABS.getUnlocalizedName());
-        GameRegistry.registerBlock(BLOCK_DOUBLESLAB, ItemBlockSlab.class, BLOCK_DOUBLESLAB.getUnlocalizedName());
-
-        GameRegistry.registerBlock(BLOCK_WALL, ItemBlockWall.class, BLOCK_WALL.getUnlocalizedName());
     }
 
     private void register(Block b) {
