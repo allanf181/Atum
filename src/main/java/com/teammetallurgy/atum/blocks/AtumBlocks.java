@@ -137,8 +137,12 @@ public class AtumBlocks {
         GameRegistry.registerTileEntity(TileEntityBurningTrap.class, "BurningTrap");
         GameRegistry.registerTileEntity(TileEntityLimestoneFurnace.class, "LimestoneFurnace");
 
+        OreDictionary.registerOre("blockLimestone", BLOCK_STONE);
+
         OreDictionary.registerOre("logWood", BLOCK_LOG);
         OreDictionary.registerOre("plankWood", BLOCK_PLANKS);
+        OreDictionary.registerOre("treeSapling", BLOCK_PALMSAPLING);
+        OreDictionary.registerOre("treeLeaves",  BLOCK_LEAVES);
 
         OreDictionary.registerOre("oreGold", BLOCK_GOLDORE);
         OreDictionary.registerOre("oreIron", BLOCK_IRONORE);
@@ -147,9 +151,43 @@ public class AtumBlocks {
         OreDictionary.registerOre("oreRedstone", BLOCK_REDSTONEORE);
         OreDictionary.registerOre("oreCoal", BLOCK_COALORE);
 
+        OreDictionary.registerOre("blockGlassColorless", BLOCK_CRYSTALGLASS);
         OreDictionary.registerOre("blockGlass", BLOCK_CRYSTALGLASS);
-
+        OreDictionary.registerOre("blockGlass", new ItemStack(BLOCK_CRYSTALSTAINEDGLASS, 1, OreDictionary.WILDCARD_VALUE));
         
+        OreDictionary.registerOre("paneGlassColorless", BLOCK_THINCRYSTALGLASS);
+        OreDictionary.registerOre("paneGlass", BLOCK_THINCRYSTALGLASS);
+        OreDictionary.registerOre("paneGlass", new ItemStack(BLOCK_FRAMEDSTAINEDGLASS, 1, OreDictionary.WILDCARD_VALUE));
+
+        String[] oreColours =
+            {
+                "Black",
+                "Red",
+                "Green",
+                "Brown",
+                "Blue",
+                "Purple",
+                "Cyan",
+                "LightGray",
+                "Gray",
+                "Pink",
+                "Lime",
+                "Yellow",
+                "LightBlue",
+                "Magenta",
+                "Orange",
+                "White"
+            };
+
+        for (int i = 0; i < oreColours.length; i++ ){
+
+            ItemStack glass = new ItemStack(BLOCK_CRYSTALSTAINEDGLASS, 1, i);
+            ItemStack pane = new ItemStack(BLOCK_FRAMEDSTAINEDGLASS, 1, i);
+
+            OreDictionary.registerOre("blockGlass" + oreColours[i], glass);
+            OreDictionary.registerOre("paneGlass"  + oreColours[i], pane);
+        }
+
     }
 
     private void register(Block b) {
