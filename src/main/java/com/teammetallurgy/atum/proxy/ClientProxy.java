@@ -22,7 +22,9 @@ import com.teammetallurgy.atum.entity.arrow.EntityAtumFishHook;
 import com.teammetallurgy.atum.entity.arrow.EntityNutsCall;
 import com.teammetallurgy.atum.items.AtumItems;
 import com.teammetallurgy.atum.handler.event.ClientEvents;
+
 import cpw.mods.fml.client.registry.RenderingRegistry;
+import cpw.mods.fml.common.FMLCommonHandler;
 import net.minecraft.client.model.ModelBiped;
 import net.minecraft.client.model.ModelZombie;
 import net.minecraft.client.renderer.entity.RenderBiped;
@@ -38,7 +40,7 @@ public class ClientProxy extends CommonProxy {
     @Override
     public void init() {
         ClientEvents ticker = new ClientEvents();
-        MinecraftForge.EVENT_BUS.register(ticker);
+        FMLCommonHandler.instance().bus().register(ticker);
 
         MinecraftForge.EVENT_BUS.register(AtumItems.anubisMercy);
         MinecraftForge.EVENT_BUS.register(AtumItems.gebsSolidarity);

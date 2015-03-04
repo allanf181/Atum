@@ -25,7 +25,7 @@ public class ClientEvents {
                 int par1 = scaledresolution.getScaledWidth();
                 int par2 = scaledresolution.getScaledHeight();
 
-                Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("atum", "textures/hud/mummyblur"));
+                Minecraft.getMinecraft().renderEngine.bindTexture(new ResourceLocation("atum", "textures/hud/mummyblur.png"));
                 Tessellator tessellator = Tessellator.instance;
                 tessellator.startDrawingQuads();
                 tessellator.addVertexWithUV(0.0D, par2, -100, 0.0D, 1.0D);
