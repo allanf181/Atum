@@ -88,7 +88,7 @@ public class EntityAtumFishHook extends EntityFishHook {
     }
 
     public EntityAtumFishHook(World par1World, EntityPlayer par2EntityPlayer) {
-        super(par1World);
+        super(par1World, par2EntityPlayer);
         this.xTile = -1;
         this.yTile = -1;
         this.zTile = -1;
