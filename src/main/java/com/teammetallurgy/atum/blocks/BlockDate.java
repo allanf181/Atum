@@ -22,6 +22,7 @@ public class BlockDate extends Block {
     public BlockDate() {
         super(Material.plants);
         this.setBlockName("date");
+        this.setHardness(0.5F);
     }
 
     @Override
