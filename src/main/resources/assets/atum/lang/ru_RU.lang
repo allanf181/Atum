@@ -52,6 +52,75 @@ tile.diamondOre.name=Алмазная руда
 tile.furnaceIdle.name=Известняковая печь
 tile.furnaceBurning.name=Известняковая печь
 
+# Stained Glass
+tile.crystalStainedGlassBlack.name=Чёрное кристальное стекло
+tile.crystalStainedGlassRed.name=Красное кристальное стекло
+tile.crystalStainedGlassGreen.name=Зелёное кристальное стекло
+tile.crystalStainedGlassBrown.name=Коричневое кристальное стекло
+tile.crystalStainedGlassBlue.name=Синее кристальное стекло
+tile.crystalStainedGlassPurple.name=Фиолетовое кристальное стекло
+tile.crystalStainedGlassCyan.name=Бирюзовое кристальное стекло
+tile.crystalStainedGlassSilver.name=Светло-серое кристальное стекло
+tile.crystalStainedGlassGray.name=Серое кристальное стекло
+tile.crystalStainedGlassPink.name=Розовое кристальное стекло
+tile.crystalStainedGlassLime.name=Лаймовое кристальное стекло
+tile.crystalStainedGlassYellow.name=Жёлтое кристальное стекло
+tile.crystalStainedGlassLightBlue.name=Светло-синее кристальное стекло
+tile.crystalStainedGlassMagenta.name=Сиреневое кристальное стекло
+tile.crystalStainedGlassOrange.name=Оранжевое кристальное стекло
+tile.crystalStainedGlassWhite.name=Белое кристальное стекло
+
+tile.framedStainedGlassBlack.name=Чёрное обрамленное стекло
+tile.framedStainedGlassRed.name=Красное обрамленное стекло
+tile.framedStainedGlassGreen.name=Зелёное обрамленное стекло
+tile.framedStainedGlassBrown.name=Коричневое обрамленное стекло
+tile.framedStainedGlassBlue.name=Синее обрамленное стекло
+tile.framedStainedGlassPurple.name=Фиолетовое обрамленное стекло
+tile.framedStainedGlassCyan.name=Бирюзовое обрамленное стекло
+tile.framedStainedGlassSilver.name=Светло-серое обрамленное стекло
+tile.framedStainedGlassGray.name=Серое обрамленное стекло
+tile.framedStainedGlassPink.name=Розовое обрамленное стекло
+tile.framedStainedGlassLime.name=Лаймовое обрамленное стекло
+tile.framedStainedGlassYellow.name=Жёлтое обрамленное стекло
+tile.framedStainedGlassLightBlue.name=Светло-синее обрамленное стекло
+tile.framedStainedGlassMagenta.name=Сиреневое обрамленное стекло
+tile.framedStainedGlassOrange.name=Оранжевое обрамленное стекло
+tile.framedStainedGlassWhite.name=Белое обрамленное стекло
+
+tile.thinCrystalStainedGlassBlack.name=Чёрное тонкое кристальное стекло
+tile.thinCrystalStainedGlassRed.name=Красное тонкое кристальное стекло
+tile.thinCrystalStainedGlassGreen.name=Зелёное тонкое кристальное стекло
+tile.thinCrystalStainedGlassBrown.name=Коричневое тонкое кристальное стекло
+tile.thinCrystalStainedGlassBlue.name=Синее тонкое кристальное стекло
+tile.thinCrystalStainedGlassPurple.name=Фиолетовое тонкое кристальное стекло
+tile.thinCrystalStainedGlassCyan.name=Бирюзовое тонкое кристальное стекло
+tile.thinCrystalStainedGlassSilver.name=Светло-серое тонкое кристальное стекло
+tile.thinCrystalStainedGlassGray.name=Серое тонкое кристальное стекло
+tile.thinCrystalStainedGlassPink.name=Розовое тонкое кристальное стекло
+tile.thinCrystalStainedGlassLime.name=Лаймовое тонкое кристальное стекло
+tile.thinCrystalStainedGlassYellow.name=Жёлтое тонкое кристальное стекло
+tile.thinCrystalStainedGlassLightBlue.name=Светло-синее тонкое кристальное стекло
+tile.thinCrystalStainedGlassMagenta.name=Сиреневое тонкое кристальное стекло
+tile.thinCrystalStainedGlassOrange.name=Оранжевое тонкое кристальное стекло
+tile.thinCrystalStainedGlassWhite.name=Белое тонкое кристальное стекло
+
+tile.thinFramedStainedGlassBlack.name=Чёрное тонкое обрамленное стекло
+tile.thinFramedStainedGlassRed.name=Красное тонкое обрамленное стекло
+tile.thinFramedStainedGlassGreen.name=Зелёное тонкое обрамленное стекло
+tile.thinFramedStainedGlassBrown.name=Коричневое тонкое обрамленное стекло
+tile.thinFramedStainedGlassBlue.name=Синее тонкое обрамленное стекло
+tile.thinFramedStainedGlassPurple.name=Фиолетовое тонкое обрамленное стекло
+tile.thinFramedStainedGlassCyan.name=Бирюзовое тонкое обрамленное стекло
+tile.thinFramedStainedGlassSilver.name=Светло-серое тонкое обрамленное стекло
+tile.thinFramedStainedGlassGray.name=Серое тонкое обрамленное стекло
+tile.thinFramedStainedGlassPink.name=Розовое тонкое обрамленное стекло
+tile.thinFramedStainedGlassLime.name=Лаймовое тонкое обрамленное стекло
+tile.thinFramedStainedGlassYellow.name=Жёлтое тонкое обрамленное стекло
+tile.thinFramedStainedGlassLightBlue.name=Светло-синее тонкое обрамленное стекло
+tile.thinFramedStainedGlassMagenta.name=Сиреневое тонкое обрамленное стекло
+tile.thinFramedStainedGlassOrange.name=Оранжевое тонкое обрамленное стекло
+tile.thinFramedStainedGlassWhite.name=Белое тонкое обрамленное стекло
+
 # Containers
 container.limestoneFurnace=Известняковая печь
 
@@ -184,10 +253,9 @@ item.hedetetsSting.line1=Отравление II: Шанс
 item.hedetetsSting.line2=отравления игроков
 item.hedetetsSting.line3=Отравление II
 
-# I need to talk to shadow
-item.horusSoaring.line1=Могущество I: Замедляет игрока,
-item.horusSoaring.line2=Шанс оглушить врагов
-item.horusSoaring.line3=Могущество I
+item.horusSoaring.line1=Скорость I: Скорость стрелы,
+item.horusSoaring.line2=увеличивает скорость стрелы на 50%
+item.horusSoaring.line3=Скорость I
 
 item.shusBreath.line1=Быстрое натяжение I: Увеличенная
 item.shusBreath.line2=скорость натяжения стрелы
