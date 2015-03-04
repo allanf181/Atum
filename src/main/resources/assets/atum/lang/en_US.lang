@@ -253,10 +253,9 @@ item.hedetetsSting.line1=Poison II: Chance
 item.hedetetsSting.line2=to poison foes
 item.hedetetsSting.line3=Poison II
 
-# I need to talk to shadow
-item.horusSoaring.line1=Mighty I: Slows player,
-item.horusSoaring.line2=Chance to stun foes
-item.horusSoaring.line3=Mighty I
+item.horusSoaring.line1=Velocity I: Arrow Velocity,
+item.horusSoaring.line2=increases arrow velocity by 50%
+item.horusSoaring.line3=Velocity I
 
 item.shusBreath.line1=Quickdraw I: Reduced
 item.shusBreath.line2=drawback speed
