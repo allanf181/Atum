@@ -1,5 +1,6 @@
 package com.teammetallurgy.atum.client.render.item;
 
+import com.teammetallurgy.atum.entity.EntityBanditArcher;
 import net.minecraft.client.Minecraft;
 import net.minecraft.client.renderer.ItemRenderer;
 import net.minecraft.client.renderer.Tessellator;
@@ -30,7 +31,7 @@ public class RendererItemBow implements IItemRenderer {
             renderFirstPerson = true;
         }
 
-        if (!renderFirstPerson && e instanceof EntityPlayer) {
+        if ((!renderFirstPerson) && (e instanceof EntityPlayer || e instanceof EntityBanditArcher)) {
             float f22 = 0.375F;
             GL11.glRotatef(-20.0F, 0.0F, 0.0F, 1.0F);
             GL11.glRotatef(90.0F, 1.0F, 0.0F, 0.0F);
