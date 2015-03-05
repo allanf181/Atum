@@ -152,7 +152,6 @@ public class AtumBlocks {
         OreDictionary.registerOre("oreRedstone", BLOCK_REDSTONEORE);
         OreDictionary.registerOre("oreCoal", BLOCK_COALORE);
 
-        OreDictionary.registerOre("blockGlassColorless", BLOCK_CRYSTALGLASS);
         OreDictionary.registerOre("blockGlass", BLOCK_CRYSTALGLASS);
         OreDictionary.registerOre("blockGlass", new ItemStack(BLOCK_CRYSTALSTAINEDGLASS, 1, OreDictionary.WILDCARD_VALUE));
         
