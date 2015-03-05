@@ -6,6 +6,7 @@ import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityChestSpawner;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
 import com.teammetallurgy.atum.blocks.tileentity.furnace.TileEntityLimestoneFurnace;
 import com.teammetallurgy.atum.items.ItemBlockStainedGlass;
+import com.teammetallurgy.atum.utils.Constants;
 
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
@@ -159,25 +160,7 @@ public class AtumBlocks {
         OreDictionary.registerOre("paneGlass", BLOCK_THINCRYSTALGLASS);
         OreDictionary.registerOre("paneGlass", new ItemStack(BLOCK_FRAMEDSTAINEDGLASS, 1, OreDictionary.WILDCARD_VALUE));
 
-        String[] oreColours =
-            {
-                "Black",
-                "Red",
-                "Green",
-                "Brown",
-                "Blue",
-                "Purple",
-                "Cyan",
-                "LightGray",
-                "Gray",
-                "Pink",
-                "Lime",
-                "Yellow",
-                "LightBlue",
-                "Magenta",
-                "Orange",
-                "White"
-            };
+        String[] oreColours = Constants.ORE_DIC_COLOURS;
 
         for (int i = 0; i < oreColours.length; i++ ){
 

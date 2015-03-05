@@ -2,6 +2,8 @@ package com.teammetallurgy.atum.handler;
 
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.items.AtumItems;
+import com.teammetallurgy.atum.utils.Constants;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -56,6 +58,18 @@ public class CraftingHandler {
         GameRegistry.addRecipe(new ItemStack(AtumItems.ITEM_SCROLL), "XXX", "SXS", "XXX", 'X', AtumItems.papyrusPlant, 'S', Items.stick);
         GameRegistry.addRecipe(new ItemStack(AtumItems.ITEM_SCARAB), " G ", "GDG", " G ", 'G', Items.gold_ingot, 'D', Items.diamond);
         GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_FURNACEIDLE), "XXX", "X X", "XXX", 'X', AtumBlocks.BLOCK_LIMESTONECOBBLE);
+
+        String [] oreColours = Constants.ORE_DIC_COLOURS;
+
+        for (int i = 0; i < oreColours.length; i++) {
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack (AtumBlocks.BLOCK_CRYSTALSTAINEDGLASS, 8, i), "GGG", "GDG", "GGG", 'G', AtumBlocks.BLOCK_CRYSTALGLASS, 'D', "dye" + oreColours[i]));
+            GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_THINCRYSTALSTAINEDGLASS, 16, i), "GGG", "GGG", 'G', new ItemStack (AtumBlocks.BLOCK_CRYSTALSTAINEDGLASS, 1, i));
+
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack (AtumBlocks.BLOCK_FRAMEDSTAINEDGLASS, 8, i), "GGG", "GDG", "GGG", 'G', AtumBlocks.BLOCK_FRAMEDGLASS, 'D', "dye" + oreColours[i]));
+            GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_THINFRAMEDSTAINEDGLASS, 16, i), "GGG", "GGG", 'G', new ItemStack (AtumBlocks.BLOCK_FRAMEDSTAINEDGLASS, 1, i));
+
+            GameRegistry.addRecipe(new ItemStack (AtumBlocks.BLOCK_FRAMEDSTAINEDGLASS, 1, i), " S ", "SGS", " S ", 'S', Items.stick, 'G', new ItemStack (AtumBlocks.BLOCK_CRYSTALSTAINEDGLASS, 1, i));
+        }
     }
 
     private void addSmeltingRecipes() {
