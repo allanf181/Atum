@@ -34,7 +34,7 @@ public class BiomeGenAtumDesert extends BiomeGenBase {
         super.spawnableWaterCreatureList.clear();
         super.spawnableCaveCreatureList.clear();
         this.setColor(16421912);
-        this.setBiomeName("biome.desert.name");
+        this.setBiomeName("Atum's Desert");
         this.setDisableRain();
         this.setTemperatureRainfall(2.0F, 0.0F);
         this.setHeight(new Height(0.1F, 0.2F));
