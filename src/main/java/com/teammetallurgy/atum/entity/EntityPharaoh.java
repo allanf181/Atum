@@ -344,7 +344,7 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
         if (!this.worldObj.isRemote) {
             this.dataWatcher.updateObject(16, Float.valueOf(this.prevHealth));
         }
-        BossStatus.setBossStatus(this,true);
+
         if (regenTime++ > 20) {
             regenTime = 0;
             this.heal(1);
