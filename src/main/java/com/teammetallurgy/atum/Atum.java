@@ -39,10 +39,7 @@ public class Atum {
         Constants.LOG = event.getModLog();
         Constants.LOG.trace("Loading Configuration");
         new AtumConfig(event.getSuggestedConfigurationFile());
-    }
 
-    @EventHandler
-    public void init(FMLInitializationEvent event) {
         Constants.LOG.trace("Register Blocks");
         new AtumBlocks();
 
@@ -51,7 +48,10 @@ public class Atum {
 
         Constants.LOG.trace("Register Crafting Recipes");
         new CraftingHandler().register();
+    }
 
+    @EventHandler
+    public void init(FMLInitializationEvent event) {
         Constants.LOG.trace("Register World");
         new AtumWorlds().register();
 
