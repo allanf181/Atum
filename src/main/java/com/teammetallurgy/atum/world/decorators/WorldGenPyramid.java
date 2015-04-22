@@ -37,7 +37,7 @@ public class WorldGenPyramid extends WorldGenerator {
                     Block id = world.getBlock(x + i, y + j + 3, z + k);
                     if (id == null || id == AtumBlocks.BLOCK_SAND)
                         world.setBlockToAir(x + i, y + j + 3, z + k);
-                    world.setBlock(x + i, y + j + 3, z + k, AtumBlocks.BLOCK_LARGEBRICK, 1, 0);
+                    world.setBlock(x + i, y + j + 3, z + k, AtumBlocks.BLOCK_LARGEBRICK);
                 }
             }
         }
@@ -49,20 +49,20 @@ public class WorldGenPyramid extends WorldGenerator {
                     world.setBlock(x + i, j - 1, z + k, AtumBlocks.BLOCK_STONE);
                     if (!maze[x][z]) {
                         if (random.nextFloat() > 0.1F) {
-                            world.setBlock(x + i, j, z + k, AtumBlocks.BLOCK_LARGEBRICK, 1, 0);
+                            world.setBlock(x + i, j, z + k, AtumBlocks.BLOCK_LARGEBRICK);
                             Block temp = world.getBlock(x + i, j + 1, z + k);
                             if (temp != null) {
                                 temp.setBlockUnbreakable();
                             }
                         } else
                             placeTrap(world, x + i, j, z + k);
-                        world.setBlock(x + i, j + 1, z + k, AtumBlocks.BLOCK_LARGEBRICK, 1, 0);
+                        world.setBlock(x + i, j + 1, z + k, AtumBlocks.BLOCK_LARGEBRICK);
                         Block temp = world.getBlock(x + i, j + 1, z + k);
                         if (temp != null) {
                             temp.setBlockUnbreakable();
                         }
 
-                        world.setBlock(x + i, j + 2, z + k, AtumBlocks.BLOCK_LARGEBRICK, 1, 0);
+                        world.setBlock(x + i, j + 2, z + k, AtumBlocks.BLOCK_LARGEBRICK);
                         temp = world.getBlock(x + i, j + 2, z + k);
                         if (temp != null) {
                             temp.setBlockUnbreakable();
@@ -73,7 +73,7 @@ public class WorldGenPyramid extends WorldGenerator {
                         world.setBlockToAir(x + i, j + 1, z + k);
                         world.setBlockToAir(x + i, j + 2, z + k);
                     }
-                    world.setBlock(x + i, j + 3, z + k, AtumBlocks.BLOCK_LARGEBRICK, 1, 0);
+                    world.setBlock(x + i, j + 3, z + k, AtumBlocks.BLOCK_LARGEBRICK);
                     Block temp = world.getBlock(x + i, j + 3, z + k);
                     if (temp != null) {
                         temp.setBlockUnbreakable();
