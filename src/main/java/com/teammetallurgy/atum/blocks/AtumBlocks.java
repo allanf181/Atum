@@ -5,6 +5,7 @@ import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityChestSpawner;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
 import com.teammetallurgy.atum.blocks.tileentity.furnace.TileEntityLimestoneFurnace;
+import com.teammetallurgy.atum.items.ItemBlockBricks;
 import com.teammetallurgy.atum.items.ItemBlockStainedGlass;
 import com.teammetallurgy.atum.utils.Constants;
 
@@ -23,7 +24,7 @@ public class AtumBlocks {
     public static Block BLOCK_STONE = new BlockAtumStone();
     public static Block BLOCK_WALL = new BlockWalls(BLOCK_STONE);
     public static Block BLOCK_LIMESTONECOBBLE = new BlockAtum("cobble").setBlockTextureName("atum:AtumCobble");
-    public static Block BLOCK_LARGEBRICK = new BlockAtum("largeBrick").setBlockTextureName("atum:AtumBrickLarge");
+    public static Block BLOCK_LARGEBRICK = new BlockAtumBricks("largeBrick").setBlockTextureName("atum:AtumBrickLarge");
     public static Block BLOCK_SMALLBRICK = new BlockAtum("smallBrick").setBlockTextureName("atum:AtumBrickSmall");
     public static Block BLOCK_CARVEDBRICK = new BlockAtum("carvedBrick").setBlockTextureName("atum:AtumBrickCarved");
     public static Block BLOCK_SLABS = new BlockAtumSlab(false).setBlockName("slab");
@@ -74,7 +75,6 @@ public class AtumBlocks {
         this.register(BLOCK_SAND);
         this.register(BLOCK_STONE);
         this.register(BLOCK_LIMESTONECOBBLE);
-        this.register(BLOCK_LARGEBRICK);
         this.register(BLOCK_SMALLBRICK);
         this.register(BLOCK_CARVEDBRICK);
         this.register(BLOCK_SMOOTHSTAIRS);
@@ -109,6 +109,8 @@ public class AtumBlocks {
         this.register(BLOCK_FURNACEIDLE);
         this.register(BLOCK_FURNACEBURNING);
 
+        GameRegistry.registerBlock(BLOCK_LARGEBRICK, ItemBlockBricks.class, BLOCK_LARGEBRICK.getUnlocalizedName());
+        
         GameRegistry.registerBlock(BLOCK_CRYSTALSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_CRYSTALSTAINEDGLASS.getUnlocalizedName());
         GameRegistry.registerBlock(BLOCK_FRAMEDSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_FRAMEDSTAINEDGLASS.getUnlocalizedName());
 

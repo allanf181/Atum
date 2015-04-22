@@ -8,6 +8,7 @@ tile.chestSpawner.name=Atum Chest
 tile.sand.name=Strange Sand
 block.stone.name=Limestone
 tile.cobble.name=Cracked Limestone
+tile.largeBrickUnbreakable.name=Limestone Large Bricks (Unbreakable)
 tile.largeBrick.name=Limestone Large Bricks
 tile.smallBrick.name=Limestone Small Bricks
 tile.carvedBrick.name=Limestone Carved Bricks
