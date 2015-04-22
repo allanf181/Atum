@@ -1,8 +1,10 @@
 package com.teammetallurgy.atum.entity;
 
 import com.teammetallurgy.atum.items.AtumItems;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
+import net.minecraft.block.Block;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -115,8 +117,8 @@ public class EntityDesertWolf extends EntityTameable {
     }
 
     @Override
-    public void playSound(String par1Str, float par2, float par3) {
-        //this.playSound("mob.wolf.step", 0.15F, 1.0F);
+    protected void func_145780_a(int p_145780_1_, int p_145780_2_, int p_145780_3_, Block p_145780_4_) {
+        this.playSound("mob.wolf.step", 0.15F, 1.0F);
     }
 
     /**
