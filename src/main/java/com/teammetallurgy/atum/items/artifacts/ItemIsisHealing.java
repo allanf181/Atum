@@ -32,7 +32,7 @@ public class ItemIsisHealing extends Item {
     public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
         if (par3Entity instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) par3Entity;
-            if (player.onGround && player.inventory.mainInventory[player.inventory.currentItem] != null && player.inventory.mainInventory[player.inventory.currentItem].getItem() == this) {
+            if (player.onGround && player.getHeldItem() != null && player.getHeldItem().getItem() == this) {
                 this.doEffect(player, par1ItemStack);
             }
         }
