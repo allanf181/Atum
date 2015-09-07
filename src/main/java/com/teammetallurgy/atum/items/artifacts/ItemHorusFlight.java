@@ -31,7 +31,7 @@ public class ItemHorusFlight extends ItemTexturedArmor {
 
     @SubscribeEvent
     public void onJump(LivingJumpEvent event) {
-        if (event.entityLiving.getEquipmentInSlot(0) != null && event.entityLiving.getEquipmentInSlot(0).getItem() == this) {
+        if (event.entityLiving.getEquipmentInSlot(1) != null && event.entityLiving.getEquipmentInSlot(1).getItem() == this) {
             event.entityLiving.motionY += 0.2D;
             event.entityLiving.motionX *= 1.2D;
             event.entityLiving.motionZ *= 1.2D;
@@ -41,7 +41,7 @@ public class ItemHorusFlight extends ItemTexturedArmor {
 
     @SubscribeEvent
     public void onFallDamage(LivingFallEvent event) {
-        if (event.entityLiving.getEquipmentInSlot(0) != null && event.entityLiving.getEquipmentInSlot(0).getItem() == AtumItems.horusFlight) {
+        if (event.entityLiving.getEquipmentInSlot(1) != null && event.entityLiving.getEquipmentInSlot(1).getItem() == AtumItems.horusFlight) {
             event.distance = 0.0F;
         }
 

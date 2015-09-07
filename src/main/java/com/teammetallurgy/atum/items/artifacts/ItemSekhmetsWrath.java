@@ -31,7 +31,7 @@ public class ItemSekhmetsWrath extends ItemTexturedArmor {
 
     @SubscribeEvent
     public void onLivingAttack(LivingAttackEvent event) {
-        if (event.entityLiving.getEquipmentInSlot(2) != null && event.entityLiving.getEquipmentInSlot(2).getItem() == this && event.source instanceof EntityDamageSource) {
+        if (event.entityLiving.getEquipmentInSlot(3) != null && event.entityLiving.getEquipmentInSlot(3).getItem() == this && event.source instanceof EntityDamageSource) {
             EntityDamageSource source = (EntityDamageSource) event.source;
             if (source.getEntity() != null && Math.random() > 0.5D) {
                 source.getEntity().setFire(10);
@@ -42,7 +42,7 @@ public class ItemSekhmetsWrath extends ItemTexturedArmor {
 
     @SubscribeEvent
     public void onLivingAttack(LivingHurtEvent event) {
-        if (event.entityLiving.getEquipmentInSlot(2) != null && event.entityLiving.getEquipmentInSlot(2).getItem() == this && event.source.isFireDamage()) {
+        if (event.entityLiving.getEquipmentInSlot(3) != null && event.entityLiving.getEquipmentInSlot(3).getItem() == this && event.source.isFireDamage()) {
             event.ammount /= 2;
             if (event.ammount == 0 && Math.random() > 0.5D) {
                 event.ammount = 1;
