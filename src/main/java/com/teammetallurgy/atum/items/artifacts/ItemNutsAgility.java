@@ -31,9 +31,13 @@ public class ItemNutsAgility extends ItemTexturedArmor {
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
-        if (player.inventory.armorInventory[1] != null && player.inventory.armorInventory[1].getItem() == this) {
-            player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 2, 0, false));
-        }
+        super.onArmorTick(world, player, itemStack);
+        
+        if (itemStack == null || itemStack.getItem() != this)
+            return;
+        
+        player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 240, 1, true));
+        player.addPotionEffect(new PotionEffect(Potion.digSpeed.id, 240, 1, true));
 
     }
 

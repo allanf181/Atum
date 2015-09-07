@@ -1,6 +1,7 @@
 package com.teammetallurgy.atum.items.artifacts;
 
 import com.teammetallurgy.atum.items.ItemTexturedArmor;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.client.renderer.texture.IIconRegister;
@@ -10,6 +11,8 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
+
 import org.lwjgl.input.Keyboard;
 
 import java.util.List;
@@ -24,6 +27,18 @@ public class ItemIsisEmbrace extends ItemTexturedArmor {
     @Override
     public boolean hasEffect(ItemStack par1ItemStack, int pass) {
         return true;
+    }
+    
+    @Override
+    public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+        super.onArmorTick(world, player, itemStack);
+        
+        if (itemStack == null || itemStack.getItem() != this)
+            return;
+        
+        if (!world.isRemote && world.getTotalWorldTime() % 60L == 0L) {
+            player.heal(1);
+        }
     }
 
     @Override

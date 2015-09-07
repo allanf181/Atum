@@ -1,6 +1,7 @@
 package com.teammetallurgy.atum.items.artifacts;
 
 import com.teammetallurgy.atum.items.ItemTexturedArmor;
+
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -9,11 +10,14 @@ import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Items;
 import net.minecraft.item.EnumRarity;
 import net.minecraft.item.ItemStack;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EntityDamageSource;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
+import net.minecraft.world.World;
 import net.minecraftforge.event.entity.living.LivingAttackEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
+
 import org.lwjgl.input.Keyboard;
 
 import java.util.List;
@@ -27,6 +31,16 @@ public class ItemSekhmetsWrath extends ItemTexturedArmor {
     @Override
     public boolean hasEffect(ItemStack par1ItemStack, int pass) {
         return true;
+    }
+    
+    @Override
+    public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+        super.onArmorTick(world, player, itemStack);
+        
+        if (itemStack == null || itemStack.getItem() != this)
+            return;
+        
+        player.addPotionEffect(new PotionEffect(12, 20, 0, true));
     }
 
     @SubscribeEvent
