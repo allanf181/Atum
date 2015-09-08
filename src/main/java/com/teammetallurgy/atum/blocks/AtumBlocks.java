@@ -174,7 +174,8 @@ public class AtumBlocks {
             OreDictionary.registerOre("paneGlass"  + oreColours[i], pane);
         }
         
-        // block unlocalized name
+        // blocks unlocalized name
+        BLOCK_STONE = BLOCK_STONE.setBlockName("limestone");
         BLOCK_LARGESTONESTAIRS = BLOCK_LARGESTONESTAIRS.setBlockName("largeStairsUnbreakable");
         BLOCK_LARGESTONESTAIRSBREAKABLE = BLOCK_LARGESTONESTAIRSBREAKABLE.setBlockName("largeStairs");
 
