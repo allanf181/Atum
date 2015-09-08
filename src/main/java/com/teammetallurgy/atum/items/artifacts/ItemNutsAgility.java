@@ -33,7 +33,7 @@ public class ItemNutsAgility extends ItemTexturedArmor {
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         super.onArmorTick(world, player, itemStack);
         
-        if (itemStack == null || itemStack.getItem() != this)
+        if (world.isRemote || itemStack == null || itemStack.getItem() != this)
             return;
         
         player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 240, 1, true));

@@ -34,10 +34,10 @@ public class ItemRasGlory extends ItemTexturedArmor {
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         super.onArmorTick(world, player, itemStack);
         
-        if (itemStack == null || itemStack.getItem() != this)
+        if (world.isRemote || itemStack == null || itemStack.getItem() != this)
             return;
         
-        if (!world.isRemote && world.getTotalWorldTime() % 10L == 0L) {
+        if (world.getTotalWorldTime() % 10L == 0L) {
             player.addPotionEffect(new PotionEffect(16, 220, 0, true));
         }
     }

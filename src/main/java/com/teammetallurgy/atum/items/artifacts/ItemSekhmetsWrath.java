@@ -37,7 +37,7 @@ public class ItemSekhmetsWrath extends ItemTexturedArmor {
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
         super.onArmorTick(world, player, itemStack);
         
-        if (itemStack == null || itemStack.getItem() != this)
+        if (world.isRemote || itemStack == null || itemStack.getItem() != this )
             return;
         
         player.addPotionEffect(new PotionEffect(12, 20, 0, true));
