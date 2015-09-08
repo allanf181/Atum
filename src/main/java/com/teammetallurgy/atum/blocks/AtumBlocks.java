@@ -32,6 +32,7 @@ public class AtumBlocks {
     public static Block BLOCK_SMOOTHSTAIRS = new BlockAtumStairs(BLOCK_STONE, 0).setBlockName("smoothStairs");
     public static Block BLOCK_COBBLESTAIRS = new BlockAtumStairs(BLOCK_LIMESTONECOBBLE, 0).setBlockName("cobbleStairs");
     public static Block BLOCK_LARGESTONESTAIRS = new BlockAtumStairs(BLOCK_LARGEBRICK, 0).setBlockName("largeStairs");
+    public static Block BLOCK_LARGESTONESTAIRSBREAKABLE = new BlockAtumStairs(BLOCK_LARGEBRICK, 2).setBlockName("largeStairsBreakable").setHardness(2.0F).setResistance(10.0F);
     public static Block BLOCK_SMALLSTONESTAIRS = new BlockAtumStairs(BLOCK_SMALLBRICK, 0).setBlockName("smallStairs");
     public static Block BLOCK_SANDLAYERED = new BlockSandLayered();
     public static Block BLOCK_CRACKEDLARGEBRICK = new BlockAtum("crackedLargeBrick").setBlockTextureName("atum:AtumCrackedLargeBrick");
@@ -80,6 +81,7 @@ public class AtumBlocks {
         this.register(BLOCK_SMOOTHSTAIRS);
         this.register(BLOCK_COBBLESTAIRS);
         this.register(BLOCK_LARGESTONESTAIRS);
+        this.register(BLOCK_LARGESTONESTAIRSBREAKABLE);
         this.register(BLOCK_SMALLSTONESTAIRS);
         this.register(BLOCK_SANDLAYERED);
         this.register(BLOCK_CRACKEDLARGEBRICK);
@@ -171,6 +173,10 @@ public class AtumBlocks {
             OreDictionary.registerOre("blockGlass" + oreColours[i], glass);
             OreDictionary.registerOre("paneGlass"  + oreColours[i], pane);
         }
+        
+        // block unlocalized name
+        BLOCK_LARGESTONESTAIRS = BLOCK_LARGESTONESTAIRS.setBlockName("largeStairsUnbreakable");
+        BLOCK_LARGESTONESTAIRSBREAKABLE = BLOCK_LARGESTONESTAIRSBREAKABLE.setBlockName("largeStairs");
 
     }
 

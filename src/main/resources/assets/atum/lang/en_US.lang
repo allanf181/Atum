@@ -19,6 +19,7 @@ tile.smallBrickSlab.name=Small Limestone Brick Slab
 tile.doubleSlab.name=Limestone Slab
 tile.smoothStairs.name=Limestone Stairs
 tile.cobbleStairs.name=Limestone Cobble Stairs
+tile.largeStairsUnbreakable.name=Limestone Large Brick Stairs (Unbreakable)
 tile.largeStairs.name=Limestone Large Brick Stairs
 tile.smallStairs.name=Limestone Small Brick Stairs
 tile.sandLayer.name=Sand Layer
