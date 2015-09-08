@@ -318,6 +318,9 @@ item.neithsAudacity.line1=Double Shot I: Fires
 item.neithsAudacity.line2=two arrows
 item.neithsAudacity.line3=Double Shot I
 
+tooltip.atum.minutesRemaining=%d Minutes Remaining
+tooltip.atum.usesRemaining=%d Uses Remaining
+
 # Loot
 item.loot.dirty.name=Dirty
 item.loot.silver.name=Silver

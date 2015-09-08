@@ -14,6 +14,7 @@ import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
 import org.lwjgl.input.Keyboard;
 
 import java.util.List;
@@ -69,7 +70,9 @@ public class ItemMafdetsQuickness extends Item {
             par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
         }
 
-        par3List.add((double) ((par1ItemStack.getMaxDamage() - par1ItemStack.getItemDamage()) / 12) / 100.0D + " Minutes Remaining");
+        double remaining = ((par1ItemStack.getMaxDamage() - par1ItemStack.getItemDamage()) / 12) / 100.0D;
+        String localizedRemaining = StatCollector.translateToLocalFormatted("tooltip.atum.minutesRemaining", remaining);
+        par3List.add(localizedRemaining);
     }
 
     @Override
