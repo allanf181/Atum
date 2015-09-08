@@ -8,6 +8,7 @@ tile.chestSpawner.name=Сундук «Атума»
 tile.sand.name=Странный песок
 block.stone.name=Известняк
 tile.cobble.name=Потрескавшийся известняк
+tile.largeBrickUnbreakable.name=Известняковый большой кирпич (Неразрушимый)
 tile.largeBrick.name=Известняковый большой кирпич
 tile.smallBrick.name=Известняковый маленький кирпич
 tile.carvedBrick.name=Известняковый резной кирпич
@@ -316,6 +317,9 @@ item.anubisMercy.line3=Возвращение I
 item.neithsAudacity.line1=Двойной выстрел I: Выпускает
 item.neithsAudacity.line2=две стрелы за раз
 item.neithsAudacity.line3=Двойной выстрел I
+
+tooltip.atum.minutesRemaining=Минут осталось: %d
+tooltip.atum.usesRemaining=Использований осталось: %d
 
 # Loot
 item.loot.dirty.name=Грязный
