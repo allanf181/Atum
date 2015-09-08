@@ -34,15 +34,15 @@ public class ItemMafdetsQuickness extends Item {
     public void onUpdate(ItemStack par1ItemStack, World par2World, Entity par3Entity, int par4, boolean par5) {
         if (par3Entity instanceof EntityPlayer) {
             EntityPlayer player = (EntityPlayer) par3Entity;
-            if (player.inventory.armorInventory[1] != null && player.inventory.armorInventory[1].getItem() == this) {
-                doEffect(player, player.inventory.armorInventory[1]);
+            if (par5 && player.onGround && player.getHeldItem() != null && player.getHeldItem().getItem() == this) {
+                doEffect(player, par1ItemStack);
             }
         }
 
     }
 
     public void doEffect(EntityPlayer player, ItemStack item) {
-        player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 2, 0, false));
+        player.addPotionEffect(new PotionEffect(Potion.moveSpeed.id, 40, 0, false));
         if (!player.capabilities.isCreativeMode) {
             if (item.getItemDamage() == 1) {
                 item.damageItem(1, player);
