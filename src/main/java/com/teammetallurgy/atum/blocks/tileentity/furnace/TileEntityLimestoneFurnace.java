@@ -1,6 +1,7 @@
 package com.teammetallurgy.atum.blocks.tileentity.furnace;
 
 import com.teammetallurgy.atum.blocks.BlockLimeStoneFurnace;
+
 import cpw.mods.fml.common.registry.GameRegistry;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -14,6 +15,9 @@ import net.minecraft.item.*;
 import net.minecraft.item.crafting.FurnaceRecipes;
 import net.minecraft.nbt.NBTTagCompound;
 import net.minecraft.nbt.NBTTagList;
+import net.minecraft.network.NetworkManager;
+import net.minecraft.network.Packet;
+import net.minecraft.network.play.server.S35PacketUpdateTileEntity;
 import net.minecraft.tileentity.TileEntityFurnace;
 
 public class TileEntityLimestoneFurnace extends TileEntityFurnace implements ISidedInventory {
@@ -189,7 +193,7 @@ public class TileEntityLimestoneFurnace extends TileEntityFurnace implements ISi
     @Override
     public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
         super.readFromNBT(par1NBTTagCompound);
-        NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items", 0);
+        NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items", 10);
         this.furnaceItemStacks = new ItemStack[this.getSizeInventory()];
 
         for (int i = 0; i < nbttaglist.tagCount(); ++i) {
@@ -236,6 +240,37 @@ public class TileEntityLimestoneFurnace extends TileEntityFurnace implements ISi
         }
     }
 
+    /**
+     * Called on receiving a packet
+     * @param net Network Manager
+     * @param pkt packet
+     */
+    @Override
+    public void onDataPacket(NetworkManager net, S35PacketUpdateTileEntity pkt) {
+        
+        NBTTagCompound nbtTag = pkt.func_148857_g();
+        
+        if (nbtTag == null)
+            return;
+        
+        this.readFromNBT(nbtTag);
+    }
+    
+    /**
+     * Called when syncing tile entities
+     * @return S35 packet 
+     */
+    @Override
+    public Packet getDescriptionPacket() {
+        
+        NBTTagCompound nbtTag = new NBTTagCompound();
+        this.writeToNBT(nbtTag);
+        
+        S35PacketUpdateTileEntity packet = new S35PacketUpdateTileEntity(this.xCoord, this.yCoord, this.zCoord, 1, nbtTag);
+        
+        return packet;
+    }
+    
     /**
      * Returns the maximum stack size for a inventory slot. Seems to always be
      * 64, possibly will be extended. *Isn't this more of a set than a get?*
