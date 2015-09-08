@@ -220,7 +220,7 @@ public abstract class CursedChestBaseLogic extends MobSpawnerBaseLogic {
 
         if (par1NBTTagCompound.hasKey("SpawnPotentials")) {
             this.minecartToSpawn = new ArrayList();
-            NBTTagList nbttaglist = par1NBTTagCompound.getTagList("SpawnPotentials", 0);
+            NBTTagList nbttaglist = par1NBTTagCompound.getTagList("SpawnPotentials", 10);
 
             for (int i = 0; i < nbttaglist.tagCount(); ++i) {
                 this.minecartToSpawn.add(new WeightedRandomMinecart((NBTTagCompound) nbttaglist.getCompoundTagAt(i)));

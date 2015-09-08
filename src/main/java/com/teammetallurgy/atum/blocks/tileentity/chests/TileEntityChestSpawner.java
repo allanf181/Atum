@@ -151,7 +151,7 @@ public class TileEntityChestSpawner extends TileEntityChest implements IInventor
     @Override
     public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
         super.readFromNBT(par1NBTTagCompound);
-        NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items", 0);
+        NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items", 10);
         this.chestContents = new ItemStack[this.getSizeInventory()];
         if (par1NBTTagCompound.hasKey("CustomName")) {
             this.field_94045_s = par1NBTTagCompound.getString("CustomName");
