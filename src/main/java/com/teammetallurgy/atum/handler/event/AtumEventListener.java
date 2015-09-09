@@ -10,7 +10,6 @@ import net.minecraftforge.event.entity.player.BonemealEvent;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 
 import com.teammetallurgy.atum.blocks.AtumBlocks;
-import com.teammetallurgy.atum.blocks.BlockFlax;
 import com.teammetallurgy.atum.blocks.BlockPalmSapling;
 import com.teammetallurgy.atum.entity.EntityDustySkeleton;
 import com.teammetallurgy.atum.entity.EntityGhost;
@@ -47,11 +46,6 @@ public class AtumEventListener {
             Block block = event.world.getBlock(event.x, event.y, event.z);
             if (block == AtumBlocks.BLOCK_PALMSAPLING) {
                 ((BlockPalmSapling) AtumBlocks.BLOCK_PALMSAPLING).growTree(event.world, event.x, event.y, event.z, new Random());
-                event.setResult(Result.ALLOW);
-            }
-
-            if (block == AtumBlocks.BLOCK_FLAX && event.world.getBlockMetadata(event.x, event.y, event.z) < 5) {
-                ((BlockFlax) AtumBlocks.BLOCK_FLAX).fertilize(event.world, event.x, event.y, event.z);
                 event.setResult(Result.ALLOW);
             }
 
