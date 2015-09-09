@@ -9,6 +9,8 @@ public class AtumEntities {
     public void register() {
         int entityID;
 
+        // Mobs
+        
         entityID = EntityRegistry.findGlobalUniqueEntityId();
         EntityRegistry.registerGlobalEntityID(EntityMummy.class, "atum.mummy", entityID, 0x515838, 0x868F6B);
         EntityRegistry.registerModEntity(EntityMummy.class, "atum.mummy", entityID, Atum.instance, 64, 1, true);
@@ -57,22 +59,39 @@ public class AtumEntities {
         EntityRegistry.registerGlobalEntityID(EntityBarbarian.class, "atum.barbarian", entityID, 0x918354, 0x695D37);
         EntityRegistry.registerModEntity(EntityBarbarian.class, "atum.barbarian", entityID, Atum.instance, 64, 1, true);
         
+        
+        // Projectiles
 
         entityID = EntityRegistry.findGlobalUniqueEntityId();
+        EntityRegistry.registerGlobalEntityID(EntityArrowVelocity.class, "atum.ArrowVeloctiy", entityID);
         EntityRegistry.registerModEntity(EntityArrowVelocity.class, "atum.ArrowVeloctiy", entityID, Atum.instance, 64, 1, true);
+        
         entityID = EntityRegistry.findGlobalUniqueEntityId();
+        EntityRegistry.registerGlobalEntityID(EntityArrowExplosive.class, "atum.ArrowExplosive", entityID);
         EntityRegistry.registerModEntity(EntityArrowExplosive.class, "atum.ArrowExplosive", entityID, Atum.instance, 64, 1, true);
+        
         entityID = EntityRegistry.findGlobalUniqueEntityId();
+        EntityRegistry.registerGlobalEntityID(EntityArrowPoison.class, "atum.ArrowPoison", entityID);
         EntityRegistry.registerModEntity(EntityArrowPoison.class, "atum.ArrowPoison", entityID, Atum.instance, 64, 1, true);
+        
         entityID = EntityRegistry.findGlobalUniqueEntityId();
+        EntityRegistry.registerGlobalEntityID(EntityArrowFire.class, "atum.ArrowFire", entityID);
         EntityRegistry.registerModEntity(EntityArrowFire.class, "atum.ArrowFire", entityID, Atum.instance, 64, 1, true);
+        
         entityID = EntityRegistry.findGlobalUniqueEntityId();
-        EntityRegistry.registerModEntity(EntityArrowDoubleShot.class, "atum.ArrowFire", entityID, Atum.instance, 64, 1, true);
+        EntityRegistry.registerGlobalEntityID(EntityArrowDoubleShot.class, "atum.ArrowDoubleShot", entityID);
+        EntityRegistry.registerModEntity(EntityArrowDoubleShot.class, "atum.ArrowDoubleShot", entityID, Atum.instance, 64, 1, true);
+        
         entityID = EntityRegistry.findGlobalUniqueEntityId();
-        EntityRegistry.registerModEntity(EntityArrowQuickdraw.class, "atum.ArrowFire", entityID, Atum.instance, 64, 1, true);
+        EntityRegistry.registerGlobalEntityID(EntityArrowQuickdraw.class, "atum.ArrowQuickDraw", entityID);
+        EntityRegistry.registerModEntity(EntityArrowQuickdraw.class, "atum.ArrowQuickDraw", entityID, Atum.instance, 64, 1, true);
+        
         entityID = EntityRegistry.findGlobalUniqueEntityId();
+        EntityRegistry.registerGlobalEntityID(EntityNutsCall.class, "atum.EntityNutsCall", entityID);
         EntityRegistry.registerModEntity(EntityNutsCall.class, "atum.EntityNutsCall", entityID, Atum.instance, 64, 1, true);
+        
         entityID = EntityRegistry.findGlobalUniqueEntityId();
+        EntityRegistry.registerGlobalEntityID(EntityAtumFishHook.class, "atum.EntityAtumFishHook", entityID);
         EntityRegistry.registerModEntity(EntityAtumFishHook.class, "atum.EntityAtumFishHook", entityID, Atum.instance, 64, 1, false);
 
     }
