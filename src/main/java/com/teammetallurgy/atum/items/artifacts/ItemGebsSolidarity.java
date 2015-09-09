@@ -30,6 +30,11 @@ public class ItemGebsSolidarity extends ItemTexturedArmor {
 
     @Override
     public void onArmorTick(World world, EntityPlayer player, ItemStack itemStack) {
+        super.onArmorTick(world, player, itemStack);
+        
+        if (world.isRemote || itemStack == null || itemStack.getItem() != this)
+            return;
+        
         player.addPotionEffect(new PotionEffect(Potion.moveSlowdown.getId(), 20, 1, true));
     }
 
