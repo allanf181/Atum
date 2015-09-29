@@ -2,7 +2,9 @@ package com.teammetallurgy.atum.world.biome;
 
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.entity.*;
+import com.teammetallurgy.atum.handler.AtumConfig;
 import com.teammetallurgy.atum.world.decorators.*;
+
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -59,7 +61,7 @@ public class BiomeGenAtumDesert extends BiomeGenBase {
         super.decorate(par1World, par2Random, par3, par4);
         int k;
         int l;
-        if (par2Random.nextInt(100) == 0) {
+        if (AtumConfig.OASIS_ENABLED && par2Random.nextInt(100) == 0) {
             k = par3 + par2Random.nextInt(16) + 8;
             l = par4 + par2Random.nextInt(16) + 8;
             (new WorldGenOasis(false)).generate(par1World, par2Random, k, par1World.getHeightValue(k, l), l);

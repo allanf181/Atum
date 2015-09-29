@@ -20,6 +20,7 @@ public class AtumConfig {
     public static String general = "general settings";
     public static boolean ALLOW_CREATION;
     public static boolean FOG_ENABLED;
+    public static boolean OASIS_ENABLED;
 
     public static int DIMENSION_ID;
     public static int BIOME_DESERT_ID;
@@ -52,6 +53,12 @@ public class AtumConfig {
         prop.comment = "Should clientside fog be rendered?";
         prop.setLanguageKey("atum.configGui.fog");
         FOG_ENABLED = prop.getBoolean(true);
+        propOrder.add(prop.getName());
+        
+        prop = config.get(CATEGORY_GENERAL, "Atum Oasis", true);
+        prop.comment = "Should oases be generated?";
+        prop.setLanguageKey("atum.configGui.oasis");
+        OASIS_ENABLED = prop.getBoolean(true);
         propOrder.add(prop.getName());
 
         prop = config.get(CATEGORY_GENERAL, "Atum Dimension ID", 17);
