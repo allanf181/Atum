@@ -4,9 +4,12 @@ import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.init.Blocks;
+import net.minecraft.item.ItemStack;
+import net.minecraft.stats.AchievementList;
 import net.minecraftforge.event.entity.living.LivingFallEvent;
 import net.minecraftforge.event.entity.living.LivingHurtEvent;
 import net.minecraftforge.event.entity.player.BonemealEvent;
+import net.minecraftforge.event.entity.player.EntityItemPickupEvent;
 import net.minecraftforge.event.entity.player.UseHoeEvent;
 
 import com.teammetallurgy.atum.blocks.AtumBlocks;
@@ -78,5 +81,12 @@ public class AtumEventListener {
 
         return false;
 
+    }
+
+    @SubscribeEvent
+    public void onPickup(EntityItemPickupEvent pickupEvent) {
+        if (pickupEvent.item.getEntityItem().isItemEqual(new ItemStack(AtumBlocks.BLOCK_LOG))) {
+            pickupEvent.entityPlayer.triggerAchievement(AchievementList.mineWood);
+        }
     }
 }

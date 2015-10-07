@@ -7,6 +7,7 @@ import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
@@ -69,6 +70,9 @@ public class BlockFertileSoil extends BlockFarmland {
     }
 
     @Override
+    public void onFallenUpon(World world, int x, int y, int z, Entity entity, float par5Random) {}
+
+    @Override
     public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plant) {
         EnumPlantType plantType = plant.getPlantType(world, x, y + 1, z);
 
@@ -77,9 +81,9 @@ public class BlockFertileSoil extends BlockFarmland {
         }
 
         if (plantType == EnumPlantType.Beach) {
-                boolean hasWater = (world.getBlock(x - 1, y, z).getMaterial() == Material.water) || (world.getBlock(x + 1, y, z).getMaterial() == Material.water) || (world.getBlock(x, y, z - 1).getMaterial() == Material.water) || (world.getBlock(x, y, z + 1).getMaterial() == Material.water);
+            boolean hasWater = (world.getBlock(x - 1, y, z).getMaterial() == Material.water) || (world.getBlock(x + 1, y, z).getMaterial() == Material.water) || (world.getBlock(x, y, z - 1).getMaterial() == Material.water) || (world.getBlock(x, y, z + 1).getMaterial() == Material.water);
 
-                return hasWater;
+            return hasWater;
         }
 
         return false;
