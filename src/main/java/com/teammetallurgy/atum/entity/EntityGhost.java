@@ -20,6 +20,7 @@ public class EntityGhost extends EntityMob {
 
     public EntityGhost(World par1World) {
         super(par1World);
+        this.isImmuneToFire = true;
         this.experienceValue = 6;
         cycleTime = (int) ((Math.random() * 40) + 80);
         cycleHeight = (int) (Math.random() * cycleTime);
