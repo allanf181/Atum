@@ -35,6 +35,7 @@ public class BlockPortal extends BlockBreakable {
         if (par1World.provider.isSurfaceWorld() && par5Random.nextInt(2000) < par1World.difficultySetting.getDifficultyId()) {
             ;
         }
+
     }
 
     @Override
@@ -64,10 +65,10 @@ public class BlockPortal extends BlockBreakable {
         return false;
     }
 
-    public boolean tryToCreatePortal(World world, int x, int y, int z, Block block) {
+    public boolean tryToCreatePortal(World par1World, int x, int y, int z, Block block) {
         for (int x1 = -2; x1 < 3; x1++) {
             for (int z1 = -2; z1 < 3; z1++) {
-                if (world.getBlock(x + x1, y, z + z1) != block) {
+                if (par1World.getBlock(x + x1, y, z + z1) != block) {
                     return false;
                 }
             }
@@ -75,7 +76,7 @@ public class BlockPortal extends BlockBreakable {
         for (int x1 = -2; x1 < 3; x1++) {
             for (int z1 = -2; z1 < 3; z1++) {
                 if (x1 + x == x + 2 || z1 + z == z + 2 || x1 + x == x - 2 || z1 + z == z - 2) {
-                    if (world.getBlock(x + x1, y + 1, z + z1) != block) {
+                    if (par1World.getBlock(x + x1, y + 1, z + z1) != block) {
                         return false;
                     }
                 }
@@ -85,7 +86,7 @@ public class BlockPortal extends BlockBreakable {
             for (int x1 = -2; x1 < 3; x1++) {
                 for (int z1 = -2; z1 < 3; z1++) {
                     if ((x1 + x == x + 2 && z1 + z == z + 2) || (x1 + x == x - 2 && z1 + z == z + 2) || (x1 + x == x + 2 && z1 + z == z - 2) || (x1 + x == x - 2 && z1 + z == z - 2)) {
-                        if (world.getBlock(x + x1, y + y1, z + z1) != block) {
+                        if (par1World.getBlock(x + x1, y + y1, z + z1) != block) {
                             return false;
                         }
                     }
@@ -94,8 +95,7 @@ public class BlockPortal extends BlockBreakable {
         }
         for (int x1 = -1; x1 < 2; x1++) {
             for (int z1 = -1; z1 < 2; z1++) {
-                world.setBlock(x + x1, y + 1, z + z1, AtumBlocks.BLOCK_PORTAL, 0, 2);
-
+                par1World.setBlock(x + x1, y + 1, z + z1, AtumBlocks.BLOCK_PORTAL, 0, 2);
             }
         }
         return true;
@@ -132,6 +132,7 @@ public class BlockPortal extends BlockBreakable {
                 }
             }
         }
+
     }
 
     @Override
@@ -162,10 +163,12 @@ public class BlockPortal extends BlockBreakable {
 
             par1World.spawnParticle("sandportal", d0, d1, d2, d3, d4, d5);
         }
+
     }
 
     @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
         return null;
     }
+
 }

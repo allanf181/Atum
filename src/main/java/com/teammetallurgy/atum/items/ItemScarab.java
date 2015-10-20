@@ -3,7 +3,6 @@ package com.teammetallurgy.atum.items;
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.handler.AtumConfig;
 import net.minecraft.block.Block;
-import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -21,14 +20,14 @@ public class ItemScarab extends Item {
     }
 
     @Override
-    public boolean hasEffect(ItemStack stack, int pass) {
+    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
         return true;
     }
 
     @Override
-    public boolean onItemUse(ItemStack stack, EntityPlayer player, World world, int x, int y, int z, int side, float hitX, float hitY, float hitZ) {
-        if (AtumConfig.ALLOW_CREATION || player.capabilities.isCreativeMode) {
-            Block block = world.getBlock(x, y, z);
+    public boolean onItemUse(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, World par3World, int x, int y, int z, int par7, float par8, float par9, float par10) {
+        if (AtumConfig.ALLOW_CREATION || par2EntityPlayer.capabilities.isCreativeMode) {
+            Block block = par3World.getBlock(x, y, z);
             Block temp = null;
             if (block == Blocks.sandstone || block == AtumBlocks.BLOCK_LARGEBRICK) {
                 temp = block;
@@ -36,48 +35,46 @@ public class ItemScarab extends Item {
             if (temp != null) {
                 for (int x1 = -1; x1 < 1; x1++) {
                     for (int z1 = -1; z1 < 1; z1++) {
-                        if (world.getBlock(x1 + x, y + 1, z1 + z).getMaterial() == Material.water && world.getBlockMetadata(x1 + x, y + 1, z1 + z) == 0) {
-                            if (AtumBlocks.BLOCK_PORTAL.tryToCreatePortal(world, x1 + x, y, z1 + z, temp)) {
-                                --player.getCurrentEquippedItem().stackSize;
-                                return true;
-                            }
+                        if (AtumBlocks.BLOCK_PORTAL.tryToCreatePortal(par3World, x1 + x, y, z1 + z, temp)) {
+                            --par2EntityPlayer.getCurrentEquippedItem().stackSize;
+                            return true;
                         }
                     }
                 }
 
-                if (player.capabilities.isCreativeMode) {
+                if (par2EntityPlayer.capabilities.isCreativeMode) {
                     for (int x1 = -2; x1 < 3; x1++) {
                         for (int z1 = -2; z1 < 3; z1++) {
                             for (int y1 = 0; y1 < 2; y1++) {
-                                world.setBlock(x + x1, y + y1, z + z1, temp);
+                                par3World.setBlock(x + x1, y + y1, z + z1, temp);
                             }
                         }
                     }
 
                     for (int x1 = -1; x1 < 2; x1++) {
                         for (int z1 = -1; z1 < 2; z1++) {
-                            world.setBlockToAir(x + x1, y + 1, z + z1);
+                            par3World.setBlockToAir(x + x1, y + 1, z + z1);
                         }
                     }
 
                     for (int y1 = 2; y1 < 4; y1++) {
-                        world.setBlock(x - 2, y + y1, z - 2, temp);
-                        world.setBlock(x + 2, y + y1, z - 2, temp);
-                        world.setBlock(x - 2, y + y1, z + 2, temp);
-                        world.setBlock(x + 2, y + y1, z + 2, temp);
+                        par3World.setBlock(x - 2, y + y1, z - 2, temp);
+                        par3World.setBlock(x + 2, y + y1, z - 2, temp);
+                        par3World.setBlock(x - 2, y + y1, z + 2, temp);
+                        par3World.setBlock(x + 2, y + y1, z + 2, temp);
                     }
-                    AtumBlocks.BLOCK_PORTAL.tryToCreatePortal(world, x, y, z, temp);
+                    AtumBlocks.BLOCK_PORTAL.tryToCreatePortal(par3World, x, y, z, temp);
                 }
             }
         } else {
-            player.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("chat.atum.disabled")));
+            par2EntityPlayer.addChatMessage(new ChatComponentText(StatCollector.translateToLocal("chat.atum.disabled")));
         }
 
         return true;
     }
 
     @Override
-    public void registerIcons(IIconRegister IIconRegister) {
-        this.itemIcon = IIconRegister.registerIcon("atum:Scarab");
+    public void registerIcons(IIconRegister par1IIconRegister) {
+        this.itemIcon = par1IIconRegister.registerIcon("atum:Scarab");
     }
 }
