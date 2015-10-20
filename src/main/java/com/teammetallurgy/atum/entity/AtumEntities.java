@@ -27,11 +27,11 @@ public class AtumEntities {
         banditArcher = new AtumEntity(EntityBanditArcher.class, "banditArcher", entityID++, 64, 1).setSpawnEgg(0xC2C2C2, 0x7E0C0C);
         pharaoh = new AtumEntity(EntityPharaoh.class, "pharaoh", entityID++, 64, 1).setSpawnEgg(0xD4BC37, 0x3A4BE0);
         dustySkeleton = new AtumEntity(EntityDustySkeleton.class, "dustySkeleton", entityID++, 64, 1).setSpawnEgg(0xB59C7D, 0x6F5C43);
-        ghost = new AtumEntity(EntityGhost.class, "desertGhost", entityID++, 64, 1).setSpawnEgg(0xFFFFFF, 0xFFFFFF); //TODO Color
+        ghost = new AtumEntity(EntityGhost.class, "desertGhost", entityID++, 64, 1).setSpawnEgg(0xE7DBC8, 0xAD9467);
         stoneSoldier = new AtumEntity(EntityStoneSoldier.class, "stoneSoldier", entityID++, 64, 1).setSpawnEgg(0x918354, 0x695D37);
         desertWolf = new AtumEntity(EntityDesertWolf.class, "desertWolf", entityID++, 64, 1).setSpawnEgg(0xE7DBC8, 0xAD9467);
-        banditWarlord = new AtumEntity(EntityBanditWarlord.class, "banditWarlord", entityID++, 64, 1).setSpawnEgg(0xFFFFFF, 0xFFFFFF); //TODO Color
-        barbarian = new AtumEntity(EntityBarbarian.class, "barbarian", entityID++, 64, 1).setSpawnEgg(0xFFFFFF, 0xFFFFFF); //TODO Color
+        banditWarlord = new AtumEntity(EntityBanditWarlord.class, "banditWarlord", entityID++, 64, 1).setSpawnEgg(0x918354, 0x695D37);
+        barbarian = new AtumEntity(EntityBarbarian.class, "barbarian", entityID++, 64, 1).setSpawnEgg(0x918354, 0x695D37);
 
         // Projectiles
         EntityRegistry.registerModEntity(EntityArrowVelocity.class, "ArrowVeloctiy", entityID++, Atum.instance, 64, 1, true);
