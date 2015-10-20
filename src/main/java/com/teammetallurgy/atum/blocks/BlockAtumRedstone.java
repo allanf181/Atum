@@ -19,6 +19,9 @@ public class BlockAtumRedstone extends Block {
         super(Material.rock);
         this.setBlockName("redstoneOre");
         this.setBlockTextureName("atum:AtumRedstone");
+        this.setHardness(3.0F);
+        this.setResistance(5.0F);
+        this.setStepSound(Block.soundTypeStone);
     }
 
     @Override
