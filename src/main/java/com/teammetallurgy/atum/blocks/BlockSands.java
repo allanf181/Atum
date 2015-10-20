@@ -1,10 +1,11 @@
 package com.teammetallurgy.atum.blocks;
 
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockFalling;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 
-public class BlockSands extends Block {
+public class BlockSands extends BlockFalling {
 
     public BlockSands() {
         super(Material.sand);
