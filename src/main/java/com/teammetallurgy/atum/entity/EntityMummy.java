@@ -1,11 +1,15 @@
 package com.teammetallurgy.atum.entity;
 
 import com.teammetallurgy.atum.items.AtumItems;
+
 import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
 import net.minecraft.init.Items;
+import net.minecraft.potion.Potion;
+import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
 import net.minecraft.world.World;
 
@@ -56,8 +60,14 @@ public class EntityMummy extends EntityMob {
     public boolean attackEntityAsMob(Entity par1Entity) {
         boolean flag = super.attackEntityAsMob(par1Entity);
 
-        if (flag && this.isBurning() && this.rand.nextFloat() < (float) this.worldObj.difficultySetting.getDifficultyId() * 0.4F) {
-            par1Entity.setFire(2 * this.worldObj.difficultySetting.getDifficultyId());
+        if(flag){
+        	if (this.isBurning() && this.rand.nextFloat() < (float) this.worldObj.difficultySetting.getDifficultyId() * 0.4F) {
+        		par1Entity.setFire(2 * this.worldObj.difficultySetting.getDifficultyId());
+        	}
+        	if(par1Entity instanceof EntityLivingBase){
+        		EntityLivingBase base = (EntityLivingBase)par1Entity;
+        		base.addPotionEffect(new PotionEffect(Potion.wither.id, 60, 1));
+        	}
         }
 
         return flag;
