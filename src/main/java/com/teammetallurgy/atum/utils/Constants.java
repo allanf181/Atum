@@ -10,7 +10,7 @@ public class Constants {
     public static final String CLIENT = "com.teammetallurgy.atum.proxy.ClientProxy";
     public static final String SERVER = "com.teammetallurgy.atum.proxy.CommonProxy";
     public static final String FACTORY = "com.teammetallurgy.atum.gui.AtumGuiFactory";
-    public static final String DEPENDENCIES = "required-after:Forge@[10.13.0.1199,);";
+    public static final String DEPENDENCIES = "required-after:Forge@[10.13.2.1291,);";
 
     public static Logger LOG;
     
