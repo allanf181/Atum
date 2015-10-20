@@ -14,7 +14,7 @@ public class BlockAtumStone extends BlockStone {
         this.setBlockName("stone");
         this.setStepSound(Block.soundTypeStone);
         this.setHardness(1.5F);
-        this.setResistance(10.0F)
+        this.setResistance(10.0F);
     }
 
     @Override
