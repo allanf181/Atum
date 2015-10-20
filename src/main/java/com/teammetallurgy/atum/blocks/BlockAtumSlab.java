@@ -40,6 +40,21 @@ public class BlockAtumSlab extends BlockSlab {
     protected ItemStack createStackedBlock(int par1) {
         return new ItemStack(this, 2, par1 & 0x7);
     }
+    
+    @Override
+    public boolean isNormalCube() {
+    	return false;
+    }
+    
+    @Override
+    public boolean isOpaqueCube() {
+    	return false;
+    }
+    
+    @Override
+    public boolean renderAsNormalBlock() {
+    	return false;
+    }
 
     @Override
     @SideOnly(Side.CLIENT)
