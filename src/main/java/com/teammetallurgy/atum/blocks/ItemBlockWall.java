@@ -9,30 +9,28 @@ import net.minecraft.item.ItemBlock;
 import net.minecraft.item.ItemStack;
 
 public class ItemBlockWall extends ItemBlock {
-	public static final String[] types = { "smooth", "cracked", "largeBrick", "smallBrick" };
+    public static final String[] types = {"smooth", "cracked", "largeBrick", "smallBrick"};
 
-	public ItemBlockWall(Block block) {
-		super(block);
-		setHasSubtypes(true);
-	}
-
-	@Override
-	public int getMetadata(int meta) {
-		return meta;
-	}
-	
-	@Override
-	public void getSubItems(Item item, CreativeTabs tab, List list) {
-		for(int i = 0;i<types.length;i++){
-			list.add(new ItemStack(item, 1, i));
-		}
-	}
-	
-	
-
-	@Override
-	public String getUnlocalizedName(ItemStack par1ItemStack) {
-		return "tile." + types[par1ItemStack.getItemDamage()] + "Wall";
-	}
+    public ItemBlockWall(Block block) {
+        super(block);
+        setHasSubtypes(true);
+    }
+    
+    @Override
+    public void getSubItems(Item item, CreativeTabs tab, List list) {
+    	for(int i = 0;i< types.length;i++){
+    		list.add(new ItemStack(this, 1, i));
+    	}
+    }
+    
+    @Override
+    public int getMetadata(int meta) {
+    	return meta;
+    }
+    
+    @Override
+    public String getUnlocalizedName(ItemStack par1ItemStack) {
+        return "tile." + types[par1ItemStack.getItemDamage()] + "Wall";
+    }
 
 }

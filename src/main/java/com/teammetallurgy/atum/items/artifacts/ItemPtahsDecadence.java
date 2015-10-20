@@ -1,7 +1,8 @@
 package com.teammetallurgy.atum.items.artifacts;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -20,63 +21,62 @@ import net.minecraft.world.World;
 
 import org.lwjgl.input.Keyboard;
 
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemPtahsDecadence extends ItemPickaxe {
 
-	public ItemPtahsDecadence(ToolMaterial par2ToolMaterial) {
-		super(par2ToolMaterial);
-	}
+    public ItemPtahsDecadence(ToolMaterial par2ToolMaterial) {
+        super(par2ToolMaterial);
+    }
 
-	@Override
-	public boolean hasEffect(ItemStack par1ItemStack, int pass) {
-		return true;
-	}
+    @Override
+    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+        return true;
+    }
 
-	@Override
-	public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, Block block, int x, int y, int z, EntityLivingBase par7EntityLivingBase) {
-		Item dropID = block.getItemDropped(par2World.getBlockMetadata(x, y, z), new Random(), 0);
-		if (dropID == Items.diamond) {
-			boolean silk = false;
-			NBTTagList enchants = par1ItemStack.getEnchantmentTagList();
-			for (int i = 0; i < enchants.tagCount(); i++) {
-				NBTTagCompound enchant = enchants.getCompoundTagAt(i);
-				if (enchant.getInteger("id") == 33) {
-					silk = true;
-				}
-			}
-			if (!silk)
-				Blocks.diamond_ore.dropBlockAsItem(par2World, x, y, z, 0, 0);
-		}
+    @Override
+    public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, Block block, int x, int y, int z, EntityLivingBase par7EntityLivingBase) {
+    	Item dropID = block.getItemDropped(par2World.getBlockMetadata(x, y, z), new Random(), 0);
+    	if (dropID == Items.diamond) {
+    		boolean silk = false;
+    		NBTTagList enchants = par1ItemStack.getEnchantmentTagList();
+    		for (int i = 0; i < enchants.tagCount(); i++) {
+    			NBTTagCompound enchant = enchants.getCompoundTagAt(i);
+    			if (enchant.getInteger("id") == 33) {
+    				silk = true;
+    			}
+    		}
+    		if (!silk)
+    			Blocks.diamond_ore.dropBlockAsItem(par2World, x, y, z, 0, 0);
+    	}
+    		return super.onBlockDestroyed(par1ItemStack, par2World, block, x, y, z, par7EntityLivingBase);
+    	}
 
-		return super.onBlockDestroyed(par1ItemStack, par2World, block, x, y, z, par7EntityLivingBase);
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
+        if (Keyboard.isKeyDown(42)) {
+            par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
+            par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
+        } else {
+            par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
+        }
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public void addInformation(ItemStack par1ItemStack, EntityPlayer par2EntityPlayer, List par3List, boolean par4) {
-		if (Keyboard.isKeyDown(42)) {
-			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line1"));
-			par3List.add(EnumChatFormatting.DARK_PURPLE + StatCollector.translateToLocal(this.getUnlocalizedName() + ".line2"));
-		} else {
-			par3List.add(StatCollector.translateToLocal(this.getUnlocalizedName() + ".line3") + " " + EnumChatFormatting.DARK_GRAY + "[SHIFT]");
-		}
-	}
+    @Override
+    @SideOnly(Side.CLIENT)
+    public EnumRarity getRarity(ItemStack par1ItemStack) {
+        return EnumRarity.rare;
+    }
 
-	@Override
-	@SideOnly(Side.CLIENT)
-	public EnumRarity getRarity(ItemStack par1ItemStack) {
-		return EnumRarity.rare;
-	}
+    @Override
+    public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
+        return par2ItemStack.getItem() == Items.diamond;
+    }
 
-	@Override
-	public boolean getIsRepairable(ItemStack par1ItemStack, ItemStack par2ItemStack) {
-		return par2ItemStack.getItem() == Items.diamond;
-	}
-
-	@Override
-	public void registerIcons(IIconRegister par1IIconRegister) {
-		this.itemIcon = par1IIconRegister.registerIcon("atum:PtahsDecadence");
-	}
+    @Override
+    public void registerIcons(IIconRegister par1IIconRegister) {
+        this.itemIcon = par1IIconRegister.registerIcon("atum:PtahsDecadence");
+    }
 }
