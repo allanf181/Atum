@@ -16,22 +16,22 @@ public class AtumPortalPosition implements Comparable {
     public int posZ;
     public long lastUpdateTime;
 
-    public AtumPortalPosition(int par2, int par3, int par4, long par5) {
+    public AtumPortalPosition(int par2, int par3, int par4, long updateTime) {
         this(par2, par3, par4);
-        this.lastUpdateTime = par5;
+        this.lastUpdateTime = updateTime;
     }
 
 
-    private AtumPortalPosition(int p_i1354_1_, int p_i1354_2_, int p_i1354_3_) {
-        this.posX = p_i1354_1_;
-        this.posY = p_i1354_2_;
-        this.posZ = p_i1354_3_;
+    private AtumPortalPosition(int x, int y, int z) {
+        this.posX = x;
+        this.posY = y;
+        this.posZ = z;
     }
 
-    private AtumPortalPosition(ChunkCoordinates p_i1355_1_) {
-        this.posX = p_i1355_1_.posX;
-        this.posY = p_i1355_1_.posY;
-        this.posZ = p_i1355_1_.posZ;
+    private AtumPortalPosition(ChunkCoordinates chunkCoords) {
+        this.posX = chunkCoords.posX;
+        this.posY = chunkCoords.posY;
+        this.posZ = chunkCoords.posZ;
     }
 
     public boolean equals(Object p_equals_1_) {
@@ -51,10 +51,10 @@ public class AtumPortalPosition implements Comparable {
         return this.posY == p_compareTo_1_.posY ? (this.posZ == p_compareTo_1_.posZ ? this.posX - p_compareTo_1_.posX : this.posZ - p_compareTo_1_.posZ) : this.posY - p_compareTo_1_.posY;
     }
 
-    public void set(int p_71571_1_, int p_71571_2_, int p_71571_3_) {
-        this.posX = p_71571_1_;
-        this.posY = p_71571_2_;
-        this.posZ = p_71571_3_;
+    public void set(int x, int y, int z) {
+        this.posX = x;
+        this.posY = y;
+        this.posZ = z;
     }
 
     /**
@@ -70,8 +70,8 @@ public class AtumPortalPosition implements Comparable {
     /**
      * Return the squared distance between this coordinates and the ChunkCoordinates given as argument.
      */
-    public float getDistanceSquaredToChunkCoordinates(ChunkCoordinates p_82371_1_) {
-        return this.getDistanceSquared(p_82371_1_.posX, p_82371_1_.posY, p_82371_1_.posZ);
+    public float getDistanceSquaredToChunkCoordinates(ChunkCoordinates chunkCoords) {
+        return this.getDistanceSquared(chunkCoords.posX, chunkCoords.posY, chunkCoords.posZ);
     }
 
     public String toString() {
