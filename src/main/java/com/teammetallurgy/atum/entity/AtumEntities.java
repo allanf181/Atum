@@ -1,32 +1,39 @@
 package com.teammetallurgy.atum.entity;
 
-import net.minecraft.entity.EntityList;
-
 import com.teammetallurgy.atum.Atum;
 import com.teammetallurgy.atum.entity.arrow.*;
-
 import cpw.mods.fml.common.registry.EntityRegistry;
+import net.minecraft.entity.Entity;
+import net.minecraft.entity.EntityList;
 
 public class AtumEntities {
+    public AtumEntity mummy;
+    public AtumEntity banditWarrior;
+    public AtumEntity banditArcher;
+    public AtumEntity pharaoh;
+    public AtumEntity dustySkeleton;
+    public AtumEntity ghost;
+    public AtumEntity stoneSoldier;
+    public AtumEntity desertWolf;
+    public AtumEntity banditWarlord;
+    public AtumEntity barbarian;
 
     public void register() {
         int entityID = 0;
 
         // Mobs
-        
-        EntityRegistry.registerModEntity(EntityMummy.class, "mummy", entityID++, Atum.instance, 64, 1, true);
-        EntityRegistry.registerModEntity(EntityBanditWarrior.class, "banditWarrior", entityID++, Atum.instance, 64, 1, true);
-        EntityRegistry.registerModEntity(EntityBanditArcher.class, "banditArcher", entityID++, Atum.instance, 64, 1, true);
-        EntityRegistry.registerModEntity(EntityPharaoh.class, "pharaoh", entityID++, Atum.instance, 64, 1, true);
-        EntityRegistry.registerModEntity(EntityDustySkeleton.class, "dustySkeleton", entityID++, Atum.instance, 64, 1, true);
-        EntityRegistry.registerModEntity(EntityGhost.class, "desertGhost", entityID++, Atum.instance, 64, 1, true);
-        EntityRegistry.registerModEntity(EntityStoneSoldier.class, "stoneSoldier", entityID++, Atum.instance, 64, 1, true);
-        EntityRegistry.registerModEntity(EntityDesertWolf.class, "desertWolf", entityID++, Atum.instance, 64, 1, true);
-        EntityRegistry.registerModEntity(EntityBanditWarlord.class, "banditWarlord", entityID++, Atum.instance, 64, 1, true);
-        EntityRegistry.registerModEntity(EntityBarbarian.class, "barbarian", entityID++, Atum.instance, 64, 1, true);
-        
-        // Projectiles
+        mummy = new AtumEntity(EntityMummy.class, "mummy", entityID++, 64, 1).setSpawnEgg(0x515838, 0x868F6B);
+        banditWarrior = new AtumEntity(EntityBanditWarrior.class, "banditWarrior", entityID++, 64, 1).setSpawnEgg(0xC2C2C2, 0x040F85);
+        banditArcher = new AtumEntity(EntityBanditArcher.class, "banditArcher", entityID++, 64, 1).setSpawnEgg(0xC2C2C2, 0x7E0C0C);
+        pharaoh = new AtumEntity(EntityPharaoh.class, "pharaoh", entityID++, 64, 1).setSpawnEgg(0xD4BC37, 0x3A4BE0);
+        dustySkeleton = new AtumEntity(EntityDustySkeleton.class, "dustySkeleton", entityID++, 64, 1).setSpawnEgg(0xB59C7D, 0x6F5C43);
+        ghost = new AtumEntity(EntityGhost.class, "desertGhost", entityID++, 64, 1).setSpawnEgg(0xFFFFFF, 0xFFFFFF); //TODO Color
+        stoneSoldier = new AtumEntity(EntityStoneSoldier.class, "stoneSoldier", entityID++, 64, 1).setSpawnEgg(0x918354, 0x695D37);
+        desertWolf = new AtumEntity(EntityDesertWolf.class, "desertWolf", entityID++, 64, 1).setSpawnEgg(0xE7DBC8, 0xAD9467);
+        banditWarlord = new AtumEntity(EntityBanditWarlord.class, "banditWarlord", entityID++, 64, 1).setSpawnEgg(0xFFFFFF, 0xFFFFFF); //TODO Color
+        barbarian = new AtumEntity(EntityBarbarian.class, "barbarian", entityID++, 64, 1).setSpawnEgg(0xFFFFFF, 0xFFFFFF); //TODO Color
 
+        // Projectiles
         EntityRegistry.registerModEntity(EntityArrowVelocity.class, "ArrowVeloctiy", entityID++, Atum.instance, 64, 1, true);
         EntityRegistry.registerModEntity(EntityArrowExplosive.class, "ArrowExplosive", entityID++, Atum.instance, 64, 1, true);
         EntityRegistry.registerModEntity(EntityArrowPoison.class, "ArrowPoison", entityID++, Atum.instance, 64, 1, true);
@@ -35,7 +42,29 @@ public class AtumEntities {
         EntityRegistry.registerModEntity(EntityArrowQuickdraw.class, "ArrowQuickDraw", entityID++, Atum.instance, 64, 1, true);
         EntityRegistry.registerModEntity(EntityNutsCall.class, "EntityNutsCall", entityID++, Atum.instance, 64, 1, true);
         EntityRegistry.registerModEntity(EntityAtumFishHook.class, "EntityAtumFishHook", entityID++, Atum.instance, 64, 1, false);
-
     }
 
+    public class AtumEntity {
+        private Class<? extends Entity> entityClass;
+
+        public AtumEntity(Class<? extends Entity> entityClass, String entityName, int id, int trackingRange, int updateFrequency) {
+            this.entityClass = entityClass;
+            EntityRegistry.registerModEntity(entityClass, entityName, id, Atum.instance, trackingRange, updateFrequency, true);
+        }
+
+        public AtumEntity setSpawnEgg(int backgroundEggColour, int foregroundEggColour) {
+            int eggID = getUniqueEggId();
+            EntityList.IDtoClassMapping.put(Integer.valueOf(eggID), entityClass);
+            EntityList.entityEggs.put(Integer.valueOf(eggID), new EntityList.EntityEggInfo(eggID, backgroundEggColour, foregroundEggColour));
+            return this;
+        }
+
+        private int getUniqueEggId() {
+            int eggID = 120;
+            do {
+                ++eggID;
+            } while (EntityList.getStringFromID(eggID) != null);
+            return eggID;
+        }
+    }
 }
