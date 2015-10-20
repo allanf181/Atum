@@ -1,6 +1,7 @@
 package com.teammetallurgy.atum.blocks;
 
 import com.teammetallurgy.atum.Atum;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.BlockSlab;
@@ -20,6 +21,7 @@ public class BlockAtumSlab extends BlockSlab {
 		super(par2, Material.rock);
 		this.setHardness(2.0F);
 		this.setCreativeTab(Atum.creativeTab);
+		setLightOpacity(1);
 	}
 
 	@Override
@@ -39,6 +41,21 @@ public class BlockAtumSlab extends BlockSlab {
 	@Override
 	protected ItemStack createStackedBlock(int par1) {
 		return new ItemStack(this, 2, par1 & 0x7);
+	}
+
+	@Override
+	public boolean renderAsNormalBlock() {
+		return false;
+	}
+
+	@Override
+	public boolean isOpaqueCube() {
+		return false;
+	}
+
+	@Override
+	public boolean isNormalCube() {
+		return false;
 	}
 
 	@Override
