@@ -39,7 +39,10 @@ public class ItemLoot extends Item {
         int quality = par1ItemStack.getItemDamage() >> 1 & 15;
         int type = par1ItemStack.getItemDamage() >> 5 & 15;
         if (type < typeArray.length && quality < qualityArray.length)
-            return "item.loot." +  qualityArray[quality] + "." + typeArray[type];
+            if(qualityArray[quality].equalsIgnoreCase("dirty"))
+                return "item.loot.dirty";
+            else
+                return "item.loot." +  qualityArray[quality] + "." + typeArray[type];
 
         return "item.loot.unknown";
     }
