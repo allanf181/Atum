@@ -344,14 +344,14 @@ item.loot.gold.scepter.name=Golden Scepter
 
 # Entity
 entity.atum.mummy.name=Mummy
-entity.atum.banditWarrior.name=Bandit Warrior
-entity.atum.banditArcher.name=Bandit Archer
+entity.atum.banditWarrior.name=Brigand
+entity.atum.banditArcher.name=Nomad
 entity.atum.pharaoh.name=Pharaoh
-entity.atum.dustySkeleton.name=Dusty Skeleton
+entity.atum.dustySkeleton.name=Forsaken
 entity.atum.desertGhost.name=Wraith
 entity.atum.stoneSoldier.name=Stoneguard
 entity.atum.desertWolf.name=Desert Wolf
-entity.atum.banditWarlord.name=Bandit Warlord
+entity.atum.banditWarlord.name=Warlord
 entity.atum.barbarian.name=Barbarian
 
 # Pharaoh Names
