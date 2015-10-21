@@ -126,7 +126,7 @@ public class WorldGenPalm extends WorldGenerator {
 
     public void spawnLeaf(World par1World, int x, int y, int z) {
         Block block = par1World.getBlock(x, y, z);
-        if (block == null || block.canBeReplacedByLeaves(par1World, x, y, z)) {
+        if (par1World.isAirBlock(x, y, z) || block.canBeReplacedByLeaves(par1World, x, y, z)) {
             this.setBlockAndNotifyAdequately(par1World, x, y, z, AtumBlocks.BLOCK_LEAVES, this.metaLeaves);
         }
 

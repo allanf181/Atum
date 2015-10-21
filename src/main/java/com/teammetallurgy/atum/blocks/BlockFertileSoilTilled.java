@@ -63,7 +63,11 @@ public class BlockFertileSoilTilled extends Block {
     public boolean renderAsNormalBlock() {
         return false;
     }
-
+    
+    @Override
+	public boolean isNormalCube() {
+		return false;
+	}
     @Override
     @SideOnly(Side.CLIENT)
     public IIcon getIcon(int par1, int par2) {

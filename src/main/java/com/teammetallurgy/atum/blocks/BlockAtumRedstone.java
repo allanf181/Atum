@@ -1,17 +1,19 @@
 package com.teammetallurgy.atum.blocks;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
+import net.minecraft.init.Items;
+import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.world.IBlockAccess;
 import net.minecraft.world.World;
-
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class BlockAtumRedstone extends Block {
 
@@ -23,7 +25,26 @@ public class BlockAtumRedstone extends Block {
         this.setResistance(5.0F);
         this.setStepSound(Block.soundTypeStone);
     }
+    public Item getItemDropped(int meta, Random random, int fortune)
+    {
+        return Items.redstone;
+    }
 
+    /**
+     * Returns the usual quantity dropped by the block plus a bonus of 1 to 'i' (inclusive).
+     */
+    public int quantityDroppedWithBonus(int fortune, Random random)
+    {
+        return this.quantityDropped(random) + random.nextInt(fortune + 1);
+    }
+
+    /**
+     * Returns the quantity of items to drop on block destruction.
+     */
+    public int quantityDropped(Random random)
+    {
+        return 4 + random.nextInt(2);
+    }
     @Override
     public int getLightValue(IBlockAccess world, int x, int y, int z) {
         return world.getBlockMetadata(x, y, z) == 1 ? 9 : 0;

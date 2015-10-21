@@ -1,7 +1,8 @@
 package com.teammetallurgy.atum.items.artifacts;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.entity.EntityLivingBase;
@@ -12,13 +13,16 @@ import net.minecraft.item.EnumRarity;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemPickaxe;
 import net.minecraft.item.ItemStack;
+import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.nbt.NBTTagList;
 import net.minecraft.util.EnumChatFormatting;
 import net.minecraft.util.StatCollector;
 import net.minecraft.world.World;
+
 import org.lwjgl.input.Keyboard;
 
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemPtahsDecadence extends ItemPickaxe {
 
@@ -33,13 +37,21 @@ public class ItemPtahsDecadence extends ItemPickaxe {
 
     @Override
     public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, Block block, int x, int y, int z, EntityLivingBase par7EntityLivingBase) {
-        Item dropID = block.getItemDropped(par2World.getBlockMetadata(x, y, z), new Random(), 0);
-        if (dropID == Items.diamond) {
-            Blocks.diamond_ore.dropBlockAsItem(par2World, x, y, z, 0, 0);
-        }
-
-        return super.onBlockDestroyed(par1ItemStack, par2World, block, x, y, z, par7EntityLivingBase);
-    }
+    	Item dropID = block.getItemDropped(par2World.getBlockMetadata(x, y, z), new Random(), 0);
+    	if (dropID == Items.diamond) {
+    		boolean silk = false;
+    		NBTTagList enchants = par1ItemStack.getEnchantmentTagList();
+    		for (int i = 0; i < enchants.tagCount(); i++) {
+    			NBTTagCompound enchant = enchants.getCompoundTagAt(i);
+    			if (enchant.getInteger("id") == 33) {
+    				silk = true;
+    			}
+    		}
+    		if (!silk)
+    			Blocks.diamond_ore.dropBlockAsItem(par2World, x, y, z, 0, 0);
+    	}
+    		return super.onBlockDestroyed(par1ItemStack, par2World, block, x, y, z, par7EntityLivingBase);
+    	}
 
     @Override
     @SideOnly(Side.CLIENT)

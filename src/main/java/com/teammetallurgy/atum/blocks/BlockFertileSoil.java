@@ -35,6 +35,7 @@ public class BlockFertileSoil extends BlockFarmland {
     public BlockFertileSoil() {
         super();
         this.setBlockName("fertileSoil");
+        this.setBlockBounds(0.0F, 0.0F, 0.0F, 1.0F, 1.0F, 1.0F);
         this.setHardness(0.5F);
         this.setStepSound(Block.soundTypeGrass);
         setTickRandomly(true);

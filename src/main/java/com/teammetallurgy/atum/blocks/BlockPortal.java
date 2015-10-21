@@ -27,6 +27,7 @@ public class BlockPortal extends BlockBreakable {
         this.setTickRandomly(true);
         this.setHardness(-1.0F);
         this.setBlockName("portal");
+        this.setBlockBounds(0, 0, 0, 1, 0.875F, 1);
     }
 
     @Override

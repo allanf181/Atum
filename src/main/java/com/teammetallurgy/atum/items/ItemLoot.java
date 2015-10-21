@@ -1,7 +1,8 @@
 package com.teammetallurgy.atum.items;
 
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+import java.util.List;
+import java.util.Random;
+
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -12,9 +13,8 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
-
-import java.util.List;
-import java.util.Random;
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 
 public class ItemLoot extends Item {
 
@@ -39,7 +39,10 @@ public class ItemLoot extends Item {
         int quality = par1ItemStack.getItemDamage() >> 1 & 15;
         int type = par1ItemStack.getItemDamage() >> 5 & 15;
         if (type < typeArray.length && quality < qualityArray.length)
-            return "item.loot." +  qualityArray[quality] + "." + typeArray[type];
+            if(qualityArray[quality].equalsIgnoreCase("dirty"))
+                return "item.loot.dirty";
+            else
+                return "item.loot." +  qualityArray[quality] + "." + typeArray[type];
 
         return "item.loot.unknown";
     }
@@ -83,6 +86,7 @@ public class ItemLoot extends Item {
             if (quality == 0) {
                 damage |= (int) (Math.random() * 6.0D) + 1;
             }
+            
 
             item.setItemDamage(damage << 1);
             entityItem.setEntityItemStack(item);

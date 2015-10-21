@@ -36,40 +36,43 @@ public class BlockPalmSapling extends BlockBush {
             world.setBlock(x, y + i, z, AtumBlocks.BLOCK_LOG, 0, 2);
         }
 
-        world.setBlock(x, y + height, z, AtumBlocks.BLOCK_LEAVES, 0, 2);
-
+        spawnLeaf(world, x, y+height, z);
         for (i = -1; i < 2; ++i) {
             for (int j = -1; j < 2; ++j) {
                 if (i != 0 || j != 0) {
-                    world.setBlock(x + i, y + height - 1, z + j, AtumBlocks.BLOCK_LEAVES, 0, 2);
+                    spawnLeaf(world, x+i, y+height-1, z+j);
                 }
             }
         }
 
-        world.setBlock(x + 2, y + height - 1, z, AtumBlocks.BLOCK_LEAVES, 0, 2);
-        world.setBlock(x + 2, y + height - 2, z, AtumBlocks.BLOCK_LEAVES, 0, 2);
-        world.setBlock(x + 3, y + height - 2, z, AtumBlocks.BLOCK_LEAVES, 0, 2);
+        spawnLeaf(world, x+2, y+height-1, z);
+        spawnLeaf(world, x+2, y+height-2, z);
+        spawnLeaf(world, x+3, y+height-2, z);
+
         if (rand.nextInt(100) < 15) {
             world.setBlock(x + 1, y + height - 2, z, AtumBlocks.BLOCK_DATEBLOCK, 0, 2);
         }
 
-        world.setBlock(x - 2, y + height - 1, z, AtumBlocks.BLOCK_LEAVES, 0, 2);
-        world.setBlock(x - 2, y + height - 2, z, AtumBlocks.BLOCK_LEAVES, 0, 2);
-        world.setBlock(x - 3, y + height - 2, z, AtumBlocks.BLOCK_LEAVES, 0, 2);
+        spawnLeaf(world, x-2, y+height-1, z);
+        spawnLeaf(world, x-2, y+height-2, z);
+        spawnLeaf(world, x-3, y+height-2, z);
+
         if (rand.nextInt(100) < 15) {
             world.setBlock(x - 1, y + height - 2, z, AtumBlocks.BLOCK_DATEBLOCK, 0, 2);
         }
 
-        world.setBlock(x, y + height - 1, z + 2, AtumBlocks.BLOCK_LEAVES, 0, 2);
-        world.setBlock(x, y + height - 2, z + 2, AtumBlocks.BLOCK_LEAVES, 0, 2);
-        world.setBlock(x, y + height - 2, z + 3, AtumBlocks.BLOCK_LEAVES, 0, 2);
+        spawnLeaf(world, x, y+height-1, z+2);
+        spawnLeaf(world, x, y+height-2, z+2);
+        spawnLeaf(world, x, y+height-2, z+3);
+        
         if (rand.nextInt(100) < 15) {
             world.setBlock(x, y + height - 2, z + 1, AtumBlocks.BLOCK_DATEBLOCK, 0, 2);
         }
 
-        world.setBlock(x, y + height - 1, z - 2, AtumBlocks.BLOCK_LEAVES, 0, 2);
-        world.setBlock(x, y + height - 2, z - 2, AtumBlocks.BLOCK_LEAVES, 0, 2);
-        world.setBlock(x, y + height - 2, z - 3, AtumBlocks.BLOCK_LEAVES, 0, 2);
+        spawnLeaf(world, x, y+height-1, z-2);
+        spawnLeaf(world, x, y+height-2, z-2);
+        spawnLeaf(world, x, y+height-2, z-3);
+        
         if (rand.nextInt(100) < 15) {
             world.setBlock(x, y + height - 2, z - 1, AtumBlocks.BLOCK_DATEBLOCK, 0, 2);
         }
@@ -89,5 +92,12 @@ public class BlockPalmSapling extends BlockBush {
     @Override
     public void registerBlockIcons(IIconRegister par1IIconRegister) {
         this.blockIcon = par1IIconRegister.registerIcon("atum:AtumPalmSapling");
+    }
+    
+    public void spawnLeaf(World world, int x, int y, int z){
+    	Block block = world.getBlock(x, y, z);
+    	if(world.isAirBlock(x, y, z) || block.canBeReplacedByLeaves(world, x, y, z)){
+    		world.setBlock(x, y, z, AtumBlocks.BLOCK_LEAVES, 0,2);
+    	}
     }
 }
