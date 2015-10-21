@@ -26,7 +26,7 @@ public class EntityBanditWarlord extends EntityMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(80.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(250.0D);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.53000000417232513D);
         this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0D);
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(10.0D);
