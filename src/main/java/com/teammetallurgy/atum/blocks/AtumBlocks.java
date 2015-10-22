@@ -8,9 +8,9 @@ import com.teammetallurgy.atum.blocks.tileentity.furnace.TileEntityLimestoneFurn
 import com.teammetallurgy.atum.items.ItemBlockBricks;
 import com.teammetallurgy.atum.items.ItemBlockStainedGlass;
 import com.teammetallurgy.atum.utils.Constants;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockSlab;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
@@ -27,8 +27,8 @@ public class AtumBlocks {
     public static Block BLOCK_LARGEBRICK = new BlockAtumBricks("largeBrick").setBlockTextureName("atum:AtumBrickLarge");
     public static Block BLOCK_SMALLBRICK = new BlockAtum("smallBrick").setBlockTextureName("atum:AtumBrickSmall");
     public static Block BLOCK_CARVEDBRICK = new BlockAtum("carvedBrick").setBlockTextureName("atum:AtumBrickCarved");
-    public static Block BLOCK_SLABS = new BlockAtumSlab(false).setBlockName("slab");
-    public static Block BLOCK_DOUBLESLAB = new BlockAtumSlab(true).setBlockName("doubleSlab");
+    public static BlockSlab BLOCK_SLABS = new BlockAtumSlab(false);
+    public static BlockSlab BLOCK_DOUBLESLAB = new BlockAtumSlab(true);
     public static Block BLOCK_SMOOTHSTAIRS = new BlockAtumStairs(BLOCK_STONE, 0).setBlockName("smoothStairs");
     public static Block BLOCK_COBBLESTAIRS = new BlockAtumStairs(BLOCK_LIMESTONECOBBLE, 0).setBlockName("cobbleStairs");
     public static Block BLOCK_LARGESTONESTAIRS = new BlockAtumStairs(BLOCK_LARGEBRICK, 0).setBlockName("largeStairs");
@@ -119,8 +119,8 @@ public class AtumBlocks {
         GameRegistry.registerBlock(BLOCK_THINCRYSTALSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_THINCRYSTALSTAINEDGLASS.getUnlocalizedName());
         GameRegistry.registerBlock(BLOCK_THINFRAMEDSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_THINFRAMEDSTAINEDGLASS.getUnlocalizedName());
 
-        GameRegistry.registerBlock(BLOCK_SLABS, ItemBlockSlab.class, BLOCK_SLABS.getUnlocalizedName());
-        GameRegistry.registerBlock(BLOCK_DOUBLESLAB, ItemBlockSlab.class, BLOCK_DOUBLESLAB.getUnlocalizedName());
+        GameRegistry.registerBlock(BLOCK_SLABS, ItemBlockSlab.class, "slab");
+        GameRegistry.registerBlock(BLOCK_DOUBLESLAB, ItemBlockSlab.class, "doubleSlab");
 
         GameRegistry.registerBlock(BLOCK_WALL, ItemBlockWall.class, BLOCK_WALL.getUnlocalizedName());
 

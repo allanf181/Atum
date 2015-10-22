@@ -12,13 +12,15 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 
 import java.util.List;
+import java.util.Random;
 
 public class BlockAtumSlab extends BlockSlab {
-    public static final String[] slabType = {"smooth", "cracked", "largeBrick", "smallBrick"};
 
-    public BlockAtumSlab(boolean par2) {
-        super(par2, Material.rock);
+    public BlockAtumSlab(boolean isDoubleSlab) {
+        super(isDoubleSlab, Material.rock);
         this.setHardness(2.0F);
+        this.useNeighborBrightness = true;
+        this.setBlockName("slab");
         this.setCreativeTab(Atum.creativeTab);
     }
 
@@ -37,23 +39,13 @@ public class BlockAtumSlab extends BlockSlab {
     }
 
     @Override
+    public Item getItemDropped(int par1, Random random, int par3) {
+        return Item.getItemFromBlock(AtumBlocks.BLOCK_SLABS);
+    }
+
+    @Override
     protected ItemStack createStackedBlock(int par1) {
-        return new ItemStack(this, 2, par1 & 0x7);
-    }
-    
-    @Override
-    public boolean isNormalCube() {
-    	return false;
-    }
-    
-    @Override
-    public boolean isOpaqueCube() {
-    	return false;
-    }
-    
-    @Override
-    public boolean renderAsNormalBlock() {
-    	return false;
+        return new ItemStack(this, 2, par1 & 4);
     }
 
     @Override
@@ -68,6 +60,7 @@ public class BlockAtumSlab extends BlockSlab {
         return this.getUnlocalizedName();
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister p_149651_1_) {
     }
