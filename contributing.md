@@ -1,4 +1,6 @@
-Welcome to the Atum Contribution file! Please take a moment to read over the rules for contributing to make sure you don't have to do extra work later undoing or fixing things.
+Welcome to the Atum Contribution file! We'd like to thank you for your interest in assisting us with Atum, your support and assistance is greatly appreciated.
+
+Please take a moment to read over the rules for contributing to make sure you don't have to do extra work later undoing or fixing things.
 
 **Contribution Rules**
 
