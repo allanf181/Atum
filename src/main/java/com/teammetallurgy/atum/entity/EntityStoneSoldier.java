@@ -35,6 +35,12 @@ public class EntityStoneSoldier extends EntityStone {
     }
 
     @Override
+    protected String getHurtSound()
+    {
+        return "step.stone";
+    }
+
+    @Override
     public boolean getCanSpawnHere() {
         return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
     }
