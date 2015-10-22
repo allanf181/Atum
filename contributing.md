@@ -1,3 +1,8 @@
-We have strict requirements and our files do not use formatters. Do not apply a formatter to your PR or it will be denied. 
+Welcome to the Atum Contribution file! Please take a moment to read over the rules for contributing to make sure you don't have to do extra work later undoing or fixing things.
 
-This section will be elaborated on later.
+**Contribution Rules**
+
+* No using formatters on our code. Most programs come with a default formatter so before you begin coding please make sure you don't have that active. We won't accept PRs with formatting and you will have to fix your code. We are formatted to the Minecraft default code and using a formatter can mess with our logs of exact edits and make it hard to pinpoint changes.
+* No reorganizing lists or code sections unless strictly necessary. Things are laid out in a very specific way at the moment from old to do and messing with that can make it harder on translators. We will likely do a massive organization project at a later date as an Issue.
+
+If you have ***any* questions** feel free to ask. We would prefer you ask **BEFORE** starting rather than after as it saves us both work.
