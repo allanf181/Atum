@@ -1,10 +1,13 @@
 package com.teammetallurgy.atum.items.artifacts;
 
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
+import net.minecraft.enchantment.Enchantment;
+import net.minecraft.enchantment.EnchantmentHelper;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.init.Blocks;
@@ -31,27 +34,18 @@ public class ItemPtahsDecadence extends ItemPickaxe {
     }
 
     @Override
-    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
-        return true;
+    public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase livingBase) {
+        Item dropItem = block.getItemDropped(world.getBlockMetadata(x, y, z), new Random(), 0);
+        if (dropItem == Items.diamond && EnchantmentHelper.getSilkTouchModifier(livingBase) == false) {
+            Blocks.diamond_ore.dropBlockAsItem(world, x, y, z, 0, 0);
+        }
+        return super.onBlockDestroyed(stack, world, block, x, y, z, livingBase);
     }
 
     @Override
-    public boolean onBlockDestroyed(ItemStack par1ItemStack, World par2World, Block block, int x, int y, int z, EntityLivingBase par7EntityLivingBase) {
-    	Item dropID = block.getItemDropped(par2World.getBlockMetadata(x, y, z), new Random(), 0);
-    	if (dropID == Items.diamond) {
-    		boolean silk = false;
-    		NBTTagList enchants = par1ItemStack.getEnchantmentTagList();
-    		for (int i = 0; i < enchants.tagCount(); i++) {
-    			NBTTagCompound enchant = enchants.getCompoundTagAt(i);
-    			if (enchant.getInteger("id") == 33) {
-    				silk = true;
-    			}
-    		}
-    		if (!silk)
-    			Blocks.diamond_ore.dropBlockAsItem(par2World, x, y, z, 0, 0);
-    	}
-    		return super.onBlockDestroyed(par1ItemStack, par2World, block, x, y, z, par7EntityLivingBase);
-    	}
+    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+        return true;
+    }
 
     @Override
     @SideOnly(Side.CLIENT)
