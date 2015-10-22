@@ -55,8 +55,8 @@ public class EntityDesertWolf extends EntityTameable {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.43000000417232513D);
+
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(10.0D);
         if (this.isTamed()) {
             this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0D);
@@ -129,7 +129,7 @@ public class EntityDesertWolf extends EntityTameable {
 
     @Override
     protected boolean canDespawn() {
-        return this.isAngry();
+        return this.isAngry() && this.ticksExisted > 2400;
     }
 
     @Override
@@ -164,9 +164,6 @@ public class EntityDesertWolf extends EntityTameable {
     public void onLivingUpdate() {
         super.onLivingUpdate();
 
-        if (this.isTamed()) {
-            this.setAngry(false);
-        }
         if (!this.worldObj.isRemote && this.isShaking && !this.field_70928_h && !this.hasPath() && this.onGround) {
             this.field_70928_h = true;
             this.timeWolfIsShaking = 0.0F;
@@ -253,8 +250,8 @@ public class EntityDesertWolf extends EntityTameable {
     }
 
     @SideOnly(Side.CLIENT)
-    public float getInterestedAngle(float angle) {
-        return (this.field_70924_f + (this.field_70926_e - this.field_70924_f) * angle) * 0.15F * (float) Math.PI;
+    public float getInterestedAngle(float par1) {
+        return (this.field_70924_f + (this.field_70926_e - this.field_70924_f) * par1) * 0.15F * (float) Math.PI;
     }
 
     @Override
@@ -268,18 +265,18 @@ public class EntityDesertWolf extends EntityTameable {
     }
 
     @Override
-    public boolean attackEntityFrom(DamageSource damageSource, float side) {
+    public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
         if (this.isEntityInvulnerable()) {
             return false;
         } else {
-            Entity entity = damageSource.getEntity();
+            Entity entity = par1DamageSource.getEntity();
             this.aiSit.setSitting(false);
 
             if (entity != null && !(entity instanceof EntityPlayer) && !(entity instanceof EntityArrow)) {
-                side = (side + 1) / 2;
+                par2 = (par2 + 1) / 2;
             }
 
-            return super.attackEntityFrom(damageSource, side);
+            return super.attackEntityFrom(par1DamageSource, par2);
         }
     }
 
@@ -357,6 +354,7 @@ public class EntityDesertWolf extends EntityTameable {
                     this.setPathToEntity((PathEntity) null);
                     this.setAttackTarget((EntityLiving) null);
                     this.aiSit.setSitting(true);
+                    this.setHealth(20.0F);
                     this.func_152115_b(player.getUniqueID().toString());
                     this.playTameEffect(true);
                     this.worldObj.setEntityState(this, (byte) 7);
@@ -412,15 +410,15 @@ public class EntityDesertWolf extends EntityTameable {
     }
 
     @Override
-    public boolean canMateWith(EntityAnimal entityAnimal) {
-        if (entityAnimal == this) {
+    public boolean canMateWith(EntityAnimal par1EntityAnimal) {
+        if (par1EntityAnimal == this) {
             return false;
         } else if (!this.isTamed()) {
             return false;
-        } else if (!(entityAnimal instanceof EntityDesertWolf)) {
+        } else if (!(par1EntityAnimal instanceof EntityDesertWolf)) {
             return false;
         } else {
-            EntityDesertWolf entityDesertWolf = (EntityDesertWolf) entityAnimal;
+            EntityDesertWolf entityDesertWolf = (EntityDesertWolf) par1EntityAnimal;
             return !entityDesertWolf.isTamed() ? false : (entityDesertWolf.isSitting() ? false : this.isInLove() && entityDesertWolf.isInLove());
         }
     }
@@ -434,7 +432,7 @@ public class EntityDesertWolf extends EntityTameable {
     }
 
     @Override
-    public EntityAgeable createChild(EntityAgeable entityAgeable) {
+    public EntityAgeable createChild(EntityAgeable par1EntityAgeable) {
         EntityDesertWolf entityDesertWolf = new EntityDesertWolf(this.worldObj);
         String s = this.func_152113_b();
 

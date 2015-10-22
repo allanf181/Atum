@@ -52,16 +52,6 @@ public class EntityBonestorm extends EntityMob {
         return "mob.horse.skeleton.death";
     }
 
-    @SideOnly(Side.CLIENT)
-    public int getBrightnessForRender(float brightness) {
-        return 15728880;
-    }
-
-    @Override
-    public float getBrightness(float brightness) {
-        return 1.0F;
-    }
-
     @Override
     public void onLivingUpdate() {
         if (!this.worldObj.isRemote) {
@@ -140,11 +130,6 @@ public class EntityBonestorm extends EntityMob {
 
     @Override
     protected void fall(float fall) {
-    }
-
-    @Override
-    protected Item getDropItem() {
-        return Items.blaze_rod;
     }
 
     @Override
