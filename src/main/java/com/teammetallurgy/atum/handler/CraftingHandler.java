@@ -21,7 +21,7 @@ public class CraftingHandler {
 
     private void addRecipes() {
         GameRegistry.addShapelessRecipe(new ItemStack(AtumBlocks.BLOCK_LARGEBRICK, 1, 2), new ItemStack(AtumBlocks.BLOCK_LARGEBRICK));
-        GameRegistry.addShapelessRecipe(new ItemStack(AtumBlocks.BLOCK_LARGEBRICK, 1, 2), new ItemStack(AtumBlocks.BLOCK_LARGEBRICK,1,1));
+        GameRegistry.addShapelessRecipe(new ItemStack(AtumBlocks.BLOCK_LARGEBRICK, 1, 2), new ItemStack(AtumBlocks.BLOCK_LARGEBRICK, 1, 1));
         GameRegistry.addShapelessRecipe(new ItemStack(AtumBlocks.BLOCK_LARGESTONESTAIRSBREAKABLE), new ItemStack(AtumBlocks.BLOCK_LARGESTONESTAIRS));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(AtumBlocks.BLOCK_LARGEBRICK, 4, 2), "XX", "XX", 'X', AtumBlocks.BLOCK_STONE));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(AtumBlocks.BLOCK_SMALLBRICK, 4), "XX", "XX", 'X', AtumBlocks.BLOCK_LIMESTONECOBBLE));
@@ -61,17 +61,18 @@ public class CraftingHandler {
         GameRegistry.addRecipe(new ItemStack(AtumItems.ITEM_SCROLL), "XXX", "SXS", "XXX", 'X', AtumItems.papyrusPlant, 'S', Items.stick);
         GameRegistry.addRecipe(new ItemStack(AtumItems.ITEM_SCARAB), " G ", "GDG", " G ", 'G', Items.gold_ingot, 'D', Items.diamond);
         GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_FURNACEIDLE), "XXX", "X X", "XXX", 'X', AtumBlocks.BLOCK_LIMESTONECOBBLE);
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Items.dye, 1, 15), new ItemStack(AtumItems.ITEM_DUSTYBONE)));
 
-        String [] oreColours = Constants.ORE_DIC_COLOURS;
+        String[] oreColours = Constants.ORE_DIC_COLOURS;
 
         for (int i = 0; i < oreColours.length; i++) {
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack (AtumBlocks.BLOCK_CRYSTALSTAINEDGLASS, 8, i), "GGG", "GDG", "GGG", 'G', AtumBlocks.BLOCK_CRYSTALGLASS, 'D', "dye" + oreColours[i]));
-            GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_THINCRYSTALSTAINEDGLASS, 16, i), "GGG", "GGG", 'G', new ItemStack (AtumBlocks.BLOCK_CRYSTALSTAINEDGLASS, 1, i));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(AtumBlocks.BLOCK_CRYSTALSTAINEDGLASS, 8, i), "GGG", "GDG", "GGG", 'G', AtumBlocks.BLOCK_CRYSTALGLASS, 'D', "dye" + oreColours[i]));
+            GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_THINCRYSTALSTAINEDGLASS, 16, i), "GGG", "GGG", 'G', new ItemStack(AtumBlocks.BLOCK_CRYSTALSTAINEDGLASS, 1, i));
 
-            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack (AtumBlocks.BLOCK_FRAMEDSTAINEDGLASS, 8, i), "GGG", "GDG", "GGG", 'G', AtumBlocks.BLOCK_FRAMEDGLASS, 'D', "dye" + oreColours[i]));
-            GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_THINFRAMEDSTAINEDGLASS, 16, i), "GGG", "GGG", 'G', new ItemStack (AtumBlocks.BLOCK_FRAMEDSTAINEDGLASS, 1, i));
+            GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(AtumBlocks.BLOCK_FRAMEDSTAINEDGLASS, 8, i), "GGG", "GDG", "GGG", 'G', AtumBlocks.BLOCK_FRAMEDGLASS, 'D', "dye" + oreColours[i]));
+            GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_THINFRAMEDSTAINEDGLASS, 16, i), "GGG", "GGG", 'G', new ItemStack(AtumBlocks.BLOCK_FRAMEDSTAINEDGLASS, 1, i));
 
-            GameRegistry.addRecipe(new ItemStack (AtumBlocks.BLOCK_FRAMEDSTAINEDGLASS, 1, i), " S ", "SGS", " S ", 'S', Items.stick, 'G', new ItemStack (AtumBlocks.BLOCK_CRYSTALSTAINEDGLASS, 1, i));
+            GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_FRAMEDSTAINEDGLASS, 1, i), " S ", "SGS", " S ", 'S', Items.stick, 'G', new ItemStack(AtumBlocks.BLOCK_CRYSTALSTAINEDGLASS, 1, i));
         }
     }
 
@@ -96,5 +97,4 @@ public class CraftingHandler {
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.sand), AtumBlocks.BLOCK_SAND);
         GameRegistry.addShapelessRecipe(new ItemStack(Items.string, 3), AtumItems.ITEM_FLAX);
     }
-
 }

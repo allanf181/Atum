@@ -77,6 +77,7 @@ public class AtumItems {
     public static Item desertBoots = new ItemTexturedArmor(desertEnum, 0, 3).setRepairItem(Items.iron_ingot).setTextureFile("DesertArmor_1").setUnlocalizedName("desertBoots").setTextureName("atum:DesertBoots");
     public static Item papyrusPlant = new ItemPapyrusPlant(AtumBlocks.BLOCK_PAPYRUS).setUnlocalizedName("papyrusPlant");
     public static Item ITEM_ECTOPLASM = new Item().setUnlocalizedName("ectoplasm").setTextureName("atum:Ectoplasm");
+    public static Item ITEM_DUSTYBONE = new Item().setUnlocalizedName("dustyBone").setTextureName("atum:DustyBone");
     public static Item ITEM_STONECHUNK = new Item().setUnlocalizedName("stoneChunk").setTextureName("atum:StoneChunk");
     public static Item ITEM_SCROLL = new Item().setUnlocalizedName("scroll").setTextureName("atum:Scroll");
     public static Item ITEM_PELT = new Item().setUnlocalizedName("wolfPelt").setTextureName("atum:WolfPelt");
@@ -146,6 +147,7 @@ public class AtumItems {
         this.register(desertBoots);
         this.register(papyrusPlant);
         this.register(ITEM_ECTOPLASM);
+        this.register(ITEM_DUSTYBONE);
         this.register(ITEM_STONECHUNK);
         this.register(ITEM_SCRAP);
         this.register(ITEM_SCROLL);

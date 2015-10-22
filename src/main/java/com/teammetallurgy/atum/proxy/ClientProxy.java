@@ -1,5 +1,8 @@
 package com.teammetallurgy.atum.proxy;
 
+import com.teammetallurgy.atum.client.render.entity.*;
+import com.teammetallurgy.atum.client.render.entity.arrow.RenderBone;
+import com.teammetallurgy.atum.entity.projectile.EntitySmallBone;
 import com.teammetallurgy.atum.handler.AtumConfig;
 import com.teammetallurgy.atum.handler.event.AtumFogEventListener;
 import com.teammetallurgy.atum.blocks.AtumBlocks;
@@ -7,10 +10,6 @@ import com.teammetallurgy.atum.blocks.BlockDate;
 import com.teammetallurgy.atum.blocks.BlockPapyrus;
 import com.teammetallurgy.atum.client.model.entity.ModelDesertWolf;
 import com.teammetallurgy.atum.client.model.entity.ModelDustySkeleton;
-import com.teammetallurgy.atum.client.render.entity.RenderBandit;
-import com.teammetallurgy.atum.client.render.entity.RenderDesertWolf;
-import com.teammetallurgy.atum.client.render.entity.RenderGhost;
-import com.teammetallurgy.atum.client.render.entity.RenderPharaoh;
 import com.teammetallurgy.atum.client.render.entity.arrow.RenderCustomArrow;
 import com.teammetallurgy.atum.client.render.entity.arrow.RenderNutsCall;
 import com.teammetallurgy.atum.client.render.item.RendererItemBow;
@@ -116,8 +115,10 @@ public class ClientProxy extends CommonProxy {
         });
 
         RenderingRegistry.registerEntityRenderingHandler(EntityDesertWolf.class, new RenderDesertWolf(new ModelDesertWolf(), new ModelDesertWolf(), 0.5F));
+        RenderingRegistry.registerEntityRenderingHandler(EntityBonestorm.class, new RenderBonestorm());
 
         RenderingRegistry.registerEntityRenderingHandler(CustomArrow.class, new RenderCustomArrow());
+        RenderingRegistry.registerEntityRenderingHandler(EntitySmallBone.class, new RenderBone(0.35F));
         RenderingRegistry.registerEntityRenderingHandler(EntityNutsCall.class, new RenderNutsCall());
         RenderingRegistry.registerEntityRenderingHandler(EntityAtumFishHook.class, new RenderFish());
     }
