@@ -140,6 +140,9 @@ public class WorldGenOasis extends WorldGenerator {
                             block = world.getBlock(par3 + var28, y - 1, par5 + z);
                             if (!var25 && block == AtumBlocks.BLOCK_FERTILESOIL) {
                                 world.setBlock(par3 + var28, y, par5 + z, Blocks.chest);
+                                if (world.getBlock(par3 + var28, y - 1, par5 + z) == Blocks.dirt) {
+                                    world.setBlock(par3 + var28, y - 1, par5 + z, AtumBlocks.BLOCK_FERTILESOIL);
+                                }
                                 TileEntity var29 = world.getTileEntity(par3 + var28, world.getHeightValue(par3 + var28, par5 + z), par5 + z);
                                 AtumLoot.fillChest((IInventory) var29, 5, 0.2F);
                                 var25 = true;
