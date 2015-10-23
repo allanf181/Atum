@@ -119,8 +119,8 @@ public class AtumBlocks {
         GameRegistry.registerBlock(BLOCK_THINCRYSTALSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_THINCRYSTALSTAINEDGLASS.getUnlocalizedName());
         GameRegistry.registerBlock(BLOCK_THINFRAMEDSTAINEDGLASS, ItemBlockStainedGlass.class, BLOCK_THINFRAMEDSTAINEDGLASS.getUnlocalizedName());
 
-        GameRegistry.registerBlock(BLOCK_SLABS, ItemBlockSlab.class, "slab");
-        GameRegistry.registerBlock(BLOCK_DOUBLESLAB, ItemBlockSlab.class, "doubleSlab");
+        GameRegistry.registerBlock(BLOCK_SLABS, ItemBlockSlab.class, "tile.slab");
+        GameRegistry.registerBlock(BLOCK_DOUBLESLAB, ItemBlockSlab.class, "tile.doubleSlab");
 
         GameRegistry.registerBlock(BLOCK_WALL, ItemBlockWall.class, BLOCK_WALL.getUnlocalizedName());
 

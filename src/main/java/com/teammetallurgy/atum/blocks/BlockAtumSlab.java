@@ -7,9 +7,11 @@ import net.minecraft.block.BlockSlab;
 import net.minecraft.block.material.Material;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
+import net.minecraft.init.Blocks;
 import net.minecraft.item.Item;
 import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
+import net.minecraft.world.World;
 
 import java.util.List;
 import java.util.Random;
@@ -63,5 +65,11 @@ public class BlockAtumSlab extends BlockSlab {
     @Override
     @SideOnly(Side.CLIENT)
     public void registerBlockIcons(IIconRegister p_149651_1_) {
+    }
+
+    @Override
+    @SideOnly(Side.CLIENT)
+    public Item getItem(World world, int x, int y, int z) {
+        return AtumBlocks.BLOCK_SLABS == this ? Item.getItemFromBlock(this) : (this == AtumBlocks.BLOCK_DOUBLESLAB ? Item.getItemFromBlock(AtumBlocks.BLOCK_SLABS) : Item.getItemFromBlock(AtumBlocks.BLOCK_SLABS));
     }
 }
