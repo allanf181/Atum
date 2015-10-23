@@ -1,5 +1,6 @@
 package com.teammetallurgy.atum.entity;
 
+import com.teammetallurgy.atum.items.AtumItems;
 import net.minecraft.entity.EnumCreatureAttribute;
 import net.minecraft.entity.SharedMonsterAttributes;
 import net.minecraft.entity.monster.EntityMob;
@@ -64,7 +65,7 @@ public class EntityDustySkeleton extends EntityMob {
         switch (this.rand.nextInt(4)) {
             case 0:
                 int amount = rand.nextInt(2) + 1;
-                this.dropItem(Items.bone, amount);
+                this.dropItem(AtumItems.ITEM_DUSTYBONE, amount);
                 break;
         }
     }

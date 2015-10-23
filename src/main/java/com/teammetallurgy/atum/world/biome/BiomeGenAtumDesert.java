@@ -49,6 +49,7 @@ public class BiomeGenAtumDesert extends BiomeGenBase {
         super.spawnableMonsterList.add(new SpawnListEntry(EntityGhost.class, 6, 4, 4));
         super.spawnableMonsterList.add(new SpawnListEntry(EntityDesertWolf.class, 6, 4, 4));
         super.spawnableMonsterList.add(new SpawnListEntry(EntityStoneSoldier.class, 6, 4, 4));
+        super.spawnableMonsterList.add(new SpawnListEntry(EntityBonestorm.class, 6, 4, 4));
     }
 
     @Override

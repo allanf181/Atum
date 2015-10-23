@@ -5,6 +5,7 @@ import com.teammetallurgy.atum.items.AtumItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockColored;
 import net.minecraft.entity.*;
 import net.minecraft.entity.ai.*;
 import net.minecraft.entity.passive.EntityAnimal;
@@ -38,9 +39,8 @@ public class EntityDesertWolf extends EntityTameable {
 
     public EntityDesertWolf(World par1World) {
         super(par1World);
-        this.dataWatcher.addObject(18, new Float(this.getHealth()));
-        this.dataWatcher.addObject(19, new Byte((byte) 0));
         this.setAngry(true);
+        this.setTamed(false);
         this.experienceValue = 6;
 
         this.setSize(0.6F, 0.8F);
@@ -63,9 +63,14 @@ public class EntityDesertWolf extends EntityTameable {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);
         this.getEntityAttribute(SharedMonsterAttributes.movementSpeed).setBaseValue(0.43000000417232513D);
+
         this.getEntityAttribute(SharedMonsterAttributes.followRange).setBaseValue(10.0D);
+        if (this.isTamed()) {
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0D);
+        } else {
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);
+        }
     }
 
     /**
@@ -75,6 +80,7 @@ public class EntityDesertWolf extends EntityTameable {
     public boolean isAIEnabled() {
         return true;
     }
+
 
     /**
      * Finds the closest player within 16 blocks to attack, or null if this
@@ -107,6 +113,14 @@ public class EntityDesertWolf extends EntityTameable {
         this.dataWatcher.updateObject(18, Float.valueOf(this.getHealth()));
     }
 
+    @Override
+    protected void entityInit() {
+        super.entityInit();
+        this.dataWatcher.addObject(18, new Float(this.getHealth()));
+        this.dataWatcher.addObject(19, new Byte((byte)0));
+        this.dataWatcher.addObject(20, new Byte((byte)BlockColored.func_150032_b(1)));
+    }
+
     /**
      * Checks if the entity's current position is a valid location to spawn this
      * entity.
@@ -125,18 +139,23 @@ public class EntityDesertWolf extends EntityTameable {
      * (abstract) Protected helper method to write subclass entity data to NBT.
      */
     @Override
-    public void writeEntityToNBT(NBTTagCompound par1NBTTagCompound) {
-        super.writeEntityToNBT(par1NBTTagCompound);
-        par1NBTTagCompound.setBoolean("Angry", this.isAngry());
+    public void writeEntityToNBT(NBTTagCompound nbtTagCompound) {
+        super.writeEntityToNBT(nbtTagCompound);
+        nbtTagCompound.setBoolean("Angry", this.isAngry());
+        nbtTagCompound.setByte("CollarColor", (byte) this.getCollarColor());
     }
 
     /**
      * (abstract) Protected helper method to read subclass entity data from NBT.
      */
     @Override
-    public void readEntityFromNBT(NBTTagCompound par1NBTTagCompound) {
-        super.readEntityFromNBT(par1NBTTagCompound);
-        this.setAngry(par1NBTTagCompound.getBoolean("Angry"));
+    public void readEntityFromNBT(NBTTagCompound nbtTagCompound) {
+        super.readEntityFromNBT(nbtTagCompound);
+        this.setAngry(nbtTagCompound.getBoolean("Angry"));
+
+        if (nbtTagCompound.hasKey("CollarColor", 99)) {
+            this.setCollarColor(nbtTagCompound.getByte("CollarColor"));
+        }
 
     }
 
@@ -145,7 +164,7 @@ public class EntityDesertWolf extends EntityTameable {
      */
     @Override
     protected boolean canDespawn() {
-        return this.isAngry();
+        return this.isAngry() && this.ticksExisted > 2400;
     }
 
     /**
@@ -153,7 +172,7 @@ public class EntityDesertWolf extends EntityTameable {
      */
     @Override
     protected String getLivingSound() {
-        return this.isAngry() ? "mob.wolf.growl" : (this.rand.nextInt(3) == 0 ? (this.isTamed() && this.dataWatcher.getWatchableObjectInt(18) < 10 ? "mob.wolf.whine" : "mob.wolf.panting") : "mob.wolf.bark");
+        return this.isAngry() ? "mob.wolf.growl" : (this.rand.nextInt(3) == 0 ? (this.isTamed() && this.dataWatcher.getWatchableObjectFloat(18) < 10.0F ? "mob.wolf.whine" : "mob.wolf.panting") : "mob.wolf.bark");
     }
 
     /**
@@ -187,9 +206,6 @@ public class EntityDesertWolf extends EntityTameable {
      */
     @Override
     protected void dropFewItems(boolean par1, int par2) {
-        if (rand.nextInt(10) == 0) {
-            this.dropItem(Items.bone, 1);
-        }
         if (rand.nextInt(4) == 0) {
             int amount = rand.nextInt(2) + 1;
             this.dropItem(AtumItems.ITEM_PELT, amount);
@@ -234,7 +250,7 @@ public class EntityDesertWolf extends EntityTameable {
         }
 
         if (this.func_70922_bv()) {
-            this.numTicksToChaseTarget = 10;
+            this.numTicksToChaseTarget = 5;
         }
 
         if (this.isWet()) {
@@ -271,6 +287,9 @@ public class EntityDesertWolf extends EntityTameable {
     }
 
     @SideOnly(Side.CLIENT)
+    /**
+     * Used when calculating the amount of shading to apply while the wolf is shaking.
+     */
     public boolean getWolfShaking() {
         return this.isShaking;
     }
@@ -335,9 +354,20 @@ public class EntityDesertWolf extends EntityTameable {
     }
 
     @Override
-    public boolean attackEntityAsMob(Entity par1Entity) {
+    public boolean attackEntityAsMob(Entity entity) {
         int i = this.isTamed() ? 4 : 2;
-        return par1Entity.attackEntityFrom(DamageSource.causeMobDamage(this), i);
+        return entity.attackEntityFrom(DamageSource.causeMobDamage(this), i);
+    }
+
+    @Override
+    public void setTamed(boolean isTamed) {
+        super.setTamed(isTamed);
+
+        if (isTamed) {
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(20.0D);
+        } else {
+            this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(8.0D);
+        }
     }
 
     /**
@@ -345,23 +375,35 @@ public class EntityDesertWolf extends EntityTameable {
      * gets into the saddle on a pig.
      */
     @Override
-    public boolean interact(EntityPlayer par1EntityPlayer) {
-        ItemStack itemstack = par1EntityPlayer.inventory.getCurrentItem();
+    public boolean interact(EntityPlayer player) {
+        ItemStack stack = player.inventory.getCurrentItem();
 
         if (this.isTamed()) {
-            if (itemstack != null) {
-                if (itemstack.getItem() instanceof ItemFood) {
-                    ItemFood itemfood = (ItemFood) itemstack.getItem();
+            if (stack != null) {
+                if (stack.getItem() instanceof ItemFood) {
+                    ItemFood itemfood = (ItemFood) stack.getItem();
 
-                    if (itemfood.isWolfsFavoriteMeat() && this.dataWatcher.getWatchableObjectInt(18) < 20) {
-                        if (!par1EntityPlayer.capabilities.isCreativeMode) {
-                            --itemstack.stackSize;
+                    if (itemfood.isWolfsFavoriteMeat() && this.dataWatcher.getWatchableObjectFloat(18) < 20) {
+                        if (!player.capabilities.isCreativeMode) {
+                            --stack.stackSize;
                         }
 
-                        this.heal(itemfood.func_150905_g(itemstack));
+                        this.heal(itemfood.func_150905_g(stack));
 
-                        if (itemstack.stackSize <= 0) {
-                            par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack) null);
+                        if (stack.stackSize <= 0) {
+                            player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
+                        }
+
+                        return true;
+                    }
+                } else if (stack.getItem() == Items.dye) {
+                    int i = BlockColored.func_150032_b(stack.getItemDamage());
+
+                    if (i != this.getCollarColor()) {
+                        this.setCollarColor(i);
+
+                        if (!player.capabilities.isCreativeMode && --stack.stackSize <= 0) {
+                            player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
                         }
 
                         return true;
@@ -369,18 +411,18 @@ public class EntityDesertWolf extends EntityTameable {
                 }
             }
 
-            if (this.func_152114_e(par1EntityPlayer) && !this.worldObj.isRemote && !this.isBreedingItem(itemstack)) {
+            if (this.func_152114_e(player) && !this.worldObj.isRemote && !this.isBreedingItem(stack)) {
                 this.aiSit.setSitting(!this.isSitting());
                 this.isJumping = false;
                 this.setPathToEntity((PathEntity) null);
             }
-        } else if (itemstack != null && itemstack.getItem() == Items.bone && !this.isAngry()) {
-            if (!par1EntityPlayer.capabilities.isCreativeMode) {
-                --itemstack.stackSize;
+        } else if (stack != null && stack.getItem() == AtumItems.ITEM_DUSTYBONE) {
+            if (!player.capabilities.isCreativeMode) {
+                --stack.stackSize;
             }
 
-            if (itemstack.stackSize <= 0) {
-                par1EntityPlayer.inventory.setInventorySlotContents(par1EntityPlayer.inventory.currentItem, (ItemStack) null);
+            if (stack.stackSize <= 0) {
+                player.inventory.setInventorySlotContents(player.inventory.currentItem, (ItemStack) null);
             }
 
             if (!this.worldObj.isRemote) {
@@ -389,7 +431,8 @@ public class EntityDesertWolf extends EntityTameable {
                     this.setPathToEntity((PathEntity) null);
                     this.setAttackTarget((EntityLiving) null);
                     this.aiSit.setSitting(true);
-                    this.func_152115_b(par1EntityPlayer.getUniqueID().toString());
+                    this.setHealth(20.0F);
+                    this.func_152115_b(player.getUniqueID().toString());
                     this.playTameEffect(true);
                     this.worldObj.setEntityState(this, (byte) 7);
                 } else {
@@ -397,11 +440,9 @@ public class EntityDesertWolf extends EntityTameable {
                     this.worldObj.setEntityState(this, (byte) 6);
                 }
             }
-
             return true;
         }
-
-        return super.interact(par1EntityPlayer);
+        return super.interact(player);
     }
 
     @SideOnly(Side.CLIENT)
@@ -418,7 +459,7 @@ public class EntityDesertWolf extends EntityTameable {
 
     @SideOnly(Side.CLIENT)
     public float getTailRotation() {
-        return this.isAngry() ? 1.5393804F : (this.isTamed() ? (0.55F - (float) (20 - this.dataWatcher.getWatchableObjectInt(18)) * 0.02F) * (float) Math.PI : ((float) Math.PI / 5F));
+        return this.isAngry() ? 1.5393804F : (this.isTamed() ? (0.55F - (20.0F - this.dataWatcher.getWatchableObjectFloat(18)) * 0.02F) * (float) Math.PI : ((float) Math.PI / 5F));
     }
 
     /**
@@ -458,19 +499,6 @@ public class EntityDesertWolf extends EntityTameable {
         }
     }
 
-    public void func_70918_i(boolean par1) {
-        byte b0 = this.dataWatcher.getWatchableObjectByte(19);
-
-        if (par1) {
-            this.dataWatcher.updateObject(19, Byte.valueOf((byte) 1));
-        } else {
-            this.dataWatcher.updateObject(19, Byte.valueOf((byte) 0));
-        }
-    }
-
-    /**
-     * Returns true if the mob is currently able to mate with the specified mob.
-     */
     @Override
     public boolean canMateWith(EntityAnimal par1EntityAnimal) {
         if (par1EntityAnimal == this) {
@@ -480,8 +508,8 @@ public class EntityDesertWolf extends EntityTameable {
         } else if (!(par1EntityAnimal instanceof EntityDesertWolf)) {
             return false;
         } else {
-            EntityDesertWolf entitywolf = (EntityDesertWolf) par1EntityAnimal;
-            return !entitywolf.isTamed() ? false : (entitywolf.isSitting() ? false : this.isInLove() && entitywolf.isInLove());
+            EntityDesertWolf entityDesertWolf = (EntityDesertWolf) par1EntityAnimal;
+            return !entityDesertWolf.isTamed() ? false : (entityDesertWolf.isSitting() ? false : this.isInLove() && entityDesertWolf.isInLove());
         }
     }
 
@@ -489,21 +517,24 @@ public class EntityDesertWolf extends EntityTameable {
         return this.dataWatcher.getWatchableObjectByte(19) == 1;
     }
 
-    @Override
-    public EntityAgeable createChild(EntityAgeable par1EntityAgeable) {
-        EntityDesertWolf entitywolf = new EntityDesertWolf(this.worldObj);
-        String s = this.func_152113_b();
+    public int getCollarColor() {
+        return this.dataWatcher.getWatchableObjectByte(20) & 15;
+    }
 
-        if (s != null && s.trim().length() > 0) {
-            entitywolf.func_152115_b(s);
-            entitywolf.setTamed(true);
-        }
-
-        return entitywolf;
+    public void setCollarColor(int collarColor) {
+        this.dataWatcher.updateObject(20, Byte.valueOf((byte) (collarColor & 15)));
     }
 
     @Override
-    public EntityLivingBase getOwner() {
-        return null;
+    public EntityAgeable createChild(EntityAgeable par1EntityAgeable) {
+        EntityDesertWolf entityDesertWolf = new EntityDesertWolf(this.worldObj);
+        String s = this.func_152113_b();
+
+        if (s != null && s.trim().length() > 0) {
+            entityDesertWolf.func_152115_b(s);
+            entityDesertWolf.setTamed(true);
+        }
+
+        return entityDesertWolf;
     }
 }

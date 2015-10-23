@@ -2,6 +2,7 @@ package com.teammetallurgy.atum.entity;
 
 import com.teammetallurgy.atum.Atum;
 import com.teammetallurgy.atum.entity.arrow.*;
+import com.teammetallurgy.atum.entity.projectile.EntitySmallBone;
 import cpw.mods.fml.common.registry.EntityRegistry;
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityList;
@@ -17,6 +18,7 @@ public class AtumEntities {
     public AtumEntity desertWolf;
     public AtumEntity banditWarlord;
     public AtumEntity barbarian;
+    public AtumEntity bonestorm;
 
     public void register() {
         int entityID = 0;
@@ -32,6 +34,7 @@ public class AtumEntities {
         desertWolf = new AtumEntity(EntityDesertWolf.class, "desertWolf", entityID++, 64, 1).setSpawnEgg(0xE7DBC8, 0xAD9467);
         banditWarlord = new AtumEntity(EntityBanditWarlord.class, "banditWarlord", entityID++, 64, 1).setSpawnEgg(0x918354, 0x695D37);
         barbarian = new AtumEntity(EntityBarbarian.class, "barbarian", entityID++, 64, 1).setSpawnEgg(0x918354, 0x695D37);
+        bonestorm = new AtumEntity(EntityBonestorm.class, "bonestorm", entityID++, 64, 1).setSpawnEgg(0xFFFFFF, 0xFFFFFF);
 
         // Projectiles
         EntityRegistry.registerModEntity(EntityArrowVelocity.class, "ArrowVeloctiy", entityID++, Atum.instance, 64, 1, true);
@@ -42,6 +45,7 @@ public class AtumEntities {
         EntityRegistry.registerModEntity(EntityArrowQuickdraw.class, "ArrowQuickDraw", entityID++, Atum.instance, 64, 1, true);
         EntityRegistry.registerModEntity(EntityNutsCall.class, "EntityNutsCall", entityID++, Atum.instance, 64, 1, true);
         EntityRegistry.registerModEntity(EntityAtumFishHook.class, "EntityAtumFishHook", entityID++, Atum.instance, 64, 1, false);
+        EntityRegistry.registerModEntity(EntitySmallBone.class, "SmallBone", entityID++, Atum.instance, 64, 1, true);
     }
 
     public class AtumEntity {

@@ -61,6 +61,7 @@ public class CraftingHandler {
         GameRegistry.addRecipe(new ItemStack(AtumItems.ITEM_SCROLL), "XXX", "SXS", "XXX", 'X', AtumItems.papyrusPlant, 'S', Items.stick);
         GameRegistry.addRecipe(new ItemStack(AtumItems.ITEM_SCARAB), " G ", "GDG", " G ", 'G', Items.gold_ingot, 'D', Items.diamond);
         GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_FURNACEIDLE), "XXX", "X X", "XXX", 'X', AtumBlocks.BLOCK_LIMESTONECOBBLE);
+        GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Items.dye, 1, 15), new ItemStack(AtumItems.ITEM_DUSTYBONE)));
 
         String [] oreColours = Constants.ORE_DIC_COLOURS;
 

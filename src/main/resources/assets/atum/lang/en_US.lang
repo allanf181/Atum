@@ -153,6 +153,7 @@ item.desertLegs.name=Desert Leggings
 item.desertBoots.name=Desert Boots
 item.papyrusPlant.name=Papyrus
 item.ectoplasm.name=Ectoplasm
+item.dustyBone.name=Dusty Bone
 item.stoneChunk.name=Stone Chunk
 item.clothScrap.name=Cloth Scrap
 item.scroll.name=Scroll
@@ -353,6 +354,7 @@ entity.atum.stoneSoldier.name=Stoneguard
 entity.atum.desertWolf.name=Desert Wolf
 entity.atum.banditWarlord.name=Warlord
 entity.atum.barbarian.name=Barbarian
+entity.atum.bonestorm.name=Bonestorm
 
 # Pharaoh Names
 entity.atum.pharaoh.Ama=Ama'
