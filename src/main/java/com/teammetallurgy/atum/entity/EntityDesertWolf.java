@@ -295,6 +295,9 @@ public class EntityDesertWolf extends EntityTameable {
     }
 
     @SideOnly(Side.CLIENT)
+    /**
+     * Used when calculating the amount of shading to apply while the wolf is shaking.
+     */
     public float getShadingWhileShaking(float par1) {
         return 0.75F + (this.prevTimeWolfIsShaking + (this.timeWolfIsShaking - this.prevTimeWolfIsShaking) * par1) / 2.0F * 0.25F;
     }
@@ -483,6 +486,9 @@ public class EntityDesertWolf extends EntityTameable {
         return (this.dataWatcher.getWatchableObjectByte(16) & 2) != 0;
     }
 
+    /**
+     * Sets whether this wolf is angry or not.
+     */
     public void setAngry(boolean par1) {
         byte b0 = this.dataWatcher.getWatchableObjectByte(16);
 
