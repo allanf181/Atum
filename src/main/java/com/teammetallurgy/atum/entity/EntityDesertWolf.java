@@ -24,8 +24,16 @@ import net.minecraft.world.World;
 public class EntityDesertWolf extends EntityTameable {
     private float field_70926_e;
     private float field_70924_f;
+
+    /**
+     * true is the wolf is wet else false
+     */
     private boolean isShaking;
     private boolean field_70928_h;
+
+    /**
+     * This time increases while wolf is shaking and emitting water particles.
+     */
     private float timeWolfIsShaking;
     private float prevTimeWolfIsShaking;
 
@@ -65,17 +73,29 @@ public class EntityDesertWolf extends EntityTameable {
         }
     }
 
+    /**
+     * Returns true if the newer Entity AI code should be run
+     */
     @Override
     public boolean isAIEnabled() {
         return true;
     }
 
+
+    /**
+     * Finds the closest player within 16 blocks to attack, or null if this
+     * Entity isn't interested in attacking (Animals, Spiders at day, peaceful
+     * PigZombies).
+     */
     @Override
     protected Entity findPlayerToAttack() {
         EntityPlayer entityplayer = this.worldObj.getClosestVulnerablePlayerToEntity(this, 16.0D);
         return entityplayer != null && this.canEntityBeSeen(entityplayer) ? entityplayer : null;
     }
 
+    /**
+     * Sets the active target the Task system uses for tracking
+     */
     @Override
     public void setAttackTarget(EntityLivingBase par1EntityLiving) {
         super.setAttackTarget(par1EntityLiving);
@@ -85,9 +105,11 @@ public class EntityDesertWolf extends EntityTameable {
         }
     }
 
+    /**
+     * main AI tick function, replaces updateEntityActionState
+     */
     @Override
-    protected void updateAITick()
-    {
+    protected void updateAITick() {
         this.dataWatcher.updateObject(18, Float.valueOf(this.getHealth()));
     }
 
@@ -99,6 +121,10 @@ public class EntityDesertWolf extends EntityTameable {
         this.dataWatcher.addObject(20, new Byte((byte)BlockColored.func_150032_b(1)));
     }
 
+    /**
+     * Checks if the entity's current position is a valid location to spawn this
+     * entity.
+     */
     @Override
     public boolean getCanSpawnHere() {
         return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
@@ -109,6 +135,9 @@ public class EntityDesertWolf extends EntityTameable {
         this.playSound("mob.wolf.step", 0.15F, 1.0F);
     }
 
+    /**
+     * (abstract) Protected helper method to write subclass entity data to NBT.
+     */
     @Override
     public void writeEntityToNBT(NBTTagCompound nbtTagCompound) {
         super.writeEntityToNBT(nbtTagCompound);
@@ -116,6 +145,9 @@ public class EntityDesertWolf extends EntityTameable {
         nbtTagCompound.setByte("CollarColor", (byte) this.getCollarColor());
     }
 
+    /**
+     * (abstract) Protected helper method to read subclass entity data from NBT.
+     */
     @Override
     public void readEntityFromNBT(NBTTagCompound nbtTagCompound) {
         super.readEntityFromNBT(nbtTagCompound);
@@ -127,31 +159,51 @@ public class EntityDesertWolf extends EntityTameable {
 
     }
 
+    /**
+     * Determines if an entity can be despawned, used on idle far away entities
+     */
     @Override
     protected boolean canDespawn() {
         return this.isAngry() && this.ticksExisted > 2400;
     }
 
+    /**
+     * Returns the sound this mob makes while it's alive.
+     */
     @Override
     protected String getLivingSound() {
         return this.isAngry() ? "mob.wolf.growl" : (this.rand.nextInt(3) == 0 ? (this.isTamed() && this.dataWatcher.getWatchableObjectFloat(18) < 10.0F ? "mob.wolf.whine" : "mob.wolf.panting") : "mob.wolf.bark");
     }
 
+    /**
+     * Returns the sound this mob makes when it is hurt.
+     */
     @Override
     protected String getHurtSound() {
         return "mob.wolf.hurt";
     }
 
+    /**
+     * Returns the sound this mob makes on death.
+     */
     @Override
     protected String getDeathSound() {
         return "mob.wolf.death";
     }
 
+    /**
+     * Returns the volume for the sounds this mob makes.
+     */
     @Override
     protected float getSoundVolume() {
         return 0.4F;
     }
 
+    /**
+     * Drop 0-2 items of this living's type. @param par1 - Whether this entity
+     * has recently been hit by a player. @param par2 - Level of Looting used to
+     * kill this mob.
+     */
     @Override
     protected void dropFewItems(boolean par1, int par2) {
         if (rand.nextInt(4) == 0) {
@@ -160,6 +212,11 @@ public class EntityDesertWolf extends EntityTameable {
         }
     }
 
+    /**
+     * Called frequently so the entity can update its state every tick as
+     * required. For example, zombies and skeletons use this to react to
+     * sunlight and start to burn.
+     */
     @Override
     public void onLivingUpdate() {
         super.onLivingUpdate();
@@ -172,6 +229,9 @@ public class EntityDesertWolf extends EntityTameable {
         }
     }
 
+    /**
+     * Called to update the entity's position/logic.
+     */
     @Override
     public void onUpdate() {
         super.onUpdate();
@@ -227,6 +287,9 @@ public class EntityDesertWolf extends EntityTameable {
     }
 
     @SideOnly(Side.CLIENT)
+    /**
+     * Used when calculating the amount of shading to apply while the wolf is shaking.
+     */
     public boolean getWolfShaking() {
         return this.isShaking;
     }
@@ -259,11 +322,18 @@ public class EntityDesertWolf extends EntityTameable {
         return this.height * 0.8F;
     }
 
+    /**
+     * The speed it takes to move the entityliving's rotationPitch through the
+     * faceEntity method. This is only currently use in wolves.
+     */
     @Override
     public int getVerticalFaceSpeed() {
         return this.isSitting() ? 20 : super.getVerticalFaceSpeed();
     }
 
+    /**
+     * Called when the entity is attacked.
+     */
     @Override
     public boolean attackEntityFrom(DamageSource par1DamageSource, float par2) {
         if (this.isEntityInvulnerable()) {
@@ -297,6 +367,10 @@ public class EntityDesertWolf extends EntityTameable {
         }
     }
 
+    /**
+     * Called when a player interacts with a mob. e.g. gets milk from a cow,
+     * gets into the saddle on a pig.
+     */
     @Override
     public boolean interact(EntityPlayer player) {
         ItemStack stack = player.inventory.getCurrentItem();
@@ -385,16 +459,26 @@ public class EntityDesertWolf extends EntityTameable {
         return this.isAngry() ? 1.5393804F : (this.isTamed() ? (0.55F - (20.0F - this.dataWatcher.getWatchableObjectFloat(18)) * 0.02F) * (float) Math.PI : ((float) Math.PI / 5F));
     }
 
+    /**
+     * Checks if the parameter is an item which this animal can be fed to breed
+     * it (wheat, carrots or seeds depending on the animal type)
+     */
     @Override
     public boolean isBreedingItem(ItemStack par1ItemStack) {
         return par1ItemStack == null ? false : (!(par1ItemStack.getItem() instanceof ItemFood) ? false : ((ItemFood) par1ItemStack.getItem()).isWolfsFavoriteMeat());
     }
 
+    /**
+     * Will return how many at most can spawn in a chunk at once.
+     */
     @Override
     public int getMaxSpawnedInChunk() {
         return 8;
     }
 
+    /**
+     * Determines whether this wolf is angry or not.
+     */
     public boolean isAngry() {
         return (this.dataWatcher.getWatchableObjectByte(16) & 2) != 0;
     }
@@ -423,6 +507,10 @@ public class EntityDesertWolf extends EntityTameable {
         }
     }
 
+    public boolean func_70922_bv() {
+        return this.dataWatcher.getWatchableObjectByte(19) == 1;
+    }
+
     public int getCollarColor() {
         return this.dataWatcher.getWatchableObjectByte(20) & 15;
     }
@@ -442,9 +530,5 @@ public class EntityDesertWolf extends EntityTameable {
         }
 
         return entityDesertWolf;
-    }
-
-    public boolean func_70922_bv() {
-        return this.dataWatcher.getWatchableObjectByte(19) == 1;
     }
 }

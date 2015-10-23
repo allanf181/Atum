@@ -98,5 +98,4 @@ public class CraftingHandler {
         GameRegistry.addShapelessRecipe(new ItemStack(Items.string, 3), AtumItems.ITEM_FLAX);
     }
 
-
 }
