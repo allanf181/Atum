@@ -63,7 +63,7 @@ public class CraftingHandler {
         GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_FURNACEIDLE), "XXX", "X X", "XXX", 'X', AtumBlocks.BLOCK_LIMESTONECOBBLE);
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Items.dye, 1, 15), new ItemStack(AtumItems.ITEM_DUSTYBONE)));
 
-        String[] oreColours = Constants.ORE_DIC_COLOURS;
+        String [] oreColours = Constants.ORE_DIC_COLOURS;
 
         for (int i = 0; i < oreColours.length; i++) {
             GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack (AtumBlocks.BLOCK_CRYSTALSTAINEDGLASS, 8, i), "GGG", "GDG", "GGG", 'G', AtumBlocks.BLOCK_CRYSTALGLASS, 'D', "dye" + oreColours[i]));
@@ -97,4 +97,6 @@ public class CraftingHandler {
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.sand), AtumBlocks.BLOCK_SAND);
         GameRegistry.addShapelessRecipe(new ItemStack(Items.string, 3), AtumItems.ITEM_FLAX);
     }
+
+
 }

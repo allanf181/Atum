@@ -40,16 +40,16 @@ public class BiomeGenAtumDesert extends BiomeGenBase {
         this.setDisableRain();
         this.setTemperatureRainfall(2.0F, 0.0F);
         this.setHeight(new Height(0.1F, 0.2F));
-        super.spawnableMonsterList.add(new SpawnListEntry(EntityBanditArcher.class, 6, 4, 4));
+        super.spawnableMonsterList.add(new SpawnListEntry(EntityMummy.class, 6, 4, 4));
         super.spawnableMonsterList.add(new SpawnListEntry(EntityBanditWarlord.class, 1, 1, 1));
         super.spawnableMonsterList.add(new SpawnListEntry(EntityBanditWarrior.class, 6, 2, 2));
         super.spawnableMonsterList.add(new SpawnListEntry(EntityBarbarian.class, 2, 4, 4));
-        super.spawnableMonsterList.add(new SpawnListEntry(EntityBonestorm.class, 6, 4, 4));
-        super.spawnableMonsterList.add(new SpawnListEntry(EntityDesertWolf.class, 6, 4, 4));
+        super.spawnableMonsterList.add(new SpawnListEntry(EntityBanditArcher.class, 6, 4, 4));
         super.spawnableMonsterList.add(new SpawnListEntry(EntityDustySkeleton.class, 6, 4, 4));
         super.spawnableMonsterList.add(new SpawnListEntry(EntityGhost.class, 6, 4, 4));
-        super.spawnableMonsterList.add(new SpawnListEntry(EntityMummy.class, 6, 4, 4));
+        super.spawnableMonsterList.add(new SpawnListEntry(EntityDesertWolf.class, 6, 4, 4));
         super.spawnableMonsterList.add(new SpawnListEntry(EntityStoneSoldier.class, 6, 4, 4));
+        super.spawnableMonsterList.add(new SpawnListEntry(EntityBonestorm.class, 6, 4, 4));
     }
 
     @Override
