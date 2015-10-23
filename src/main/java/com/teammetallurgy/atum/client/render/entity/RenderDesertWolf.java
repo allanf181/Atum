@@ -47,11 +47,17 @@ public class RenderDesertWolf extends RenderLiving {
         return entityDesertWolf.isTamed() ? tamedDesertWolfTextures : angryDesertWolfTextures;
     }
 
+    /**
+     * Queries whether should render the specified pass or not.
+     */
     @Override
     protected int shouldRenderPass(EntityLivingBase livingBase, int par2, float par3) {
         return this.shouldRenderPass((EntityDesertWolf) livingBase, par2, par3);
     }
 
+    /**
+     * Defines what float the third param in setRotationAngles of ModelBase is
+     */
     @Override
     protected float handleRotationFloat(EntityLivingBase livingBase, float rotation) {
         return this.getTailRotation((EntityDesertWolf) livingBase, rotation);
