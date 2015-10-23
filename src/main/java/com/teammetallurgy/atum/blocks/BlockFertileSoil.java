@@ -91,6 +91,17 @@ public class BlockFertileSoil extends BlockFarmland {
     }
 
     @Override
+    public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock) {
+        super.onNeighborBlockChange(world, x, y, z, neighborBlock);
+        
+        Material material = world.getBlock(x, y + 1, z).getMaterial();
+        if (material.isSolid()) {
+            world.setBlock(x, y, z, AtumBlocks.BLOCK_FERTILESOIL);
+            world.setBlockMetadataWithNotify(x, y, z, 1, 2);
+        }
+    }
+
+    @Override
     public Item getItemDropped(int p_149650_1_, Random p_149650_2_, int p_149650_3_) {
         return Item.getItemFromBlock(AtumBlocks.BLOCK_SAND);
     }
