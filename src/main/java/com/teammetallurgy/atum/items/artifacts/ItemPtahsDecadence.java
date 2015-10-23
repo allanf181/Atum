@@ -34,17 +34,17 @@ public class ItemPtahsDecadence extends ItemPickaxe {
     }
 
     @Override
+    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
+        return true;
+    }
+
+    @Override
     public boolean onBlockDestroyed(ItemStack stack, World world, Block block, int x, int y, int z, EntityLivingBase livingBase) {
         Item dropItem = block.getItemDropped(world.getBlockMetadata(x, y, z), new Random(), 0);
         if (dropItem == Items.diamond && EnchantmentHelper.getSilkTouchModifier(livingBase) == false) {
             Blocks.diamond_ore.dropBlockAsItem(world, x, y, z, 0, 0);
         }
         return super.onBlockDestroyed(stack, world, block, x, y, z, livingBase);
-    }
-
-    @Override
-    public boolean hasEffect(ItemStack par1ItemStack, int pass) {
-        return true;
     }
 
     @Override
