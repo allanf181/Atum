@@ -1,6 +1,7 @@
 package com.teammetallurgy.atum.world.biome;
 
 import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.handler.AtumConfig;
 import com.teammetallurgy.atum.world.decorators.WorldGenShrub;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
@@ -26,12 +27,12 @@ public class BiomeDecoratorAtum extends BiomeDecorator {
         this.gravelAsSandGen = new WorldGenSand(Blocks.gravel, 6);
         this.dirtGen = new WorldGenMinable(Blocks.dirt, 32);
         this.gravelGen = new WorldGenMinable(Blocks.gravel, 32);
-        this.coalGen = new WorldGenMinable(AtumBlocks.BLOCK_COALORE, 16, AtumBlocks.BLOCK_STONE);
-        this.ironGen = new WorldGenMinable(AtumBlocks.BLOCK_IRONORE, 8, AtumBlocks.BLOCK_STONE);
-        this.goldGen = new WorldGenMinable(AtumBlocks.BLOCK_GOLDORE, 8, AtumBlocks.BLOCK_STONE);
-        this.redstoneGen = new WorldGenMinable(AtumBlocks.BLOCK_REDSTONEORE, 7, AtumBlocks.BLOCK_STONE);
-        this.diamondGen = new WorldGenMinable(AtumBlocks.BLOCK_DIAMONDORE, 7, AtumBlocks.BLOCK_STONE);
-        this.lapisGen = new WorldGenMinable(AtumBlocks.BLOCK_LAPISORE, 6);
+        if (AtumConfig.COAL_ENABLED) { this.coalGen = new WorldGenMinable(AtumBlocks.BLOCK_COALORE, AtumConfig.COAL_VEIN, AtumBlocks.BLOCK_STONE); }
+        if (AtumConfig.IRON_ENABLED) { this.ironGen = new WorldGenMinable(AtumBlocks.BLOCK_IRONORE, AtumConfig.IRON_VEIN, AtumBlocks.BLOCK_STONE); }
+        if (AtumConfig.GOLD_ENABLED) { this.goldGen = new WorldGenMinable(AtumBlocks.BLOCK_GOLDORE, AtumConfig.GOLD_VEIN, AtumBlocks.BLOCK_STONE); }
+        if (AtumConfig.REDSTONE_ENABLED) { this.redstoneGen = new WorldGenMinable(AtumBlocks.BLOCK_REDSTONEORE, AtumConfig.REDSTONE_VEIN, AtumBlocks.BLOCK_STONE); }
+        if (AtumConfig.DIAMOND_ENABLED) { this.diamondGen = new WorldGenMinable(AtumBlocks.BLOCK_DIAMONDORE, AtumConfig.DIAMOND_VEIN, AtumBlocks.BLOCK_STONE); }
+        if (AtumConfig.LAPIS_ENABLED) { this.lapisGen = new WorldGenMinable(AtumBlocks.BLOCK_LAPISORE, AtumConfig.LAPIS_VEIN); }
 
         this.mushroomBrownGen = new WorldGenFlowers(Blocks.brown_mushroom);
         this.mushroomRedGen = new WorldGenFlowers(Blocks.red_mushroom);

@@ -67,12 +67,6 @@ public class AtumConfig {
         prop.setLanguageKey("atum.configGui.fog");
         FOG_ENABLED = prop.getBoolean(true);
         propOrder.add(prop.getName());
-        
-        prop = config.get(CATEGORY_GENERAL, "Atum Oasis", true);
-        prop.comment = "Should oases be generated?";
-        prop.setLanguageKey("atum.configGui.oasis");
-        OASIS_ENABLED = prop.getBoolean(true);
-        propOrder.add(prop.getName());
 
         prop = config.get(CATEGORY_GENERAL, "Atum Dimension ID", 17);
         prop.comment = "The ID of the Atum Dimension";
@@ -84,6 +78,12 @@ public class AtumConfig {
         prop.comment = "The ID of the Atum Dimension biome Desert";
         prop.setLanguageKey("atum.configGui.biomeID").setRequiresMcRestart(true);
         BIOME_DESERT_ID = prop.getInt();
+        propOrder.add(prop.getName());
+
+        prop = config.get(CATEGORY_WORLDGEN, "Atum Oasis", true);
+        prop.comment = "Should oases be generated?";
+        prop.setLanguageKey("atum.configGui.oasis");
+        OASIS_ENABLED = prop.getBoolean(true);
         propOrder.add(prop.getName());
 
         COAL_ENABLED = config.getBoolean("Generate Coal", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Coal ore", true, "Should coal ore generate in Atum?");
