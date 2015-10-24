@@ -47,6 +47,7 @@ public class BlockLimeStoneFurnace extends BlockContainer {
 
     public BlockLimeStoneFurnace(boolean par2) {
         super(Material.rock);
+        this.setHardness(3.5F);
         isActive = par2;
     }
 
