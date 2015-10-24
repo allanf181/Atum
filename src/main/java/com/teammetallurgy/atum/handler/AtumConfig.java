@@ -12,18 +12,31 @@ import java.util.ArrayList;
 import java.util.List;
 
 import static net.minecraftforge.common.config.Configuration.CATEGORY_GENERAL;
+import static net.minecraftforge.common.config.Configuration.CATEGORY_SPLITTER;
 
 public class AtumConfig {
 
     public static Configuration config;
 
-    public static String general = "general settings";
+    public static String CATEGORY_WORLDGEN = "worldgen";
     public static boolean ALLOW_CREATION;
     public static boolean FOG_ENABLED;
     public static boolean OASIS_ENABLED;
+    public static boolean COAL_ENABLED;
+    public static boolean IRON_ENABLED;
+    public static boolean GOLD_ENABLED;
+    public static boolean REDSTONE_ENABLED;
+    public static boolean DIAMOND_ENABLED;
+    public static boolean LAPIS_ENABLED;
 
     public static int DIMENSION_ID;
     public static int BIOME_DESERT_ID;
+    public static int COAL_VEIN;
+    public static int IRON_VEIN;
+    public static int GOLD_VEIN;
+    public static int REDSTONE_VEIN;
+    public static int DIAMOND_VEIN;
+    public static int LAPIS_VEIN;
 
     public AtumConfig(File file) {
         this.config = new Configuration(file);
@@ -54,12 +67,6 @@ public class AtumConfig {
         prop.setLanguageKey("atum.configGui.fog");
         FOG_ENABLED = prop.getBoolean(true);
         propOrder.add(prop.getName());
-        
-        prop = config.get(CATEGORY_GENERAL, "Atum Oasis", true);
-        prop.comment = "Should oases be generated?";
-        prop.setLanguageKey("atum.configGui.oasis");
-        OASIS_ENABLED = prop.getBoolean(true);
-        propOrder.add(prop.getName());
 
         prop = config.get(CATEGORY_GENERAL, "Atum Dimension ID", 17);
         prop.comment = "The ID of the Atum Dimension";
@@ -72,6 +79,30 @@ public class AtumConfig {
         prop.setLanguageKey("atum.configGui.biomeID").setRequiresMcRestart(true);
         BIOME_DESERT_ID = prop.getInt();
         propOrder.add(prop.getName());
+
+        prop = config.get(CATEGORY_WORLDGEN, "Atum Oasis", true);
+        prop.comment = "Should oases be generated?";
+        prop.setLanguageKey("atum.configGui.oasis");
+        OASIS_ENABLED = prop.getBoolean(true);
+        propOrder.add(prop.getName());
+
+        COAL_ENABLED = config.getBoolean("Generate Coal", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Coal ore", true, "Should coal ore generate in Atum?");
+        COAL_VEIN = config.getInt("Size", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Coal ore", 16, 0, 64, "Coal vein size");
+
+        IRON_ENABLED = config.getBoolean("Generate Iron", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Iron ore", true, "Should iron ore generate in Atum?");
+        IRON_VEIN = config.getInt("Size", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Iron ore", 8, 0, 64, "Iron vein size");
+
+        GOLD_ENABLED = config.getBoolean("Generate Gold", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Gold ore", true, "Should gold ore generate in Atum?");
+        GOLD_VEIN = config.getInt("Size", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Gold ore", 8, 0, 64, "Gold vein size");
+
+        REDSTONE_ENABLED = config.getBoolean("Generate Redstone", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Redstone ore", true, "Should redstone ore generate in Atum?");
+        REDSTONE_VEIN = config.getInt("Size", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Redstone ore", 7, 0, 64, "Redstone vein size");
+
+        DIAMOND_ENABLED = config.getBoolean("Generate Diamond", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Diamond ore", true, "Should diamond ore generate in Atum?");
+        DIAMOND_VEIN = config.getInt("Size", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Diamond ore", 7, 0, 64, "Diamond vein size");
+
+        LAPIS_ENABLED = config.getBoolean("Generate Lapis", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Lapis ore", true, "Should lapis ore generate in Atum?");
+        LAPIS_VEIN = config.getInt("Size", CATEGORY_WORLDGEN + CATEGORY_SPLITTER + "Lapis ore", 6, 0, 64, "Lapis vein size");
 
         config.setCategoryPropertyOrder(CATEGORY_GENERAL, propOrder);
 

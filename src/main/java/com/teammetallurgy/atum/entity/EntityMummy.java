@@ -66,7 +66,7 @@ public class EntityMummy extends EntityMob {
         	}
         	if(par1Entity instanceof EntityLivingBase){
         		EntityLivingBase base = (EntityLivingBase)par1Entity;
-        		base.addPotionEffect(new PotionEffect(Potion.wither.id, 60, 1));
+        		base.addPotionEffect(new PotionEffect(Potion.wither.id, 40, 1));
         	}
         }
 

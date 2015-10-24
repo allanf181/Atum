@@ -3,6 +3,7 @@ package com.teammetallurgy.atum.blocks;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockDirt;
 import net.minecraft.block.BlockFarmland;
 import net.minecraft.block.BlockFlower;
 import net.minecraft.block.material.Material;
@@ -22,7 +23,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Random;
 
-public class BlockFertileSoil extends BlockFarmland {
+public class BlockFertileSoil extends BlockDirt {
     @SideOnly(Side.CLIENT)
     private IIcon iconGrassTop;
 
@@ -69,9 +70,6 @@ public class BlockFertileSoil extends BlockFarmland {
             }
         }
     }
-
-    @Override
-    public void onFallenUpon(World world, int x, int y, int z, Entity entity, float par5Random) {}
 
     @Override
     public boolean canSustainPlant(IBlockAccess world, int x, int y, int z, ForgeDirection direction, IPlantable plant) {
