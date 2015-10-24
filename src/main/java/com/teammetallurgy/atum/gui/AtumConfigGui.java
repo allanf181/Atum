@@ -27,7 +27,7 @@ public class AtumConfigGui extends GuiConfig {
         ArrayList<IConfigElement> elements = new ArrayList<IConfigElement>();
 
         elements.add(new ConfigElement(cfg.getCategory(CATEGORY_GENERAL)));
-        System.out.println(cfgh.general);
+        elements.add(new ConfigElement(cfg.getCategory(cfgh.CATEGORY_WORLDGEN)));
         return elements;
     }
 }
