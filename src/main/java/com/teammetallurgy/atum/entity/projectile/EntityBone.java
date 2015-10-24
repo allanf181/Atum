@@ -30,6 +30,7 @@ public abstract class EntityBone extends Entity {
         this.setSize(1.0F, 1.0F);
     }
 
+    @Override
     protected void entityInit() {
     }
 
@@ -221,6 +222,7 @@ public abstract class EntityBone extends Entity {
         return true;
     }
 
+    @Override
     public float getCollisionBorderSize() {
         return 1.0F;
     }
@@ -255,6 +257,7 @@ public abstract class EntityBone extends Entity {
         }
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public float getShadowSize() {
         return 0.0F;
@@ -265,6 +268,7 @@ public abstract class EntityBone extends Entity {
         return 1.0F;
     }
 
+    @Override
     @SideOnly(Side.CLIENT)
     public int getBrightnessForRender(float p_70070_1_) {
         return 15728880;

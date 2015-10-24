@@ -26,7 +26,7 @@ public class EntitySmallBone extends EntityBone {
     protected void onImpact(MovingObjectPosition position) {
         if (!this.worldObj.isRemote) {
             if (position.entityHit != null) {
-                position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.shootingEntity), 4.0F);
+                position.entityHit.attackEntityFrom(DamageSource.causeThrownDamage(this, this.shootingEntity), 2.0F);
             } else {
                 int i = position.blockX;
                 int j = position.blockY;

@@ -15,7 +15,7 @@ import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityBonestorm extends EntityMob {
-    private float heightOffset = 0.5F;
+    private float heightOffset = 0.2F;
     private int heightOffsetUpdateTime;
     private int timer;
 
@@ -28,7 +28,7 @@ public class EntityBonestorm extends EntityMob {
     @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
-        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(4.0D);
+        this.getEntityAttribute(SharedMonsterAttributes.attackDamage).setBaseValue(2.0D);
     }
 
     @Override
@@ -62,17 +62,17 @@ public class EntityBonestorm extends EntityMob {
             --this.heightOffsetUpdateTime;
 
             if (this.heightOffsetUpdateTime <= 0) {
-                this.heightOffsetUpdateTime = 110;
-                this.heightOffset = 0.2F + (float) this.rand.nextGaussian() * 1.4F;
+                this.heightOffsetUpdateTime = 100;
+                this.heightOffset = 0.5F + (float) this.rand.nextGaussian() * 3.0F;
             }
 
             if (this.getEntityToAttack() != null && this.getEntityToAttack().posY + (double) this.getEntityToAttack().getEyeHeight() > this.posY + (double) this.getEyeHeight() + (double) this.heightOffset) {
-                this.motionY += (0.30000001192092896D - this.motionY) * 0.30000001192092896D;
+                this.motionY += (0.30000001192092896D - this.motionY) * 0.23000001192092896D;
             }
         }
 
         if (!this.onGround && this.motionY < 0.0D) {
-            this.motionY *= 0.6D;
+            this.motionY *= 0.1D;
         }
 
         /*for (int i = 0; i < 2; ++i) {
@@ -114,7 +114,7 @@ public class EntityBonestorm extends EntityMob {
 
                 if (this.timer > 1) {
                     float f1 = MathHelper.sqrt_float(p_70785_2_) * 0.5F;
-                    this.worldObj.playSoundAtEntity(entity, "mob.skeleton.hurt", 1.0F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
+                    this.worldObj.playSoundAtEntity(entity, "mob.skeleton.hurt", 0.7F, (this.rand.nextFloat() - this.rand.nextFloat()) * 0.2F + 1.0F);
 
                     for (int i = 0; i < 1; ++i) {
                         EntitySmallBone entitySmallBone = new EntitySmallBone(this.worldObj, this, d0 + this.rand.nextGaussian() * (double) f1, d1, d2 + this.rand.nextGaussian() * (double) f1);
