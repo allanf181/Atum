@@ -291,10 +291,10 @@ public class EntityArrowPoison extends CustomArrow implements IProjectile, IThro
                     }
 
                     if (movingobjectposition.entityHit.attackEntityFrom(damagesource, i1)) {
-                        if (movingobjectposition.entityHit instanceof EntityLiving) {
-                            EntityLiving entityliving = (EntityLiving) movingobjectposition.entityHit;
+                        if (movingobjectposition.entityHit instanceof EntityLivingBase) {
+                            EntityLivingBase entityliving = (EntityLivingBase) movingobjectposition.entityHit;
 
-                            entityliving.addPotionEffect(new PotionEffect(Potion.poison.id, 140, 2, false));
+                            entityliving.addPotionEffect(new PotionEffect(Potion.poison.id, 75, 2, false));
 
                             if (!this.worldObj.isRemote) {
                                 entityliving.setArrowCountInEntity(entityliving.getArrowCountInEntity() + 1);
