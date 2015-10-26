@@ -1,5 +1,6 @@
 package com.teammetallurgy.atum.entity;
 
+import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.items.AtumItems;
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
@@ -126,7 +127,15 @@ public class EntityDesertWolf extends EntityTameable {
      */
     @Override
     public boolean getCanSpawnHere() {
-        return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+        int i = MathHelper.floor_double(this.posX);
+        int j = MathHelper.floor_double(this.boundingBox.minY);
+        int k = MathHelper.floor_double(this.posZ);
+        if (j <= 62) {
+            return false;
+        } else {
+            return this.worldObj.getBlock(i, j - 1, k) == AtumBlocks.BLOCK_SAND && this.worldObj.getFullBlockLightValue(i, j, k) > 8 && this.getBlockPathWeight(i, j, k) >= 0.0F && this.worldObj.canBlockSeeTheSky(i, j, k) &&
+                    this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+        }
     }
 
     @Override

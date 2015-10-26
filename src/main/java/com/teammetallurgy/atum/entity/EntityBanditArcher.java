@@ -11,6 +11,8 @@ import net.minecraft.entity.projectile.EntityArrow;
 import net.minecraft.init.Items;
 import net.minecraft.item.ItemStack;
 import net.minecraft.nbt.NBTTagCompound;
+import net.minecraft.util.MathHelper;
+import net.minecraft.world.EnumSkyBlock;
 import net.minecraft.world.World;
 
 public class EntityBanditArcher extends EntityMob implements IRangedAttackMob {
@@ -52,7 +54,15 @@ public class EntityBanditArcher extends EntityMob implements IRangedAttackMob {
      */
     @Override
     public boolean getCanSpawnHere() {
-        return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+        int i = MathHelper.floor_double(this.posX);
+        int j = MathHelper.floor_double(this.boundingBox.minY);
+        int k = MathHelper.floor_double(this.posZ);
+        if (j <= 62) {
+            return false;
+        } else {
+            return this.worldObj.canBlockSeeTheSky(i, j, k) && this.isValidLightLevel() &&
+                   this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
+        }
     }
 
     /**
@@ -60,7 +70,18 @@ public class EntityBanditArcher extends EntityMob implements IRangedAttackMob {
      */
     @Override
     protected boolean isValidLightLevel() {
-        return true;
+        int i = MathHelper.floor_double(this.posX);
+        int j = MathHelper.floor_double(this.boundingBox.minY);
+        int k = MathHelper.floor_double(this.posZ);
+        int bl = this.worldObj.getSavedLightValue(EnumSkyBlock.Block, i, j, k);
+        int light = this.worldObj.getBlockLightValue(i, j, k);
+
+        if (bl >= 7) {
+            return false;
+        } else if (light > 8) {
+            return true;
+        } else
+            return false;
     }
 
     /**

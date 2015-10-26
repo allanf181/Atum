@@ -27,6 +27,20 @@ public class EntityGhost extends EntityMob {
     }
 
     @Override
+    protected void entityInit() {
+        super.entityInit();
+        this.dataWatcher.addObject(16, new Byte((byte) 0));
+    }
+
+    @Override
+    public void onUpdate() {
+        super.onUpdate();
+        if (!this.worldObj.isRemote) {
+            this.setBesideClimbableBlock(this.isCollidedHorizontally);
+        }
+    }
+
+    @Override
     protected void applyEntityAttributes() {
         super.applyEntityAttributes();
         this.getEntityAttribute(SharedMonsterAttributes.maxHealth).setBaseValue(10.0D);
@@ -55,15 +69,12 @@ public class EntityGhost extends EntityMob {
      */
     @Override
     public boolean getCanSpawnHere() {
-        return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
-    }
-
-    /**
-     * Checks to make sure the light is not too bright where the mob is spawning
-     */
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
+        int i = MathHelper.floor_double(this.boundingBox.minY);
+        if (i <= 62) {
+            return false;
+        } else {
+            return super.getCanSpawnHere();
+        }
     }
 
     @Override
@@ -131,6 +142,26 @@ public class EntityGhost extends EntityMob {
             int amount = rand.nextInt(3) + 1;
             this.dropItem(AtumItems.ITEM_ECTOPLASM, amount);
         }
+    }
+
+    @Override
+    public boolean isOnLadder() {
+        return this.isBesideClimbableBlock();
+    }
+
+    public boolean isBesideClimbableBlock() {
+        return (this.dataWatcher.getWatchableObjectByte(16) & 1) != 0;
+    }
+
+    public void setBesideClimbableBlock(boolean isClimbable) {
+        byte b0 = this.dataWatcher.getWatchableObjectByte(16);
+
+        if (isClimbable) {
+            b0 = (byte) (b0 | 1);
+        } else {
+            b0 &= -2;
+        }
+        this.dataWatcher.updateObject(16, Byte.valueOf(b0));
     }
 
     public double getFloatingHeight() {
