@@ -12,7 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
-public class  BiomeGenAtumDesert extends BiomeGenBase {
+public class BiomeGenAtumDesert extends BiomeGenBase {
 
     public WorldGenerator treeGenerator;
     public WorldGenerator palmGenerator;
