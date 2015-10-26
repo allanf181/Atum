@@ -1,7 +1,6 @@
 package com.teammetallurgy.atum.entity;
 
 import com.teammetallurgy.atum.items.AtumItems;
-
 import net.minecraft.entity.Entity;
 import net.minecraft.entity.EntityLivingBase;
 import net.minecraft.entity.EnumCreatureAttribute;
@@ -11,6 +10,7 @@ import net.minecraft.init.Items;
 import net.minecraft.potion.Potion;
 import net.minecraft.potion.PotionEffect;
 import net.minecraft.util.DamageSource;
+import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
 
 public class EntityMummy extends EntityMob {
@@ -31,12 +31,12 @@ public class EntityMummy extends EntityMob {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
-    }
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
+        int i = MathHelper.floor_double(this.boundingBox.minY);
+        if (i <= 62) {
+            return false;
+        } else {
+            return super.getCanSpawnHere();
+        }
     }
 
     @Override

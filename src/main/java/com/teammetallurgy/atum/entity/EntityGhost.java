@@ -69,15 +69,12 @@ public class EntityGhost extends EntityMob {
      */
     @Override
     public boolean getCanSpawnHere() {
-        return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
-    }
-
-    /**
-     * Checks to make sure the light is not too bright where the mob is spawning
-     */
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
+        int i = MathHelper.floor_double(this.boundingBox.minY);
+        if (i <= 62) {
+            return false;
+        } else {
+            return super.getCanSpawnHere();
+        }
     }
 
     @Override

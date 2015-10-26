@@ -42,12 +42,12 @@ public class EntityStoneSoldier extends EntityStone {
 
     @Override
     public boolean getCanSpawnHere() {
-        return this.worldObj.checkNoEntityCollision(this.boundingBox) && this.worldObj.getCollidingBoundingBoxes(this, this.boundingBox).isEmpty() && !this.worldObj.isAnyLiquid(this.boundingBox);
-    }
-
-    @Override
-    protected boolean isValidLightLevel() {
-        return true;
+        int i = MathHelper.floor_double(this.boundingBox.minY);
+        if (i >= 62) {
+            return false;
+        } else {
+            return super.getCanSpawnHere();
+        }
     }
 
     @Override
