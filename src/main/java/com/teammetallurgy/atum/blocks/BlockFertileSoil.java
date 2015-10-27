@@ -90,12 +90,12 @@ public class BlockFertileSoil extends BlockDirt {
 
     @Override
     public void onNeighborBlockChange(World world, int x, int y, int z, Block neighborBlock) {
+        super.onNeighborBlockChange(world, x, y, z, neighborBlock);
         Material material = world.getBlock(x, y + 1, z).getMaterial();
         if (material.isSolid()) {
             world.setBlock(x, y, z, AtumBlocks.BLOCK_FERTILESOIL);
             world.setBlockMetadataWithNotify(x, y, z, 1, 2);
         }
-        super.onNeighborBlockChange(world, x, y, z, neighborBlock);
     }
 
     @Override
