@@ -104,7 +104,7 @@ public class AtumLoot {
         // Good Loot
         goodLoot.addLoot(new ItemStack(Items.iron_ingot), 5, 1, 3);
         goodLoot.addLoot(new ItemStack(Items.gold_ingot), 4, 1, 3);
-        goodLoot.addLoot(new ItemStack(Items.diamond), 2, 1, 2);
+        goodLoot.addLoot(new ItemStack(Items.diamond), 1, 1, 2);
         goodLoot.addLoot(new ItemStack(Items.enchanted_book, 1, 1), 5, 1, 1);
         ItemStack stick = new ItemStack(Items.stick);
         stick.setStackDisplayName("Amazing Stick");
