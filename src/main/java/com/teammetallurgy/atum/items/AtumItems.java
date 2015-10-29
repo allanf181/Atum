@@ -8,6 +8,7 @@ import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
 import net.minecraft.item.Item;
 import net.minecraft.item.Item.ToolMaterial;
+import net.minecraft.item.ItemAppleGold;
 import net.minecraft.item.ItemArmor.ArmorMaterial;
 import net.minecraft.item.ItemFood;
 import net.minecraft.item.ItemSeeds;
@@ -23,7 +24,8 @@ public class AtumItems {
     public static Item ITEM_LINEN = new Item().setUnlocalizedName("linen").setTextureName("atum:Linen");
     public static Item ITEM_SCARAB = new ItemScarab().setUnlocalizedName("scarab");
     public static Item ITEM_LOOT = new ItemLoot().setUnlocalizedName("loot");
-    public static Item ITEM_DATE = new ItemFood(5, 1.5F, false).setTextureName("atum:Date").setUnlocalizedName("date");
+    public static Item ITEM_DATE = new ItemFood(4, 0.3F, false).setTextureName("atum:Date").setUnlocalizedName("date");
+    public static Item ITEM_GOLDEN_DATE = new ItemAppleGold(5, 1.5F, false).setTextureName("atum:GoldenDate").setUnlocalizedName("goldenDate");
     public static Item ITEM_SCIMITAR = new ItemScimitar(ToolMaterial.IRON).setUnlocalizedName("scimitar");
     public static Item ITEM_GREATSWORD = new ItemGreatsword(ToolMaterial.IRON).setUnlocalizedName("greatsword").setTextureName("atum:Greatsword");
     public static Item ITEM_BOW = new ItemAtumBow().setUnlocalizedName("bow");
@@ -94,6 +96,7 @@ public class AtumItems {
         this.register(ITEM_SCARAB);
         this.register(ITEM_LOOT);
         this.register(ITEM_DATE);
+        this.register(ITEM_GOLDEN_DATE);
         this.register(ITEM_SCIMITAR);
         this.register(ITEM_GREATSWORD);
         this.register(ITEM_SCEPTER);
