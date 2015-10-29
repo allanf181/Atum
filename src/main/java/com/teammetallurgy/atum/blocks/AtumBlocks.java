@@ -10,6 +10,7 @@ import com.teammetallurgy.atum.items.ItemBlockStainedGlass;
 import com.teammetallurgy.atum.utils.Constants;
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.block.Block;
+import net.minecraft.block.BlockGravel;
 import net.minecraft.block.BlockSlab;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -21,6 +22,7 @@ public class AtumBlocks {
     public static BlockPortal BLOCK_PORTAL = new BlockPortal();
     public static Block BLOCK_CURSEDCHEST = new BlockChestSpawner();
     public static Block BLOCK_SAND = new BlockSands();
+    public static Block BLOCK_LIMESTONEGRAVEL = new BlockGravel().setHardness(0.6F).setStepSound(Block.soundTypeGravel).setBlockName("limestoneGravel").setBlockTextureName("atum:AtumLimestoneGravel");
     public static Block BLOCK_STONE = new BlockAtumStone();
     public static Block BLOCK_WALL = new BlockWalls(BLOCK_STONE);
     public static Block BLOCK_LIMESTONECOBBLE = new BlockAtum("cobble").setBlockTextureName("atum:AtumCobble");
@@ -74,6 +76,7 @@ public class AtumBlocks {
         this.register(BLOCK_PORTAL);
         this.register(BLOCK_CURSEDCHEST);
         this.register(BLOCK_SAND);
+        this.register(BLOCK_LIMESTONEGRAVEL);
         this.register(BLOCK_STONE);
         this.register(BLOCK_LIMESTONECOBBLE);
         this.register(BLOCK_SMALLBRICK);

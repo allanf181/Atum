@@ -3,7 +3,6 @@ package com.teammetallurgy.atum.handler;
 import com.teammetallurgy.atum.blocks.AtumBlocks;
 import com.teammetallurgy.atum.items.AtumItems;
 import com.teammetallurgy.atum.utils.Constants;
-
 import cpw.mods.fml.common.registry.GameRegistry;
 import net.minecraft.init.Blocks;
 import net.minecraft.init.Items;
@@ -62,6 +61,8 @@ public class CraftingHandler {
         GameRegistry.addRecipe(new ItemStack(AtumItems.ITEM_SCARAB), " G ", "GDG", " G ", 'G', Items.gold_ingot, 'D', Items.diamond);
         GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_FURNACEIDLE), "XXX", "X X", "XXX", 'X', AtumBlocks.BLOCK_LIMESTONECOBBLE);
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(Items.dye, 1, 15), new ItemStack(AtumItems.ITEM_DUSTYBONE)));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(AtumItems.ITEM_GOLDEN_DATE, 1, 0), "###", "#X#", "###", '#', Items.gold_ingot, 'X', AtumItems.ITEM_DATE));
+        GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(AtumItems.ITEM_GOLDEN_DATE, 1, 1), "###", "#X#", "###", '#', Blocks.gold_block, 'X', AtumItems.ITEM_DATE));
 
         String [] oreColours = Constants.ORE_DIC_COLOURS;
 

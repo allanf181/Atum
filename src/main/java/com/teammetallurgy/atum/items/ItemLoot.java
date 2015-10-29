@@ -1,8 +1,7 @@
 package com.teammetallurgy.atum.items;
 
-import java.util.List;
-import java.util.Random;
-
+import cpw.mods.fml.relauncher.Side;
+import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.block.Block;
 import net.minecraft.client.renderer.texture.IIconRegister;
 import net.minecraft.creativetab.CreativeTabs;
@@ -13,8 +12,9 @@ import net.minecraft.item.ItemStack;
 import net.minecraft.util.IIcon;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.StatCollector;
-import cpw.mods.fml.relauncher.Side;
-import cpw.mods.fml.relauncher.SideOnly;
+
+import java.util.List;
+import java.util.Random;
 
 public class ItemLoot extends Item {
 
@@ -26,24 +26,22 @@ public class ItemLoot extends Item {
         super();
         this.setHasSubtypes(true);
         this.setMaxDamage(0);
+        this.setMaxStackSize(1);
     }
 
     public static ItemStack getRandomLoot(Random rand, boolean isDirty) {
         int type = rand.nextInt(typeArray.length);
-        int quality = rand.nextInt(qualityArray.length - 1) + 1;
-        return new ItemStack(AtumItems.ITEM_LOOT, 1, type << 5 | quality << 1 | (isDirty ? 1 : 0));
+        int quality = qualityArray.length - 6;
+        return new ItemStack(AtumItems.ITEM_LOOT, 1, type << 5 | quality | (isDirty ? 1 : 0));
     }
 
     @Override
     public String getUnlocalizedName(ItemStack par1ItemStack) {
         int quality = par1ItemStack.getItemDamage() >> 1 & 15;
         int type = par1ItemStack.getItemDamage() >> 5 & 15;
-        if (type < typeArray.length && quality < qualityArray.length)
-            if(qualityArray[quality].equalsIgnoreCase("dirty"))
-                return "item.loot.dirty";
-            else
-                return "item.loot." +  qualityArray[quality] + "." + typeArray[type];
-
+        if (type < typeArray.length && quality < qualityArray.length) {
+            return "item.loot." + qualityArray[quality] + "." + typeArray[type];
+        }
         return "item.loot.unknown";
     }
 

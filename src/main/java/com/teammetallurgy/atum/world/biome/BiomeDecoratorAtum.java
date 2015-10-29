@@ -7,7 +7,8 @@ import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.*;
+import net.minecraft.world.gen.feature.WorldGenMinable;
+import net.minecraft.world.gen.feature.WorldGenerator;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.event.terraingen.DecorateBiomeEvent.Decorate.EventType;
 import net.minecraftforge.event.terraingen.OreGenEvent;
@@ -23,10 +24,9 @@ public class BiomeDecoratorAtum extends BiomeDecorator {
 
     public BiomeDecoratorAtum() {
         super();
-        this.sandGen = new WorldGenSand(AtumBlocks.BLOCK_SAND, 7);
-        this.gravelAsSandGen = new WorldGenSand(Blocks.gravel, 6);
-        this.dirtGen = new WorldGenMinable(Blocks.dirt, 32);
-        this.gravelGen = new WorldGenMinable(Blocks.gravel, 32);
+        this.dirtGen = new WorldGenMinable(AtumBlocks.BLOCK_SAND, 32, AtumBlocks.BLOCK_STONE);
+        this.gravelGen = new WorldGenMinable(AtumBlocks.BLOCK_LIMESTONEGRAVEL, 32, AtumBlocks.BLOCK_STONE);
+        this.clayGen = new WorldGenMinable(Blocks.clay, 16, AtumBlocks.BLOCK_STONE);
         if (AtumConfig.COAL_ENABLED) { this.coalGen = new WorldGenMinable(AtumBlocks.BLOCK_COALORE, AtumConfig.COAL_VEIN, AtumBlocks.BLOCK_STONE); }
         if (AtumConfig.IRON_ENABLED) { this.ironGen = new WorldGenMinable(AtumBlocks.BLOCK_IRONORE, AtumConfig.IRON_VEIN, AtumBlocks.BLOCK_STONE); }
         if (AtumConfig.GOLD_ENABLED) { this.goldGen = new WorldGenMinable(AtumBlocks.BLOCK_GOLDORE, AtumConfig.GOLD_VEIN, AtumBlocks.BLOCK_STONE); }
@@ -34,25 +34,8 @@ public class BiomeDecoratorAtum extends BiomeDecorator {
         if (AtumConfig.DIAMOND_ENABLED) { this.diamondGen = new WorldGenMinable(AtumBlocks.BLOCK_DIAMONDORE, AtumConfig.DIAMOND_VEIN, AtumBlocks.BLOCK_STONE); }
         if (AtumConfig.LAPIS_ENABLED) { this.lapisGen = new WorldGenMinable(AtumBlocks.BLOCK_LAPISORE, AtumConfig.LAPIS_VEIN); }
 
-        this.mushroomBrownGen = new WorldGenFlowers(Blocks.brown_mushroom);
-        this.mushroomRedGen = new WorldGenFlowers(Blocks.red_mushroom);
-        this.bigMushroomGen = new WorldGenBigMushroom();
-        this.reedGen = new WorldGenReed();
-        this.cactusGen = new WorldGenCactus();
-        this.waterlilyGen = new WorldGenWaterlily();
-        this.waterlilyPerChunk = 0;
         this.treesPerChunk = 0;
-        this.flowersPerChunk = 2;
-        this.grassPerChunk = 1;
-        this.deadBushPerChunk = 1;
         this.shrubChance = 0.3F;
-        this.mushroomsPerChunk = 0;
-        this.reedsPerChunk = 0;
-        this.cactiPerChunk = 0;
-        this.sandPerChunk = 1;
-        this.sandPerChunk2 = 3;
-        this.clayPerChunk = 1;
-        this.bigMushroomsPerChunk = 0;
         this.generateLakes = false;
     }
 
@@ -172,6 +155,18 @@ public class BiomeDecoratorAtum extends BiomeDecorator {
 
         if (TerrainGen.generateOre(this.currentWorld, this.randomGenerator, this.lapisGen, this.chunk_X, this.chunk_Z, OreGenEvent.GenerateMinable.EventType.LAPIS)) {
             this.genStandardOre2(1, this.lapisGen, 16, 16);
+        }
+
+        if (TerrainGen.generateOre(this.currentWorld, this.randomGenerator, this.dirtGen, this.chunk_X, this.chunk_Z, OreGenEvent.GenerateMinable.EventType.DIRT)) {
+            this.genStandardOre1(20, this.dirtGen, 0, 256);
+        }
+
+        if (TerrainGen.generateOre(this.currentWorld, this.randomGenerator, this.gravelGen, this.chunk_X, this.chunk_Z, OreGenEvent.GenerateMinable.EventType.GRAVEL)) {
+            this.genStandardOre1(10, this.gravelGen, 0, 256);
+        }
+
+        if (TerrainGen.generateOre(this.currentWorld, this.randomGenerator, this.clayGen, this.chunk_X, this.chunk_Z, OreGenEvent.GenerateMinable.EventType.CUSTOM)) {
+            this.genStandardOre1(8, this.clayGen, 0, 64);
         }
 
         MinecraftForge.ORE_GEN_BUS.post(new OreGenEvent.Post(this.currentWorld, this.randomGenerator, this.chunk_X, this.chunk_Z));
