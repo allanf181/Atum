@@ -12,6 +12,7 @@ import com.teammetallurgy.atum.items.AtumLoot;
 import com.teammetallurgy.atum.proxy.CommonProxy;
 import com.teammetallurgy.atum.utils.Constants;
 import com.teammetallurgy.atum.world.AtumWorlds;
+import com.teammetallurgy.atum.world.biome.AtumBiomes;
 
 import cpw.mods.fml.common.Mod;
 import cpw.mods.fml.common.Mod.EventHandler;
@@ -52,6 +53,9 @@ public class Atum {
 
     @EventHandler
     public void init(FMLInitializationEvent event) {
+    	Constants.LOG.trace("Register Biomes");
+    	new AtumBiomes().register();
+    	
         Constants.LOG.trace("Register World");
         new AtumWorlds().register();
 

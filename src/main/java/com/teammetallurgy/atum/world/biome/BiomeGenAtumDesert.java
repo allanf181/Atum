@@ -18,10 +18,8 @@ public class BiomeGenAtumDesert extends AtumBiomeGenBase {
     public WorldGenerator palmGenerator;
     public WorldGenerator ruinsGenerator;
 
-    public BiomeGenAtumDesert(int biomeID) {
-        super(biomeID);
-        
-        this.setBiomeName("Atum's Desert");
+    public BiomeGenAtumDesert(AtumConfig.BiomeConfig config) {
+        super(config);
 
         this.treeGenerator = new WorldGenAtumTrees(true);
         this.palmGenerator = new WorldGenPalm(true);

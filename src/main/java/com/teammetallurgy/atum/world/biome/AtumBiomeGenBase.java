@@ -1,6 +1,7 @@
 package com.teammetallurgy.atum.world.biome;
 
 import com.teammetallurgy.atum.blocks.AtumBlocks;
+import com.teammetallurgy.atum.handler.AtumConfig;
 
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -24,7 +25,13 @@ public class AtumBiomeGenBase extends BiomeGenBase {
         this.setColor(16421912);
         
         this.setTemperatureRainfall(2.0F, 0.0F);
-        this.setHeight(new Height(0.1F, 0.2F));
+        this.setHeight(height_Default);	// same as plains
+	}
+	public AtumBiomeGenBase(AtumConfig.BiomeConfig config) {
+		this(config.getID());
+		
+        this.setBiomeName(config.toString());
+        config.setGen(this);
 	}
 
     @Override

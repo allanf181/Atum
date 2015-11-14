@@ -17,7 +17,7 @@ public class AtumWorldProvider extends WorldProvider {
 
     @Override
     protected void registerWorldChunkManager() {
-        this.worldChunkMgr = new WorldChunkManagerHell(AtumWorlds.BIOME_DESERT, 5);
+        this.worldChunkMgr = new WorldChunkManagerHell(AtumConfig.BiomeConfig.SAND_PLAINS.getGen(), 5);
         this.dimensionId = AtumConfig.DIMENSION_ID;
     }
 
