@@ -1,13 +1,18 @@
 package com.teammetallurgy.atum.world.biome;
 
+import java.util.List;
+
+import com.google.common.collect.Lists;
 import com.teammetallurgy.atum.handler.AtumConfig;
 
 public class AtumBiomes {
 	
+	public static List<AtumBiomeGenBase> biomes = Lists.newArrayList();
+	
 	public void register() {
-		new BiomeGenSandPlains(AtumConfig.BiomeConfig.SAND_PLAINS);
-		new BiomeGenSandDunes(AtumConfig.BiomeConfig.SAND_DUNES);
-		new BiomeGenSandHills(AtumConfig.BiomeConfig.SAND_HILLS);
+		biomes.add(new BiomeGenSandPlains(AtumConfig.BiomeConfig.SAND_PLAINS));
+		biomes.add(new BiomeGenSandDunes(AtumConfig.BiomeConfig.SAND_DUNES));
+		biomes.add(new BiomeGenSandHills(AtumConfig.BiomeConfig.SAND_HILLS));
 	}
 
 }
