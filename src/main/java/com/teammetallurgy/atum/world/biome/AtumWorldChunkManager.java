@@ -13,17 +13,24 @@ import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerSmooth;
 import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
+import net.minecraft.world.gen.layer.GenLayerZoom;
 import net.minecraft.world.gen.layer.IntCache;
 import net.minecraftforge.common.BiomeManager.BiomeEntry;
 
 public class AtumWorldChunkManager extends WorldChunkManager {
 
+	public static final int BIOME_SCALE = 4;
 	private GenLayer genBiomeLayer;
 	
 	public AtumWorldChunkManager(long seed) {
 		
-		GenLayerSmooth layerSmooth = new GenLayerSmooth(1000L, new GenLayerAtumBiome(seed));
-		GenLayerVoronoiZoom layerVoronoi = new GenLayerVoronoiZoom(10L, layerSmooth);
+		GenLayer layerBiome = new GenLayerAtumBiome(seed);
+		for( int k = 0; k < BIOME_SCALE; ++k ) {
+			layerBiome = new GenLayerZoom((long)(1000 + k), layerBiome);
+		}
+		
+		GenLayer layerSmooth = new GenLayerSmooth(1000L, layerBiome);
+		GenLayer layerVoronoi = new GenLayerVoronoiZoom(10L, layerSmooth);
 		layerVoronoi.initWorldGenSeed(seed);
 		
 		genBiomeLayer = layerVoronoi;

@@ -5,6 +5,7 @@ import com.teammetallurgy.atum.entity.*;
 import com.teammetallurgy.atum.handler.AtumConfig;
 import com.teammetallurgy.atum.world.decorators.*;
 
+import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
@@ -18,6 +19,7 @@ public class BiomeGenSandDunes extends AtumBiomeGenBase {
         super(config);
 
         super.setHeight(height_MidPlains);
+        //super.topBlock = Blocks.dirt;
         
         super.addDefaultSpawns();
     }
