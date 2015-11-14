@@ -16,6 +16,8 @@ public class BiomeGenSandDunes extends AtumBiomeGenBase {
 
     public BiomeGenSandDunes(AtumConfig.BiomeConfig config) {
         super(config);
+
+        super.setHeight(height_MidPlains);
         
         super.addDefaultSpawns();
     }

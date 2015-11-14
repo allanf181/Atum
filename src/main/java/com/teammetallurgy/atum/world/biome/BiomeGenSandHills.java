@@ -17,6 +17,8 @@ public class BiomeGenSandHills extends AtumBiomeGenBase {
     public BiomeGenSandHills(AtumConfig.BiomeConfig config) {
         super(config);
         
+        super.setHeight(height_LowHills);
+        
         super.addDefaultSpawns();
     }
     
