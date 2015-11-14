@@ -18,7 +18,7 @@ public class BiomeGenSandDunes extends AtumBiomeGenBase {
     public BiomeGenSandDunes(AtumConfig.BiomeConfig config) {
         super(config);
 
-        super.setHeight(height_MidPlains);
+        super.setHeight(height_MidPlains.attenuate());
         //super.topBlock = Blocks.dirt;
         
         super.addDefaultSpawns();

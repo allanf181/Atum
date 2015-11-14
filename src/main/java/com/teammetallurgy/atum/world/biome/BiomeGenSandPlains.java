@@ -17,8 +17,7 @@ public class BiomeGenSandPlains extends AtumBiomeGenBase {
     public BiomeGenSandPlains(AtumConfig.BiomeConfig config) {
         super(config);
         
-        // plains should be twice as common as other biomes
-        this.weight = super.DEFAULT_WEIGHT * 2;
+        super.setHeight(height_LowPlains);
         
         super.addDefaultSpawns();
     }

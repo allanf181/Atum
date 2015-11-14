@@ -37,26 +37,33 @@ public class AtumConfig {
     public static int REDSTONE_VEIN;
     public static int DIAMOND_VEIN;
     public static int LAPIS_VEIN;
-    
+
+    public static final int DEFAULT_BIOME_WEIGHT = 10;
+
     public enum BiomeConfig {
-    	SAND_PLAINS(200, "Sand Plains")
+    	SAND_PLAINS(200, "Sand Plains", 2.0F)
     	, SAND_DUNES(201, "Sand Dunes")
     	, SAND_HILLS(202, "Sand Hills")
     	//, LIMESTONE_MOUNTAINS(203, "Limestone Mountains")
-    	//, LIMESTONE_CRAGS(204, "Limestone Crags")
+    	, LIMESTONE_CRAGS(204, "Limestone Crags")
     	//, OASIS(205, "Oasis")
     	//, DRIED_RIVER(206, "Dried River")
     	//, DEAD_OASIS(207, "Dead Oasis")
     	//, RUINED_CITY(208, "Ruined City")
     	;
-    	
+    	    	
     	private final String friendlyName;
     	private int id;
+    	private int weight;
     	private BiomeGenBase gen;
     	
-    	private BiomeConfig(int defaultID, String friendlyName) {
+    	private BiomeConfig(int defaultID, String friendlyName, float weightMultiplier) {
     		this.id = defaultID;
     		this.friendlyName = friendlyName;
+    		this.weight = (int)(DEFAULT_BIOME_WEIGHT * weightMultiplier);
+    	}
+    	private BiomeConfig(int defaultID, String friendlyName) {
+    		this(defaultID, friendlyName, DEFAULT_BIOME_WEIGHT);
     	}
     	public void setID(int id) {
     		this.id = id;
@@ -74,6 +81,9 @@ public class AtumConfig {
     	
     	public String toString() {
     		return friendlyName;
+    	}
+    	public int getWeight() {
+    		return weight;
     	}
     }
 

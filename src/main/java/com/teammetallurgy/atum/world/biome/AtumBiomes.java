@@ -13,6 +13,7 @@ public class AtumBiomes {
 		biomes.add(new BiomeGenSandPlains(AtumConfig.BiomeConfig.SAND_PLAINS));
 		biomes.add(new BiomeGenSandDunes(AtumConfig.BiomeConfig.SAND_DUNES));
 		biomes.add(new BiomeGenSandHills(AtumConfig.BiomeConfig.SAND_HILLS));
+		biomes.add(new BiomeGenLimestoneCrags(AtumConfig.BiomeConfig.LIMESTONE_CRAGS));
 	}
 
 }

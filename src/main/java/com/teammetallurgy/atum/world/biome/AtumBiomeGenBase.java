@@ -19,8 +19,7 @@ import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 
 public class AtumBiomeGenBase extends BiomeGenBase {
 
-	public static final int DEFAULT_WEIGHT = 10;
-	protected int weight = DEFAULT_WEIGHT;
+	protected int weight = AtumConfig.DEFAULT_BIOME_WEIGHT;
 	protected AtumConfig.BiomeConfig config;
 	
 	public AtumBiomeGenBase(int biomeID) {
@@ -46,6 +45,7 @@ public class AtumBiomeGenBase extends BiomeGenBase {
 		this.config = config;
 		
         this.setBiomeName(config.toString());
+        this.weight = config.getWeight();
         config.setGen(this);
 	}
 	
