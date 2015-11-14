@@ -21,6 +21,7 @@ public class AtumBiomeGenBase extends BiomeGenBase {
 
 	public static final int DEFAULT_WEIGHT = 10;
 	protected int weight = DEFAULT_WEIGHT;
+	protected AtumConfig.BiomeConfig config;
 	
 	public AtumBiomeGenBase(int biomeID) {
 		super(biomeID);
@@ -42,6 +43,7 @@ public class AtumBiomeGenBase extends BiomeGenBase {
 	}
 	public AtumBiomeGenBase(AtumConfig.BiomeConfig config) {
 		this(config.getID());
+		this.config = config;
 		
         this.setBiomeName(config.toString());
         config.setGen(this);
