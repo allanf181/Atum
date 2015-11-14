@@ -5,7 +5,9 @@ import com.teammetallurgy.atum.handler.AtumConfig;
 public class AtumBiomes {
 	
 	public void register() {
-		new BiomeGenAtumDesert(AtumConfig.BiomeConfig.SAND_PLAINS);
+		new BiomeGenSandPlains(AtumConfig.BiomeConfig.SAND_PLAINS);
+		new BiomeGenSandDunes(AtumConfig.BiomeConfig.SAND_DUNES);
+		new BiomeGenSandHills(AtumConfig.BiomeConfig.SAND_HILLS);
 	}
 
 }

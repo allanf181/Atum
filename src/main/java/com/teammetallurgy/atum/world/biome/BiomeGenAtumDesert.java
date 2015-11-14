@@ -12,6 +12,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
+@Deprecated
 public class BiomeGenAtumDesert extends AtumBiomeGenBase {
 
     public WorldGenerator treeGenerator;

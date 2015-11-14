@@ -39,7 +39,16 @@ public class AtumConfig {
     public static int LAPIS_VEIN;
     
     public enum BiomeConfig {
-    	SAND_PLAINS(200, "Sand Plains");
+    	SAND_PLAINS(200, "Sand Plains")
+    	, SAND_DUNES(201, "Sand Dunes")
+    	, SAND_HILLS(202, "Sand Hills")
+    	//, LIMESTONE_MOUNTAINS(203, "Limestone Mountains")
+    	//, LIMESTONE_CRAGS(204, "Limestone Crags")
+    	//, OASIS(205, "Oasis")
+    	//, DRIED_RIVER(206, "Dried River")
+    	//, DEAD_OASIS(207, "Dead Oasis")
+    	//, RUINED_CITY(208, "Ruined City")
+    	;
     	
     	private final String friendlyName;
     	private int id;
