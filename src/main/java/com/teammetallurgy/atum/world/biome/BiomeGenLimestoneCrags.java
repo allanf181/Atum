@@ -24,8 +24,8 @@ public class BiomeGenLimestoneCrags extends AtumBiomeGenBase {
     public BiomeGenLimestoneCrags(AtumConfig.BiomeConfig config) {
         super(config);
         
-        // testing
-        //super.weight *= 10;
+        super.palmRarity = -1;
+        super.pyramidRarity = -1;
         
         this.genSpikes = new WorldGenLimestoneSpike();
         

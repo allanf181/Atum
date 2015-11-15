@@ -18,8 +18,11 @@ public class BiomeGenSandDunes extends AtumBiomeGenBase {
     public BiomeGenSandDunes(AtumConfig.BiomeConfig config) {
         super(config);
 
-        super.setHeight(height_MidPlains.attenuate());
-        //super.topBlock = Blocks.dirt;
+        super.rootHeight = height_LowPlains.rootHeight + 0.1F;
+        super.heightVariation = height_LowPlains.variation + 0.2F;
+        
+        super.palmRarity *= 2;
+        // TODO: dead trees
         
         super.addDefaultSpawns();
     }

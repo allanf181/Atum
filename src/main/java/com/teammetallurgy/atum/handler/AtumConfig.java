@@ -38,13 +38,13 @@ public class AtumConfig {
     public static int DIAMOND_VEIN;
     public static int LAPIS_VEIN;
 
-    public static final int DEFAULT_BIOME_WEIGHT = 10;
+    public static final int DEFAULT_BIOME_WEIGHT = 20;
 
     public enum BiomeConfig {
     	SAND_PLAINS(200, "Sand Plains", 2.0F)
     	, SAND_DUNES(201, "Sand Dunes")
-    	, SAND_HILLS(202, "Sand Hills")
-    	//, LIMESTONE_MOUNTAINS(203, "Limestone Mountains")
+    	, SAND_HILLS(202, "Sand Hills", 0.75F)
+    	, LIMESTONE_MOUNTAINS(203, "Limestone Mountains", 0.75F)
     	, LIMESTONE_CRAGS(204, "Limestone Crags")
     	//, OASIS(205, "Oasis")
     	//, DRIED_RIVER(206, "Dried River")

@@ -22,6 +22,9 @@ public class BiomeGenSandHills extends AtumBiomeGenBase {
         super.setHeight(height_LowHills);
         //super.topBlock = Blocks.stone;
         
+        super.palmRarity *= 4;
+        // TODO: dead trees
+        
         super.addDefaultSpawns();
     }
     
