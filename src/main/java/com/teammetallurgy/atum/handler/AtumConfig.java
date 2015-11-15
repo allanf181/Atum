@@ -42,10 +42,10 @@ public class AtumConfig {
 
     public enum BiomeConfig {
     	SAND_PLAINS(200, "Sand Plains", 2.0F)
-    	, SAND_DUNES(201, "Sand Dunes")
+    	, SAND_DUNES(201, "Sand Dunes", 1.0F)
     	, SAND_HILLS(202, "Sand Hills", 0.75F)
     	, LIMESTONE_MOUNTAINS(203, "Limestone Mountains", 0.75F)
-    	, LIMESTONE_CRAGS(204, "Limestone Crags")
+    	, LIMESTONE_CRAGS(204, "Limestone Crags", 0.5F)
     	//, OASIS(205, "Oasis")
     	//, DRIED_RIVER(206, "Dried River")
     	//, DEAD_OASIS(207, "Dead Oasis")
@@ -61,9 +61,6 @@ public class AtumConfig {
     		this.id = defaultID;
     		this.friendlyName = friendlyName;
     		this.weight = (int)(DEFAULT_BIOME_WEIGHT * weightMultiplier);
-    	}
-    	private BiomeConfig(int defaultID, String friendlyName) {
-    		this(defaultID, friendlyName, DEFAULT_BIOME_WEIGHT);
     	}
     	public void setID(int id) {
     		this.id = id;
