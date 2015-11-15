@@ -13,17 +13,12 @@ import com.teammetallurgy.atum.entity.EntityGhost;
 import com.teammetallurgy.atum.entity.EntityMummy;
 import com.teammetallurgy.atum.entity.EntityStoneSoldier;
 import com.teammetallurgy.atum.handler.AtumConfig;
-import com.teammetallurgy.atum.world.decorators.WorldGenOasis;
-import com.teammetallurgy.atum.world.decorators.WorldGenPalace;
 import com.teammetallurgy.atum.world.decorators.WorldGenPalm;
 import com.teammetallurgy.atum.world.decorators.WorldGenPyramid;
 
-import net.minecraft.block.Block;
 import net.minecraft.world.World;
 import net.minecraft.world.biome.BiomeDecorator;
 import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.biome.BiomeGenBase.Height;
-import net.minecraft.world.biome.BiomeGenBase.SpawnListEntry;
 
 public class AtumBiomeGenBase extends BiomeGenBase {
 

@@ -1,21 +1,16 @@
 package com.teammetallurgy.atum.world.biome;
 
+import java.util.Random;
+
 import com.teammetallurgy.atum.blocks.AtumBlocks;
-import com.teammetallurgy.atum.entity.*;
 import com.teammetallurgy.atum.handler.AtumConfig;
-import com.teammetallurgy.atum.world.decorators.*;
 
 import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.util.MathHelper;
 import net.minecraft.world.World;
-import net.minecraft.world.biome.BiomeDecorator;
-import net.minecraft.world.biome.BiomeGenBase;
-import net.minecraft.world.gen.feature.WorldGenSpikes;
 import net.minecraft.world.gen.feature.WorldGenerator;
-
-import java.util.Random;
 
 public class BiomeGenLimestoneCrags extends AtumBiomeGenBase {
 
