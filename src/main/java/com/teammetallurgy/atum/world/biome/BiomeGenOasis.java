@@ -9,9 +9,13 @@ import net.minecraft.block.Block;
 import net.minecraft.block.material.Material;
 import net.minecraft.init.Blocks;
 import net.minecraft.world.World;
+import net.minecraft.world.gen.feature.WorldGenLakes;
+import net.minecraftforge.event.terraingen.TerrainGen;
 
 public class BiomeGenOasis extends AtumBiomeGenBase {
 
+	protected final int lakeRarity = 3;
+	
     public BiomeGenOasis(AtumConfig.BiomeConfig config) {
         super(config);
         
@@ -20,6 +24,7 @@ public class BiomeGenOasis extends AtumBiomeGenBase {
         
         super.setHeight(height_PartiallySubmerged);
         super.setTemperatureRainfall(0.8F, 0.9F);
+        super.enableRain = true;
         
         // no hostile spawns here
         
@@ -28,46 +33,20 @@ public class BiomeGenOasis extends AtumBiomeGenBase {
         super.theBiomeDecorator.waterlilyPerChunk = 2;
         
         super.palmRarity = 3;
+        super.pyramidRarity = -1;
     }
     
-    // this is not working at ALL - we're missing something
-    
-    @Override
-    public void genTerrainBlocks(World world, Random rng, Block[] blocks, byte[] bytes, int x, int z, double elevation)
-    {
-    	/*
-        double d1 = plantNoise.func_151601_a((double)x * 0.25D, (double)z * 0.25D);
+    public void decorate(World world, Random rng, int chunkx, int chunkz) {
+        int xx = chunkx + rng.nextInt(16) + 8;
+        int yy = rng.nextInt(rng.nextInt(248) + 8);
+        int zz = chunkz + rng.nextInt(16) + 8;
 
-        if (d1 > 0.0D)
+        if (yy < 65 || rng.nextInt(lakeRarity) == 0)
         {
-        */
-            int k = x & 15;
-            int l = z & 15;
-            int i1 = blocks.length / 256;
-
-            for (int j1 = 255; j1 >= 0; --j1)
-            {
-                int k1 = (l * 16 + k) * i1 + j1;
-
-                if (blocks[k1] == null || blocks[k1].getMaterial() != Material.air)
-                {
-                    if (j1 == 62 && blocks[k1] != Blocks.water)
-                    {
-                        blocks[k1] = Blocks.water;
-
-                        /*if (d1 < 0.12D)
-                        {
-                            blocks[k1 + 1] = Blocks.waterlily;
-                        }*/
-                    }
-
-                    break;
-                }
-            }
-            /*
+            (new WorldGenLakes(Blocks.water)).generate(world, rng, xx, yy, zz);
         }
-*/
-        this.genBiomeTerrain(world, rng, blocks, bytes, x, z, elevation);
+        
+        super.decorate(world, rng, chunkx, chunkz);
     }
-
+    
 }
