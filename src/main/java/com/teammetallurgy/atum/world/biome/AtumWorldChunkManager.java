@@ -9,6 +9,7 @@ import net.minecraft.util.WeightedRandom;
 import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
+import net.minecraft.world.gen.NoiseGeneratorSimplex;
 import net.minecraft.world.gen.layer.GenLayer;
 import net.minecraft.world.gen.layer.GenLayerSmooth;
 import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
@@ -139,12 +140,22 @@ public class AtumWorldChunkManager extends WorldChunkManager {
 		
 	private class GenLayerAtumBiome extends GenLayer {
 
-		private List<BiomeEntry> biomes = Lists.newArrayListWithCapacity(AtumBiomes.biomes.size());
+		private List<BiomeEntry> lBiomes = Lists.newArrayList();
+		private List<BiomeEntry> hBiomes = Lists.newArrayList();
+		
+		private final NoiseGeneratorSimplex noise;
 		
 		public GenLayerAtumBiome(long seed) {
 			super(seed);
+			noise = new NoiseGeneratorSimplex(new Random(seed));
+			
 			for(AtumBiomeGenBase biome : AtumBiomes.biomes ) {
-				biomes.add(new BiomeEntry(biome, biome.getWeight()));
+				final BiomeEntry entry = new BiomeEntry(biome, biome.getWeight());
+				if( biome.rootHeight >= 0.25F ) {
+					hBiomes.add(entry);
+				} else {
+					lBiomes.add(entry);
+				}
 			}
 		}
 
@@ -152,17 +163,25 @@ public class AtumWorldChunkManager extends WorldChunkManager {
 		public int[] getInts(int x, int z, int width, int length) {
 			int[] cache = IntCache.getIntCache(width * length);
 			
-			int totalWeight = WeightedRandom.getTotalWeight(biomes);
+			int lWeight = WeightedRandom.getTotalWeight(lBiomes);
+			int hWeight = WeightedRandom.getTotalWeight(hBiomes);
 			
 			for( int i = 0; i < length; ++i ) {
 				for( int j = 0; j < width; ++j ) {
-					this.initChunkSeed((long)(j + x), (long)(i + z));								
-					cache[j + i * width] = ((BiomeEntry)WeightedRandom.getItem(biomes, nextInt(totalWeight))).biome.biomeID;
+					this.initChunkSeed((long)(j + x), (long)(i + z));
+					final double elevationType = noise.func_151605_a(x,z);
+					final BiomeEntry biome;
+					if( elevationType <= 0.25 ) {
+						biome = ((BiomeEntry)WeightedRandom.getItem(hBiomes, nextInt(hWeight)));
+					} else {
+						biome = ((BiomeEntry)WeightedRandom.getItem(lBiomes, nextInt(lWeight)));
+					}
+					cache[j + i * width] = biome.biome.biomeID;
 				}
 			}
 			
 			return cache;
 		}
-			
+
 	}
 }
