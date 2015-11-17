@@ -22,8 +22,7 @@ public class BiomeGenOasis extends AtumBiomeGenBase {
         //super.topBlock = Blocks.grass;
         super.topBlock = AtumBlocks.BLOCK_FERTILESOIL;
         
-        // very low, flat elevation
-        super.setHeight(height_PartiallySubmerged.attenuate());
+        super.setHeight(height_ShallowWaters);
         
         super.setTemperatureRainfall(0.8F, 0.9F);
         super.enableRain = true;

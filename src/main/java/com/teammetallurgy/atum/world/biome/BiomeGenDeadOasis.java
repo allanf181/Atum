@@ -18,8 +18,7 @@ public class BiomeGenDeadOasis extends AtumBiomeGenBase {
         
         super.topBlock = AtumBlocks.BLOCK_LIMESTONECOBBLE;
         
-        // very low, flat elevation
-        super.setHeight(height_PartiallySubmerged.attenuate());
+        super.setHeight(height_ShallowWaters);
         
         super.setTemperatureRainfall(0.8F, 0.9F);
         

@@ -7,6 +7,9 @@ import net.minecraft.world.ChunkPosition;
 import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.gen.layer.GenLayer;
+import net.minecraft.world.gen.layer.GenLayerFuzzyZoom;
+import net.minecraft.world.gen.layer.GenLayerIsland;
+import net.minecraft.world.gen.layer.GenLayerRiverInit;
 import net.minecraft.world.gen.layer.GenLayerSmooth;
 import net.minecraft.world.gen.layer.GenLayerVoronoiZoom;
 import net.minecraft.world.gen.layer.GenLayerZoom;
@@ -19,7 +22,7 @@ public class AtumWorldChunkManager extends WorldChunkManager {
 	
 	public AtumWorldChunkManager(long seed) {
 		
-		GenLayer layerBiome = new GenLayerAtumBiome(seed);
+		GenLayer layerBiome = new GenLayerAtumBiome(seed);		
 		for( int k = 0; k < BIOME_SCALE; ++k ) {
 			layerBiome = new GenLayerZoom((long)(1000 + k), layerBiome);
 		}
@@ -28,7 +31,14 @@ public class AtumWorldChunkManager extends WorldChunkManager {
 		GenLayer layerVoronoi = new GenLayerVoronoiZoom(10L, layerSmooth);
 		layerVoronoi.initWorldGenSeed(seed);
 		
-		genBiomeLayer = layerVoronoi;
+		GenLayer layerRiver = new GenLayerRiverInit(100L, layerSmooth);
+		layerRiver = GenLayerZoom.magnify(1000L, layerRiver, 2);
+		layerRiver = GenLayerZoom.magnify(1000L, layerRiver, BIOME_SCALE);
+		layerRiver = new GenLayerAtumRiver(1L, layerRiver);
+		layerRiver = new GenLayerSmooth(1000L, layerRiver);
+		layerRiver = new GenLayerAtumRiverMix(100L, layerVoronoi, layerRiver);
+		
+		genBiomeLayer = layerRiver;
 	}
 	
     @Override

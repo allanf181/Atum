@@ -8,6 +8,7 @@ import com.teammetallurgy.atum.handler.AtumConfig;
 public class AtumBiomes {
 	
 	public static List<AtumBiomeGenBase> biomes = Lists.newArrayList();
+	public static AtumBiomeGenBase riverBiome;
 	
 	public void register() {
 		registerBiome(new BiomeGenSandPlains(AtumConfig.BiomeConfig.SAND_PLAINS));
@@ -19,8 +20,7 @@ public class AtumBiomes {
 		registerBiome(new BiomeGenDeadOasis(AtumConfig.BiomeConfig.DEAD_OASIS));
 		registerBiome(new BiomeGenRuinedCity(AtumConfig.BiomeConfig.RUINED_CITY));
 		
-		// NB: This will likely be handled separately
-		//registerBiome(new BiomeGenDriedRiver(AtumConfig.BiomeConfig.DRIED_RIVER));
+		riverBiome = new BiomeGenDriedRiver(AtumConfig.BiomeConfig.DRIED_RIVER);
 	}
 	
 	// in case we want to do anything extra at registration time...

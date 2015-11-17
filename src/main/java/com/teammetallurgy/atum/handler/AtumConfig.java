@@ -41,16 +41,15 @@ public class AtumConfig {
     public static final int DEFAULT_BIOME_WEIGHT = 20;
 
     public enum BiomeConfig {
-    	SAND_PLAINS(200, "Sand Plains", 2.0F)
-    	, SAND_DUNES(201, "Sand Dunes", 1.0F)
-    	, SAND_HILLS(202, "Sand Hills", 0.75F)
-    	, LIMESTONE_MOUNTAINS(203, "Limestone Mountains", 0.75F)
-    	, LIMESTONE_CRAGS(204, "Limestone Crags", 0.5F)
-    	, OASIS(205, "Oasis", 0.25F)
-    	//, DRIED_RIVER(206, "Dried River")
-    	, DEAD_OASIS(207, "Dead Oasis", 0.25F)
-    	, RUINED_CITY(208, "Ruined City", 0.5F)
-    	;
+    	SAND_PLAINS(200, "Sand Plains", 2.0F),
+    	SAND_DUNES(201, "Sand Dunes", 1.0F),
+    	SAND_HILLS(202, "Sand Hills", 0.75F),
+    	LIMESTONE_MOUNTAINS(203, "Limestone Mountains", 0.75F),
+    	LIMESTONE_CRAGS(204, "Limestone Crags", 0.5F),
+    	OASIS(205, "Oasis", 0.25F),
+    	DRIED_RIVER(206, "Dried River", -1F),
+    	DEAD_OASIS(207, "Dead Oasis", 0.25F),
+    	RUINED_CITY(208, "Ruined City", 0.5F);
     	    	
     	private final String friendlyName;
     	private int id;
