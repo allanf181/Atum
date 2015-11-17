@@ -7,7 +7,7 @@ public class BiomeGenSandPlains extends AtumBiomeGenBase {
     public BiomeGenSandPlains(AtumConfig.BiomeConfig config) {
         super(config);
         
-        super.setHeight(height_LowPlains);
+        super.setHeight(height_LowPlains.attenuate());
         
         super.addDefaultSpawns();
     }
