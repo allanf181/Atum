@@ -14,7 +14,7 @@ import net.minecraft.world.gen.feature.WorldGenLakes;
 public class BiomeGenOasis extends AtumBiomeGenBase {
 
 	protected final int lakeRarity = 3;
-	protected final int waterLevel = 62;
+	protected final int waterLevel = 64;
 	
     public BiomeGenOasis(AtumConfig.BiomeConfig config) {
         super(config);
@@ -52,8 +52,11 @@ public class BiomeGenOasis extends AtumBiomeGenBase {
     }
     
     @Override
-    public void genTerrainBlocks(World world, Random rng, Block[] blocks, byte[] bytes, int x, int z, double elevation) {
+    public void genTerrainBlocks(World world, Random rng, Block[] blocks, byte[] bytes, int x, int z, double stoneNoise) {   	
         double noise = plantNoise.func_151601_a((double)x * 0.25D, (double)z * 0.25D);
+        
+        boolean makingPond = false;
+        int depth = 1 + rng.nextInt(5);
 
         if (noise > -0.0D) {
             int xx = x & 15;
@@ -67,20 +70,23 @@ public class BiomeGenOasis extends AtumBiomeGenBase {
                 int k = (zz * 16 + xx) * offset + yy;
 
                 if (blocks[k] == null || blocks[k].getMaterial() != Material.air) {
-                    if (yy == waterLevel && blocks[k] != Blocks.water) {
+                	if( makingPond ) {
+                    	if( --depth == 0 ) break;
+                    	blocks[k] = Blocks.water;
+                    }else if (yy <= waterLevel && blocks[k] == this.topBlock) {
                         blocks[k] = Blocks.water;
                         if (noise < 0.12D) {
                             blocks[k + 1] = Blocks.waterlily;
                         }
-                    }
-
-                    break;
+                        makingPond = true;
+                    } 
                 }
             }
         }
-
+        
         // In Atum biomes, genTerrainBlocks does what genBiomeTerrain normally does
-        super.genTerrainBlocks(world, rng, blocks, bytes, x, z, elevation);
+        super.genTerrainBlocks(world, rng, blocks, bytes, x, z, stoneNoise);
+
     }
     
 }
