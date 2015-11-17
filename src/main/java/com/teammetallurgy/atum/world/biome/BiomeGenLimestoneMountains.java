@@ -12,26 +12,32 @@ public class BiomeGenLimestoneMountains extends AtumBiomeGenBase {
 
     public BiomeGenLimestoneMountains(AtumConfig.BiomeConfig config) {
         super(config);
+
+        super.fillerBlock = AtumBlocks.BLOCK_STONE;
         
         super.setHeight(height_MidHills);
         
         super.palmRarity = -1;
+        super.pyramidRarity = -1;
         // TODO: dead trees
         
         super.addDefaultSpawns();
     }
     
-    public void genTerrainBlocks(World world, Random rng, Block[] blocks, byte[] bytes, int x, int z, double elevation)
+    @Override
+    public void genTerrainBlocks(World world, Random rng, Block[] blocks, byte[] bytes, int x, int z, double noise)
     {
-        super.topBlock = AtumBlocks.BLOCK_SAND;
-        super.fillerBlock = AtumBlocks.BLOCK_STONE;
-
-        if (elevation > 1.0D) {
+    	final int y = world.getHeightValue(x, z);
+    	
+    	if( y <= 72 || noise < 1.0D ) {
+	        super.topBlock = AtumBlocks.BLOCK_SAND;
+    	} else {
             super.topBlock = AtumBlocks.BLOCK_STONE;
-            super.fillerBlock = AtumBlocks.BLOCK_STONE;
         }
 
-        this.genBiomeTerrain(world, rng, blocks, bytes, x, z, elevation);
+    	// something weird's going on here...
+        super.genBiomeTerrain(world, rng, blocks, bytes, x, z, noise);
+        super.genTerrainBlocks(world, rng, blocks, bytes, x, z, noise);
     }
 
 }
