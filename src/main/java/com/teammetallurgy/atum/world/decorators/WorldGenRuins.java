@@ -58,18 +58,18 @@ public class WorldGenRuins extends WorldGenerator {
         int chestY;
         for (chestX = Math.min(x2, x); chestX <= Math.max(x2, x); ++chestX) {
             for (chestZ = Math.min(z2, z); chestZ <= Math.max(z2, z); ++chestZ) {
-                int meta = random.nextInt(4);
+                int wallHeight = random.nextInt(4);
 
                 for (chestY = -1; chestY < 15; ++chestY) {
                     if (chestX != x2 && chestZ != z2 && chestX != x && chestZ != z && chestY != -1) {
                         world.setBlockToAir(chestX, chestY + height, chestZ);
-                    } else if (chestY < meta) {
+                    } else if (chestY < wallHeight) {
                         if ((double) random.nextFloat() > 0.1D) {
                             world.setBlock(chestX, chestY + height, chestZ, AtumBlocks.BLOCK_LARGEBRICK);
                         } else {
                             world.setBlock(chestX, chestY + height, chestZ, AtumBlocks.BLOCK_SMALLBRICK);
                         }
-                    } else if (chestY == meta && (double) random.nextFloat() > 0.7D) {
+                    } else if (chestY == wallHeight && (double) random.nextFloat() > 0.7D) {
                         if ((double) random.nextFloat() > 0.1D) {
                             world.setBlock(chestX, chestY + height, chestZ, AtumBlocks.BLOCK_SLABS, 2, 0);
                         } else {
@@ -79,7 +79,7 @@ public class WorldGenRuins extends WorldGenerator {
                 }
             }
         }
-
+        
         if( building && random.nextInt(CHEST_CHANCE) == 0 ) {
 	        chestX = width / 2 + x;
 	        chestZ = Math.max(z2, z) - 1;
@@ -109,6 +109,8 @@ public class WorldGenRuins extends WorldGenerator {
 	        IInventory chest = (IInventory) world.getTileEntity(chestX, chestY, chestZ);
 	        AtumLoot.fillChest(chest, 5, 0.5F);
         }
+        
+        // TODO: pour sand into the building
         
         return false;
     }
