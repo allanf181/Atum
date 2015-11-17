@@ -49,7 +49,7 @@ public class AtumConfig {
     	, OASIS(205, "Oasis", 0.5F)
     	//, DRIED_RIVER(206, "Dried River")
     	//, DEAD_OASIS(207, "Dead Oasis")
-    	//, RUINED_CITY(208, "Ruined City")
+    	, RUINED_CITY(208, "Ruined City", 10.5F)
     	;
     	    	
     	private final String friendlyName;
