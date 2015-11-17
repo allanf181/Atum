@@ -27,16 +27,16 @@ public class BiomeGenLimestoneMountains extends AtumBiomeGenBase {
     @Override
     public void genTerrainBlocks(World world, Random rng, Block[] blocks, byte[] bytes, int x, int z, double noise)
     {
-    	final int y = world.getHeightValue(x, z);
+    	//final int y = world.getHeightValue(x, z);
     	
-    	if( y <= 72 || noise < 1.0D ) {
+    	if( /*y <= 72 ||*/ noise < 1.0D ) {
 	        super.topBlock = AtumBlocks.BLOCK_SAND;
     	} else {
             super.topBlock = AtumBlocks.BLOCK_STONE;
         }
 
     	// something weird's going on here...
-        super.genBiomeTerrain(world, rng, blocks, bytes, x, z, noise);
+        //super.genBiomeTerrain(world, rng, blocks, bytes, x, z, noise);
         super.genTerrainBlocks(world, rng, blocks, bytes, x, z, noise);
     }
 
