@@ -1,0 +1,19 @@
+package com.teammetallurgy.atum.world.biome;
+
+import com.teammetallurgy.atum.handler.AtumConfig;
+
+public class BiomeGenSandDunes extends AtumBiomeGenBase {
+
+    public BiomeGenSandDunes(AtumConfig.BiomeConfig config) {
+        super(config);
+
+        super.rootHeight = height_LowPlains.rootHeight + 0.1F;
+        super.heightVariation = height_LowPlains.variation + 0.2F;
+        
+        super.palmRarity *= 2;
+        // TODO: dead trees
+        
+        super.addDefaultSpawns();
+    }
+
+}

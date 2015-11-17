@@ -4,6 +4,7 @@ import com.teammetallurgy.atum.utils.Constants;
 import cpw.mods.fml.client.event.ConfigChangedEvent;
 import cpw.mods.fml.common.FMLCommonHandler;
 import cpw.mods.fml.common.eventhandler.SubscribeEvent;
+import net.minecraft.world.biome.BiomeGenBase;
 import net.minecraftforge.common.config.Configuration;
 import net.minecraftforge.common.config.Property;
 
@@ -30,13 +31,58 @@ public class AtumConfig {
     public static boolean LAPIS_ENABLED;
 
     public static int DIMENSION_ID;
-    public static int BIOME_DESERT_ID;
     public static int COAL_VEIN;
     public static int IRON_VEIN;
     public static int GOLD_VEIN;
     public static int REDSTONE_VEIN;
     public static int DIAMOND_VEIN;
     public static int LAPIS_VEIN;
+
+    public static final int DEFAULT_BIOME_WEIGHT = 20;
+
+    public enum BiomeConfig {
+    	SAND_PLAINS(200, "Sand Plains", 2.0F)
+    	, SAND_DUNES(201, "Sand Dunes", 1.0F)
+    	, SAND_HILLS(202, "Sand Hills", 0.75F)
+    	, LIMESTONE_MOUNTAINS(203, "Limestone Mountains", 0.75F)
+    	, LIMESTONE_CRAGS(204, "Limestone Crags", 0.5F)
+    	, OASIS(205, "Oasis", 0.5F)
+    	//, DRIED_RIVER(206, "Dried River")
+    	//, DEAD_OASIS(207, "Dead Oasis")
+    	//, RUINED_CITY(208, "Ruined City")
+    	;
+    	    	
+    	private final String friendlyName;
+    	private int id;
+    	private int weight;
+    	private BiomeGenBase gen;
+    	
+    	private BiomeConfig(int defaultID, String friendlyName, float weightMultiplier) {
+    		this.id = defaultID;
+    		this.friendlyName = friendlyName;
+    		this.weight = (int)(DEFAULT_BIOME_WEIGHT * weightMultiplier);
+    	}
+    	public void setID(int id) {
+    		this.id = id;
+    	}
+    	public int getID() {
+    		return this.id;
+    	}
+    	
+    	public void setGen(BiomeGenBase gen) {
+    		this.gen = gen;
+    	}
+    	public BiomeGenBase getGen() {
+    		return this.gen;
+    	}
+    	
+    	public String toString() {
+    		return friendlyName;
+    	}
+    	public int getWeight() {
+    		return weight;
+    	}
+    }
 
     public AtumConfig(File file) {
         this.config = new Configuration(file);
@@ -74,12 +120,16 @@ public class AtumConfig {
         DIMENSION_ID = prop.getInt();
         propOrder.add(prop.getName());
 
-        prop = config.get(CATEGORY_GENERAL, "Atum Desert Biome ID", 200);
-        prop.comment = "The ID of the Atum Dimension biome Desert";
-        prop.setLanguageKey("atum.configGui.biomeID").setRequiresMcRestart(true);
-        BIOME_DESERT_ID = prop.getInt();
-        propOrder.add(prop.getName());
+        ////////// biomes
+        for(BiomeConfig biome : BiomeConfig.values()) {
+            prop = config.get(CATEGORY_GENERAL, "Atum "+biome.toString()+" Biome ID", biome.getID());
+            prop.comment = "The ID of the Atum Dimension biome " + biome.toString();
+            prop.setLanguageKey("atum.configGui.biomeID."+biome.name()).setRequiresMcRestart(true);
+            biome.setID(prop.getInt());
+            propOrder.add(prop.getName());        	
+        }
 
+        ////////// features
         prop = config.get(CATEGORY_WORLDGEN, "Atum Oasis", true);
         prop.comment = "Should oases be generated?";
         prop.setLanguageKey("atum.configGui.oasis");
