@@ -1,11 +1,14 @@
 package com.teammetallurgy.atum.world;
 
 import com.teammetallurgy.atum.handler.AtumConfig;
+import com.teammetallurgy.atum.world.biome.AtumWorldChunkManager;
+
 import cpw.mods.fml.relauncher.Side;
 import cpw.mods.fml.relauncher.SideOnly;
 import net.minecraft.util.MathHelper;
 import net.minecraft.util.Vec3;
 import net.minecraft.world.WorldProvider;
+import net.minecraft.world.biome.WorldChunkManager;
 import net.minecraft.world.biome.WorldChunkManagerHell;
 import net.minecraft.world.chunk.IChunkProvider;
 
@@ -17,7 +20,8 @@ public class AtumWorldProvider extends WorldProvider {
 
     @Override
     protected void registerWorldChunkManager() {
-        this.worldChunkMgr = new WorldChunkManagerHell(AtumWorlds.BIOME_DESERT, 5);
+    	this.worldChunkMgr = new AtumWorldChunkManager(super.worldObj.getSeed());
+    	
         this.dimensionId = AtumConfig.DIMENSION_ID;
     }
 

@@ -13,6 +13,7 @@ import net.minecraftforge.common.util.ForgeDirection;
 
 import java.util.Random;
 
+@Deprecated
 public class WorldGenOasis extends WorldGenerator {
 
     private final int minTreeHeight;

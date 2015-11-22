@@ -114,10 +114,10 @@ public class AtumChunkProvider implements IChunkProvider {
         this.mobSpawnerNoise = (NoiseGeneratorOctaves) noiseGens[6];
     }
 
-    public void func_147424_a(int p_147424_1_, int p_147424_2_, Block[] p_147424_3_) {
-        byte b0 = 63;
-        this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, p_147424_1_ * 4 - 2, p_147424_2_ * 4 - 2, 10, 10);
-        this.func_147423_a(p_147424_1_ * 4, 0, p_147424_2_ * 4);
+    public void generateInitialTerrain(int x, int z, Block[] blocks) {
+        byte seaLevel = 63;
+        this.biomesForGeneration = this.worldObj.getWorldChunkManager().getBiomesForGeneration(this.biomesForGeneration, x * 4 - 2, z * 4 - 2, 10, 10);
+        this.func_147423_a(x * 4, 0, z * 4);
 
         for (int k = 0; k < 4; ++k) {
             int l = k * 5;
@@ -157,11 +157,11 @@ public class AtumChunkProvider implements IChunkProvider {
 
                             for (int k3 = 0; k3 < 4; ++k3) {
                                 if ((d15 += d16) > 0.0D) {
-                                    p_147424_3_[j3 += short1] = AtumBlocks.BLOCK_STONE;
-                                } else if (k2 * 8 + l2 < b0) {
-                                    p_147424_3_[j3 += short1] = AtumBlocks.BLOCK_STONE;
+                                    blocks[j3 += short1] = AtumBlocks.BLOCK_STONE;
+                                } else if (k2 * 8 + l2 < seaLevel) {
+                                    blocks[j3 += short1] = AtumBlocks.BLOCK_STONE;
                                 } else {
-                                    p_147424_3_[j3 += short1] = null;
+                                    blocks[j3 += short1] = null;
                                 }
                             }
 
@@ -180,7 +180,7 @@ public class AtumChunkProvider implements IChunkProvider {
     }
 
     public void replaceBlocksForBiome(int p_147422_1_, int p_147422_2_, Block[] p_147422_3_, byte[] p_147422_4_, BiomeGenBase[] p_147422_5_) {
-        ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent.ReplaceBiomeBlocks(this, p_147422_1_, p_147422_2_, p_147422_3_, p_147422_5_);
+        ChunkProviderEvent.ReplaceBiomeBlocks event = new ChunkProviderEvent.ReplaceBiomeBlocks(this, p_147422_1_, p_147422_2_, p_147422_3_, p_147422_4_, p_147422_5_, this.worldObj);
         MinecraftForge.EVENT_BUS.post(event);
         if (event.getResult() == Result.DENY)
             return;
@@ -191,81 +191,13 @@ public class AtumChunkProvider implements IChunkProvider {
         for (int k = 0; k < 16; ++k) {
             for (int l = 0; l < 16; ++l) {
                 BiomeGenBase biomegenbase = p_147422_5_[l + k * 16];
-                genBiomeTerrain(this.worldObj, biomegenbase, this.rand, p_147422_3_, p_147422_4_, p_147422_1_ * 16 + k, p_147422_2_ * 16 + l, this.stoneNoise[l + k * 16]);
+                biomegenbase.genTerrainBlocks(this.worldObj, this.rand, p_147422_3_, p_147422_4_, p_147422_1_ * 16 + k, p_147422_2_ * 16 + l, this.stoneNoise[l + k * 16]);
             }
         }
     }
 
-    public void genBiomeTerrain(World p_150560_1_, BiomeGenBase biomegenbase, Random p_150560_2_, Block[] p_150560_3_, byte[] p_150560_4_, int p_150560_5_, int p_150560_6_, double p_150560_7_) {
-        boolean flag = true;
-        Block block = biomegenbase.topBlock;
-        byte b0 = (byte) (biomegenbase.field_150604_aj & 255);
-        Block block1 = biomegenbase.fillerBlock;
-        int k = -1;
-        int l = (int) (p_150560_7_ / 3.0D + 3.0D + p_150560_2_.nextDouble() * 0.25D);
-        int i1 = p_150560_5_ & 15;
-        int j1 = p_150560_6_ & 15;
-        int k1 = p_150560_3_.length / 256;
-
-        for (int l1 = 255; l1 >= 0; --l1) {
-            int i2 = (j1 * 16 + i1) * k1 + l1;
-
-            if (l1 <= 0 + p_150560_2_.nextInt(5)) {
-                p_150560_3_[i2] = Blocks.bedrock;
-            } else {
-                Block block2 = p_150560_3_[i2];
-
-                if (block2 != null && block2.getMaterial() != Material.air) {
-                    if (block2 == AtumBlocks.BLOCK_STONE) {
-                        if (k == -1) {
-                            if (l <= 0) {
-                                block = null;
-                                b0 = 0;
-                                block1 = AtumBlocks.BLOCK_STONE;
-                            } else if (l1 >= 59 && l1 <= 64) {
-                                block = biomegenbase.topBlock;
-                                b0 = (byte) (biomegenbase.field_150604_aj & 255);
-                                block1 = biomegenbase.fillerBlock;
-                            }
-
-                            if (l1 < 63 && (block == null || block.getMaterial() == Material.air)) {
-                                if (biomegenbase.getFloatTemperature(p_150560_5_, l1, p_150560_6_) < 0.15F) {
-                                    block = Blocks.ice;
-                                    b0 = 0;
-                                } else {
-                                    block = Blocks.water;
-                                    b0 = 0;
-                                }
-                            }
-
-                            k = l;
-
-                            if (l1 >= 62) {
-                                p_150560_3_[i2] = block;
-                                p_150560_4_[i2] = b0;
-                            } else if (l1 < 56 - l) {
-                                block = null;
-                                block1 = Blocks.stone;
-                                p_150560_3_[i2] = Blocks.gravel;
-                            } else {
-                                p_150560_3_[i2] = block1;
-                            }
-                        } else if (k > 0) {
-                            --k;
-                            p_150560_3_[i2] = block1;
-
-                            if (k == 0 && block1 == Blocks.sand) {
-                                k = p_150560_2_.nextInt(4) + Math.max(0, l1 - 63);
-                                block1 = Blocks.sandstone;
-                            }
-                        }
-                    }
-                } else {
-                    k = -1;
-                }
-            }
-        }
-    }
+    /*
+    */
 
     /**
      * loads or generates the chunk at the chunk location specified
@@ -285,7 +217,7 @@ public class AtumChunkProvider implements IChunkProvider {
         this.rand.setSeed((long) par1 * 341873128712L + (long) par2 * 132897987541L);
         Block[] ablock = new Block[65536];
         byte[] abyte = new byte[65536];
-        this.func_147424_a(par1, par2, ablock);
+        this.generateInitialTerrain(par1, par2, ablock);
         this.biomesForGeneration = this.worldObj.getWorldChunkManager().loadBlockGeneratorData(this.biomesForGeneration, par1 * 16, par2 * 16, 16, 16);
         this.replaceBlocksForBiome(par1, par2, ablock, abyte, this.biomesForGeneration);
         this.caveGenerator.func_151539_a(this, this.worldObj, par1, par2, ablock);

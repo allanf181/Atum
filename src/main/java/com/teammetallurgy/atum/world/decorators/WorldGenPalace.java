@@ -9,6 +9,7 @@ import net.minecraft.world.gen.feature.WorldGenerator;
 
 import java.util.Random;
 
+@Deprecated
 public class WorldGenPalace extends WorldGenerator {
 
     public Block largeLimestoneBricks;
