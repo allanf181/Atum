@@ -13,6 +13,7 @@ import com.teammetallurgy.atum.entity.EntityGhost;
 import com.teammetallurgy.atum.entity.EntityMummy;
 import com.teammetallurgy.atum.entity.EntityStoneSoldier;
 import com.teammetallurgy.atum.handler.AtumConfig;
+import com.teammetallurgy.atum.world.decorators.WorldGenDeadwood;
 import com.teammetallurgy.atum.world.decorators.WorldGenPalm;
 import com.teammetallurgy.atum.world.decorators.WorldGenPyramid;
 
@@ -28,6 +29,7 @@ public class AtumBiomeGenBase extends BiomeGenBase {
 	protected int weight = AtumConfig.DEFAULT_BIOME_WEIGHT;
 	protected AtumConfig.BiomeConfig config;
 	
+	protected int deadwoodRarity = 5;
 	protected int palmRarity = 5;
 	protected int pyramidRarity = 240;
 	
@@ -102,7 +104,13 @@ public class AtumBiomeGenBase extends BiomeGenBase {
             xx = chunkx + rng.nextInt(16) + 8;
             zz = chunkz + rng.nextInt(16) + 8;
             (new WorldGenPyramid()).generate(world, rng, xx, world.getHeightValue(xx, zz), zz);
-		}
+		} else 
+	    if (deadwoodRarity > 0 && rng.nextInt(deadwoodRarity) == 0){
+	        xx = chunkx + rng.nextInt(16) + 8;
+            zz = chunkz + rng.nextInt(16) + 8;
+            height = rng.nextInt(1) + 6;
+            (new WorldGenDeadwood(true, height)).generate(world, rng, xx, world.getHeightValue(xx, zz), zz);
+	    }
 
     }
     
