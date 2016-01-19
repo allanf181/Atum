@@ -54,6 +54,7 @@ tile.lapisOre.name=Lapis Ore
 tile.diamondOre.name=Diamond Ore
 tile.furnaceIdle.name=Limestone Furnace
 tile.furnaceBurning.name=Limestone Furnace
+tile.deadwoodLog.name=Deadwood Log
 
 # Stained Glass
 tile.crystalStainedGlassBlack.name=Black Stained Crystal Glass

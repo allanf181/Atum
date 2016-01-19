@@ -13,8 +13,8 @@ import java.util.Random;
 
 public class BlockPalmLog extends Block {
 
-    private IIcon tree_top;
-    private IIcon tree_side;
+    protected IIcon tree_top;
+    protected IIcon tree_side;
 
     protected BlockPalmLog() {
         super(Material.wood);

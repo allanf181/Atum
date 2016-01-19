@@ -67,6 +67,7 @@ public class AtumBlocks {
     public static Block BLOCK_DIAMONDORE = new BlockAtumOres().setBlockName("diamondOre").setBlockTextureName("atum:AtumDiamond");
     public static Block BLOCK_FURNACEIDLE = new BlockLimeStoneFurnace(false).setBlockName("furnaceIdle");
     public static Block BLOCK_FURNACEBURNING = new BlockLimeStoneFurnace(true).setBlockName("furnaceBurning");
+    public static Block BLOCK_DEADWOOD_LOG = new BlockDeadwoodLog();
 
     public AtumBlocks() {
         registerBlocks();
@@ -113,6 +114,7 @@ public class AtumBlocks {
         this.register(BLOCK_DIAMONDORE);
         this.register(BLOCK_FURNACEIDLE);
         this.register(BLOCK_FURNACEBURNING);
+        this.register(BLOCK_DEADWOOD_LOG);
 
         GameRegistry.registerBlock(BLOCK_LARGEBRICK, ItemBlockBricks.class, BLOCK_LARGEBRICK.getUnlocalizedName());
         
@@ -139,6 +141,7 @@ public class AtumBlocks {
         Blocks.fire.setFireInfo(BLOCK_PLANKS, 5, 20);
         Blocks.fire.setFireInfo(BLOCK_LEAVES, 30, 60);
         Blocks.fire.setFireInfo(BLOCK_LOG, 5, 5);
+        Blocks.fire.setFireInfo(BLOCK_DEADWOOD_LOG, 5, 5);
 
         GameRegistry.registerTileEntity(TileEntityChestSpawner.class, "CursedChest");
         GameRegistry.registerTileEntity(TileEntityPharaohChest.class, "PharaohChest");
