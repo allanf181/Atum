@@ -121,7 +121,7 @@ public class BlockPharaohChest extends BlockContainer {
         }
 
         if (par6ItemStack.hasDisplayName()) {
-            ((TileEntityPharaohChest) par1World.getTileEntity(par2, par3, par4)).func_94043_a(par6ItemStack.getDisplayName());
+            ((TileEntityPharaohChest) par1World.getTileEntity(par2, par3, par4)).func_145976_a(par6ItemStack.getDisplayName());
         }
 
         AtumLoot.fillChest((TileEntityPharaohChest) par1World.getTileEntity(par2, par3, par4), 15, 0.9F);
