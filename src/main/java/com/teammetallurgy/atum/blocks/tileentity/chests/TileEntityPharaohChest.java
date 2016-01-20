@@ -1,10 +1,9 @@
 package com.teammetallurgy.atum.blocks.tileentity.chests;
 
-import com.teammetallurgy.atum.blocks.BlockChestSpawner;
+import com.teammetallurgy.atum.blocks.BlockPharaohChest;
 import com.teammetallurgy.atum.entity.EntityMummy;
 import com.teammetallurgy.atum.entity.EntityPharaoh;
 import cpw.mods.fml.common.FMLCommonHandler;
-import net.minecraft.block.Block;
 import net.minecraft.block.BlockChest;
 import net.minecraft.entity.player.EntityPlayer;
 import net.minecraft.inventory.ContainerChest;
@@ -32,15 +31,17 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
     private String field_94045_s;
     private boolean hasSpawned = false;
     private boolean isOpenable = false;
-
+    @Override
     public int getSizeInventory() {
         return 27;
     }
 
+    @Override
     public ItemStack getStackInSlot(int par1) {
         return this.chestContents[par1];
     }
 
+    @Override
     public ItemStack decrStackSize(int par1, int par2) {
         if (this.chestContents[par1] != null) {
             ItemStack itemstack;
@@ -63,6 +64,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
         }
     }
 
+    @Override
     public ItemStack getStackInSlotOnClosing(int par1) {
         if (this.chestContents[par1] != null) {
             ItemStack itemstack = this.chestContents[par1];
@@ -73,6 +75,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
         }
     }
 
+    @Override
     public void setInventorySlotContents(int par1, ItemStack par2ItemStack) {
         this.chestContents[par1] = par2ItemStack;
         if (par2ItemStack != null && par2ItemStack.stackSize > this.getInventoryStackLimit()) {
@@ -82,18 +85,17 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
         this.markDirty();
     }
 
-    public String getInvName() {
-        return this.isInvNameLocalized() ? this.field_94045_s : "container.chest";
+    @Override
+    public String getInventoryName() {
+        return this.hasCustomInventoryName() ? this.field_94045_s : "container.chest";
     }
 
-    public boolean isInvNameLocalized() {
+    @Override
+    public boolean hasCustomInventoryName() {
         return this.field_94045_s != null && this.field_94045_s.length() > 0;
     }
 
-    public void func_94043_a(String par1Str) {
-        this.field_94045_s = par1Str;
-    }
-
+    @Override
     public void readFromNBT(NBTTagCompound par1NBTTagCompound) {
         super.readFromNBT(par1NBTTagCompound);
         NBTTagList nbttaglist = par1NBTTagCompound.getTagList("Items", 10);
@@ -114,6 +116,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
         this.isOpenable = par1NBTTagCompound.getBoolean("openable");
     }
 
+    @Override
     public void writeToNBT(NBTTagCompound par1NBTTagCompound) {
         super.writeToNBT(par1NBTTagCompound);
         NBTTagList nbttaglist = new NBTTagList();
@@ -128,7 +131,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
         }
 
         par1NBTTagCompound.setTag("Items", nbttaglist);
-        if (this.isInvNameLocalized()) {
+        if (this.hasCustomInventoryName()) {
             par1NBTTagCompound.setString("CustomName", this.field_94045_s);
         }
 
@@ -136,18 +139,16 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
         par1NBTTagCompound.setBoolean("openable", this.isOpenable);
     }
 
+    @Override
     public int getInventoryStackLimit() {
         return 64;
     }
 
+    @Override
     public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
         return !this.isOpenable ? false : (this.isOpenable && super.worldObj.getTileEntity(super.xCoord, super.yCoord, super.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double) super.xCoord + 0.5D, (double) super.yCoord + 0.5D, (double) super.zCoord + 0.5D) <= 64.0D);
     }
 
-    private boolean func_94044_a(int par1, int par2, int par3) {
-        Block block = this.worldObj.getBlock(par1, par2, par3);
-        return block != null && block instanceof BlockChest ? ((BlockChest) block).field_149956_a == this.func_98041_l() : false;
-    }
 
     @Override
     public void updateEntity() {
@@ -228,6 +229,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
         }
     }
 
+    @Override
     public boolean receiveClientEvent(int par1, int par2) {
         if (par1 == 1) {
             super.numPlayersUsing = par2;
@@ -251,7 +253,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 
     @Override
     public void closeInventory() {
-        if (this.getBlockType() != null && this.getBlockType() instanceof BlockChestSpawner) {
+        if (this.getBlockType() != null && this.getBlockType() instanceof BlockPharaohChest) {
             --super.numPlayersUsing;
             super.worldObj.addBlockEvent(super.xCoord, super.yCoord, super.zCoord, this.getBlockType(), 1, super.numPlayersUsing);
             super.worldObj.notifyBlocksOfNeighborChange(super.xCoord, super.yCoord, super.zCoord, this.getBlockType());
@@ -259,13 +261,14 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
         }
     }
 
-
+    @Override
     public void invalidate() {
         super.invalidate();
         this.updateContainingBlockInfo();
     }
 
-    public int func_98041_l() {
+    @Override
+    public int func_145980_j() {
         if (this.field_94046_i == -1) {
             if (super.worldObj == null || !(this.getBlockType() instanceof BlockChest)) {
                 return 0;
@@ -275,6 +278,11 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
         }
 
         return this.field_94046_i;
+    }
+
+    @Override
+    public void func_145976_a(String p_145976_1_) {
+        this.field_94045_s = p_145976_1_;
     }
 
     public void setOpenable() {
