@@ -146,7 +146,7 @@ public class TileEntityPharaohChest extends TileEntityChest implements IInventor
 
     @Override
     public boolean isUseableByPlayer(EntityPlayer par1EntityPlayer) {
-        return super.worldObj.getTileEntity(super.xCoord, super.yCoord, super.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double) super.xCoord + 0.5D, (double) super.yCoord + 0.5D, (double) super.zCoord + 0.5D) <= 64.0D;
+        return !this.isOpenable ? false : (this.isOpenable && super.worldObj.getTileEntity(super.xCoord, super.yCoord, super.zCoord) != this ? false : par1EntityPlayer.getDistanceSq((double) super.xCoord + 0.5D, (double) super.yCoord + 0.5D, (double) super.zCoord + 0.5D) <= 64.0D);
     }
 
 
