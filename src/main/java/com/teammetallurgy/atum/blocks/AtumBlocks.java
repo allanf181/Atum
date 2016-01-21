@@ -223,7 +223,8 @@ public class AtumBlocks {
     }
 
     private void register(Block block) {
-        if (!(block instanceof BlockDate) && !(block instanceof BlockFlax) && !(block instanceof BlockPapyrus) && !(block instanceof BlockPortal)) {
+        if (!(block instanceof BlockDate) && !(block instanceof BlockFlax) && !(block instanceof BlockPapyrus) && !(block instanceof BlockPortal) && 
+                !(block instanceof BlockAtumDoor)) {
             block.setCreativeTab(Atum.creativeTab);
         }
         GameRegistry.registerBlock(block, block.getUnlocalizedName());
