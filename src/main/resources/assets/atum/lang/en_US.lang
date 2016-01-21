@@ -55,6 +55,20 @@ tile.diamondOre.name=Diamond Ore
 tile.furnaceIdle.name=Limestone Furnace
 tile.furnaceBurning.name=Limestone Furnace
 tile.deadwoodLog.name=Deadwood Log
+tile.palmDoor.name=Palm Door
+tile.palmFence.name=Palm Fence
+tile.palmFenceGate.name=Palm Fence Gate
+tile.palmHatch.name=Palm Hatch
+tile.palmLadder.name=Palm Ladder
+tile.deadwoodPlank.name=Deadwood Plank
+tile.deadwoodDoor.name=Deadwood Door
+tile.deadwoodFence.name=Deadwood Fence
+tile.deadwoodFenceGate.name=Deadwood Fence Gate
+tile.deadwoodHatch.name=Deadwood Hatch
+tile.deadwoodLadder.name=Deadwood Ladder
+tile.woodSlab.palm.name=Palm Wood Slab
+tile.woodSlab.deadwood.name=Deadwood Slab
+
 
 # Stained Glass
 tile.crystalStainedGlassBlack.name=Black Stained Crystal Glass
@@ -200,6 +214,12 @@ item.isisHealing.name=Isis's Healing
 item.amunetsHomecoming.name=Amunet's Homecoming
 item.anubisMercy.name=Anubis's Mercy
 item.neithsAudacity.name=Neith's Audacity
+
+item.deadwoodDoor.name=Deadwood Door
+item.palmDoor.name=Palm Door
+
+item.stick.palm.name=Palm Stick
+item.stick.deadwood.name=Deadwood Stick
 
 
 # Item Information

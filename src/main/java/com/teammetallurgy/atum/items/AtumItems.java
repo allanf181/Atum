@@ -87,6 +87,9 @@ public class AtumItems {
     public static Item ITEM_FLAXSEED = new ItemSeeds(AtumBlocks.BLOCK_FLAX, Blocks.farmland).setUnlocalizedName("flaxSeeds").setTextureName("atum:FlaxSeeds");
     public static Item ITEM_FISH = new ItemFish().setUnlocalizedName("fish");
     public static Item neithsAudacity = new ItemNeithsAudacity().setUnlocalizedName("neithsAudacity");
+    public static Item ITEM_PALM_DOOR = new ItemAtumDoor().setUnlocalizedName("palmDoor").setTextureName("atum:palm_door");
+    public static Item ITEM_DEADWOOD_DOOR = new ItemAtumDoor().setUnlocalizedName("deadwoodDoor").setTextureName("atum:deadwood_door");
+    public static Item ITEM_STICK = new ItemAtumStick();
 
     public AtumItems() {
         registerItems();
@@ -160,6 +163,9 @@ public class AtumItems {
         this.register(ITEM_FLAXSEED);
         this.register(ITEM_FISH);
         this.register(neithsAudacity);
+        this.register(ITEM_PALM_DOOR);
+        this.register(ITEM_DEADWOOD_DOOR);
+        this.register(ITEM_STICK);
     }
 
     private void register(Item item) {
