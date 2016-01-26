@@ -90,6 +90,7 @@ public class AtumItems {
     public static Item ITEM_PALM_DOOR = new ItemAtumDoor().setUnlocalizedName("palmDoor").setTextureName("atum:palm_door");
     public static Item ITEM_DEADWOOD_DOOR = new ItemAtumDoor().setUnlocalizedName("deadwoodDoor").setTextureName("atum:deadwood_door");
     public static Item ITEM_STICK = new ItemAtumStick();
+    public static Item ITEM_DEADWOOD_BEETLE = new ItemDeadwoodBeetle();
 
     public AtumItems() {
         registerItems();
@@ -166,6 +167,7 @@ public class AtumItems {
         this.register(ITEM_PALM_DOOR);
         this.register(ITEM_DEADWOOD_DOOR);
         this.register(ITEM_STICK);
+        this.register(ITEM_DEADWOOD_BEETLE);
     }
 
     private void register(Item item) {

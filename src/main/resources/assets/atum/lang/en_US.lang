@@ -227,6 +227,8 @@ item.palmDoor.name=Palm Door
 item.stick.palm.name=Palm Stick
 item.stick.deadwood.name=Deadwood Stick
 
+item.deadwoodBeetle.name=Deadwood Beetle
+
 
 # Item Information
 item.akersToil.line1=Performance I: Faster, does
