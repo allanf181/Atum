@@ -82,6 +82,8 @@ public class AtumBlocks {
     public static Block BLOCK_DEADWOOD_LADDER = new BlockAtumLadder().setBlockName("deadwoodLadder").setHardness(0.4F).setBlockTextureName("atum:deadwood_ladder").setStepSound(Block.soundTypeLadder);
     public static BlockAtumWoodSlab BLOCK_WOOD_SLAB = new BlockAtumWoodSlab(false);
     public static BlockAtumWoodSlab BLOCK_WOOD_DOUBLESLAB = new BlockAtumWoodSlab(true);
+    public static Block BLOCK_PALM_STAIRS = new  BlockAtumStairs(BLOCK_PLANKS, 0).setBlockName("palmStairs");
+    public static Block BLOCK_DEADWOOD_STAIRS = new  BlockAtumStairs(BLOCK_DEADWOOD_PLANK, 0).setBlockName("deadwoodStairs");
 
     public AtumBlocks() {
         registerBlocks();
@@ -140,6 +142,8 @@ public class AtumBlocks {
         this.register(BLOCK_DEADWOOD_FENCE_GATE);
         this.register(BLOCK_DEADWOOD_HATCH);
         this.register(BLOCK_DEADWOOD_LADDER);
+        this.register(BLOCK_PALM_STAIRS);
+        this.register(BLOCK_DEADWOOD_STAIRS);
 
         GameRegistry.registerBlock(BLOCK_LARGEBRICK, ItemBlockBricks.class, BLOCK_LARGEBRICK.getUnlocalizedName());
         

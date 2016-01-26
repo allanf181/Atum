@@ -75,6 +75,8 @@ public class CraftingHandler {
         GameRegistry.addShapedRecipe(new ItemStack(AtumBlocks.BLOCK_DEADWOOD_LADDER, 3), "s s", "sss", "s s", 's', new ItemStack(AtumItems.ITEM_STICK, 1, 1));
         GameRegistry.addShapedRecipe(new ItemStack(AtumBlocks.BLOCK_WOOD_SLAB, 6), "ppp", 'p', AtumBlocks.BLOCK_PLANKS);
         GameRegistry.addShapedRecipe(new ItemStack(AtumBlocks.BLOCK_WOOD_SLAB, 6, 1), "ppp", 'p', AtumBlocks.BLOCK_DEADWOOD_PLANK);
+        GameRegistry.addShapedRecipe(new ItemStack(AtumBlocks.BLOCK_PALM_STAIRS, 4), "p  ", "pp ", "ppp", 'p', AtumBlocks.BLOCK_PLANKS);
+        GameRegistry.addShapedRecipe(new ItemStack(AtumBlocks.BLOCK_DEADWOOD_STAIRS, 4), "p  ", "pp ", "ppp", 'p', AtumBlocks.BLOCK_DEADWOOD_PLANK);
 
         String [] oreColours = Constants.ORE_DIC_COLOURS;
 

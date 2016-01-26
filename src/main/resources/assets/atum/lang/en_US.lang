@@ -68,6 +68,8 @@ tile.deadwoodHatch.name=Deadwood Hatch
 tile.deadwoodLadder.name=Deadwood Ladder
 tile.woodSlab.palm.name=Palm Wood Slab
 tile.woodSlab.deadwood.name=Deadwood Slab
+tile.palmStairs.name=Palm Stairs
+tile.deadwoodStairs.name=Deadwood Stairs
 
 
 # Stained Glass
