@@ -184,7 +184,7 @@ item.date.name=Date
 item.goldenDate.name=Golden Date
 item.linen.name=Linen
 item.flax.name=Flax
-item.flaxSeeds.name=Flax Seed
+item.flaxSeeds.name=Flax Seeds
 item.fish.0.name=Forsaken Fish
 item.fish.1.name=Mummified Fish
 item.fish.2.name=Jeweled Fish
@@ -232,7 +232,7 @@ item.deadwoodBeetle.name=Deadwood Beetle
 
 # Item Information
 item.akersToil.line1=Performance I: Faster, does
-item.akersToil.line2=not consume fatique
+item.akersToil.line2=not consume fatigue
 item.akersToil.line3=Performance I
 
 item.amunetsHomecoming.line1=Return I: Teleports you back
