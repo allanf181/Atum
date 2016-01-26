@@ -25,10 +25,10 @@ public class CraftingHandler {
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(AtumBlocks.BLOCK_LARGEBRICK, 4, 2), "XX", "XX", 'X', AtumBlocks.BLOCK_STONE));
         GameRegistry.addRecipe(new ShapedOreRecipe(new ItemStack(AtumBlocks.BLOCK_SMALLBRICK, 4), "XX", "XX", 'X', AtumBlocks.BLOCK_LIMESTONECOBBLE));
         GameRegistry.addRecipe(new ShapelessOreRecipe(new ItemStack(AtumBlocks.BLOCK_CARVEDBRICK, 1), AtumBlocks.BLOCK_STONE));
-        GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_SMOOTHSTAIRS, 6), "X  ", "XX ", "XXX", 'X', AtumBlocks.BLOCK_STONE);
-        GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_COBBLESTAIRS, 6), "X  ", "XX ", "XXX", 'X', AtumBlocks.BLOCK_LIMESTONECOBBLE);
-        GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_LARGESTONESTAIRSBREAKABLE, 6), "X  ", "XX ", "XXX", 'X', new ItemStack(AtumBlocks.BLOCK_LARGEBRICK, 1, 2));
-        GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_SMALLSTONESTAIRS, 6), "X  ", "XX ", "XXX", 'X', AtumBlocks.BLOCK_SMALLBRICK);
+        GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_SMOOTHSTAIRS, 4), "X  ", "XX ", "XXX", 'X', AtumBlocks.BLOCK_STONE);
+        GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_COBBLESTAIRS, 4), "X  ", "XX ", "XXX", 'X', AtumBlocks.BLOCK_LIMESTONECOBBLE);
+        GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_LARGESTONESTAIRSBREAKABLE, 4), "X  ", "XX ", "XXX", 'X', new ItemStack(AtumBlocks.BLOCK_LARGEBRICK, 1, 2));
+        GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_SMALLSTONESTAIRS, 4), "X  ", "XX ", "XXX", 'X', AtumBlocks.BLOCK_SMALLBRICK);
         GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_SLABS, 6, 0), "XXX", 'X', AtumBlocks.BLOCK_STONE);
         GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_SLABS, 6, 1), "XXX", 'X', AtumBlocks.BLOCK_LIMESTONECOBBLE);
         GameRegistry.addRecipe(new ItemStack(AtumBlocks.BLOCK_SLABS, 6, 2), "XXX", 'X', new ItemStack(AtumBlocks.BLOCK_LARGEBRICK, 1, 2));
