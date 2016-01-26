@@ -4,8 +4,10 @@ import com.teammetallurgy.atum.Atum;
 import com.teammetallurgy.atum.blocks.tileentity.TileEntityBurningTrap;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityChestSpawner;
 import com.teammetallurgy.atum.blocks.tileentity.chests.TileEntityPharaohChest;
+import com.teammetallurgy.atum.blocks.tileentity.crate.TileEntityCrate;
 import com.teammetallurgy.atum.blocks.tileentity.furnace.TileEntityLimestoneFurnace;
 import com.teammetallurgy.atum.items.ItemBlockBricks;
+import com.teammetallurgy.atum.items.ItemBlockCrate;
 import com.teammetallurgy.atum.items.ItemBlockStainedGlass;
 import com.teammetallurgy.atum.utils.Constants;
 import cpw.mods.fml.common.registry.GameRegistry;
@@ -84,6 +86,7 @@ public class AtumBlocks {
     public static BlockAtumWoodSlab BLOCK_WOOD_DOUBLESLAB = new BlockAtumWoodSlab(true);
     public static Block BLOCK_PALM_STAIRS = new  BlockAtumStairs(BLOCK_PLANKS, 0).setBlockName("palmStairs");
     public static Block BLOCK_DEADWOOD_STAIRS = new  BlockAtumStairs(BLOCK_DEADWOOD_PLANK, 0).setBlockName("deadwoodStairs");
+    public static Block BLOCK_CRATE = new BlockCrate();
 
     public AtumBlocks() {
         registerBlocks();
@@ -160,6 +163,8 @@ public class AtumBlocks {
 
         GameRegistry.registerBlock(BLOCK_WOOD_SLAB, ItemBlockWoodSlabs.class, "wood_slab", BLOCK_WOOD_SLAB, BLOCK_WOOD_DOUBLESLAB, false);
         GameRegistry.registerBlock(BLOCK_WOOD_DOUBLESLAB, ItemBlockWoodSlabs.class, "wood_double_slab", BLOCK_WOOD_SLAB, BLOCK_WOOD_DOUBLESLAB, true);
+        
+        GameRegistry.registerBlock(BLOCK_CRATE, ItemBlockCrate.class, "crate");
 
         ForgeHooks.canToolHarvestBlock(BLOCK_SAND, 0, new ItemStack(Items.iron_shovel));
         BLOCK_SAND.setHarvestLevel("shovel", 0);
@@ -184,6 +189,7 @@ public class AtumBlocks {
         GameRegistry.registerTileEntity(TileEntityPharaohChest.class, "PharaohChest");
         GameRegistry.registerTileEntity(TileEntityBurningTrap.class, "BurningTrap");
         GameRegistry.registerTileEntity(TileEntityLimestoneFurnace.class, "LimestoneFurnace");
+        GameRegistry.registerTileEntity(TileEntityCrate.class, "atum:crate");
 
         OreDictionary.registerOre("blockLimestone", BLOCK_STONE);
 

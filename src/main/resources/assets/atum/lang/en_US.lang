@@ -70,6 +70,8 @@ tile.woodSlab.palm.name=Palm Wood Slab
 tile.woodSlab.deadwood.name=Deadwood Slab
 tile.palmStairs.name=Palm Stairs
 tile.deadwoodStairs.name=Deadwood Stairs
+tile.crate.palm.name=Palm Crate
+tile.crate.deadwood.name=Deadwood Crate
 
 
 # Stained Glass
@@ -143,6 +145,8 @@ tile.thinFramedStainedGlassWhite.name=White Stained Thin Framed Glass
 
 # Containers
 container.limestoneFurnace=Limestone Furnace
+container.crate.palm=Palm Crate
+container.crate.deadwood=Deadwood Crate
 
 # Item
 item.scarab.name=Scarab
