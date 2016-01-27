@@ -17,6 +17,7 @@ public class BiomeGenDriedRiver extends AtumBiomeGenBase {
 		
 		super.palmRarity = -1;
 		super.pyramidRarity = -1;
+		super.deadwoodRarity = -1;
 	}
 
 }

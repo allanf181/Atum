@@ -34,6 +34,7 @@ public class BiomeGenOasis extends AtumBiomeGenBase {
         
         super.palmRarity = 3;
         super.pyramidRarity = -1;
+        super.deadwoodRarity = -1;
     }
     
     @Override
