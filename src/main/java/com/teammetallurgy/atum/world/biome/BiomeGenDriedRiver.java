@@ -14,7 +14,6 @@ public class BiomeGenDriedRiver extends AtumBiomeGenBase {
 		super.fillerBlock = AtumBlocks.BLOCK_LIMESTONECOBBLE;
 		
         super.setTemperatureRainfall(0.8F, 0.9F);
-        super.enableRain = true;
 		
 		super.palmRarity = -1;
 		super.pyramidRarity = -1;
