@@ -8,7 +8,7 @@ import net.minecraft.item.ItemStack;
 public class ItemDeadwoodBeetle extends ItemFood {
 
     public ItemDeadwoodBeetle() {
-        super(1, false);
+        super(1, 0.1F, false);
         setTextureName("atum:woodborer_beetle");
         setUnlocalizedName("deadwoodBeetle");
         setCreativeTab(Atum.creativeTab);
