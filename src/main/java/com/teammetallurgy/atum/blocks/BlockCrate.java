@@ -38,6 +38,7 @@ public class BlockCrate extends BlockContainer {
         setCreativeTab(Atum.creativeTab);
         setBlockName("crate");
         setHardness(3.0F);
+        setStepSound(soundTypeWood);
     }
 
     @Override
