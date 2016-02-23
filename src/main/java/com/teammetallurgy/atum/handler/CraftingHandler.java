@@ -79,6 +79,8 @@ public class CraftingHandler {
         GameRegistry.addShapedRecipe(new ItemStack(AtumBlocks.BLOCK_DEADWOOD_STAIRS, 4), "p  ", "pp ", "ppp", 'p', AtumBlocks.BLOCK_DEADWOOD_PLANK);
         GameRegistry.addShapedRecipe(new ItemStack(AtumBlocks.BLOCK_CRATE), "ppp", "p p", "ppp", 'p', AtumBlocks.BLOCK_PLANKS);
         GameRegistry.addShapedRecipe(new ItemStack(AtumBlocks.BLOCK_CRATE, 1, 1), "ppp", "p p", "ppp", 'p', AtumBlocks.BLOCK_DEADWOOD_PLANK);
+        GameRegistry.addShapedRecipe(new ItemStack(AtumItems.ITEM_STICK, 4), "p", "p", 'p', AtumBlocks.BLOCK_PLANKS);
+        GameRegistry.addShapedRecipe(new ItemStack(AtumItems.ITEM_STICK, 4, 1), "p", "p", 'p', AtumBlocks.BLOCK_DEADWOOD_PLANK);
 
         String [] oreColours = Constants.ORE_DIC_COLOURS;
 
@@ -113,9 +115,7 @@ public class CraftingHandler {
         GameRegistry.addShapelessRecipe(new ItemStack(AtumItems.desertBoots), AtumItems.wandererBoots, Items.iron_boots);
         GameRegistry.addShapelessRecipe(new ItemStack(Blocks.sand), AtumBlocks.BLOCK_SAND);
         GameRegistry.addShapelessRecipe(new ItemStack(Items.string, 3), AtumItems.ITEM_FLAX);
-        GameRegistry.addShapelessRecipe(new ItemStack(AtumItems.ITEM_STICK, 4), AtumBlocks.BLOCK_PLANKS);
         GameRegistry.addShapelessRecipe(new ItemStack(AtumBlocks.BLOCK_DEADWOOD_PLANK, 4), AtumBlocks.BLOCK_DEADWOOD_LOG);
-        GameRegistry.addShapelessRecipe(new ItemStack(AtumItems.ITEM_STICK, 4, 1), AtumBlocks.BLOCK_DEADWOOD_PLANK);
     }
 
 }
