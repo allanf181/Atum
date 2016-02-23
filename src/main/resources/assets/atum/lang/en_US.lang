@@ -182,6 +182,7 @@ item.scroll.name=Scroll
 item.wolfPelt.name=Wolf Pelt
 item.date.name=Date
 item.goldenDate.name=Golden Date
+item.goldenDateEnchanted.name=Enchanted Golden Date
 item.linen.name=Linen
 item.flax.name=Flax
 item.flaxSeeds.name=Flax Seeds
