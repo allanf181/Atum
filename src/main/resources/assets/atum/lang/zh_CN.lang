@@ -6,8 +6,10 @@ biome.desert.name=沙漠
 block.portal.name=亚图姆传送门
 tile.chestSpawner.name=亚图姆箱子
 tile.sand.name=怪沙
-block.stone.name=石灰岩
+tile.limestoneGravel.name=石灰岩砂砾
+tile.limestone.name=石灰岩
 tile.cobble.name=裂石灰岩
+tile.largeBrickUnbreakable.name=石灰岩大石砖(无法破坏)
 tile.largeBrick.name=石灰岩大石砖
 tile.smallBrick.name=石灰岩小石砖
 tile.carvedBrick.name=石灰岩精雕石砖
@@ -18,6 +20,7 @@ tile.smallBrickSlab.name=石灰岩小石砖台阶
 tile.doubleSlab.name=石灰岩台阶
 tile.smoothStairs.name=石灰岩楼梯
 tile.cobbleStairs.name=石灰岩圆石楼梯
+tile.largeStairsUnbreakable.name=石灰岩大石砖楼梯(无法破坏)
 tile.largeStairs.name=石灰岩大石砖楼梯
 tile.smallStairs.name=石灰岩小石砖楼梯
 tile.sandLayer.name=砂层
@@ -27,7 +30,7 @@ tile.crackedWall.name=裂石灰岩墙
 tile.largeBrickWall.name=石灰岩大石砖墙
 tile.smallBrickWall.name=石灰岩小石砖墙
 tile.crystalGlass.name=水晶玻璃
-tile.framedGlass.name=有框玻璃
+tile.framedGlass.name=框架玻璃
 tile.palmSapling.name=棕榈树树苗
 tile.date.name=枣椰子
 tile.shrub.name=灌木
@@ -39,8 +42,8 @@ tile.fertileSoilTilled.name=肥沃耕土
 tile.palmLog.name=棕榈原木
 tile.palmLeaves.name=棕榈树叶
 tile.palmPlanks.name=棕榈木板
-tile.thinCrystalGlass.name=细薄水晶玻璃
-tile.thinFramedGlass.name=细薄有框玻璃
+tile.thinCrystalGlass.name=薄板水晶玻璃
+tile.thinFramedGlass.name=薄板框架玻璃
 tile.burningTrap.name=燃烧陷阱
 tile.pharaohChest.name=法老箱子
 tile.redstoneOre.name=红石矿石
@@ -51,9 +54,99 @@ tile.lapisOre.name=青金石矿石
 tile.diamondOre.name=钻石矿石
 tile.furnaceIdle.name=石灰岩熔炉
 tile.furnaceBurning.name=石灰岩熔炉
+tile.deadwoodLog.name=枯木
+tile.palmDoor.name=棕榈木门
+tile.palmFence.name=棕榈木栅栏
+tile.palmFenceGate.name=棕榈木栅栏门
+tile.palmHatch.name=棕榈木活板门
+tile.palmLadder.name=棕榈木梯子
+tile.deadwoodPlank.name=枯木板
+tile.deadwoodDoor.name=枯木门
+tile.deadwoodFence.name=枯木栅栏
+tile.deadwoodFenceGate.name=枯木栅栏门
+tile.deadwoodHatch.name=枯木活板门
+tile.deadwoodLadder.name=枯木梯子
+tile.woodSlab.palm.name=棕榈木台阶
+tile.woodSlab.deadwood.name=枯木台阶
+tile.palmStairs.name=棕榈木楼梯
+tile.deadwoodStairs.name=枯木楼梯
+tile.crate.palm.name=棕榈木箱
+tile.crate.deadwood.name=枯木箱子
+
+
+# Stained Glass
+tile.crystalStainedGlassBlack.name=黑色污浊水晶玻璃
+tile.crystalStainedGlassRed.name=红色污浊水晶玻璃
+tile.crystalStainedGlassGreen.name=绿色污浊水晶玻璃
+tile.crystalStainedGlassBrown.name=棕色污浊水晶玻璃
+tile.crystalStainedGlassBlue.name=蓝色污浊水晶玻璃
+tile.crystalStainedGlassPurple.name=紫色污浊水晶玻璃
+tile.crystalStainedGlassCyan.name=青色污浊水晶玻璃
+tile.crystalStainedGlassSilver.name=银色污浊水晶玻璃
+tile.crystalStainedGlassGray.name=灰色污浊水晶玻璃
+tile.crystalStainedGlassPink.name=粉色污浊水晶玻璃
+tile.crystalStainedGlassLime.name=黄绿色污浊水晶玻璃
+tile.crystalStainedGlassYellow.name=黄色污浊水晶玻璃
+tile.crystalStainedGlassLightBlue.name=淡蓝色污浊水晶玻璃
+tile.crystalStainedGlassMagenta.name=品红色污浊水晶玻璃
+tile.crystalStainedGlassOrange.name=橙色污浊水晶玻璃
+tile.crystalStainedGlassWhite.name=白色污浊水晶玻璃
+
+tile.framedStainedGlassBlack.name=黑色污浊框架玻璃
+tile.framedStainedGlassRed.name=红色污浊框架玻璃
+tile.framedStainedGlassGreen.name=绿色污浊框架玻璃
+tile.framedStainedGlassBrown.name=棕色污浊框架玻璃
+tile.framedStainedGlassBlue.name=蓝色污浊框架玻璃
+tile.framedStainedGlassPurple.name=紫色污浊框架玻璃
+tile.framedStainedGlassCyan.name=青色污浊框架玻璃
+tile.framedStainedGlassSilver.name=银色污浊框架玻璃
+tile.framedStainedGlassGray.name=灰色污浊框架玻璃
+tile.framedStainedGlassPink.name=粉色污浊框架玻璃
+tile.framedStainedGlassLime.name=黄绿色污浊框架玻璃
+tile.framedStainedGlassYellow.name=黄色污浊框架玻璃
+tile.framedStainedGlassLightBlue.name=淡蓝色污浊框架玻璃
+tile.framedStainedGlassMagenta.name=品红色污浊框架玻璃
+tile.framedStainedGlassOrange.name=橙色污浊框架玻璃
+tile.framedStainedGlassWhite.name=白色污浊框架玻璃
+
+tile.thinCrystalStainedGlassBlack.name=黑色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassRed.name=红色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassGreen.name=绿色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassBrown.name=棕色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassBlue.name=蓝色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassPurple.name=紫色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassCyan.name=青色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassSilver.name=银色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassGray.name=灰色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassPink.name=粉色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassLime.name=黄绿色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassYellow.name=黄色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassLightBlue.name=淡蓝色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassMagenta.name=品红色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassOrange.name=橙色污浊薄板水晶玻璃
+tile.thinCrystalStainedGlassWhite.name=白色污浊薄板水晶玻璃
+
+tile.thinFramedStainedGlassBlack.name=黑色污浊薄板框架玻璃
+tile.thinFramedStainedGlassRed.name=红色污浊薄板框架玻璃
+tile.thinFramedStainedGlassGreen.name=绿色污浊薄板框架玻璃
+tile.thinFramedStainedGlassBrown.name=棕色污浊薄板框架玻璃
+tile.thinFramedStainedGlassBlue.name=蓝色污浊薄板框架玻璃
+tile.thinFramedStainedGlassPurple.name=紫色污浊薄板框架玻璃
+tile.thinFramedStainedGlassCyan.name=青色污浊薄板框架玻璃
+tile.thinFramedStainedGlassSilver.name=银色污浊薄板框架玻璃
+tile.thinFramedStainedGlassGray.name=灰色污浊薄板框架玻璃
+tile.thinFramedStainedGlassPink.name=粉色污浊薄板框架玻璃
+tile.thinFramedStainedGlassLime.name=黄绿色污浊薄板框架玻璃
+tile.thinFramedStainedGlassYellow.name=黄色污浊薄板框架玻璃
+tile.thinFramedStainedGlassLightBlue.name=淡蓝色污浊薄板框架玻璃
+tile.thinFramedStainedGlassMagenta.name=品红色污浊薄板框架玻璃
+tile.thinFramedStainedGlassOrange.name=橙色污浊薄板框架玻璃
+tile.thinFramedStainedGlassWhite.name=白色污浊薄板框架玻璃
 
 # Containers
 container.limestoneFurnace=石灰岩熔炉
+container.crate.palm=棕榈木箱
+container.crate.deadwood=枯木箱
 
 # Item
 item.scarab.name=圣甲虫
@@ -82,11 +175,14 @@ item.desertLegs.name=沙漠护腿
 item.desertBoots.name=沙漠靴子
 item.papyrusPlant.name=纸莎草
 item.ectoplasm.name=外质
+item.dustyBone.name=沾满灰尘的骨头
 item.stoneChunk.name=石块
 item.clothScrap.name=碎布
 item.scroll.name=卷轴
 item.wolfPelt.name=狼皮
 item.date.name=栆椰子
+item.goldenDate.name=黄金枣椰
+item.goldenDateEnchanted.name=附魔黄金枣椰
 item.linen.name=亚麻布
 item.flax.name=亚麻
 item.flaxSeeds.name=亚麻种子
@@ -125,6 +221,14 @@ item.isisHealing.name=Isis之治疗
 item.amunetsHomecoming.name=Amunets之回归
 item.anubisMercy.name=Anubis之仁慈
 item.neithsAudacity.name=Neiths之胆量
+
+item.deadwoodDoor.name=枯木门
+item.palmDoor.name=棕榈木门
+
+item.stick.palm.name=棕榈木棍
+item.stick.deadwood.name=枯木棍
+
+item.deadwoodBeetle.name=枯木槌
 
 
 # Item Information
@@ -184,10 +288,9 @@ item.hedetetsSting.line1=猛毒II:有几率
 item.hedetetsSting.line2=使敌人中毒
 item.hedetetsSting.line3=猛毒II
 
-# I need to talk to shadow
-item.horusSoaring.line1=威猛I:使玩家减速,
-item.horusSoaring.line2=但有几率击晕敌人
-item.horusSoaring.line3=威猛I
+item.horusSoaring.line1=利箭I:箭矢速度,
+item.horusSoaring.line2=提升箭矢速度50%
+item.horusSoaring.line3=利箭I
 
 item.shusBreath.line1=快速瞄准I:减少
 item.shusBreath.line2=瞄准所用时间
@@ -249,6 +352,9 @@ item.neithsAudacity.line1=连击I:一次
 item.neithsAudacity.line2=发射两支箭
 item.neithsAudacity.line3=连击I
 
+tooltip.atum.minutesRemaining=剩余%d分钟
+tooltip.atum.usesRemaining=剩余%d次使用
+
 # Loot
 item.loot.dirty.name=泥土
 item.loot.silver.name=白银
@@ -264,6 +370,11 @@ item.loot.ring.name=指环
 item.loot.broach.name=胸针
 item.loot.scepter.name=权杖
 
+# Individual loot names
+item.loot.gold.idol.name=黄金人偶
+item.loot.gold.broach.name=黄金胸针
+item.loot.gold.scepter.name=黄金权杖
+
 # Entity
 entity.atum.mummy.name=木乃伊
 entity.atum.banditWarrior.name=强盗战士
@@ -275,6 +386,7 @@ entity.atum.stoneSoldier.name=石头士兵
 entity.atum.desertWolf.name=沙漠幽狼
 entity.atum.banditWarlord.name=强盗军阀
 entity.atum.barbarian.name=野蛮人
+entity.atum.bonestorm.name=Bonestorm
 
 # Pharaoh Names
 entity.atum.pharaoh.Ama=Ama'
@@ -358,5 +470,6 @@ chat.atum.killPharaoh=was slain by
 # Gui
 atum.configGui.portalCreation=亚图姆传送门
 atum.configGui.fog=亚图姆尘雾
+atum.configGui.oasis=亚图姆绿洲
 atum.configGui.dimensionID=亚图姆维度ID
 atum.configGui.biomeID=亚图姆沙漠生物群系ID
