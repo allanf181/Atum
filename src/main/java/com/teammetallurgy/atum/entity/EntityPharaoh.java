@@ -375,9 +375,6 @@ public class EntityPharaoh extends EntityMob implements IBossDisplayData {
         }
 
         super.onLivingUpdate();
-
-        if (!worldObj.isRemote)
-            //this.destroyBlocksInAABB(this.boundingBox.expand(0.1, 0, 0.1));
     }
 
     /**
